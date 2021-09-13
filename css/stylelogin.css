@@ -1,0 +1,261 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    min-height: 100vh;
+    /* position: relative; */
+}
+img{
+    max-width: 100%;
+    display: block;
+}
+
+.header{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    max-width: 100%;
+    border-bottom: 1px solid blue;
+    height: 80px;
+    background-color: rgb(23, 77, 194);
+    display: flex;
+    color: white;
+}
+.ptitulo{
+    height: 50px;
+    margin-top: 0;
+    /* border: 5px solid black; */
+    font-size: 2em;
+    margin-left: 15px;
+    
+}
+p{
+    font-size: 0.5em;
+
+}
+
+.text{
+
+    /* height: 1px; */
+    margin-top: auto;
+    margin-bottom: auto;
+    /* border: 5px solid black; */
+    font-size: 0.85em;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.logo{
+    width: 75px;
+    height: 75px;
+    
+    /* border: black 0.5px solid; */
+
+}
+
+.logodebian{
+    margin-left: 5px;
+    
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+
+.login_logo{
+    /* border: 2px black solid; */
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    justify-content: center;
+
+}
+.pinguino{
+    /* contenedor del logo pinguino */
+    width: 75px;
+    height: 75px;
+    overflow: hidden;
+
+}
+.logopinguino{
+    width: 125px;
+    object-fit: cover;
+    /* object-position: -55% -20%; */
+    height: 125px;
+    margin-bottom: 50px;
+    /* border: 2px black solid; */
+}
+
+.main{
+
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    
+
+    /* position: relative; */
+    /* border: 5px blue solid; */
+    background-image:radial-gradient(circle,rgb(52, 148, 204),rgb(43, 40, 192));
+    padding-top: 20px;
+}
+
+.bg{
+    background-image: url(../assets/imagenes/SLIDE\ 1.jpg);
+    background-position: center center;
+}
+
+.cont{
+    border: 5px black solid;
+    margin-top: auto ;
+    margin-bottom: auto;
+}
+.fondoimg{
+    /* border: 5px red solid; */
+    margin: 0 auto;
+    filter: opacity(0.25);
+    object-fit: cover ;
+    /* width: 100vh;
+    height: 100vh; */
+    /* object-position: 55% 50%; */
+
+}
+
+.error{
+    border: 2px rgb(46, 111, 250) solid ;
+    /* width: 320px ; */
+    /* margin-right: 80px;
+    margin-left: auto; */
+    background: rgba(5, 8, 14, 0.25);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    /* justify-items: center; */
+    justify-content: center;
+    visibility: hidden;
+}
+
+
+
+.cont_vent{
+    background: #F8F8F8;
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	font-family: 'Montserrat', sans-serif;
+	padding: 20px;
+	text-align: center;
+	width: 500px;
+    /* opacity: 0; */
+	
+	/* transition: .3s ease all;
+	transform: scale(0.7);
+	opacity: 0; */
+}
+.activar{
+    visibility: visible;
+}
+.icono_cerrar{
+    cursor: pointer;
+}
+.txt_error{
+    font-size: 1em;
+}
+.btnlogin{
+    margin-left: auto;
+    width: 150px;
+    margin-right: 20px;
+    height: 35px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #0059ff;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, background-color 0.25s ease-in-out;
+}
+
+.contlogin{
+    border: 1px black solid;
+    box-shadow: 15px 25px 15px black !important ;
+    padding: 20px;
+    border-radius: 10px !important;
+}
+
+.txtform{
+    width: 400px;
+    margin: 0 auto;
+}
+
+.divbtnlogin{
+    /* display: flex;
+
+    flex-wrap: wrap; */
+    /* border: 2px black solid; */
+    
+}
+
+
+.btnlogin:hover{
+    background-color: white;
+    color: red;
+}
+
+.btnlogin:focus {
+    color: #212529;
+    /* background-color: #fff; */
+    border-color: #060707;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.25) !important;
+
+}
+.footer{
+    /* position: absolute; */
+    /* bottom: 0;
+    /* min-width: 100%; */
+    /* color: white;
+    border: 2px solid black;
+    height: 150px;
+    background-color: #090e67; 
+    columns: 3; */
+
+
+   /* // VEER */
+     bottom: 0;
+    min-width: 100%;
+    color: white;
+    border: 2px solid black;
+    height: 150px;
+    background-color: #090e67; 
+    columns: 3;
+}
+
+
+.iconos{
+    display: grid;
+    grid-template-columns:repeat(2,minmax(100px,1fr));
+    gap:2px;
+    margin-bottom: 2px;
+    width: 500px;
+    flex-wrap: wrap;
+    /* grid-template-columns: ; */
+}
+
+.conticono{
+    display: flex;
+}
+.icono{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+.frasefooter{
+    font-size: 2em;
+    margin-left: 90px;
+    text-decoration: underline;
+}
+
+.text_debsw{
+    font-size: 1em;
+    margin-left: auto;
+    margin-right: 10px;
+}

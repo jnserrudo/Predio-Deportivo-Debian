@@ -1,0 +1,356 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    /* min-height: 100vh; */
+    /* position: relative; */
+}
+img{
+    max-width: 100%;
+    display: block;
+}
+
+.header{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    max-width: 100%;
+    border-bottom: 1px solid blue;
+    height: 80px;
+    background-color: rgb(23, 77, 194);
+    display: flex;
+    color: white;
+}
+.ptitulo{
+    height: 50px;
+    margin-top: 0;
+    /* border: 5px solid black; */
+    font-size: 2em;
+    margin-left: 15px;
+    
+}
+p{
+    font-size: 0.5em;
+
+}
+
+.text{
+
+    /* height: 1px; */
+    margin-top: auto;
+    margin-bottom: auto;
+    /* border: 5px solid black; */
+    font-size: 0.85em;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.logo{
+    width: 75px;
+    height: 75px;
+    
+    /* border: black 0.5px solid; */
+
+}
+
+.logodebian{
+    margin-left: 5px;
+    
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+
+.login_logo{
+    /* border: 2px black solid; */
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    justify-content: center;
+
+}
+.pinguino{
+    /* contenedor del logo pinguino */
+    width: 75px;
+    height: 75px;
+    overflow: hidden;
+    /* position: relative; */
+
+}
+.logopinguino{
+    width: 125px;
+    object-fit: cover;
+    /* object-position: -55% -20%; */
+    height: 125px;
+    margin-bottom: 50px;
+    position: relative;
+    /* border: 2px black solid; */
+}
+
+.main{
+    background-image:radial-gradient(circle,rgb(52, 148, 204),rgb(43, 40, 192));
+    height: 100vh;
+    
+}
+
+.txtbusq{
+    font-size: 2em;
+    margin-right: 10px;
+}
+
+.buscador{
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    width: 600px;
+}
+
+
+
+.busqueda{
+    margin-top: 10px;
+    width: 500px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.btneditar{
+    width: 80px;
+    height: 30px;
+    border-radius:5px;
+    background-color: rgb(243, 243, 129) !important;
+}
+
+.btneliminar{
+    width: 80px;
+    height: 30px;
+    border-radius:5px;
+    background-color: rgb(243, 52, 52);
+}
+
+.mainflex{
+    display: flex;
+    padding-top: 30px;
+    width: 100%;
+    /* height: 100vh; */
+    /* align-items: center; */
+    justify-content: center;
+    /* position: relative; */
+    
+
+    /* border: 5px blue solid; */
+}
+.contbtnreg{
+    padding-right: 10px;
+}
+
+.txt_registrar{
+font-size: 2em;
+
+}
+.reg{
+    border: 2px rgb(46, 111, 250) solid ;
+    /* width: 320px ; */
+    /* margin-right: 80px;
+    margin-left: auto; */
+    background: rgba(5, 8, 14, 0.25);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    /* justify-items: center; */
+    justify-content: center;
+    visibility: hidden;
+}
+
+.activar{
+    visibility: visible;
+}
+
+
+.cont_vent{
+    background: #F8F8F8;
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	font-family: 'Montserrat', sans-serif;
+	padding: 20px;
+	text-align: center;
+	width: 500px;
+    /* opacity: 0; */
+	
+	/* transition: .3s ease all;
+	transform: scale(0.7);
+	opacity: 0; */
+}
+/* .divimgfondo{
+    position: relative
+    ;
+    z-index: 0;
+}
+
+.label{
+    width: 90px;
+    /* border: 2px red solid; */
+    /* margin-right: 0 ; */
+    
+.icono_cerrar{
+    margin-top: 5px; 
+    margin-left: 10px;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+
+.btnregistrar{
+    color: inherit;
+    background-color: white;
+    transition: background-color 20s ease-in-out, color 0.1 ease-in-out;
+}
+
+.btnregistrar:hover{
+    background-color: royalblue;
+    color: white;
+
+}
+.btnevent{
+    height: 50px !important;
+    width: 100px !important;
+    margin-right: 50px;
+}
+
+.registrar{
+    /* border: 2px black solid; */
+    /* columns: 2; */
+    /* margin-top: 30px; */
+    margin-left:  auto;
+    margin-right: auto;
+    
+    display: grid;
+    gap: 20px;
+    grid-template-columns:100px 150px;
+    width: 300px;
+}
+
+    .table{
+        font-size: 0.8em ;
+        height: 400px;
+        width: 600px;
+        margin-right: 80px;
+        border: 2px black solid !important;
+
+        background-color: white;
+    }
+    .encabezado_tabla{
+        height:10px;
+
+    }
+
+    .fila{
+        height: 1fr;
+        /* width: 500px; */
+    }
+    .celda{
+        padding: 0;
+        /* height: ; */
+        /* width: 90px; */
+        height: 1fr;
+        border: 1px black solid !important;
+    }
+
+    .filas{
+        height: 30px;
+        justify-items: start;
+    }
+    .txtcelda{
+        margin: 0;
+        border: 2px red solid;
+        font-size: 0.8em;
+    }
+.fondoimg{
+    /* border: 5px red solid; */
+    margin: 0 auto;
+    /* position: relative; */
+    filter: opacity(0.25);
+    object-fit: cover ;
+    /* z-index: -1; */
+    /* width: 100vh;
+    height: 100vh; */
+    /* object-position: 55% 50%; */
+
+}
+
+
+.btnlogin{
+    margin-left: auto;
+    width: 150px;
+    margin-right: 20px;
+    height: 35px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #0059ff;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, background-color 0.25s ease-in-out;
+}
+
+.btnlogin:hover{
+    background-color: white;
+    color: red;
+}
+
+.btnlogin:focus {
+    color: #212529;
+    /* background-color: #fff; */
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+
+}
+.footer{
+    /* position: absolute; */
+    bottom: 0;
+    min-width: 100%;
+    color: white;
+    border: 2px solid black;
+    height: 150px;
+    border-top: 1px solid blue;
+    background-color: #090e67; 
+    columns: 3;
+}
+.iconos{
+    display: grid;
+    grid-template-columns:repeat(2,minmax(100px,1fr));
+    gap:2px;
+    margin-bottom: 2px;
+    width: 500px;
+    flex-wrap: wrap;
+    /* grid-template-columns: ; */
+}
+
+.conticono{
+    display: flex;
+}
+.icono{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+
+
+
+
+
+.frasefooter{
+    font-size: 2em;
+    margin-left: 90px;
+    text-decoration: underline;
+}
+
+.text_debsw{
+    font-size: 1em;
+    margin-left: auto;
+    margin-right: 10px;
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insumo</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=<?php echo(rand()); ?>">
+    <link rel="stylesheet" href="../css/style2.css?v=<?php echo(rand()); ?>">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img  src="../assets/imagenes/DEBIANfc.png" class="logodebian" alt="">
+        </div>
+        <p class="ptitulo"> Debian Futbol Club</p>
+        <div class="login_logo">
+            <button class="btnlogin"> <p class="text">INICIAR SESION</p> </button>
+
+            <div class="pinguino">
+                <img src="../assets/imagenes/pinguidebian.png" class="logopinguino" alt="">
+            </div>
+        </div>
+    </header>
+    <div class="main">
+        <!-- <img src="../assets/imagenes/NOTCIAS 4.jpg" class="aa" alt=""> -->
+        <img src="../assets/imagenes/fondodebian (1).png" class="fondoimg" alt="">
+        
+    </div>
+
+
+    
+
+    <!-- ABM INSUMO -->
+
+    <?php 
+
+	$conexion=mysqli_connect('localhost','root','','marvel');
+
+ ?>
+ <table border="1" >
+		<tr>
+			<td>id</td>
+			<td>nombre</td>
+			<td>tim</td>
+			<td>gender</td>
+			<td>Hometown</td>	
+            <td>figth skills</td>
+		</tr>
+
+		<?php 
+		$sql="SELECT * from characters";
+		$result=mysqli_query($conexion,$sql);
+        var_dump($result);
+		while($mostrar=mysqli_fetch_array($result)){
+		 ?>
+
+		<tr>
+			<td><?php echo $mostrar['ID'] ?></td>
+			<td><?php echo $mostrar['Name'] ?></td>
+			<td><?php echo $mostrar['Alignment'] ?></td>
+			<td><?php echo $mostrar['Gender'] ?></td>
+			<td><?php echo $mostrar['Hometown'] ?></td>
+            <td><?php echo $mostrar['Fighting_Skills'] ?></td>
+		</tr>
+	<?php 
+	}
+	 ?>
+
+
+     
+	</table>
+
+
+
+    <!--  -->
+
+
+
+
+
+    <footer class="w-100 footer d-flex  align-items-center justify-content-start flex-wrap">
+        <!-- <p class="fs-5 px-3  pt-3">ExpertD. &copy; Todos Los Derechos Reservados 2021</p> -->
+        <div id="iconos" class="iconos" >
+            <!-- logos -->
+            <div class="conticono">
+               <img src="../assets/imagenes/iconos/face.png" class="icono" alt=""> DEBIANfc 
+            </div>
+
+            <div class="conticono">
+                <img src="../assets/imagenes/iconos/ig.png" class="icono" alt=""> @DEBIANfc
+            </div>
+            <div class="conticono">
+                <img src="../assets/imagenes/iconos/tel.png" class="icono" alt=""> 4229-7600
+
+            </div>
+            <div class="conticono">
+                <img src="../assets/imagenes/iconos/gmail.png" class="icono" alt=""> Debian@gmail.com.ar
+            </div>
+            <div class="conticono">
+                <img src="../assets/imagenes/iconos/map.png" class="icono" alt=""> Av. Mitre 470 (1870).
+
+            </div>
+                 
+        </div>
+        <p class="frasefooter"> Mas que un club... <br> una Familia</p>  
+
+        <p class="text_debsw"> Desarrollado por Debian Software <br> &copy Derechos Reservados</p>
+      </footer>
+    <script src="../js/main.js"></script>
+</body>
+</html>

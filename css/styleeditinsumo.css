@@ -1,0 +1,312 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    /* min-height: 100vh; */
+    /* position: relative; */
+}
+img{
+    max-width: 100%;
+    display: block;
+}
+#prueba{
+    /* visibility: hidden; */
+    height: 0.1px;
+    width: 0.1px;
+}
+
+.header{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    max-width: 100%;
+    border-bottom: 1px solid blue;
+    height: 80px;
+    background-color: rgb(23, 77, 194);
+    display: flex;
+    color: white;
+}
+.ptitulo{
+    height: 50px;
+    margin-top: 0;
+    /* border: 5px solid black; */
+    font-size: 2em;
+    margin-left: 15px;
+    
+}
+p{
+    font-size: 1em;
+
+}
+#prueba{
+    /* height: 20px; */
+}
+
+.text{
+
+    /* height: 1px; */
+    margin-top: auto;
+    margin-bottom: auto;
+    /* border: 5px solid black; */
+    font-size: 0.85em;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.logo{
+    width: 75px;
+    height: 75px;
+    
+    /* border: black 0.5px solid; */
+
+}
+
+.logodebian{
+    margin-left: 5px;
+    
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+
+.login_logo{
+    /* border: 2px black solid; */
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    justify-content: center;
+
+}
+.pinguino{
+    /* contenedor del logo pinguino */
+    width: 75px;
+    height: 75px;
+    overflow: hidden;
+    /* position: relative; */
+
+}
+.logopinguino{
+    width: 125px;
+    object-fit: cover;
+    /* object-position: -55% -20%; */
+    height: 125px;
+    margin-bottom: 50px;
+    position: relative;
+    /* border: 2px black solid; */
+}
+
+.main{
+    background-image:radial-gradient(circle,rgb(52, 148, 204),rgb(43, 40, 192));
+    width: 100%;
+    height: 100vh;
+    padding-top: 20px;
+    /* align-items: center; */
+    justify-content: center;
+    display: flex;
+    
+}
+
+:root{
+    --fondoedit:white;
+}
+
+.imgedit{
+    width: 750px;
+    height: 500px;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.imgcancha{
+    height: 100%;
+}
+
+.cont{
+   
+    width: 450px;
+    height: 600px;
+    background-color:rgb(193, 240, 255);
+    margin-right: 0px;
+    margin-left: 20px;
+    /* margin-bottom: 150px; */
+    border-radius: 10px;
+    /* display: flex; */
+    /* background-color: red; */
+}
+
+.contedicion{
+    height: 80px;
+    background-color:var(--fondoedit);
+    display: flex;
+    background-color: rgb(193, 240, 255);
+    justify-content: space-evenly;
+    padding-top: 10px;
+    border-radius: 10px;
+}
+
+.imgicon{
+    height: 60px;
+    width: 60px;
+}
+
+.contform{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    height: 450px;
+    /* margin-top: 50px; */
+    padding-top: 50px;
+    background-color:var(--fondoedit);
+    border:2px black solid;
+}
+
+.contformitems{
+    padding: 30px 10px;
+    border:1px rgb(88, 88, 255) solid;
+    /* margin-top: 100px; */
+    margin-left: auto;
+    margin-right: auto;
+    
+    display: grid;
+    gap: 20px;
+    background-color: rgb(193, 240, 255);
+    grid-template-columns:100px 150px;
+    width: 300px;
+}
+    .input{
+        border-radius: 3px;
+    }
+
+    .contbtn{
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+        width: 200px;
+        height: 50px;
+        /* background-color: var(--fondoedit); */
+    }
+    
+    .label{
+        margin-left: 10px;
+    }
+
+    .btn{
+        border-radius: 10px;
+        color: white;
+        border:1px black solid;
+        background-color: rgb(27, 142, 209);
+    }
+
+    .btn:hover{
+        background-color: white;
+        color: black;
+    }
+
+
+
+
+.contbtneliminar{
+    /* border:2px black solid; */
+    width: 200px;
+    margin-top: 10px;
+    text-align: center;
+    margin-right:auto;
+    margin-left: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.fondoimg{
+    /* border: 5px red solid; */
+    margin: 0 auto;
+    /* position: relative; */
+    filter: opacity(0.25);
+    object-fit: cover ;
+    /* z-index: -1; */
+    /* width: 100vh;
+    height: 100vh; */
+    /* object-position: 55% 50%; */
+
+}
+
+
+.btnlogin{
+    margin-left: auto;
+    width: 150px;
+    margin-right: 20px;
+    height: 35px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #0059ff;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, background-color 0.25s ease-in-out;
+}
+
+.btnlogin:hover{
+    background-color: white;
+    color: red;
+}
+
+.btnlogin:focus {
+    color: #212529;
+    /* background-color: #fff; */
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+
+}
+.footer{
+    /* position: absolute; */
+    bottom: 0;
+    min-width: 100%;
+    color: white;
+    border: 2px solid black;
+    height: 150px;
+    background-color: #090e67; 
+    columns: 3;
+}
+.iconos{
+    display: grid;
+    grid-template-columns:repeat(2,minmax(100px,1fr));
+    gap:2px;
+    margin-bottom: 2px;
+    width: 500px;
+    flex-wrap: wrap;
+    /* grid-template-columns: ; */
+}
+
+.conticono{
+    display: flex;
+}
+.icono{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+.frasefooter{
+    font-size: 2em;
+    margin-left: 90px;
+    text-decoration: underline;
+}
+
+.text_debsw{
+    font-size: 1em;
+    margin-left: auto;
+    margin-right: 10px;
+}

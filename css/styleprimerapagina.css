@@ -1,0 +1,241 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    /* min-height: 100vh; */
+    /* position: relative; */
+}
+img{
+    max-width: 100%;
+    display: block;
+}
+
+.header{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    max-width: 100%;
+    border-bottom: 1px solid blue;
+    height: 80px;
+    background-color: #2874A6 ;
+    display: flex;
+    color: white;
+}
+.ptitulo{
+    height: 50px;
+    margin-top: 0;
+    /* border: 5px solid black; */
+    font-size: 2em;
+    margin-left: 15px;
+    padding-top: 15px;
+    
+}
+p{
+    font-size: 0.5em;
+
+}
+
+.text{
+
+    /* height: 1px; */
+    margin-top: auto;
+    margin-bottom: auto;
+    /* border: 5px solid black; */
+    font-size: 0.85em;
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.logo{
+    width: 75px;
+    height: 75px;
+    
+    /* border: black 0.5px solid; */
+
+}
+
+.logodebian{
+    margin-left: 5px;
+    
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+
+.login_logo{
+    /* border: 2px black solid; */
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    justify-content: center;
+
+}
+.pinguino{
+    /* contenedor del logo pinguino */
+    width: 75px;
+    height: 75px;
+    overflow: hidden;
+    /* position: relative; */
+
+}
+.logopinguino{
+    width: 125px;
+    object-fit: cover;
+    /* object-position: -55% -20%; */
+    height: 125px;
+    margin-bottom: 50px;
+    position: relative;
+    /* border: 2px black solid; */
+}
+
+.main{
+    /* text-align:center; */
+    background-image:radial-gradient(circle,rgb(52, 148, 204),#2471A3);
+
+    
+    text-align:center;
+}
+
+.fondoimg{
+    /* border: 5px red solid; */
+    margin: 0 auto;
+    /* position: relative; */
+    filter: opacity(0.25);
+    object-fit: cover ;
+    /* z-index: -1; */
+    /* width: 100vh;
+    height: 100vh; */
+    /* object-position: 55% 50%; */
+
+}
+
+
+.btnlogin{
+    margin-left: auto;
+    width: 150px;
+    margin-right: 20px;
+    height: 35px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #5DADE2;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, background-color 0.25s ease-in-out;
+}
+
+.btnlogin:hover{
+    background-color: white;
+    color: red;
+}
+
+.btnlogin:focus {
+    color: #5DADE2;
+    /* background-color: #fff; */
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem #5DADE2;
+
+}
+.footer{
+    /* position: absolute; */
+    bottom: 0;
+    min-width: 100%;
+    color: white;
+    border: 2px solid black;
+    height: 150px;
+    background-color: #2874A6 ; 
+    columns: 3;
+}
+.iconos{
+    display: grid;
+    grid-template-columns:repeat(2,minmax(100px,1fr));
+    gap:2px;
+    margin-bottom: 2px;
+    width: 500px;
+    flex-wrap: wrap;
+    /* grid-template-columns: ; */
+}
+
+.conticono{
+    display: flex;
+}
+.icono{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+.frasefooter{
+    font-size: 2em;
+    margin-left: 90px;
+    text-decoration: underline;
+}
+
+.text_debsw{
+    font-size: 1em;
+    margin-left: auto;
+    margin-right: 10px;
+}
+.info{
+    width: 290px;
+    height: 290px;
+    object-fit: cover;
+}
+
+.contimagen1{
+
+    margin:2.5px;
+    border:2px white solid;
+    width: 600px;
+    display:flex;
+}
+
+ 
+.continfo1{
+    columns:2;
+    margin: 0 auto;
+    padding-top:40px ;
+    padding-left: 50px;
+    padding-bottom: 50px;
+}
+.textoinfo1{
+    /* position: relative; */
+    margin-top:1em;
+    /* margin-bottom:auto; */
+     margin-left:0;
+    color: white; 
+    font-family: Verdana;
+    font-size: 1em;
+    text-align: left;
+    padding-left: 10px;
+}
+.TITULO1{
+    font-family: Verdana;
+    color:aliceblue;
+    font-size: 2em;
+    text-align: left;
+    padding-left: 10px;
+    background-color: #2874A6 
+}
+.SLIDE1{
+    width: 3000px;
+    height: 600px;
+    object-fit: cover;
+    padding-bottom: 60px;
+}
+.textoslide{
+    position: absolute;
+    top: 5.5em;
+    font-size: 3em;
+    color:aliceblue;
+    font-family: Verdana;
+    background-color: rgba(1, 0, 0, 0.6);
+}
+.textoslide1{
+    position: absolute;
+    top: 5.5em;
+    font-size: 3em;
+    color:aliceblue;
+    font-family: Verdana;
+    background-color: rgba(1, 0, 0, 0.6);
+}

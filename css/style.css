@@ -1,0 +1,277 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    /* min-height: 100vh; */
+    /* position: relative; */
+}
+img{
+    max-width: 100%;
+    display: block;
+}
+
+.header{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    max-width: 100%;
+    border-bottom: 1px solid blue;
+    height: 80px;
+    /* background-color: rgb(23, 77, 194); */
+    background-color: rgb(238, 254, 255);
+    display: flex;
+    color:rgb(23, 77, 194);
+}
+
+
+.usuario{
+    font-size: 1em;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+.logo_usuario{
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    color:  rgb(23, 77, 194);
+
+}
+
+
+.ptitulo{
+    height: 50px;
+    margin-top: 0;
+    /* border: 5px solid black; */
+    font-size: 2em;
+    margin-left: 15px;
+    
+}
+p{
+    font-size: 0.5em;
+
+}
+
+.text{
+
+    /* height: 1px; */
+    margin-top: auto;
+    margin-bottom: auto;
+    /* border: 5px solid black; */
+    font-size: 0.85em;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.logo{
+    width: 75px;
+    height: 75px;
+    
+    /* border: black 0.5px solid; */
+
+}
+
+.logodebian{
+    margin-left: 5px;
+    
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+
+.login_logo{
+    /* border: 2px black solid; */
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    justify-content: center;
+
+}
+.pinguino{
+    /* contenedor del logo pinguino */
+    width: 35px;
+    height: 75px;
+    overflow: hidden;
+    /* border: 2px black solid;  */
+
+    /* position: relative; */
+
+}
+.logopinguino{
+    width: 60px;
+    object-fit: cover;
+    object-position: center 80%;
+    height: 60px;
+    margin:10px auto;
+    /* margin-bottom: 50px; */
+    position: relative;
+    /* border: 2px black solid; */
+}
+
+.main{
+    /* background-image:radial-gradient(circle,rgb(115, 145, 243),rgb(126, 102, 233)); */
+    background-color: white;
+    height: 100vh;
+    
+}
+
+.fondoimg{
+    /* border: 5px red solid; */
+    margin: 0 auto;
+    /* position: relative; */
+    filter: opacity(0.25);
+    object-fit: cover ;
+    /* z-index: -1; */
+    /* width: 100vh;
+    height: 100vh; */
+    /* object-position: 55% 50%; */
+
+}
+
+
+.btnlogin{
+    margin-left: auto;
+    width: 150px;
+    margin-right: 10px;
+    height: 35px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #0059ff;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, background-color 0.25s ease-in-out;
+}
+
+.btnlogin:hover{
+    background-color: white;
+    color: red;
+}
+
+.btnlogin:focus {
+    color: #212529;
+    /* background-color: #fff; */
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+
+}
+.footer{
+    /* position: absolute; */
+    bottom: 0;
+    min-width: 100%;
+    /* color: white; */
+    /* color:rgb(23, 77, 194); */
+    color: black;
+    border: 2px solid black;
+    height: 150px;
+    /* background-color: #090e67; 
+     */
+     border-top: 1px solid blue;
+     background-color: rgb(238, 254, 255);
+    columns: 3;
+}
+.iconos{
+    display: grid;
+    grid-template-columns:repeat(2,minmax(100px,1fr));
+    gap:2px;
+    margin-bottom: 2px;
+    width: 500px;
+    flex-wrap: wrap;
+    /* grid-template-columns: ; */
+}
+
+.conticono{
+    display: flex;
+}
+.icono{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+.frasefooter{
+    font-size: 2em;
+    margin-left: 90px;
+    text-decoration: underline;
+}
+
+.text_debsw{
+    font-size: 1em;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+
+
+/* ------------------------------------------------------------------------------------- */
+
+.side-navbar {
+    width: 180px;
+    height: 100%;
+    position: fixed;
+    margin-left: -300px;
+    background-color: #100901;
+    transition: 0.5s;
+  }
+  
+  .nav-link:active,
+  .nav-link:focus,
+  .nav-link:hover {
+    background-color: #ffffff26;
+  }
+  
+  .my-container {
+    transition: 0.4s;
+  }
+  
+  .active-nav {
+    margin-left: 0;
+  }
+  
+  /* for main section */
+  .active-cont {
+      margin-top: 0px;
+    margin-left: 180px;
+  }
+
+  
+  #menu-btn {
+    background-color: #100901;
+    color: #fff;
+    /* margin-left: -30px; */
+  }
+
+  .btnnav{
+      width: 70px;
+      height: 50px;
+      /* background-color: cadetblue !important; */
+  }
+
+  .contbtnnav{
+      /* border: 2px red solid !important; */
+      width: 70px;
+      height: 50px;
+      /* margin-left: 20px; */
+      padding: 0;
+      background-color: cadetblue !important
+  }
+  .sidebar{
+      background-color: cadetblue !important;
+  }
+
+  span{
+      color: white !important;
+  }
+
+  .divcontside{
+      /* border: 2px black solid; */
+      width: 70px;
+      /* position: fixed; */
+      /* margin-left: 100px; */
+      /* height: 100px; */
+  }
+  .iconham{
+      margin-top: 0px;
+      height: 100%;
+      width: 100%;
+      /* object-position: center -7%; */
+      border: 2px black solid;
+
+  }
