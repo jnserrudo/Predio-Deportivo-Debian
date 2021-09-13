@@ -35,3 +35,9 @@ const logoinicio=document.getElementById('logoinicio')
 logoinicio.addEventListener('click',()=>{
     window.location.href='../php/primerapagina.php'
 })
+
+const irmov=document.getElementById('irmov')
+
+irmov.addEventListener('click',()=>{
+    window.location.href='../php/movstock.php.php'
+})

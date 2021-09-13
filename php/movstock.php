@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/bootstrap.css">
+    <title>Movimientos de stocks</title>
+    <link rel="stylesheet" href="../css/bootstrap.css?v=<?php echo(rand()); ?>">
+    <link rel="stylesheet" href="../css/style2.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/styleinicio.css?v=<?php echo(rand()); ?>">
 </head>
 <body>
-    
+        
 <?php
 
 $conexion = NULL;
@@ -35,11 +36,11 @@ $conexion = NULL;
         
 
 
-        $resultado=mysqli_query($conexion,$sql);
+        // $resultado=mysqli_query($conexion,$sql);
         
-        $resultados=mysqli_fetch_all($resultado,PDO::FETCH_ASSOC);
-        session_start();
-        $_SESSION['usuario']=$resultados[0][0];
+        // $resultados=mysqli_fetch_all($resultado,PDO::FETCH_ASSOC);
+        // session_start();
+        // $_SESSION['usuario']=$resultados[0][0];
 
 
         
@@ -88,6 +89,8 @@ $conexion = NULL;
               </li>
               <li href="#" class="nav-link lis" id="irorden">
                 <span class="mx-2">Ventas</span>
+                <li href="#" class="nav-link lis" id="irmov">
+                <span class="mx-2">Movimientos Stock</span>
               </li>
             </ul>
           </div>
@@ -113,16 +116,8 @@ $conexion = NULL;
 
 
 
-
     </div>
 
-    <!-- <footer class="footer">
-        nasheeeeeeeeee
-
-
-
-
-
 
 
 
@@ -148,7 +143,7 @@ $conexion = NULL;
 
         
         
-    </footer>     -->
+    
 
 
 
@@ -177,7 +172,6 @@ $conexion = NULL;
 
 
     <footer class="w-100 footer d-flex  align-items-center justify-content-start flex-wrap">
-        <!-- <p class="fs-5 px-3  pt-3">ExpertD. &copy; Todos Los Derechos Reservados 2021</p> -->
         <div id="iconos" class="iconos" >
             <!-- logos -->
             <div class="conticono">
@@ -204,10 +198,8 @@ $conexion = NULL;
 
         <p class="text_debsw"> Desarrollado por Debian Software <br> &copy Derechos Reservados</p>
       </footer>
-    <!-- <p id="rol" ><?php  //echo $_SESSION['usuario'] ?> </p> -->
     <script src="../js/inicio.js?v=<?php echo(rand()); ?>"></script>
     <script src="../js/prueba.js?v=<?php echo(rand()); ?>"></script>
-    <!-- <script src="../js/login.js?v=<?php //echo(rand()); ?>"></script> -->
-
+    
 </body>
 </html>

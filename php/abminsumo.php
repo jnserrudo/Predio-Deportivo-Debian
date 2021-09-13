@@ -216,6 +216,8 @@ session_start()
               </li>
               <li href="#" class="nav-link lis">
                 <span class="mx-2" id="irorden">Compras</span>
+                <li href="#" class="nav-link lis" id="irmov">
+                <span class="mx-2">Movimientos Stock</span>
               </li>
             </ul>
           </div>

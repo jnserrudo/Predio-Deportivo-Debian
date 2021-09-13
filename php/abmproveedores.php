@@ -188,6 +188,8 @@
               </li>
               <li href="#" class="nav-link lis" id="irorden">
                 <span class="mx-2">Compras</span>
+                <li href="#" class="nav-link lis" id="irmov">
+                <span class="mx-2">Movimientos Stock</span>
               </li>
             </ul>
           </div>
