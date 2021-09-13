@@ -464,13 +464,13 @@ echo “PHPvariable = “.$PHPvariable;
 
                                                             <table id="tabla" class="table table-striped  table-bordered border-primary">
                                                               <thead>       
-                                                                <th id="idproveedor">Id</th>';
-                                                                <th id="empresa">Id_categoria</th>;
-                                                                <th id="comercial">Nombre</th>;
-                                                                <th id="telefono">Descripcion</th>;
-                                                                <th id="telefono">Precio</th>;
-                                                                <th id="telefono">Stock</th>;
-                                                                <th id="telefono">Accion</th>;
+                                                                <th id="idproveedor">Id</th>
+                                                                <th id="empresa">Id_categoria</th>
+                                                                <th id="comercial">Nombre</th>
+                                                                <th id="telefono">Descripcion</th>
+                                                                <th id="telefono">Precio</th>
+                                                                <th id="telefono">Stock</th>
+                                                                <th id="telefono">Accion</th>
                                                               </thead>
                                                             </table>
 
@@ -478,10 +478,10 @@ echo “PHPvariable = “.$PHPvariable;
 
                                                             <table id="tabla2" class="table tablaorden table-striped  table-bordered border-primary">
                                                               <thead>       
-                                                                <th id="idproveedor">Nombre</th>';
-                                                                <th id="empresa">Precio por Unidad</th>;
-                                                                <th id="comercial">Cantidad</th>;
-                                                                <th id="">Quitar</th>;
+                                                                <th id="idproveedor">Nombre</th>
+                                                                <th id="empresa">Precio por Unidad</th>
+                                                                <th id="comercial">Cantidad</th>
+                                                                <th id="">Quitar</th>
                                                                               
                                                               </thead>
                                                             </table>
