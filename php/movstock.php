@@ -8,11 +8,13 @@
     <link rel="stylesheet" href="../css/bootstrap.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/style2.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/styleinicio.css?v=<?php echo(rand()); ?>">
+    <link rel="stylesheet" href="../css/stylemovstock.css?v=<?php echo(rand()); ?>">
+
 </head>
 <body>
         
 <?php
-
+session_start();
 $conexion = NULL;
     try{
 
@@ -68,10 +70,7 @@ $conexion = NULL;
             </div>
         </div>
     </header>
-    <div class="main" style="background-image:url(../assets/imagenes/iconos/iniciooo.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;">
+    <div class="main">
         <!-- <img src="../assets/imagenes/NOTCIAS 4.jpg" class="aa" alt=""> -->
         <!-- <img src="../assets/imagenes/fondodebian (1).png" class="fondoimg" alt=""> -->
         
@@ -106,11 +105,71 @@ $conexion = NULL;
 
 
 
-                <div class="di">
+                <div class="contdetalle">
+
+
+                    <div class="contselected">
+                        <p class='selecttxt'>Ubicacion: </p>
+                        <select name="selectubi" id="selectubi">
+                        <option value="" selected disabled hidden>Seleccionar</option>
+
+                            <option value="Kiosko">Kiosko</option>
+                            <option value="Accesorios">Accesorios</option>
+                        </select>
+                    </div>
+
+
+                    <div class="contselected">
+                        <p class='selecttxt'>Tipo: </p>
+                        <select name="selecttipo" id="selecttipo">
+                        <option value="" selected disabled hidden>Seleccionar</option>
+
+                            <option value="Entrada">Entrada</option>
+                            <option value="Salida">Salida</option>
+                        </select>
+                    </div>
+
+
+                    <div class="contselected">
+                        <p class='selecttxt'>Motivo: </p>
+                        <select name="selectmot" id="selectmot">
+                        <option value="" selected disabled hidden>Seleccionar</option>
+
+                            <option value="Recepcion de Mercaderia">Recepcion de Mercaderia</option>
+                            <option value="Venta">Venta</option>
+                            <option value="Donacion">Donacion</option>
+                            <option value="Defecto">Defecto</option>
+                            <option value="Vencimiento">Vencimiento</option>
+
+
+                            
+                        </select>
+                    </div>
                     
+
+
+                </div>
+
+                <div class="contablaimg">
+                    <div class="contimg">
+                        <img src="" alt="">
+                    </div>
+
+                    <button>Agregar</button>
+
+                    <div class="tabla container">
+                        <table id="tabla" class="tablita table-bordered border-primary">
+                            <thead>       
+                                <th id="nominsumo">Nombre</th>
+                                <th id="cantinsumo">Cantidad</th>
+                                                                                                    
+                            </thead>
+                        </table>
+                    </div>
                 </div>
 
 
+                <button>Confirmar</button>
 
 
 
@@ -202,6 +261,8 @@ $conexion = NULL;
       </footer>
     <script src="../js/inicio.js?v=<?php echo(rand()); ?>"></script>
     <script src="../js/prueba.js?v=<?php echo(rand()); ?>"></script>
+    <script src="../js/movstock.js?v=<?php echo(rand()); ?>"></script>
+
     
 </body>
 </html>

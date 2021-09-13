@@ -39,5 +39,5 @@ logoinicio.addEventListener('click',()=>{
 const irmov=document.getElementById('irmov')
 
 irmov.addEventListener('click',()=>{
-    window.location.href='../php/movstock.php.php'
+    window.location.href='../php/movstock.php'
 })
