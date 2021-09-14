@@ -50,7 +50,87 @@ $conexion = NULL;
     }catch (PDOException $e){
         echo "Error ".$e->getMessage();
     }
+
+
+
+
+
+
+
+
+
 ?>
+
+
+
+
+
+<?php 
+
+// Registrar en la tabla orden de compra usando el id del proveedor
+
+if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c'])&& isset($_GET['m'])) {
+    $t = $_GET['t'];
+    $c=$_GET['c'];
+    $u=$_GET['u'];
+    $n=$_GET['n'];
+    $m=$_GET['m'];
+
+    $comprobardato = mysqli_query($conexion, "select * from movimientos where Ubicacion = '$u' and Tipo='$t' and Motivo='$m' ");
+    if (mysqli_num_rows($comprobardato)>0) {
+    } else {
+
+  //-------------------------------------------
+  
+
+        $c=explode(',', $c);
+        $n=explode(',', $n);
+
+
+                                                                
+        $sql = "INSERT INTO movimientos (Ubicacion,Tipo,Motivo) values ('$u','$t','$m')";
+
+        $resultado=mysqli_query($conexion, $sql);
+
+        // Registrar detalle de la orden ------------
+        $consultaidmov = "select Id from movimientos order by Id desc limit 1";
+        $idmovconsulta=mysqli_query($conexion, $consultaidmov);
+        $idmov=mysqli_fetch_all($idmovconsulta, PDO::FETCH_ASSOC);
+                                                                
+
+        // insercion
+        $i=0; ?>
+                                                                        <?php
+
+                                                                        while ($i<count($n)) {
+                                                                            $s="select Id from insumo where Nombre='$n[$i]'";
+                                                                            $rq=mysqli_query($conexion, $s);
+                                                                        
+                                                                            $idnoms=mysqli_fetch_all($rq, PDO::FETCH_ASSOC);
+
+                                                                            //
+                                                                            $idm=$idmov[0][0];
+                                                                            $idn=$idnoms[0][0];
+                                                                            ///?>
+                                                                            <!-- <p id='nombres'> <?php //echo  var_dump($idmov[0]), var_dump($idnoms[0]); ?> </p>   -->
+                                                                            <?php
+                                                                            $c1=$c[$i];
+
+                                                                                
+                                                                            $sql = "INSERT INTO movimiento_detalle (Id_insumo, Id_movimiento,Cantidad) values ($idn,$idm,$c1);";
+                                                                            
+                                                                            
+                                                                            $resultado=mysqli_query($conexion, $sql);
+                                                                            $i=$i+1;
+                                                                        }
+                     }
+                     unset($comprobardato);
+}
+        ?>
+
+
+
+
 
 <header class="header">
         <div class="logo" id="logoinicio">
@@ -238,7 +318,7 @@ $conexion = NULL;
 
 
             <div class="divbtnconf">
-            <button class="btnconfmov" >Confirmar</button>
+            <button class="btnconfmov" id="btnconfirmar">Confirmar</button>
 
 
             </div>

@@ -149,7 +149,9 @@ const getData = (x) => {
 
 
 getData() 
-
+if (window.history.replaceState) { // verificamos disponibilidad
+    window.history.replaceState(null, null, window.location.href);
+}
 
 
 const btnvent = document.getElementById('btnagregarmov');
@@ -212,8 +214,8 @@ table.addEventListener('click',(e)=>{
 tablamov.addEventListener('click',(e)=>{
     const editar=e.target;
     if(editar.classList.contains('btneditar')){
-        console.log(editar.parentElement.parentElement.firstElementChild.nextElementSibling)
-        tablamov.removeChild(editar.parentElement.parentElement.firstElementChild.nextElementSibling)
+        console.log(editar.parentElement)
+        tablamov.removeChild(editar.parentElement)
         
 
     }
@@ -246,5 +248,65 @@ btnaceptarcant.addEventListener('click',()=>{
     tablamov.append(fragmento)
     ventcant.classList.remove('activar');
 	contventcant.classList.remove('activar');
-    inputcant.value=0
+    inputcant.value=''
+})
+
+
+var ubi
+var tipo
+var motivo
+
+const selectubi=document.getElementById('selectubi')
+
+const selecttipo=document.getElementById('selecttipo')
+
+const selectmot=document.getElementById('selectmot')
+
+selectubi.addEventListener('change',()=>{
+    ubi=selectubi.options[selectubi.selectedIndex].value
+})
+
+selecttipo.addEventListener('change',()=>{
+    tipo=selecttipo.options[selecttipo.selectedIndex].value
+})
+
+selectubi.addEventListener('change',()=>{
+    motivo=selectmot.options[selectmot.selectedIndex].value
+})
+
+
+
+
+const btnconfirmar=document.getElementById('btnconfirmar')
+btnconfirmar.addEventListener('click',()=>{
+
+    var hijo=tablamov.lastElementChild
+
+    var nombre
+    var cant
+
+    var nombres = []
+    var cantidades = []
+
+    console.log(hijo)
+    // nextElementSibling
+
+    while(hijo!=tablamov.children[0]){
+        nombre=hijo.firstElementChild.textContent
+        cant=hijo.firstElementChild.nextElementSibling.textContent
+        
+        console.log(`nombre: ${nombre} cantidad: ${cant}`)
+        
+        nombres.push(nombre)
+        cantidades.push(cant)
+        hijo=hijo.previousElementSibling
+        
+    }
+
+
+    window.location.href=`../php/movstock.php?n=${nombres}&c=${cantidades}&u=${ubi}&t=${tipo}&m=${motivo}`
+
+
+
+
 })
