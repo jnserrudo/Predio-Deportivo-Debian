@@ -185,6 +185,10 @@ font-size: 2em;
 	transform: scale(0.7);
 	opacity: 0; */
 }
+
+.cont_vent_mov_stock{
+    width: 650px;
+}
 /* .divimgfondo{
     position: relative
     ;

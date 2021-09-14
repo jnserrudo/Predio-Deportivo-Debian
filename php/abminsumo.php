@@ -450,13 +450,13 @@ session_start()
 
                                                                                           <table id="tabla" class="table table-striped  table-bordered border-primary">
                                                                                                 <thead>       
-                                                                                                    <th id="idproveedor">Id</th>';
-                                                                                                    <th id="empresa">Id_categoria</th>;
-                                                                                                    <th id="comercial">Nombre</th>;
-                                                                                                    <th id="telefono">Descripcion</th>;
-                                                                                                    <th id="telefono">Precio</th>;
-                                                                                                    <th id="telefono">Stock</th>;
-                                                                                                    <th id="telefono">Accion</th>;
+                                                                                                    <th id="idproveedor">Id</th>
+                                                                                                    <th id="empresa">Id_categoria</th>
+                                                                                                    <th id="comercial">Nombre</th>
+                                                                                                    <th id="telefono">Descripcion</th>
+                                                                                                    <th id="telefono">Precio</th>
+                                                                                                    <th id="telefono">Stock</th>
+                                                                                                    <th id="telefono">Accion</th>
                                                                                                 </thead>
                                                                                               </table>
                                                                                           <div class="contbtnreg">

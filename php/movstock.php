@@ -152,16 +152,19 @@ $conexion = NULL;
 
                 <div class="contablaimg">
                     <div class="contimg">
-                        <img src="" alt="">
+                        <img src="../assets/imagenes/stock.png" alt="stock imagen">
                     </div>
 
-                    <button>Agregar</button>
+                    <button class='btnagregarmov' id="btnagregarmov" >Agregar</button>
 
-                    <div class="tabla container">
-                        <table id="tabla" class="tablita table-bordered border-primary">
+                    <div class="">
+                    <!-- <button class='btnagregarmov' >Agregar</button> -->
+
+                        <table id="tablamov" class="tablita table-bordered border-primary">
                             <thead>       
                                 <th id="nominsumo">Nombre</th>
                                 <th id="cantinsumo">Cantidad</th>
+                                <th id="cantinsumo">Accion</th>
                                                                                                     
                             </thead>
                         </table>
@@ -169,7 +172,76 @@ $conexion = NULL;
                 </div>
 
 
-                <button>Confirmar</button>
+
+
+
+
+
+
+                <!-- VENTANA EMERGENTE CON EL BUSCADOR DE INSUMOS -->
+                                                        <div class="reg" id="reg">
+                                                                <div class="cont_vent cont_vent_mov_stock" id="cont_vent">
+                                                                <img src="../assets/cruz.svg" alt="" class="icono_cerrar" id="icono_cerrar">
+                                                                       <p class="txt_registrar" >Seleccionar Insumo</p>
+
+                                                                                      <div class="buscador">
+                                                                                    <p class="txtbusq">Buscar</p>
+                                                                                    <input type="text" id="busquedamov" class="busquedamov" name="busquedamov"> </input>
+                                                                                    <!-- <img src="../assets/imagenes/fondodebian (1).png" class="fondoimg" alt=""> -->
+                                                                                    </div>
+
+                                                                                         <table id="tablainsumo" class="table table-striped  table-bordered border-primary">
+                                                                                                <thead>       
+                                                                                                    <th id="">Id</th>
+                                                                                                    <th id="">Id_categoria</th>
+                                                                                                    <th id="">Nombre</th>
+                                                                                                    <th id="">Descripcion</th>
+                                                                                                    <th id="">Precio</th>
+                                                                                                    <th id="">Stock</th>
+                                                                                                    <th id="">Accion</th>
+                                                                                                </thead>
+                                                                                         </table>
+                                                                 </div>
+                    
+                                                      </div>
+
+
+                                                      <!-- ventana emergente con la cantidad -->
+                                                      <div class="reg" id="vent_cant">
+                                                                <div class="ventcant" id="cont_ventcant">
+                                                                     <img src="../assets/cruz.svg" alt="" class="icono_cerrar" id="icono_cerrarcant">
+                                                                       <p class="txt_registrar"> Cantidad</p>
+                                                                       <input type="number" name="cant" id="inputcant" required>
+                                                                       <button id="btnaceptarcant" >Aceptar</button>
+                                                                 </div>
+                    
+                                                      </div>
+
+
+                                                                                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="divbtnconf">
+            <button class="btnconfmov" >Confirmar</button>
+
+
+            </div>
 
 
 

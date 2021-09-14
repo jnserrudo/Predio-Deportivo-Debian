@@ -8,6 +8,7 @@ body{
 .tablita{
     background-color: blanchedalmond;
     width: 600px;
+    margin-bottom: 350px;
 }
 .contdetalle{
     display: flex;
@@ -24,4 +25,53 @@ body{
 }
 .selecttxt{
     font-size: 1.8rem;
+}
+.contimg{
+    width: 400px;
+    height: 400px;
+}
+.contablaimg{
+    border:2px black solid;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 500px;
+}
+.btnagregarmov{
+    height: 30px;
+    width: 80px;
+    margin-left: 100px;
+}
+img{
+    display: block;
+}
+.divbtnconf{
+    
+    border:2px black solid;
+    text-align: end;
+    /* padding-left: 0px; */
+    height: 100px;
+}
+
+.busquedamov{
+    margin-top: 10px;
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    
+}
+
+.btnconfmov{
+    margin-right: 30px;
+    width: 100px;
+    height: 30px;
+}
+.ventcant{
+    background: #F8F8F8;
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	font-family: 'Montserrat', sans-serif;
+	padding: 20px;
+	text-align: center;
+    width: 300px;
 }
