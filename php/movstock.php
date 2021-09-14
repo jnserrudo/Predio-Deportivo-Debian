@@ -128,6 +128,8 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
 }
         ?>
 
+        
+
 
 
 
@@ -220,22 +222,75 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
                             <option value="Donacion">Donacion</option>
                             <option value="Defecto">Defecto</option>
                             <option value="Vencimiento">Vencimiento</option>
+                            <option value="Remito">Remito</option>
 
 
                             
                         </select>
                     </div>
-                    
+<!-- 
+                    <div class="divremito">
+                        <button class='btnremito' id="btnremito" >Seleccionar Remito</button>
+                    </div>
+                     -->
 
 
                 </div>
+                
 
                 <div class="contablaimg">
                     <div class="contimg">
                         <img src="../assets/imagenes/stock.png" alt="stock imagen">
                     </div>
 
-                    <button class='btnagregarmov' id="btnagregarmov" >Agregar</button>
+
+
+                    
+                <div class="divremito">
+                        <button class='btnremito' id="btnremito" >Seleccionar Remito</button>
+                        <button class='btnagregarmov' id="btnagregarmov" >Agregar</button>
+                    </div>
+
+<!-- ventana emergente con los remitos -->
+                                                        <div class="reg" id="ventrem">
+                                                                <div class="cont_vent cont_vent_mov_stock" id="cont_ventrem">
+                                                                <img src="../assets/cruz.svg" alt="" class="icono_cerrar" id="icono_cerrarrem">
+                                                                       <p class="txt_registrar" >Seleccionar Remito</p>
+
+                                                                                     
+
+                                                                                         <table id="tablaremito" class="table table-striped  table-bordered border-primary">
+                                                                                                <thead>       
+                                                                                                    <th id="">Id</th>
+                                                                                                    <th id="">Id_Orden</th>
+                                                                                                    <th id="">Fecha</th>
+                                                                                                    <th id="">Accion</th>
+                                                                                                </thead>
+
+                                                                                                <!-- <?php
+
+                                                                                                            // if(isset($_GET['idr'])){
+                                                                                                            //     $reminner=''
+                                                                                                            // }
+
+                                                                                                        ?> -->
+                                                                                         </table>
+                                                                 </div>
+                    
+                                                      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                    <!-- <button class='btnagregarmov' id="btnagregarmov" >Agregar</button> -->
 
                     <div class="">
                     <!-- <button class='btnagregarmov' >Agregar</button> -->

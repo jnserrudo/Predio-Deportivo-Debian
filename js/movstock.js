@@ -261,6 +261,7 @@ const selectubi=document.getElementById('selectubi')
 const selecttipo=document.getElementById('selecttipo')
 
 const selectmot=document.getElementById('selectmot')
+const btnremito=document.getElementById('btnremito')
 
 selectubi.addEventListener('change',()=>{
     ubi=selectubi.options[selectubi.selectedIndex].value
@@ -270,8 +271,17 @@ selecttipo.addEventListener('change',()=>{
     tipo=selecttipo.options[selecttipo.selectedIndex].value
 })
 
-selectubi.addEventListener('change',()=>{
+selectmot.addEventListener('change',()=>{
     motivo=selectmot.options[selectmot.selectedIndex].value
+    console.log(motivo)
+    if(motivo==='Remito'){
+        btnremito.classList.add('activarbtnremito')
+    }
+    else{
+        if(btnremito.classList.contains('activarbtnremito')){
+            btnremito.classList.remove('activarbtnremito')
+        }
+    }
 })
 
 
@@ -285,6 +295,7 @@ btnconfirmar.addEventListener('click',()=>{
     var nombre
     var cant
 
+
     var nombres = []
     var cantidades = []
 
@@ -294,6 +305,7 @@ btnconfirmar.addEventListener('click',()=>{
     while(hijo!=tablamov.children[0]){
         nombre=hijo.firstElementChild.textContent
         cant=hijo.firstElementChild.nextElementSibling.textContent
+        
         
         console.log(`nombre: ${nombre} cantidad: ${cant}`)
         
@@ -309,4 +321,140 @@ btnconfirmar.addEventListener('click',()=>{
 
 
 
+})
+
+
+const tablarem=document.getElementById('tablaremito')
+
+const ventrem=document.getElementById('ventrem')
+const contventrem=document.getElementById('cont_ventrem')
+const iconocerrarrem=document.getElementById('icono_cerrarrem')
+
+btnremito.addEventListener('click',()=>{
+
+    let xhr
+    if (window.XMLHttpRequest) xhr = new XMLHttpRequest()
+    else xhr = new ActiveXObject("Microsoft.XMLHTTP")
+
+        
+        xhr.open('GET', "../php/traerremito.php")
+
+        xhr.addEventListener('load', (data) => {
+            const dataJSON = JSON.parse(data.target.response)
+            console.log(dataJSON)
+
+            const fragment = document.createDocumentFragment()
+
+            for (const remito of dataJSON) {
+                        // console.log(insumo+"y su primero seria"+insumo[0])
+                        const row = document.createElement('TR')
+                        row.classList.add('fila')
+                        const dataid = document.createElement('TD')
+                        const dataidorden = document.createElement('TD')
+                        const datafecha = document.createElement('TD')
+                        
+                        const databtnedit=document.createElement('TD')
+                        const btnedit=document.createElement('button')
+                        btnedit.classList.add("btneditar")
+                        btnedit.textContent="Seleccionar"
+                        databtnedit.append(btnedit)
+                        
+                        dataid.textContent = remito[0]
+                        dataidorden.textContent = remito[1]
+                        datafecha.textContent = remito[2]
+                       
+
+                        dataid.classList.add('celda')
+                        dataidorden.classList.add('celda')
+                        datafecha.classList.add('celda')
+                        
+
+                       
+                        // console.log("soy el data id :"+dataid.textContent)
+                        row.append(dataid)
+                        row.append(dataidorden)
+                        row.append(datafecha)
+                        
+                        row.append(databtnedit)
+
+                        fragment.append(row)
+            }
+            tablaremito.appendChild(fragment)
+        })
+        xhr.send()
+
+    
+})
+
+iconocerrarrem.addEventListener('click',(e)=>{
+    e.preventDefault();
+	ventrem.classList.remove('activar');
+	contventrem.classList.remove('activar');
+})
+
+var idr
+tablaremito.addEventListener('click',(e)=>{
+    const editar=e.target;
+    if(editar.classList.contains('btneditar')){
+        idr=editar.parentElement.firstElementChild.textContent
+        ventrem.classList.remove('activar');
+        contventrem.classList.remove('activar');
+        
+        
+        
+        let xhr
+
+        if (window.XMLHttpRequest) xhr = new XMLHttpRequest()
+        else xhr = new ActiveXObject("Microsoft.XMLHTTP")
+
+
+        xhr.open('GET', `../php/traerrem_ins.php?r=${idr}`)
+
+        xhr.addEventListener('load', (data) => {
+            const dataJSON = JSON.parse(data.target.response)
+            console.log(dataJSON)
+
+            const fragment = document.createDocumentFragment()
+
+            for (const insumorem of dataJSON) {
+                const row = document.createElement('TR')
+                row.classList.add('fila')
+                const nominsumo = document.createElement('TD')
+                const cantinsumo = document.createElement('TD')
+              
+                const databtnedit=document.createElement('TD')
+                const btnedit=document.createElement('button')
+                btnedit.classList.add("btneditar")
+                btnedit.textContent="Quitar"
+                databtnedit.append(btnedit)
+                nominsumo.textContent = insumorem[0]
+                cantinsumo.textContent = insumorem[1]
+                
+                
+
+
+                nominsumo.classList.add('celda')
+                cantinsumo.classList.add('celda')
+                databtnedit.classList.add('celda')
+                
+
+                row.append(nominsumo)
+                row.append(cantinsumo)
+                row.append(databtnedit)
+               
+
+                fragment.append(row)
+            }
+                
+            
+            tablamov.append(fragment);
+        })    
+
+        xhr.send()
+
+
+
+
+        // window.location.href=`../php/movstock.php?idr=${idr}`
+    }
 })

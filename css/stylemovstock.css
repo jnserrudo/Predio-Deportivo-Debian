@@ -13,11 +13,13 @@ body{
 .contdetalle{
     display: flex;
     justify-content: space-evenly;
-    height: 100px;
+    flex-wrap: wrap;
+    height: 150px;
     border:2px black solid;
 }
 .contselected{
     width: 320px;
+    height: 60px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -25,6 +27,27 @@ body{
 }
 .selecttxt{
     font-size: 1.8rem;
+}
+.divremito{
+    margin: auto auto;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border:2px black solid
+}
+
+
+.btnremito{
+    visibility: hidden;
+
+}
+
+.activarbtnremito{
+    visibility: visible;
+
 }
 .contimg{
     width: 400px;
@@ -40,7 +63,7 @@ body{
 .btnagregarmov{
     height: 30px;
     width: 80px;
-    margin-left: 100px;
+    /* margin-left: 100px; */
 }
 img{
     display: block;
