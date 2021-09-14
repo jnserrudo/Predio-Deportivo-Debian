@@ -324,20 +324,21 @@ btnconfirmar.addEventListener('click',()=>{
 })
 
 
-const tablarem=document.getElementById('tablaremito')
+const tablaremito=document.getElementById('tablaremito')
 
 const ventrem=document.getElementById('ventrem')
 const contventrem=document.getElementById('cont_ventrem')
 const iconocerrarrem=document.getElementById('icono_cerrarrem')
 
 btnremito.addEventListener('click',()=>{
-
+    ventrem.classList.add('activar');
+	contventrem.classList.add('activar');
     let xhr
     if (window.XMLHttpRequest) xhr = new XMLHttpRequest()
     else xhr = new ActiveXObject("Microsoft.XMLHTTP")
 
         
-        xhr.open('GET', "../php/traerremito.php")
+        xhr.open('GET', "../php/traerremitos.php")
 
         xhr.addEventListener('load', (data) => {
             const dataJSON = JSON.parse(data.target.response)
@@ -379,6 +380,13 @@ btnremito.addEventListener('click',()=>{
 
                         fragment.append(row)
             }
+
+            const hijo=tablaremito.children[0];
+                
+            while(hijo.nextElementSibling){;
+                tablaremito.removeChild(hijo.nextElementSibling);
+            }
+
             tablaremito.appendChild(fragment)
         })
         xhr.send()
@@ -392,11 +400,23 @@ iconocerrarrem.addEventListener('click',(e)=>{
 	contventrem.classList.remove('activar');
 })
 
+
+
+
+
+
+
 var idr
+
+
+
+
 tablaremito.addEventListener('click',(e)=>{
     const editar=e.target;
     if(editar.classList.contains('btneditar')){
-        idr=editar.parentElement.firstElementChild.textContent
+
+        idr=editar.parentElement.parentElement.firstElementChild.textContent
+        console.log(idr)
         ventrem.classList.remove('activar');
         contventrem.classList.remove('activar');
         
@@ -408,7 +428,7 @@ tablaremito.addEventListener('click',(e)=>{
         else xhr = new ActiveXObject("Microsoft.XMLHTTP")
 
 
-        xhr.open('GET', `../php/traerrem_ins.php?r=${idr}`)
+        xhr.open('GET', `../php/traerrem_ins.php?q=${idr}`)
 
         xhr.addEventListener('load', (data) => {
             const dataJSON = JSON.parse(data.target.response)
@@ -449,6 +469,7 @@ tablaremito.addEventListener('click',(e)=>{
             
             tablamov.append(fragment);
         })    
+        
 
         xhr.send()
 

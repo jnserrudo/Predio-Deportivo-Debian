@@ -58,7 +58,7 @@
                 //   $sql = "SELECT * FROM insumo";
             }
             else{
-                $sql = "SELECT * FROM remitos";
+                $sql = "SELECT * FROM insumo";
             }
 
 
