@@ -4,19 +4,17 @@
 
           $conexion = mysqli_connect('localhost','root','','debian2');
 
-            if (isset($_GET['r'])) {
-                $ins=$_GET['r'];
+            if (isset($_GET['q'])) {
+                $ins=$_GET['q'];
                 // echo $c;
                 // if(!$c=""){
                 $sql = "SELECT i.Nombre,rd.Cantidad FROM remito_detalle as rd
-                inner join insumo as i on rd.Id_insumo=i.id
-                where rd.Id='$ins' ";
+                inner join insumo as i on  i.Id=rd.Id_insumo
+                where rd.Id_remito=$ins";
                 // }else{
                 //   $sql = "SELECT * FROM insumo";
             }
-            else{
-                $sql = "SELECT * FROM insumo";
-            }
+            
 
 
             $resultado=mysqli_query($conexion,$sql);
