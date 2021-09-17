@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Debian</title>
     <link rel="stylesheet" href="../css/bootstrap.css">
-    <!-- <link rel="stylesheet" href="../css/styleinicio.css?v=<?php// echo(rand()); ?>"> -->
     <link rel="stylesheet" href="../css/styleprimerapagina.css?v=<?php echo(rand()); ?>">
 </head>
 <body>
@@ -26,8 +25,7 @@
 
 
     <div class="main">
-        <!-- <img src="../assets/imagenes/NOTCIAS 4.jpg" class="aa" alt=""> -->
-
+        
         <img src="../assets/imagenes/SLIDE 1.jpg" alt=""  class="SLIDE1" />
         <p class="textoslide"> ¡ HACETE SOCIO Y DISFRUTA DE LOS BENEFICIOS DEL CLUB MAS GRANDE DE LA PROVINCIA ! </p>
 
@@ -112,15 +110,11 @@
                 </div>
 
 
-    <!-- <footer class="footer">
-        nasheeeeeeeeee
-        
-    </footer>     -->
 
     <footer class="w-100 footer d-flex  align-items-center justify-content-start flex-wrap">
-        <!-- <p class="fs-5 px-3  pt-3">ExpertD. &copy; Todos Los Derechos Reservados 2021</p> -->
+        
         <div id="iconos" class="iconos" >
-            <!-- logos -->
+            
             <div class="conticono">
                <img src="../assets/imagenes/iconos/face.png" class="icono" alt=""> DEBIANfc 
             </div>

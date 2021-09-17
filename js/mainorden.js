@@ -59,19 +59,7 @@ btnregistrar.addEventListener("click",()=>{
         
     }
 
-    // probando
-    // let xhr
-    // if (window.XMLHttpRequest) xhr = new XMLHttpRequest()
-    // else xhr = new ActiveXObject("Microsoft.XMLHTTP")
-    // xhr.open('POST', `../php/abminsumo.php?n=${nombres}&p=${precios}&c=${cantidades}&t=${idproveedor}`)
-    // xhr.addEventListener('load', (data) => {
-    //     const dataJSON = JSON.parse(data.target.response)
-    //     console.log(dataJSON)
-    // })
-
-    // xhr.send()
-
-    // // 
+    
 
     window.location.href=`../php/ordencompra.php?n=${nombres}&p=${precios}&c=${cantidades}&t=${idproveedor}`
 
@@ -79,54 +67,6 @@ btnregistrar.addEventListener("click",()=>{
 
 })
 
-
-// btnregistrar.addEventListener("click",()=>{
-//     var tablita=document.getElementById("tabla2")
-//     var precio
-//     var cant
-//     const hijo=tablita.lastElementSibling;
-//     console.log(hijo)
-    
-     
-//     while(hijo=!tablita.children[0]){
-//         nombre=hijo.firstElementChild.textContent
-//         precio=hijo.firstElementChild.nextElementSibling.textContent
-//         cant=hijo.firstElementChild.nextElementSibling.nextElementSibling.textContent
-
-        
-
-//         console.log(`nombre: ${nombre} precio: ${precio} cant: ${cant}`)
-//         // <?php
-//         //           $PHPnombre = "<script> document.write(nombre)</script>";
-//         //           $sql = "Select Id from insumo where=$PHPnombre ";
-//         //           $resultado=mysqli_query($conexion,$sql);
-//         //           $nombre=mysqli_fetch_all($resultado,PDO::FETCH_ASSOC);
-                  
-//         //           // echo "PHPvariable = ".$PHPnombre;
-                  
-//         //           $PHPprecio = "<script> document.write(precio) </script>";
-//         //           $PHPcant = "<script> document.write(cant) </script>";´
-//         //           //$PHPnombre = "<script> document.write(nombre) </script>";
-
-
-//         //           //$sql = "INSERT INTO orden_detalle (Id_orden, Id_insumo, Precio, Cantidad) values ($z,$nombre[0],$PHPprecio,$PHPcant)";
-//         //           //$resultado=mysqli_query($conexion,$sql);
-
-//         // ?>
-//         hijo=hijo.previousElementSibling
-//       }
-
-//     window.location.href="../php/abminsumo.php?t="+idproveedor+"&p="+
-
-// })
-
-/*
-const btnregistrardetalle = document.getElementById( "registraroden")
-btnregistrardetalle.addEventListener("click", ()=>{
-    window.location.href= "../php/abminsumo.php?t="+idproveedor
-})
-
-*/
 
 
 
@@ -292,46 +232,11 @@ const getData = (x) => {
 
 
 getData() 
-/*
-btnvent.addEventListener('click', ()=>{
-	reg.classList.add('activar');
-    console.log("aa")
-	contvent.classList.add('activar');
-});
-*/
-// iconocerrar.addEventListener('click', (e)=>{
-// 	e.preventDefault();
-// 	reg.classList.remove('activar');
-// 	contvent.classList.remove('activar');
-// });
 
+const btnirabmorden=document.getElementById('irabmorden')
 
-
-//const edicion=document.getElementById('tabla')
-
-/*
-edicion.addEventListener('click',(e)=>{
-    const editar=e.target;
-    console.log(editar.classList.contains('btneditar'))
-    if(editar.classList.contains('btneditar')){
-        let xhr
-         if (window.XMLHttpRequest) xhr = new XMLHttpRequest()
-         else xhr = new ActiveXObject("Microsoft.XMLHTTP")
-         //obtengo el id
-         var t=editar.parentElement.parentElement.firstElementChild.nextElementSibling.nextElementSibling.textContent
-         var x=editar.parentElement.parentElement.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.textContent
-         console.log(t)
-        //  xhr.open('GET', `../php/queryedicion.php?t=${t}`)
-        //  xhr.addEventListener('load',()=>
-        //  {
-        //      console.log("llegue")
-        //  })
-         
-        //  xhr.send()
-         
-         window.location.href="../php/edicioninsumo.php?t="+t
-    }
+btnirabmorden.addEventListener('click',()=>{
+    window.location.href="../php/abmorden.php"
 })
-*/
 
 

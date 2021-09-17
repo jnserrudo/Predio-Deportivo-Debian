@@ -6,12 +6,9 @@
 
             if (isset($_GET['x'])) {
                 $c = $_GET['x'];
-                // echo $c;
-                // if(!$c=""){
                 $sql = "SELECT * FROM insumo where Id like '%$c%' or Id_categoria like '%$c%' or Nombre like '%$c%'
                           or Descripcion like '%$c%' or Precio like '%$c%' or Stock like '%$c%'";
-                // }else{
-                //   $sql = "SELECT * FROM insumo";
+
             }
             else{
                 $sql = "SELECT * FROM remito";

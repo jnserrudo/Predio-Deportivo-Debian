@@ -23,15 +23,28 @@ $conexion = NULL;
         if (isset($_GET['x'])) {
             $x = $_GET['x'];
 
+
+            // echo $c;
+            // if(!$c=""){
             $sql = "SELECT r.Rol 
             FROM usuario as u
             inner join rol_usuario as ru on ru.Id_usuario=u.Id
             inner join rol as r on ru.Id_rol=r.Id
             where u.Id=$x
              ";
-
+            // }else{
+            //   $sql = "SELECT * FROM insumo";
         }
         
+
+
+        // $resultado=mysqli_query($conexion,$sql);
+        
+        // $resultados=mysqli_fetch_all($resultado,PDO::FETCH_ASSOC);
+        // session_start();
+        // $_SESSION['usuario']=$resultados[0][0];
+
+
         
         
     }catch (PDOException $e){
@@ -132,7 +145,7 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
                 <img src="../assets/imagenes/logousuario.png" alt="">
             </div>
             <button class="btnlogin" id="btnsesion"> <p class="text">CERRAR SESION</p> </button>
-            
+            <!-- <button class="btnlogin"> <p class="text">INICIAR SESION</p> </button> -->
 
             <div class="pinguino">
                 <img src="../assets/imagenes/pinguidebian.png" class="logopinguino" alt="">
@@ -140,7 +153,9 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
         </div>
     </header>
     <div class="main">
-      
+        <!-- <img src="../assets/imagenes/NOTCIAS 4.jpg" class="aa" alt=""> -->
+        <!-- <img src="../assets/imagenes/fondodebian (1).png" class="fondoimg" alt=""> -->
+        
 
         <div class="side-navbar  d-flex justify-content-between flex-wrap flex-column sidebar" id="sidebar">
             <ul class="nav flex-column text-white w-100">
@@ -154,21 +169,9 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
                 <span class="mx-2">Proveedores</span>
               </li>
               <li href="#" class="nav-link lis" id="irorden">
-                <span class="mx-2">Compras</span>
-               
-              </li>
-              <li href="#" class="nav-link lis" id="irventas">
                 <span class="mx-2">Ventas</span>
-                <!-- falta ventas -->
-              </li>
-              <li href="#" class="nav-link lis" id="irremitos">
-                <span class="mx-2">Remitos</span>
-              </li>
-              <li href="#" class="nav-link lis" id="irmov">
-                <span class="mx-2">Movimientos de Stock</span>
-              </li>
-              <li href="#" class="nav-link lis" id="irsocios">
-                <span class="mx-2">Socios</span>
+                <li href="#" class="nav-link lis" id="irmov">
+                <span class="mx-2">Movimientos Stock</span>
               </li>
             </ul>
           </div>
@@ -176,18 +179,20 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
           <div class="p-0 my-container divcontside ">
             
             <a class="btn contbtnnav" id="menu-btn">
-              
+              <!-- <i class="bx bx-menu "></i> -->
                   <img src="../assets/imagenes/iconham.svg" class="iconham" alt="">
             </a>
             
           </div>
+
+
 
                 <div class="contdetalle">
 
 
                     <div class="contselected">
                         <p class='selecttxt'>Ubicacion: </p>
-                        <select name="selectubi"  class="selected" id="selectubi">
+                        <select name="selectubi" id="selectubi">
                         <option value="" selected disabled hidden>Seleccionar</option>
 
                             <option value="Kiosko">Kiosko</option>
@@ -198,7 +203,7 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
 
                     <div class="contselected">
                         <p class='selecttxt'>Tipo: </p>
-                        <select name="selecttipo" class="selected" id="selecttipo">
+                        <select name="selecttipo" id="selecttipo">
                         <option value="" selected disabled hidden>Seleccionar</option>
 
                             <option value="Entrada">Entrada</option>
@@ -209,7 +214,7 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
 
                     <div class="contselected">
                         <p class='selecttxt'>Motivo: </p>
-                        <select name="selectmot" class="selected" id="selectmot">
+                        <select name="selectmot" id="selectmot">
                         <option value="" selected disabled hidden>Seleccionar</option>
 
                             <option value="Recepcion de Mercaderia">Recepcion de Mercaderia</option>
@@ -223,17 +228,15 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
                             
                         </select>
                     </div>
+<!-- 
+                    <div class="divremito">
+                        <button class='btnremito' id="btnremito" >Seleccionar Remito</button>
+                    </div>
+                     -->
 
 
                 </div>
                 
-
-                <div class="contablaimg">
-                    <div class="contimg">
-                        <img src="../assets/imagenes/insumosdep.jfif" alt="stock imagen">
-                    </div>
-
-
 
                     
                 <div class="divremito">
@@ -259,6 +262,10 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
 
                                                                                                 <!-- <?php
 
+                                                                                                            // if(isset($_GET['idr'])){
+                                                                                                            //     $reminner=''
+                                                                                                            // }
+
                                                                                                         ?> -->
                                                                                          </table>
                                                                  </div>
@@ -268,7 +275,18 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
 
 
 
+
+
+
+
+
+
+
+
+                    <!-- <button class='btnagregarmov' id="btnagregarmov" >Agregar</button> -->
+
                     <div class="">
+                    <!-- <button class='btnagregarmov' >Agregar</button> -->
 
                         <table id="tablamov" class="tablita table-bordered border-primary">
                             <thead>       
@@ -284,6 +302,10 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
 
 
 
+
+
+
+
                 <!-- VENTANA EMERGENTE CON EL BUSCADOR DE INSUMOS -->
                                                         <div class="reg" id="reg">
                                                                 <div class="cont_vent cont_vent_mov_stock" id="cont_vent">
@@ -293,7 +315,7 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
                                                                                       <div class="buscador">
                                                                                     <p class="txtbusq">Buscar</p>
                                                                                     <input type="text" id="busquedamov" class="busquedamov" name="busquedamov"> </input>
-                                                                                    
+                                                                                    <!-- <img src="../assets/imagenes/fondodebian (1).png" class="fondoimg" alt=""> -->
                                                                                     </div>
 
                                                                                          <table id="tablainsumo" class="table table-striped  table-bordered border-primary">

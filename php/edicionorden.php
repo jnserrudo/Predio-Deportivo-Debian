@@ -10,11 +10,12 @@
 </head>
 <body>
 <header class="header">
-        <div class="logo" id="logoinicio">
+        <div class="logo">
             <img  src="../assets/imagenes/DEBIANfc.png" class="logodebian" alt="">
         </div>
         <p class="ptitulo"> Debian Futbol Club</p>
         <div class="login_logo">
+            <!-- <button class="btnlogin"> <p class="text">INICIAR SESION</p> </button> -->
 
             <div class="pinguino">
                 <img src="../assets/imagenes/pinguidebian.png" class="logopinguino" alt="">
@@ -32,10 +33,11 @@
             <img src="../assets/imagenes/bebi.png"class="imgicon" alt="">
                     <img src="../assets/imagenes/camiseta.png"class="imgicon" alt="">
                     <img src="../assets/imagenes/pelota.png"class="imgicon" alt="">
-               
+                <!--<p style="position: relative;font-size:50px; padding-left:35%;padding-top:5%;"> Editar</p> -->
+            
             </div>
             <div class="contform">
-                <form action="abmproveedores.php" method="get" id="form">
+                <form action="abmsocios.php" method="get" id="form">
                     <div class="contformitems">
 
                                                                 <?php 
@@ -46,15 +48,17 @@
                                                                                 if (isset($_GET['t'])) {
                                                                                             $z = $_GET['t'];
                                                                                             $GLOBALS['z']=$z;
-                                                                                           
-                                                                                            $sql = "SELECT * FROM proveedor where Id=$z";
-                                                                                            
+                                                                                            // echo $c;
+                                                                                            // if(!$c=""){
+                                                                                            $sql = "SELECT * FROM orden where Id=$z";
+                                                                                            // }else{
+                                                                                            //   $sql = "SELECT * FROM insumo";
                                                                                             $resultado=mysqli_query($conexion,$sql);
                                                                                         
                                                                                         $resultados=mysqli_fetch_array($resultado);
-                                                                                        
+                                                                                        // var_dump($resultados);
                                                                                         $j=json_encode($resultados);
-                                                                                        
+                                                                                        // $GLOBALS['res']=$resultados;
                                                                                         }
                                                                                         
                                                                                     }catch (PDOException $e){
@@ -64,7 +68,7 @@
 
 
 
-                                                                            require('queryedicion_prov.php');
+                                                                            require('queryedicion_socios.php');
                                                                             ?>
 
 
@@ -74,10 +78,8 @@
 
 
 
-                    <label for="precio">id:</label>
+                    <label for="precio"></label>
                     <!-- este no se deberia editar -->
-                        <input id="id"type="text" name="id" value=<?php  echo $resultados[0]; ?>>
-                        <label for="nom">Nombre:</label>
                         <?php 
                         $conexion = NULL;
                                 try{
@@ -86,44 +88,42 @@
                                     if (isset($_GET['t'])) {
                                         $z = $_GET['t'];
                                         $GLOBALS['z']=$z;
-                                       
-                                        $sql = "SELECT * FROM proveedor where Id=$z";
-                                        
+                                        // echo $c;
+                                        // if(!$c=""){
+                                        $sql = "SELECT * FROM orden where Id=$z";
+                                        // }else{
+                                        //   $sql = "SELECT * FROM insumo";
                                     $resultado=mysqli_query($conexion,$sql);                             
                                     $resultados=mysqli_fetch_array($resultado);
-                                    
+                                    // var_dump($resultados);
                                     $j=json_encode($resultados);
-                                    
+                                    // $GLOBALS['res']=$resultados;
                                     }
                                     
                                 } catch (PDOException $e){
                                     echo "Error ".$e->getMessage();
                                 } 
 
-                        require('queryedicion_prov.php');
+                        require('queryedicion_socios.php');
                         ?>
-                        
-                        <input type="text" id="nom" class="input" name="nom" value=<?php  echo $resultados[1]; ?>>
+                                               Id: <input type="text" id="id" class="input" name="id" value=<?php  echo $resultados[0]; ?>>  
 
-                        <label for="direc">Direccion:</label>
-                        <input name="direc" id="direc" cols="15" rows="3" name="direc" value=<?php  echo $resultados[2]; ?>>
+                        <label for="nom"></label>
+                        Fecha: <input type="text" id="Fecha" class="input" name="Fecha" value=<?php  echo $resultados[1]; ?>>  
 
-                        <label for="tel">Telefono:</label>
-                        <input type="text" id="tel" class="precio" name="tel" value=<?php  echo $resultados[3]; ?>>
+                        <label for="apellido">Id_proveedor:</label>
+                        <input type="text" id="tel" class="imput" name="Id_proveedor" value=<?php  echo $resultados[2]; ?>>
 
-                        <label for="correo">Correo:</label>
-                        <input type="text" id="correo" class="input" name="correo" value=<?php  echo $resultados[4]; ?>>
-
-                    
+                     
                         </div>
                 </form>
                     <div class="contbtneliminar">
-                         <button class="btn" id="btnrip" >Eliminar Proveedor</button>
+                         <button class="btn" id="btnrip" >Eliminar Orden de Compra</button>
                     </div>
                 </div>
                
             <div class="contbtn">
-           
+           <!-- <input type="submit" class="btn btnconfirmar" id="btnconf" value="confirmar"> -->
              <button class="btn btnconfirmar" id="btnconf" >Confirmar</button>    
                 <button class="btn btncancelar" id="btncanc">Volver</button>
             </div>
@@ -151,7 +151,7 @@
 
 
 <footer class="w-100 footer d-flex  align-items-center justify-content-start flex-wrap">
-        
+        <!-- <p class="fs-5 px-3  pt-3">ExpertD. &copy; Todos Los Derechos Reservados 2021</p> -->
         <div id="iconos" class="iconos" >
             <!-- logos -->
             <div class="conticono">
@@ -179,8 +179,8 @@
         <p class="text_debsw"> Desarrollado por Debian Software <br> &copy Derechos Reservados</p>
       </footer>
 
-      <script src="../js/edit_prov.js?v=<?php echo(rand()); ?>"></script>
-   
+      <script src="../js/edit_orden.js?v=<?php echo(rand()); ?>"></script>
+   <!-- <script src="../js/editinsumo.js?v=<?php echo(rand()); ?>"></script>  -->
                     
 </body>
 </html>

@@ -98,17 +98,8 @@
                   $o=$_POST["txtIDorden"]; //codigo oreden
                   $f=$_POST["date_fec_remito"]; //fecha
 
-            
-  
-         // if(isset($_GET['t'])){      
-          //  $t=$_GET["t"]; //codigo remito
-          //  $_SESSION["codigo_remito"]=$t;
-          //  $o=$_GET["o"]; //codigo oreden
-           // $f=$_GET["f"]; //fecha
             ?>
-             
-            
-            
+                      
             <?php
             $sql="INSERT INTO remito(Id,Id_Orden,Fecha)Values($t,$o,'$f')";
                                                                                       
@@ -139,8 +130,7 @@
                     if(isset($_SESSION["codigo_remito"])){
                         $mostrar_rem=$_SESSION["codigo_remito"];
                         
-                    
-                   // $sql1="Select *from Remito_Detalle where Id_rem=$mostrar_rem";
+
                    $sql1="SELECT remito_detalle.Id,Id_remito,Nombre,Cantidad 
                    FROM remito_detalle  
                    INNER JOIN insumo

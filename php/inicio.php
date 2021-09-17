@@ -20,33 +20,26 @@ $conexion = NULL;
         if (isset($_GET['x'])) {
             $x = $_GET['x'];
 
-
-            // echo $c;
-            // if(!$c=""){
             $sql = "SELECT r.Rol 
             FROM usuario as u
             inner join rol_usuario as ru on ru.Id_usuario=u.Id
             inner join rol as r on ru.Id_rol=r.Id
             where u.Id=$x
              ";
-            // }else{
-            //   $sql = "SELECT * FROM insumo";
+
+            $resultado=mysqli_query($conexion,$sql);
+        
+            $resultados=mysqli_fetch_all($resultado,PDO::FETCH_ASSOC);
+            session_start();
+            $_SESSION['usuario']=$resultados[0][0];
         }
         
-
-
-        $resultado=mysqli_query($conexion,$sql);
-        
-        $resultados=mysqli_fetch_all($resultado,PDO::FETCH_ASSOC);
-        session_start();
-        $_SESSION['usuario']=$resultados[0][0];
-
-
-        
+ 
         
     }catch (PDOException $e){
         echo "Error ".$e->getMessage();
     }
+    session_start();
 ?>
 
 <header class="header">
@@ -71,9 +64,6 @@ $conexion = NULL;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;">
-        <!-- <img src="../assets/imagenes/NOTCIAS 4.jpg" class="aa" alt=""> -->
-        <!-- <img src="../assets/imagenes/fondodebian (1).png" class="fondoimg" alt=""> -->
-        
 
         <div class="side-navbar  d-flex justify-content-between flex-wrap flex-column sidebar" id="sidebar">
             <ul class="nav flex-column text-white w-100">
@@ -87,15 +77,31 @@ $conexion = NULL;
                 <span class="mx-2">Proveedores</span>
               </li>
               <li href="#" class="nav-link lis" id="irorden">
-                <span class="mx-2">Ventas</span>
+                <span class="mx-2">Compras</span>
               </li>
+              <li href="#" class="nav-link lis" id="irventas">
+                <span class="mx-2">Ventas</span>
+                
+              </li>
+              <li href="#" class="nav-link lis" id="irremitos">
+                <span class="mx-2">Remitos</span>
+              </li>
+              <li href="#" class="nav-link lis" id="irmov">
+                <span class="mx-2">Movimientos de Stock</span>
+              </li>
+              <li href="#" class="nav-link lis" id="irsocios">
+                <span class="mx-2">Socios</span>
+              </li>
+
+
+
             </ul>
           </div>
 
           <div class="p-0 my-container divcontside ">
             
             <a class="btn contbtnnav" id="menu-btn">
-              <!-- <i class="bx bx-menu "></i> -->
+              
                   <img src="../assets/imagenes/iconham.svg" class="iconham" alt="">
             </a>
             
