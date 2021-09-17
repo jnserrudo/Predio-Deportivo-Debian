@@ -21,7 +21,7 @@ img{
     max-width: 100%;
     border-bottom: 1px solid blue;
     height: 80px;
-    background-color: rgb(23, 77, 194);
+    background-color: #2874A6;
     display: flex;
     color: white;
 }
@@ -31,6 +31,7 @@ img{
     /* border: 5px solid black; */
     font-size: 2em;
     margin-left: 15px;
+    color: aliceblue;
     
 }
 p{
@@ -96,7 +97,8 @@ p{
 }
 
 .main{
-    background-image:radial-gradient(circle,rgb(52, 148, 204),rgb(43, 40, 192));
+    /* background-image:radial-gradient(circle,rgb(52, 148, 204),rgb(43, 40, 192)); */
+    background-color: #ECF0F1;
     width: 100%;
     height: 100vh;
     padding-top: 20px;
@@ -153,9 +155,9 @@ p{
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
-    height: 450px;
+    height: 550px;
     /* margin-top: 50px; */
-    padding-top: 50px;
+    padding-top: 5px;
     background-color:var(--fondoedit);
     border:2px black solid;
 }
@@ -278,7 +280,7 @@ p{
     color: white;
     border: 2px solid black;
     height: 150px;
-    background-color: #090e67; 
+    background-color: #2874A6; 
     columns: 3;
 }
 .iconos{
@@ -303,10 +305,12 @@ p{
     font-size: 2em;
     margin-left: 90px;
     text-decoration: underline;
+    color: aliceblue;
 }
 
 .text_debsw{
     font-size: 1em;
     margin-left: auto;
+    color: aliceblue;
     margin-right: 10px;
 }

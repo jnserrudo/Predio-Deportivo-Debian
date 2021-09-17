@@ -16,7 +16,7 @@ img{
     max-width: 100%;
     border-bottom: 1px solid blue;
     height: 80px;
-    background-color: rgb(23, 77, 194);
+    background-color: #2874A6;
     display: flex;
     color: white;
 }
@@ -26,6 +26,7 @@ img{
     /* border: 5px solid black; */
     font-size: 2em;
     margin-left: 15px;
+    color: aliceblue;
     
 }
 p{
@@ -88,8 +89,9 @@ p{
 }
 
 .main{
-    background-image:radial-gradient(circle,rgb(52, 148, 204),rgb(43, 40, 192));
+    /* background-image:radial-gradient(circle,rgb(52, 148, 204),rgb(43, 40, 192)); */
     height: 100vh;
+    background-color: #ECF0F1;
     
 }
 
@@ -320,7 +322,7 @@ font-size: 2em;
     border: 2px solid black;
     height: 150px;
     border-top: 1px solid blue;
-    background-color: #090e67; 
+    background-color: #2874A6; 
     columns: 3;
 }
 .iconos{
@@ -329,6 +331,7 @@ font-size: 2em;
     gap:2px;
     margin-bottom: 2px;
     width: 500px;
+    color: aliceblue;
     flex-wrap: wrap;
     /* grid-template-columns: ; */
 }
@@ -351,10 +354,17 @@ font-size: 2em;
     font-size: 2em;
     margin-left: 90px;
     text-decoration: underline;
+    color: aliceblue;
 }
 
 .text_debsw{
     font-size: 1em;
     margin-left: auto;
     margin-right: 10px;
+    color: aliceblue;
+}
+
+
+.tablasss{
+    display: flex;
 }

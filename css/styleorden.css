@@ -10,14 +10,15 @@ img{
     max-width: 100%;
     display: block;
 }
-
+.main{
+    background-color: #ECF0F1;
+}
 .header{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     max-width: 100%;
     border-bottom: 1px solid blue;
     height: 80px;
     background-color:#2874A6;
-    display: flex;
     color: white;
 
 }
@@ -27,6 +28,7 @@ img{
     /* border: 5px solid black; */
     font-size: 2em;
     margin-left: 15px;
+    color: aliceblue;
     
     
 }
@@ -90,7 +92,7 @@ p{
 }
 
 .main{
-    background-image:radial-gradient(circle,rgb(52, 148, 204),#2471A3);
+    background-image:#ECF0F1;
     padding-bottom: 5em;
     height: 100vh;
 }
@@ -333,7 +335,7 @@ font-size: 2em;
     color: white;
     border: 2px solid black;
     height: 150px;
-    background-color:#2874A6; 
+    background-color:#2874A6;
     columns: 3;
 }
 .iconos{
