@@ -60,14 +60,14 @@
                     <div class="text-end">
                         <img src="../assets/imagenes/DEBIANfc.png" width="100" alt="">
                     </div>
-                    <h2 class="fw-bold text-center py-5" >Bienvenido</h2>
+                    <h2 class="fw-bold text-center bienvenido py-5" >Bienvenido</h2>
                     <form action="#">
                         <div class="mb-4">
-                            <label class="form-label" for="nomusuario" >Usuario</label>
+                            <label class="form-label usercon" for="nomusuario" >Usuario</label>
                             <input type="text" name="nomusuario" class="form-control txtform" id="usuario">
                         </div>
                         <div class="mb-4">
-                            <label class="form-label" for="contra" >Contraseña</label>
+                            <label class="form-label usercon" for="contra" >Contraseña</label>
                             <input type="password" name="contra" class="form-control txtform" id="contra">
                         </div>
                         <div class="divbtnlogin">

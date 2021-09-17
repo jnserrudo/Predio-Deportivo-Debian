@@ -16,7 +16,7 @@ img{
     max-width: 100%;
     border-bottom: 1px solid blue;
     height: 80px;
-    background-color: #2874A6 ;
+    background-color: #2874A6;
     display: flex;
     color: white;
 }
@@ -27,6 +27,7 @@ img{
     font-size: 2em;
     margin-left: 15px;
     padding-top: 15px;
+    color: aliceblue;
     
 }
 p{
@@ -93,7 +94,7 @@ p{
 .main{
     /* text-align:center; */
     background-image:radial-gradient(circle,rgb(52, 148, 204),#2471A3);
-
+ /* background-color: #2471A3; */
     
     text-align:center;
 }
@@ -144,7 +145,7 @@ p{
     color: white;
     border: 2px solid black;
     height: 150px;
-    background-color: #2874A6 ; 
+    background-color: #2874A6; 
     columns: 3;
 }
 .iconos{
@@ -169,12 +170,14 @@ p{
     font-size: 2em;
     margin-left: 90px;
     text-decoration: underline;
+    color: aliceblue;
 }
 
 .text_debsw{
     font-size: 1em;
     margin-left: auto;
     margin-right: 10px;
+    color: aliceblue;
 }
 .info{
     width: 290px;
