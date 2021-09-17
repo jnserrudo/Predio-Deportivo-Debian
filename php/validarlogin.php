@@ -10,8 +10,6 @@
                 $x = $_GET['x'];
                 $y = $_GET['y'];
 
-                // echo $c;
-                // if(!$c=""){
                 $sql = "SELECT Id FROM usuario
                     where Usuario=$x and Contraseña=$y
                  ";
@@ -22,15 +20,8 @@
     
                     echo json_encode($resultados);
                  }else{
-                //   $sql = "SELECT * FROM insumo";
                 echo 1;
                 }
-            
-
-
-            
-            // }else{
-            //     echo "a";
             }
             
         }catch (PDOException $e){

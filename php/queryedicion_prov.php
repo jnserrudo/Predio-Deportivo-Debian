@@ -9,12 +9,9 @@ $conexion = NULL;
             if (isset($_POST['t'])) {
                 $z = $_POST['t'];
                 $GLOBALS['z']=$z;
-                // echo $c;
-                // if(!$c=""){
-               // $sql = "SELECT * FROM proveedor where Id=$z";
+
                $sql = "SELECT * FROM proveedor where Id=$z";
-                // }else{
-                //   $sql = "SELECT * FROM insumo";
+
                 $resultado=mysqli_query($conexion,$sql);
             
             $resultados=mysqli_fetch_array($resultado);
@@ -26,20 +23,3 @@ $conexion = NULL;
             echo "Error ".$e->getMessage();
         }
 
-            
-        // function getid(){
-        //     echo   $GLOBALS['z'];
-        // }
-        // function getnom(){
-        //     echo $GLOBALS['res']['Nombre'];
-        // }
-        // function getdesc(){
-        //     echo $GLOBALS['res']['Descripcion'];
-        // }
-        // function getprecio(){
-        //     echo $GLOBALS['res']['Precio'];
-
-        // }
-        // function getstock(){
-        //     echo $GLOBALS['res']['Stock'];
-        // }

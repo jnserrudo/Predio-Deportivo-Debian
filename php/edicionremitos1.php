@@ -15,6 +15,7 @@
         </div>
         <p class="ptitulo"> Debian Futbol Club</p>
         <div class="login_logo">
+            <!-- <?php echo $_SESSION['usuario']?></p> -->
 
             <div class="pinguino">
                 <img src="../assets/imagenes/pinguidebian.png" class="logopinguino" alt="">
@@ -32,10 +33,10 @@
             <img src="../assets/imagenes/bebi.png"class="imgicon" alt="">
                     <img src="../assets/imagenes/camiseta.png"class="imgicon" alt="">
                     <img src="../assets/imagenes/pelota.png"class="imgicon" alt="">
-               
+                
             </div>
             <div class="contform">
-                <form action="abmproveedores.php" method="get" id="form">
+                <form action="abmremitos1.php" method="get" id="form">
                     <div class="contformitems">
 
                                                                 <?php 
@@ -46,9 +47,9 @@
                                                                                 if (isset($_GET['t'])) {
                                                                                             $z = $_GET['t'];
                                                                                             $GLOBALS['z']=$z;
-                                                                                           
-                                                                                            $sql = "SELECT * FROM proveedor where Id=$z";
                                                                                             
+                                                                                                $sql = "SELECT remito.Id,remito.Id_orden,remito.Fecha,remito_detalle.Id_insumo,remito_detalle.Cantidad FROM remito INNER JOIN remito_detalle on remito_detalle.Id_remito=remito.Id WHERE remito.Id=$z;";
+                                                                                           
                                                                                             $resultado=mysqli_query($conexion,$sql);
                                                                                         
                                                                                         $resultados=mysqli_fetch_array($resultado);
@@ -64,20 +65,15 @@
 
 
 
-                                                                            require('queryedicion_prov.php');
+                                                                            require('queryedicion_remitos1.php');
                                                                             ?>
 
 
 
-
-
-
-
-
-                    <label for="precio">id:</label>
+                    <label for="id">id:</label>
                     <!-- este no se deberia editar -->
-                        <input id="id"type="text" name="id" value=<?php  echo $resultados[0]; ?>>
-                        <label for="nom">Nombre:</label>
+                        <input id="id"type="text" readonly name="id" value=<?php  echo $resultados[0]; ?>>
+                        <label for="Idorden1">Id Orden:</label>
                         <?php 
                         $conexion = NULL;
                                 try{
@@ -86,8 +82,8 @@
                                     if (isset($_GET['t'])) {
                                         $z = $_GET['t'];
                                         $GLOBALS['z']=$z;
-                                       
-                                        $sql = "SELECT * FROM proveedor where Id=$z";
+                                        
+                                        $sql = "SELECT remito.Id,remito.Id_orden,remito.Fecha,remito_detalle.Id_insumo,remito_detalle.Cantidad FROM remito INNER JOIN remito_detalle on remito_detalle.Id_remito=remito.Id WHERE remito.Id=$z;";
                                         
                                     $resultado=mysqli_query($conexion,$sql);                             
                                     $resultados=mysqli_fetch_array($resultado);
@@ -100,25 +96,25 @@
                                     echo "Error ".$e->getMessage();
                                 } 
 
-                        require('queryedicion_prov.php');
+                        require('queryedicion_remitos1.php');
                         ?>
                         
-                        <input type="text" id="nom" class="input" name="nom" value=<?php  echo $resultados[1]; ?>>
+                        <input type="text" id="Idorden1" class="input" name="Idorden1" value=<?php  echo $resultados[1]; ?>>
 
-                        <label for="direc">Direccion:</label>
-                        <input name="direc" id="direc" cols="15" rows="3" name="direc" value=<?php  echo $resultados[2]; ?>>
+                        <label for="Fecha1">Fecha:</label>
+                        <input name="Fecha1" id="Fecha1" cols="15" rows="3" name="Fecha1" value=<?php  echo $resultados[2]; ?>>
 
-                        <label for="tel">Telefono:</label>
-                        <input type="text" id="tel" class="precio" name="tel" value=<?php  echo $resultados[3]; ?>>
+                        <label for="Idinsumo1">Id Insumo:</label>
+                        <input type="text" id="Idinsumo1" class="precio" name="Idinsumo1" value=<?php  echo $resultados[3]; ?>>
 
-                        <label for="correo">Correo:</label>
-                        <input type="text" id="correo" class="input" name="correo" value=<?php  echo $resultados[4]; ?>>
+                        <label for="Cantidad1">Cantidad:</label>
+                        <input type="text" id="Cantidad1" class="input" name="Cantidad1" value=<?php  echo $resultados[4]; ?>>
 
                     
                         </div>
                 </form>
                     <div class="contbtneliminar">
-                         <button class="btn" id="btnrip" >Eliminar Proveedor</button>
+                         <button class="btn" id="btnrip" >Eliminar Remito</button>
                     </div>
                 </div>
                
@@ -179,7 +175,7 @@
         <p class="text_debsw"> Desarrollado por Debian Software <br> &copy Derechos Reservados</p>
       </footer>
 
-      <script src="../js/edit_prov.js?v=<?php echo(rand()); ?>"></script>
+      <script src="../js/edit_remitos1.js?v=<?php echo(rand()); ?>"></script>
    
                     
 </body>

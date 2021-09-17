@@ -10,12 +10,11 @@
 </head>
 <body>
 <header class="header">
-        <div class="logo">
+        <div class="logo" id="logoinicio">
             <img  src="../assets/imagenes/DEBIANfc.png" class="logodebian" alt="">
         </div>
         <p class="ptitulo"> Debian Futbol Club</p>
         <div class="login_logo">
-            <!-- <button class="btnlogin"> <p class="text">INICIAR SESION</p> </button> -->
 
             <div class="pinguino">
                 <img src="../assets/imagenes/pinguidebian.png" class="logopinguino" alt="">
@@ -48,17 +47,15 @@
                                                                                         if (isset($_GET['t'])) {
                                                                                             $z = $_GET['t'];
                                                                                             $GLOBALS['z']=$z;
-                                                                                            // echo $c;
-                                                                                            // if(!$c=""){
+                                                                                            
                                                                                             $sql = "SELECT * FROM insumo where Id=$z";
-                                                                                            // }else{
-                                                                                            //   $sql = "SELECT * FROM insumo";
+                                                                                            
                                                                                             $resultado=mysqli_query($conexion,$sql);
                                                                                         
                                                                                         $resultados=mysqli_fetch_array($resultado);
-                                                                                        // var_dump($resultados);
+                                                                                        
                                                                                         $j=json_encode($resultados);
-                                                                                        // $GLOBALS['res']=$resultados;
+                                                                                        
                                                                                         }
                                                                                         
                                                                                     }catch (PDOException $e){
@@ -73,16 +70,6 @@
 
 
 
-
-
-
-
-<!-- 
-                    <label for="id" class="label">Id:</label>
-                    este no se deberia editar
-                    
-                      <input type="text" name="id" id="prueba" value=<?php  //  echo $resultados[0]; ?>>
-                        <label for="nom" class="label">Nombre:</label> -->
                         <?php 
                         $conexion = NULL;
                                 try{
@@ -91,17 +78,15 @@
                                     if (isset($_GET['t'])) {
                                         $z = $_GET['t'];
                                         $GLOBALS['z']=$z;
-                                        // echo $c;
-                                        // if(!$c=""){
+
                                         $sql = "SELECT * FROM insumo where Id=$z";
-                                        // }else{
-                                        //   $sql = "SELECT * FROM insumo";
+
                                         $resultado=mysqli_query($conexion,$sql);
                                     
                                     $resultados=mysqli_fetch_array($resultado);
-                                    // var_dump($resultados);
+
                                     $j=json_encode($resultados);
-                                    // $GLOBALS['res']=$resultados;
+ 
                                     }
                                     
                                 }catch (PDOException $e){
@@ -116,13 +101,11 @@
 
                         <label for="id" class="label">Id:</label>
                     <!-- este no se deberia editar -->
-                    
-                                <!-- <p id="prueba"> <?php  //echo $resultados[0]; ?> </p> -->
+
                                 <input type="text" id="id" class="input" name="id" value=<?php  echo $resultados[0]; ?>>
                                 
-                         <!-- = $_GET['t'] > -->
                         <label for="nom" class="label">Nombre:</label>
-                        <!-- <p id="prueba"> <?php  //echo $resultados[0]; ?> </p> -->
+                        
                         <input type="text" id="nom" class="input" name="nom" value=<?php  echo $resultados[2]; ?>>
 
                         <label for="desc" class="label">Descripcion:</label>
@@ -171,7 +154,7 @@
 
 
 <footer class="w-100 footer d-flex  align-items-center justify-content-start flex-wrap">
-        <!-- <p class="fs-5 px-3  pt-3">ExpertD. &copy; Todos Los Derechos Reservados 2021</p> -->
+        
         <div id="iconos" class="iconos" >
             <!-- logos -->
             <div class="conticono">

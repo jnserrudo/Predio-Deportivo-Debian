@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,27 +8,21 @@
     <link rel="stylesheet" href="../css/bootstrap.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/style2.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/styleinicio.css?v=<?php echo(rand()); ?>">
+
 </head>
 <body>
-<?php session_start()?> 
+<?php session_start() ?> 
 <header class="header">
         <div class="logo" id="logoinicio">
             <img  src="../assets/imagenes/DEBIANfc.png" class="logodebian" alt="">
         </div>
         <p class="ptitulo"> Debian Futbol Club</p>
         <div class="login_logo">
-           
-        <p class="usuario" ><?php echo $_SESSION['usuario']?></p>
-            <div class="logo_usuario">
+                 <p class="usuario" ><?php echo $_SESSION['usuario']?></p>
+                 <div class="logo_usuario">
                 <img src="../assets/imagenes/logousuario.png" alt="">
             </div>
             <button class="btnlogin" id="btnsesion"> <p class="text">CERRAR SESION</p> </button>
-
-
-
-
-
-
             <div class="pinguino">
                 <img src="../assets/imagenes/pinguidebian.png" class="logopinguino" alt="">
             </div>
@@ -41,22 +35,19 @@
        $conexion = NULL;
        try{
            $conexion = mysqli_connect('localhost','root','','debian2');
-          
-                if ( isset($_GET['id']) && isset($_GET['nom']) && isset($_GET['direc']) && isset($_GET['tel']) && isset($_GET['correo'])) {
+
+
+                if ( isset($_GET['id']) && isset($_GET['Idorden1']) && isset($_GET['Fecha1']) && isset($_GET['Idinsumo1']) && isset($_GET['Cantidad1'])) {
                   $i=$_GET['id'];
-                  $n=$_GET['nom'];
-                  $d=$_GET['direc'];
-                  $p=$_GET['tel'];
-                  $s=$_GET['correo'];
-        
+                  $n=$_GET['Idorden1'];
+                  $d=$_GET['Fecha1'];
+                  $p=$_GET['Idinsumo1'];
+                  $s=$_GET['Cantidad1'];
+                  $sql="update remito set id_orden=$n,Fecha='$d' where Id=$i";
+                  $resultado=mysqli_query($conexion,$sql);
+                  $sql1="update remito_detalle set id_insumo=$p,Cantidad=$s where Id_rem=$i";
+                  $resultado1=mysqli_query($conexion,$sql1);
 
-               $sql = "   
-               update proveedor
-               set Nombre='$n', Direccion='$d', Telefono=$p, Correo='$s'
-               where Id=$i;";
-
-               $resultado=mysqli_query($conexion,$sql);
-              
                }
 
        }catch (PDOException $e){
@@ -76,19 +67,19 @@
                
                $r=$_GET['r'];
                
-               $sql = "   
-               delete from proveedor
-               where id=$r;
-                
-               ";
-               
+               $sql = "delete from remito where id=$r;";
                $resultado=mysqli_query($conexion,$sql);
+               $sql1="DELETE from remito_detalle where remito_detalle.Id_rem=$r";
+
+               $resultado1=mysqli_query($conexion,$sql1);
 
            }          
        }catch (PDOException $e){
            echo "Error ".$e->getMessage();
        }
 ?>
+
+
 
     <div class="reg" id="reg">
                         <div class="cont_vent" id="cont_vent">
@@ -114,7 +105,7 @@
                     
                </div>
     <div class="main">
-    
+
     <div class="side-navbar  d-flex justify-content-between flex-wrap flex-column sidebar" id="sidebar">
             <ul class="nav flex-column text-white w-100">
               <a href="#" class="nav-link h3 text-white my-2">
@@ -130,7 +121,7 @@
                 <span class="mx-2">Compras</span>
                
               </li>
-              <li href="#" class="nav-link lis" id="irventas">
+              <li href="#" class="nav-link lis" id="irorden">
                 <span class="mx-2">Ventas</span>
                 <!-- falta ventas -->
               </li>
@@ -157,15 +148,13 @@
 
 
 
-
-
-
-
+    
 
                   <div class="buscador">
                     <p class="txtbusq">Buscar</p>
                     <input type="text" id="busqueda" class="busqueda" name="busqueda"> </input>
-                  </div>
+
+                    </div>
 
                     <p id="txtconsulta">
                      
@@ -215,7 +204,7 @@
                                                                                 }
                                                                               
                                                                                 if (empty($_POST["txt_tel"])) {
-                                                                                
+                                                                                 
                                                                                 } else {
                                                                                   $txt_tel = test_input($_POST["txt_tel"]);
                                                                                 }
@@ -237,7 +226,6 @@
                                                                                $txt_correo=$_POST['txt_correo'];
                                                                                $txt_fecha_reg=$_POST['txt_fecha_reg'];
                                                                                
-                                                                                  
                                                                                   $comprobardato = mysqli_query($conexion,"select * from proveedor where Nombre = '$txt_nom' ");
                                                                                   if(mysqli_num_rows($comprobardato)>0)
                                                                                       {
@@ -252,10 +240,10 @@
 
                                                                                        unset($comprobardato);
                                                                                      
+                                                                                      
 
                                                                                 }
-                                                                                
-                                                                              
+                                                                                 
                                                                                 }
                                                                               
 
@@ -294,19 +282,25 @@
                                                               <?php
                                                               
                                                                    ?>
-                                                                  <h3>se registro correctamaente</h3>
-                                                                <?php
+                                                                   <h3>se registro correctamaente</h3>
+                                                                 <?php
                                                               
                                                                    ?>
-                                                                   <h3> No se registro correctamaente </h3>
-                                                               <?php
+                                                                  <h3> No se registro correctamaente </h3>
+                                                              <?php
 
-                                                              
+                                                             
 
                                                               
                                                                    ?>
                                                                   <h3>Cpmplete los campos</h3>
-                                                                   
+                                                                  <?php
+                                                              
+
+
+                                                              ?> 
+                                                              
+
                                                               <!-- <button id="btneditar" class="btneditar" >Editar</button>
                                                               <button id="btneliminar" class="btneliminar" >Editar</button> -->
                                                               <!-- <a href="../html/index.html"><button>al index</button></a> -->
@@ -321,17 +315,19 @@
 
                                                                                           <table id="tabla" class="table table-striped  table-bordered border-primary">
                                                                                                 <thead>       
-                                                                                                    <th id="idproveedor">Id</th>
-                                                                                                    <th id="nombre_1">Nombre</th>
-                                                                                                    <th id="direccion_1">Direccion</th>                                                                                                  
-                                                                                                    <th id="telefono_1">Telefono</th>
-                                                                                                    <th id="correo_1">Correo</th>
-                                                                                                  <th id="fecha_registro_1">Fecha de registro</th>  
+                                                                                                    <th id="Id">Id</th>
+                                                                                                    <th id="Id_Orden">Id_Orden</th>
+                                                                                                    <th id="Fecha">Fecha</th>                                                                                                
+                                                                                                    <th id="Id_Insumo">Id_insumo</th>
+                                                                                                    <th id="Nombre">Nombre</th>;
+                                                                                                    <th id="Cantidad">Cantidad</th>
+                                                                           
                                                                                                     <th id="accion_1">Accion</th>
                                                                                                 </thead>
                                                                                               </table>
                                                                                           <div class="contbtnreg">
-                                                                                              <button class="btnvent" id="btnvent">Registrar Nuevo Proveedor</button>   
+                                                                                              <button class="btnvent" id="btnvent" style="display:none">Registrar Nuevo Proveedor</button><br></br>
+                                                                                              <button id="btn_volver" class="btn btn-primary" >Volver</button>   
                                                                                               </div>
                         </div>
                 </div>
@@ -383,7 +379,7 @@
 
         <p class="text_debsw"> Desarrollado por Debian Software <br> &copy Derechos Reservados</p>
       </footer>
-    <script src="../js/main_prov.js"></script>
+    <script src="../js/main_remitos1.js?v=<?php echo(rand()); ?>"></script>
     <script src="../js/prueba.js?v=<?php echo(rand()); ?>"></script>
     <script src="../js/inicio.js?v=<?php echo(rand()); ?>"></script>
                     

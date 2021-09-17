@@ -23,7 +23,7 @@ session_start()
         </div>
         <p class="ptitulo"> Debian Futbol Club</p>
         <div class="login_logo">
-            <!-- <button class="btnlogin"> <p class="text">INICIAR SESION</p> </button> -->
+            
 
             <p class="usuario" ><?php echo $_SESSION['usuario']?></p>
             <div class="logo_usuario">
@@ -50,15 +50,12 @@ session_start()
               $d = $_POST['desc'];
               $p=$_POST['precio'];
               $s=$_POST['stock'];
-               // echo $c;
-               // if(!$c=""){
+
               $sql = "update insumo set Nombre=$n, Descripcion=$d, Precio=$p, Stock=$s where id=$i;";
-               // }else{
-               //   $sql = "SELECT * FROM insumo";
+
                $resultado=mysqli_query($conexion,$sql);
            
-           
-           // $GLOBALS['res']=$resultados;
+
            }
            
        }catch (PDOException $e){
@@ -78,19 +75,16 @@ session_start()
            if ( isset($_GET['r'])) {
                
                $r=$_GET['r'];
-               // echo $c;
-               // if(!$c=""){
+
                $sql = "   
                delete from insumo
                where id=$r;
                 
                ";
-               // }else{
-               //   $sql = "SELECT * FROM insumo";
+
                $resultado=mysqli_query($conexion,$sql);
            
-           
-           // $GLOBALS['res']=$resultados;
+
            }
            
        }catch (PDOException $e){
@@ -117,9 +111,6 @@ if (isset($_GET['t'])&& isset($_GET['n'])&& isset($_GET['p'])&& isset($_GET['c']
 
   $GLOBALS['z']=$z;
 
-
-  // echo $c;
-  // if(!$c=""){
   
   $sql = "INSERT INTO orden (Id_proveedor) values ($z)";
 
@@ -171,49 +162,8 @@ if (isset($_GET['t'])&& isset($_GET['n'])&& isset($_GET['p'])&& isset($_GET['c']
             $i=$i+1;
         }
 
-        // $q = "select* from orden_detalle ";
-        // $rq=mysqli_query($conexion,$consultaidorden);
-        // $rqs=mysqli_fetch_all($idorden,PDO::FETCH_ASSOC);
-        // echo json_encode($rqs);
-
-
-// $i=0;
-//while (i<$c.lenght){
-  // $sql = "INSERT INTO orden_detalle (Id_orden, Id_insumo, Precio, Cantidad) values ($resultados[0],Select Id from insumo where=$_GET['n'][i] ,$p[i],$c[i])";
-
+        
 }
-              //  echo' <script>
-              //   var tablita=document.getElementById("tabla2")
-              //   var precio
-              //   var cant
-              //   const hijo=tablita.lastElementSibling;
-              //   console.log(hijo)
-                
-                        
-              //       while(hijo=!tablita.children[0]){
-              //         nombre=hijo.firstElementChild.textContent
-              //         precio=hijo.firstElementChild.nextElementSibling.textContent
-              //         cant=hijo.firstElementChild.nextElementSibling.nextElementSibling.textContent
-
-              //         console.log(`nombre: ${nombre} precio: ${precio} cant: ${cant}`)
-              //         <?php
-              //                   $PHPnombre = "<script> document.write(nombre)</script>";
-              //                   $sql = "Select Id from insumo where=$PHPnombre ";
-              //                   $resultado=mysqli_query($conexion,$sql);
-              //                   $nombre=mysqli_fetch_all($resultado,PDO::FETCH_ASSOC);
-                                
-              //                   // echo "PHPvariable = ".$PHPnombre;
-                                
-              //                   $PHPprecio = "<script> document.write(precio) </script>";
-              //                   $PHPcant = "<script> document.write(cant) </script>";´
-              //                   //$PHPnombre = "<script> document.write(nombre) </script>";
-
-
-              //                   //$sql = "INSERT INTO orden_detalle (Id_orden, Id_insumo, Precio, Cantidad) values ($z,$nombre[0],$PHPprecio,$PHPcant)";
-              //                   //$resultado=mysqli_query($conexion,$sql);
-
-              //
-
             
             
             
@@ -227,39 +177,7 @@ if (isset($_GET['t'])&& isset($_GET['n'])&& isset($_GET['p'])&& isset($_GET['c']
             
             
             
-            
-            <!-- <?php
-                // $PHPprecio = "<script> document.write(precio) </script>";
-                // $PHPcant = "<script> document.write(cant) </script>";
-
-                // $sql = "INSERT INTO orden_detalle (Id_orden, Id_insumo, Precio, Cantidad) values ($resultados[0])";
-                // $resultado=mysqli_query($conexion,$sql);
-
-              ?> -->
-
-  <?php
-
-/*<script> var variableJS = “contenido de la variable javascript”; </script>
-
-<?php
-$PHPvariable = “<script> document.write(variableJS) </script>”;
-echo “PHPvariable = “.$PHPvariable;
-?>*/
-
-
-
-                // $sql = "INSERT INTO orden_detalle (Id_orden, Id_insumo, Precio, Cantidad) values ($resultados[0])";
-                // $resultado=mysqli_query($conexion,$sql);
-  /*?> <script> console.log(<?php echo $resultados[0] ?>)</script>
-  <?php
-
-
-  //hola lindo
-  
-  
-  */
-  
-?>
+         
 
 
 
@@ -275,60 +193,48 @@ echo “PHPvariable = “.$PHPvariable;
 
 
 
-
-
-               <!-- <div class="reg" id="reg">
-                        <div class="cont_vent" id="cont_vent">
-                            <img src="../assets/cruz.svg" alt="" class="icono_cerrar" id="icono_cerrar">
-                                <p class="txt_registrar" >Registrar Insumo</p>
-                            
-                                <form action="<?php //echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" class="forminsumo">
-                                <div class="registrar">
-                                          <label class=label > Nombre:</label> <input type="text" name="txt_nom" required> </input>
-                                    
-                                      <label class=label > Id Categoria:</label> <input type="text" name="txt_cat" required> </input>
-                                    
-                                      <label class=label > Precio:</label> <input type="text" name="txt_precio" required> </input>
-                                    
-                                      <label class=label > Stock:</label> <input type="text" name="txt_stock" required> </input>
-                                      
-                                      <label class=label > Descripcion:</label> <textarea name="txt_desc" id="" cols="15" rows="3"></textarea>
-                                    
-                                      <input type="submit" name="registrar" value="registrar" class="btnregistrar" required>
-                                </div>
-                                </form>
-                      </div>
-                    
-               </div> -->
+               
     <div class="main">
 
-                            <div class="side-navbar  d-flex justify-content-between flex-wrap flex-column sidebar" id="sidebar">
-                                    <ul class="nav flex-column text-white w-100">
-                                      <a href="#" class="nav-link h3 text-white my-2">
-                                        Areas
-                                      </a>
-                                      <li href="#" class="nav-link lis" id="irinsumo">
-                                        <span class="mx-2">Insumos</span>
-                                      </li>
-                                      <li href="#" class="nav-link lis" id="irproveedores">
-                                        <span class="mx-2">Proveedores</span>
-                                      </li>
-                                      <li href="#" class="nav-link lis" id="irorden">
-                                        <span class="mx-2">Compras</span>
-                                        <li href="#" class="nav-link lis" id="irmov">
-                <span class="mx-2">Movimientos Stock</span>
-                                      </li>
-                                    </ul>
-                                  </div>
+    <div class="side-navbar  d-flex justify-content-between flex-wrap flex-column sidebar" id="sidebar">
+            <ul class="nav flex-column text-white w-100">
+              <a href="#" class="nav-link h3 text-white my-2">
+                Areas
+              </a>
+              <li href="#" class="nav-link lis" id="irinsumo">
+                <span class="mx-2">Insumos</span>
+              </li>
+              <li href="#" class="nav-link lis" id="irproveedores">
+                <span class="mx-2">Proveedores</span>
+              </li>
+              <li href="#" class="nav-link lis" id="irorden">
+                <span class="mx-2">Compras</span>
+               
+              </li>
+              <li href="#" class="nav-link lis" id="irorden">
+                <span class="mx-2">Ventas</span>
+                <!-- falta ventas -->
+              </li>
+              <li href="#" class="nav-link lis" id="irremitos">
+                <span class="mx-2">Remitos</span>
+              </li>
+              <li href="#" class="nav-link lis" id="irmov">
+                <span class="mx-2">Movimientos de Stock</span>
+              </li>
+              <li href="#" class="nav-link lis" id="irsocios">
+                <span class="mx-2">Socios</span>
+              </li>
+            </ul>
+          </div>
 
-                                  <div class="p-0 my-container divcontside ">
-                                    
-                                    <a class="btn contbtnnav" id="menu-btn">
-                                      <!-- <i class="bx bx-menu "></i> -->
-                                          <img src="../assets/imagenes/iconham.svg" class="iconham" alt="">
-                                    </a>
-                                    
-                                  </div>
+          <div class="p-0 my-container divcontside ">
+            
+            <a class="btn contbtnnav" id="menu-btn">
+              <!-- <i class="bx bx-menu "></i> -->
+                  <img src="../assets/imagenes/iconham.svg" class="iconham" alt="">
+            </a>
+            
+          </div>
 
 
 
@@ -336,10 +242,8 @@ echo “PHPvariable = “.$PHPvariable;
                                   <div class="divflex">
 
 
-                          <!-- <p class="textordencompra"> GENERAR UNA NUEVA ORDEN DE COMPRA</p> -->
 
-
-                      <p class="textoprov"> Seleccione Proveedor </p>
+                      <p class="txt"> Seleccione Proveedor </p>
                       <Select class=select id="idprov" name="proveedor" >
                         
                           <?php
@@ -355,16 +259,14 @@ echo “PHPvariable = “.$PHPvariable;
                           <?php endforeach ?>
                           </Select>
 
-                      <!-- <p class="textoprov"> Seleccione Producto </p> -->
-                      <p class="txtbusq">Buscar Insumo</p>
+                      <p class="txt">Buscar Insumo</p>
 
                       <input type="text" id="busqueda" class="busquedacant" name="busqueda"> </input>
                             <div class="buscador">
-                            
-                                    <!-- <img src="../assets/imagenes/fondodebian (1).png" class="fondoimg" alt=""> -->
+
                             </div>
                             <br></br>
-                            <p class="txtbusq">Cantidad</p>
+                            <p class="txt">Cantidad</p>
                             <p id="txtconsulta"> 
                             
                                         <div class="cantidad">
@@ -389,7 +291,7 @@ echo “PHPvariable = “.$PHPvariable;
 
         <?php
           $x=0;
-          //session_start();
+          
           if ($_SERVER["REQUEST_METHOD"] == "POST")
           {
             $_SESSION['inserted_db'] = true;
@@ -436,19 +338,7 @@ echo “PHPvariable = “.$PHPvariable;
                                                                               }
 
 
-                                                                              // $txt_cat=$_POST['txt_cat'];
-                                                                              // $txt_nom=$_POST['txt_nom'];
-                                                                              // $txt_desc=$_POST['txt_desc'];
-                                                                              // $txt_precio=$_POST['txt_precio'];
-                                                                              // $txt_stock=$_POST['txt_stock'];
-                                                                                  // var_dump($x);
-                                                                              //     if($_SESSION['inserted_db'] == true){
-                                                                              //       // var_dump($_POST['txt_cat']);                               
-                                                                              //         $sql="INSERT INTO insumo(Id_categoria,Nombre,Descripcion,Precio,Stock)Values('$txt_cat','$txt_nom','$txt_desc','$txt_precio','$txt_stock')";
-                                                                                      
-                                                                              //         $result=mysqli_query($conexion,$sql);
-                                                                              //         $_SESSION['inserted_db'] = FALSE;
-                                                                              //       }
+                                                                            
                                                                                 
                                                                               function test_input($data) {
                                                                                     $data = trim($data);
@@ -494,10 +384,15 @@ echo “PHPvariable = “.$PHPvariable;
 
 
                                                             <div class="divreg">
-                        <label class="txtbusq"> TOTAL </label>
+                        <label class="txt"> TOTAL </label>
                           <input type="text" id="total" class="total"></input>
-                          <button id="calcular">Calcular</button>
-                          <button id="registrarorden">Registrar orden de compra</button>
+                          <button id="calcular" class="btncalcular">Calcular</button>
+                          <button id="registrarorden" class="btnregorden">Registrar orden de compra</button>
+
+
+
+
+                          <button id='irabmorden' class='btnregorden'> Ver Ordenes de Compras</button>
 
 
                           </div>
@@ -505,14 +400,6 @@ echo “PHPvariable = “.$PHPvariable;
 
 
                         </div>
-                       <!-- <div class="divreg">
-                        <label class="txtbusq"> TOTAL </label>
-                          <input type="text" id="total" class="total"></input>
-                          <button id="calcular">Calcular</button>
-                          <button id="registrarorden">Registrar orden de compra</button>
-
-
-                          </div> -->
 
                         
                 </div>
@@ -537,7 +424,7 @@ echo “PHPvariable = “.$PHPvariable;
 
 
     <footer class="w-100 footer d-flex  align-items-center justify-content-start flex-wrap">
-        <!-- <p class="fs-5 px-3  pt-3">ExpertD. &copy; Todos Los Derechos Reservados 2021</p> -->
+        
         <div id="iconos" class="iconos" >
             <!-- logos -->
             <div class="conticono">

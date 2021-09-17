@@ -20,7 +20,6 @@
                 <img src="../assets/imagenes/logousuario.png" alt="">
             </div>
             <button class="btnlogin"> <p class="text">CERRAR SESION</p> </button>
-            <!-- <button class="btnlogin"> <p class="text">INICIAR SESION</p> </button> -->
 
             <div class="pinguino">
                 <img src="../assets/imagenes/pinguidebian.png" class="logopinguino" alt="">
@@ -28,10 +27,6 @@
         </div>
     </header>
     <div class="main">
-        <!-- <img src="../assets/imagenes/NOTCIAS 4.jpg" class="aa" alt=""> -->
-        <!-- <img src="../assets/imagenes/fondodebian (1).png" class="fondoimg" alt=""> -->
-
-
 
         <!-- <script type="text/javascript">
         var tablita=document.getElementById('table2')
@@ -45,33 +40,7 @@
             }
        
       </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
       NO LO USO, PERO NO BORRAR
-
-
-
-
-
-
-
-
-
-
-
-
-
  -->
 
         <div class="side-navbar  d-flex justify-content-between flex-wrap flex-column sidebar" id="sidebar">
@@ -94,7 +63,7 @@
           <div class="p-0 my-container divcontside ">
             
             <a class="btn contbtnnav" id="menu-btn">
-              <!-- <i class="bx bx-menu "></i> -->
+              
                   <img src="../assets/imagenes/iconham.svg" class="iconham" alt="">
             </a>
             
@@ -105,13 +74,10 @@
         
     </div>
 
-    <!-- <footer class="footer">
-        nasheeeeeeeeee
-        
-    </footer>     -->
+
 
     <footer class="w-100 footer d-flex  align-items-center justify-content-start flex-wrap">
-        <!-- <p class="fs-5 px-3  pt-3">ExpertD. &copy; Todos Los Derechos Reservados 2021</p> -->
+       
         <div id="iconos" class="iconos" >
             <!-- logos -->
             <div class="conticono">

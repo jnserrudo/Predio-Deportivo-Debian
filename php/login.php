@@ -17,7 +17,6 @@
         </div>
         <p class="ptitulo"> Debian Futbol Club</p>
         <div class="login_logo" >
-            <!-- <button class="btnlogin"> <p class="text">INICIAR SESION</p> </button> -->
 
             <div class="pinguino">
                 <img src="../assets/imagenes/pinguidebian.png" class="logopinguino " width="50" alt="">
@@ -89,7 +88,6 @@
 
 
     <footer class="w-100 footer d-flex  align-items-center justify-content-start flex-wrap">
-        <!-- <p class="fs-5 px-3  pt-3">ExpertD. &copy; Todos Los Derechos Reservados 2021</p> -->
         <div id="iconos" class="iconos" >
             <!-- logos -->
             <div class="conticono">

@@ -47,20 +47,35 @@
               <li href="#" class="nav-link lis" id="irproveedores">
                 <span class="mx-2">Proveedores</span>
               </li>
-              <li href="#" class="nav-link lis">
-                <span class="mx-2" id="irorden">Compras</span>
+              <li href="#" class="nav-link lis" id="irorden">
+                <span class="mx-2">Compras</span>
+               
+              </li>
+              <li href="#" class="nav-link lis" id="irventas">
+                <span class="mx-2">Ventas</span>
+                <!-- falta ventas -->
+              </li>
+              <li href="#" class="nav-link lis" id="irremitos">
+                <span class="mx-2">Remitos</span>
+              </li>
+              <li href="#" class="nav-link lis" id="irmov">
+                <span class="mx-2">Movimientos de Stock</span>
+              </li>
+              <li href="#" class="nav-link lis" id="irsocios">
+                <span class="mx-2">Socios</span>
               </li>
             </ul>
-        </div>
+          </div>
 
-        <div class="p-0 my-container divcontside ">
+          <div class="p-0 my-container divcontside ">
             
             <a class="btn contbtnnav" id="menu-btn">
               <!-- <i class="bx bx-menu "></i> -->
-                <img src="../assets/imagenes/iconham.svg" class="iconham" alt="">
+                  <img src="../assets/imagenes/iconham.svg" class="iconham" alt="">
             </a>
             
-        </div>
+          </div>
+
 
         <?php
 
@@ -73,7 +88,7 @@
         $SQLordencompra->execute();
         $listaordenes=$SQLordencompra->fetchAll(PDO::FETCH_ASSOC); 
         //------------------------
-        print_r($_POST);//solo los muestra para ver si se envian
+        // print_r($_POST);//solo los muestra para ver si se envian
 
         $txtcodremito=(isset($_POST['txt_cod_remito']))?$_POST['txt_cod_remito']:"";  //RECEPCIONA LOS DATOS
         $txtfecha=(isset($_POST['date_fec_remito']))?$_POST['date_fec_remito']:"";
@@ -178,7 +193,9 @@
                                 </div>
                                 <br>
                                 <button type="submit" class="btn btn-primary" name="accion" value="Siguiente">Siguiente</button>
+                                <!-- <button id="verremitos" class="btn btn-primary" >Ver Remitos</button> -->
                             </form>
+                            <button id="verremitos" class="btn btn-primary" style="margin-top: 20px;" >Ver Remitos</button>
                         </div>
                     </div>
                 </div>     
@@ -232,5 +249,6 @@
     </footer>
     <script src="../js/inicio.js?v=<?php echo(rand()); ?>"></script>
 <script src="../js/prueba.js?v=<?php echo(rand()); ?>"></script>
+<script src="../js/remito1.js"></script>
 </body>
 </html>

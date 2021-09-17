@@ -10,13 +10,11 @@
 </head>
 <body>
 <header class="header">
-        <div class="logo">
+        <div class="logo" id="logoinicio">
             <img  src="../assets/imagenes/DEBIANfc.png" class="logodebian" alt="">
         </div>
         <p class="ptitulo"> Debian Futbol Club</p>
         <div class="login_logo">
-            <!-- <button class="btnlogin"> <p class="text">INICIAR SESION</p> </button> -->
-
             <div class="pinguino">
                 <img src="../assets/imagenes/pinguidebian.png" class="logopinguino" alt="">
             </div>
@@ -33,7 +31,7 @@
             <img src="../assets/imagenes/bebi.png"class="imgicon" alt="">
                     <img src="../assets/imagenes/camiseta.png"class="imgicon" alt="">
                     <img src="../assets/imagenes/pelota.png"class="imgicon" alt="">
-                <!--<p style="position: relative;font-size:50px; padding-left:35%;padding-top:5%;"> Editar</p> -->
+                
             
             </div>
             <div class="contform">
@@ -48,17 +46,15 @@
                                                                                 if (isset($_GET['t'])) {
                                                                                             $z = $_GET['t'];
                                                                                             $GLOBALS['z']=$z;
-                                                                                            // echo $c;
-                                                                                            // if(!$c=""){
+                                                                                            
                                                                                             $sql = "SELECT * FROM socio where Id=$z";
-                                                                                            // }else{
-                                                                                            //   $sql = "SELECT * FROM insumo";
+                                                                                            
                                                                                             $resultado=mysqli_query($conexion,$sql);
                                                                                         
                                                                                         $resultados=mysqli_fetch_array($resultado);
-                                                                                        // var_dump($resultados);
+                                                                                        
                                                                                         $j=json_encode($resultados);
-                                                                                        // $GLOBALS['res']=$resultados;
+                                                                                        
                                                                                         }
                                                                                         
                                                                                     }catch (PDOException $e){
@@ -79,7 +75,7 @@
 
 
                     <label for="precio"></label>
-                    <!-- este no se deberia editar -->
+                    
                         <?php 
                         $conexion = NULL;
                                 try{
@@ -88,16 +84,14 @@
                                     if (isset($_GET['t'])) {
                                         $z = $_GET['t'];
                                         $GLOBALS['z']=$z;
-                                        // echo $c;
-                                        // if(!$c=""){
+                                        
                                         $sql = "SELECT * FROM socio where Id=$z";
-                                        // }else{
-                                        //   $sql = "SELECT * FROM insumo";
+                                        
                                     $resultado=mysqli_query($conexion,$sql);                             
                                     $resultados=mysqli_fetch_array($resultado);
-                                    // var_dump($resultados);
+                                    
                                     $j=json_encode($resultados);
-                                    // $GLOBALS['res']=$resultados;
+                                    
                                     }
                                     
                                 } catch (PDOException $e){
@@ -145,7 +139,7 @@
                 </div>
                
             <div class="contbtn">
-           <!-- <input type="submit" class="btn btnconfirmar" id="btnconf" value="confirmar"> -->
+           
              <button class="btn btnconfirmar" id="btnconf" >Confirmar</button>    
                 <button class="btn btncancelar" id="btncanc">Volver</button>
             </div>
@@ -173,7 +167,7 @@
 
 
 <footer class="w-100 footer d-flex  align-items-center justify-content-start flex-wrap">
-        <!-- <p class="fs-5 px-3  pt-3">ExpertD. &copy; Todos Los Derechos Reservados 2021</p> -->
+        
         <div id="iconos" class="iconos" >
             <!-- logos -->
             <div class="conticono">
@@ -202,7 +196,7 @@
       </footer>
 
       <script src="../js/edit_socios.js?v=<?php echo(rand()); ?>"></script>
-   <!-- <script src="../js/editinsumo.js?v=<?php echo(rand()); ?>"></script>  -->
+   
                     
 </body>
 </html>

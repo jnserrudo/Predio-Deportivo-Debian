@@ -15,41 +15,6 @@
 
 <?php
 
-// $conexion = NULL;
-//     try{
-
-//       $conexion = mysqli_connect('localhost','root','','debian2');
-
-//         if (isset($_GET['x'])) {
-//             $x = $_GET['x'];
-
-
-//             // echo $c;
-//             // if(!$c=""){
-//             $sql = "SELECT r.Rol 
-//             FROM usuario as u
-//             inner join rol_usuario as ru on ru.Id_usuario=u.Id
-//             inner join rol as r on ru.Id_rol=r.Id
-//             where u.Id=$x
-//              ";
-//             // }else{
-//             //   $sql = "SELECT * FROM insumo";
-//         }
-        
-
-
-//         $resultado=mysqli_query($conexion,$sql);
-        
-//         $resultados=mysqli_fetch_all($resultado,PDO::FETCH_ASSOC);
-//         session_start();
-//         $_SESSION['usuario']=$resultados[0][0];
-
-
-        
-        
-//     }catch (PDOException $e){
-//         echo "Error ".$e->getMessage();
-//     }
 
 session_start()
 ?>
@@ -60,10 +25,7 @@ session_start()
         </div>
         <p class="ptitulo"> Debian Futbol Club</p>
         <div class="login_logo">
-            <!-- <button class="btnlogin"> <p class="text">INICIAR SESION</p> </button> -->
-
-                <!--  -->
-
+            
 
             <p class="usuario" ><?php echo $_SESSION['usuario']?></p>
             <div class="logo_usuario">
@@ -72,13 +34,6 @@ session_start()
             <button class="btnlogin" id="btnsesion"> <p class="text">CERRAR SESION</p> </button>
 
 
-
-            
-            <!--  -->
-
-
-
-            <!-- <button class="btnlogin"> <p class="text">INICIAR SESION</p> </button> -->
 
 
             <div class="pinguino">
@@ -99,18 +54,16 @@ session_start()
                $d = $_POST['desc'];
                $p=$_POST['precio'];
                $s=$_POST['stock'];
-               // echo $c;
-               // if(!$c=""){
+               
                $sql = "   
                update insumo
                set Nombre='$n', Descripcion='$d', Precio='$p', Stock='$s'
                where Id='$i';
                 
                ";
-               // }else{
-               //   $sql = "SELECT * FROM insumo";
+               
                $resultado=mysqli_query($conexion,$sql);
-              //  echo var_dump( $resultado);
+              
            
           
            }
@@ -120,14 +73,6 @@ session_start()
        }
 
 ?>
- <!-- <p>  <?php 
- 
-//  session_start();
-
-//   echo var_dump( $_SESSION['res']);
-
-?> </p>  -->
-<!-- eliminacion -->
 
 <?php
        $conexion = NULL;
@@ -137,19 +82,16 @@ session_start()
            if ( isset($_GET['r'])) {
                
                $r=$_GET['r'];
-               // echo $c;
-               // if(!$c=""){
+               
                $sql = "   
                delete from insumo
                where Id=$r;
                 
                ";
-               // }else{
-               //   $sql = "SELECT * FROM insumo";
+               
                $resultado=mysqli_query($conexion,$sql);
            
-           
-           // $GLOBALS['res']=$resultados;
+
            }
            
        }catch (PDOException $e){
@@ -216,16 +158,31 @@ session_start()
               </li>
               <li href="#" class="nav-link lis">
                 <span class="mx-2" id="irorden">Compras</span>
-                <li href="#" class="nav-link lis" id="irmov">
-                <span class="mx-2">Movimientos Stock</span>
+               
               </li>
+              <li href="#" class="nav-link lis" id="irventas">
+                <span class="mx-2">Ventas</span>
+                <!-- falta ventas -->
+              </li>
+              <li href="#" class="nav-link lis" id="irremitos">
+                <span class="mx-2">Remitos</span>
+              </li>
+              <li href="#" class="nav-link lis" id="irmov">
+                <span class="mx-2">Movimientos de Stock</span>
+              </li>
+              <li href="#" class="nav-link lis" id="irsocios">
+                <span class="mx-2">Socios</span>
+              </li>
+
+
+              
             </ul>
           </div>
 
           <div class="p-0 my-container divcontside ">
             
             <a class="btn contbtnnav" id="menu-btn">
-              <!-- <i class="bx bx-menu "></i> -->
+              
                   <img src="../assets/imagenes/iconham.svg" class="iconham" alt="">
             </a>
             
@@ -237,7 +194,7 @@ session_start()
                   <div class="buscador">
                     <p class="txtbusq">Buscar</p>
                     <input type="text" id="busqueda" class="busqueda" name="busqueda"> </input>
-                    <!-- <img src="../assets/imagenes/fondodebian (1).png" class="fondoimg" alt=""> -->
+                    
                     </div>
 
                     <p id="txtconsulta">
@@ -260,18 +217,18 @@ session_start()
 
                                                                       <?php
                                                                       $x=0;
-                                                                      // session_start();s
+                                                                      
                                                                       if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                                         ?>
                                                                                      <!-- CAMBIE TODOS LOS EMPTY A ISSET EN LOS IF -->
                                                                                     <?php
 
-                                                                          // $_SESSION['inserted_db'] = true;
+                                                                          
                                                                           if (!isset($_POST["txt_nom"])) {
                                                                               $nameErr = "Name is required";
                                                                               $_POST["txt_nom"]=array();
                                                                               $x=1;
-                                                                          // $_SESSION['inserted_db'] = FALSE;
+                                                                          
                                                                           } else {
                                                                               $txt_nom = test_input($_POST["txt_nom"]);
                                                                           }
@@ -280,7 +237,7 @@ session_start()
                                                                               $catErr = "Email is required";
                                                                               $_POST["txt_cat"]=array();
                                                                               $x=1;
-                                                                          // $_SESSION['inserted_db'] = FALSE;
+                                                                          
                                                                           } else {
                                                                               $txt_cat= test_input($_POST["txt_cat"]);
                                                                           }
@@ -288,7 +245,7 @@ session_start()
                                                                           if (!isset($_POST["txt_desc"])) {
                                                                               $_POST["txt_desc"] = array();
                                                                               $x=1;
-                                                                          // $_SESSION['inserted_db'] = FALSE;
+                                                                          
                                                                           } else {
                                                                               $txt_desc = test_input($_POST["txt_desc"]);
                                                                           }
@@ -296,16 +253,16 @@ session_start()
                                                                           if (!isset($_POST["txt_precio"])) {
                                                                               $_POST["txt_precio"] = array();
                                                                               $x=1;
-                                                                          // $_SESSION['inserted_db'] = FALSE;
+                                                                          
                                                                           } else {
                                                                               $txt_precio = test_input($_POST["txt_precio"]);
                                                                           }
                                                                               
                                                                           if (!isset($_POST["txt_stock"])) {
-                                                                              // $txtErr = "stock es requerido";
+                                                                              
                                                                               $x=1;
                                                                               $_POST["txt_stock"]=array();
-                                                                          // $_SESSION['inserted_db'] = FALSE;
+                                                                          
                                                                           } else {
                                                                               $txt_stock = test_input($_POST["txt_stock"]);
                                                                           }
@@ -319,11 +276,6 @@ session_start()
                                                                               $txt_precio=$_POST['txt_precio'];
                                                                               $txt_stock=$_POST['txt_stock'];
                                                                               
-                                                                              // var_dump($x);
-                                                                              // if($_SESSION['inserted_db'] == true){
-                                                                              // var_dump($_POST['txt_cat']);
-                                                                              
-
 
 
 
@@ -343,27 +295,12 @@ session_start()
                                                                               unset($comprobardato);
 
 
-
-                                                                                    // Lo de abajo lo comente, incorporando la idea del if de la cant de filas como resultado antes
-
-                                                                                                                // $sql="INSERT INTO insumo(Id_categoria,Nombre,Descripcion,Precio,Stock)Values('$txt_cat','$txt_nom','$txt_desc','$txt_precio','$txt_stock')";
-                                                                                                                                
-                                                                                                                // $result=mysqli_query($conexion, $sql);
-
-
-                                                                              // $_SESSION['inserted_db'] = FALSE;
-                                                                              // }
-                                                                             
                                                                               unset($_POST['txt_cat']);
                                                                               unset($_POST['txt_nom']);
                                                                               unset($_POST['txt_desc']);
                                                                               unset($_POST['txt_precio']);
                                                                               unset($_POST['txt_stock']);
-                                                                                    // <!-- <script type="text/javascript">
-                                                                                   
-                                                                                    //      document.getElementById("f").reset();
-                                                                                    //         console.log('se llego')
-                                                                                    // </script> -->
+                                                                                    
                                                                               
 
                                                                               
@@ -384,67 +321,6 @@ session_start()
                                                                           
                                                                       
 
-
-
-                                                              <!-- MARTIN -->
-                                                              <!-- 
-                                                              <form  method="post" action="<?php //echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-                                                              <label class="col-1">Id_categoria:</label>
-                                                              <input type="text" id="input1" name="txt_cat" value="" required class="col-2" ><br><br>
-                                                              <label class="col-1">Nombre:</label>
-                                                              <input type="text" id="inpu2" name="txt_nom" value="" required class="col-2"><br><br>
-                                                              <label class="col-1">Descripcion:</label>
-                                                              <input type="text" id="input3" name="txt_desc" value="" required class="col-2"><br><br>
-                                                              <label class="col-1">Precio:</label>
-                                                              <input type="text" id="inpu4" name="txt_precio" value="" required class="col-2"><br><br>
-                                                              <label class="col-1">Stock:</label>
-                                                              <input type="text" id="input5" name="txt_stock" value="" required class="col-2"><br><br>
-                                                              <input type="submit" value="Registrar" name="registrar" required>
-                                                              </form>
-                                                              <?php
-                                                              // if(isset($_POST['registrar'])){
-                                                              // if(strlen($_POST['txt_cat'])>=1 &&   strlen($_POST['txt_nom'])>=1 && strlen($_POST['txt_desc'])>=1 && strlen($_POST['txt_precio'])>=1 && strlen($_POST['txt_stock'])>=1  ){
-                                                              // $txt_cat=$_POST['txt_cat'];
-                                                              // $txt_nom=$_POST['txt_nom'];
-                                                              // $txt_desc=$_POST['txt_desc'];
-                                                              // $txt_precio=$_POST['txt_precio'];
-                                                              // $txt_stock=$_POST['txt_stock'];
-                                                              // $consulta="INSERT INTO Insumo(Id_categoria,Nombre,Descripcion,Precio,Stock)Values('$txt_cat','$txt_nom','$txt_desc','$txt_precio','$txt_stock');";
-                                                              // $resultado1=mysqli_query($conexion,$consulta);
-                                                              // if($resultado1){
-                                                              //     ?>
-                                                              //     <h3>se registro correctamaente</h3>
-                                                              //     <?php
-                                                              // }else{
-                                                              //     ?>
-                                                              //     <h3> No se registro correctamaente </h3>
-                                                              // <?php
-
-                                                              // }
-
-                                                              // }else{
-                                                              //     ?>
-                                                              //     <h3>Cpmplete los campos</h3>
-                                                              //     <?php
-                                                              // }
-
-
-                                                              // }?> -->
-                                                              <!--  -->
-
-                                                              <!-- <button id="btneditar" class="btneditar" >Editar</button>
-                                                              <button id="btneliminar" class="btneliminar" >Editar</button> -->
-                                                              <!-- <a href="../html/index.html"><button>al index</button></a> -->
-
-                                                              <!-- <?php 
-                                                            //  require('insercion.php'); 
-                                                              // if(!$_POST['datos']="")
-                                                              //  $tabla = getTableFromDatabase();
-                                                                // $t=$_POST['busqueda'];
-                                                                // $tablabusq=gettabla($t);
-                                                            ?>-->
-
-                                                                
 
 
 
@@ -468,24 +344,13 @@ session_start()
               </div>
 
 
-    
-    <!-- ABM INSUMO -->
-
-   
-
-     
-
-
-
-
-    <!--  -->
 
 
 
 
 
     <footer class="w-100 footer d-flex  align-items-center justify-content-start flex-wrap">
-        <!-- <p class="fs-5 px-3  pt-3">ExpertD. &copy; Todos Los Derechos Reservados 2021</p> -->
+        
         <div id="iconos" class="iconos" >
             <!-- logos -->
             <div class="conticono">

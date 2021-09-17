@@ -33,11 +33,31 @@ irorden.addEventListener('click',()=>
 const logoinicio=document.getElementById('logoinicio')
 
 logoinicio.addEventListener('click',()=>{
-    window.location.href='../php/primerapagina.php'
+    window.location.href='../php/inicio.php'
 })
 
 const irmov=document.getElementById('irmov')
 
 irmov.addEventListener('click',()=>{
     window.location.href='../php/movstock.php'
+})
+
+
+const irremitos=document.getElementById('irremitos')
+
+irremitos.addEventListener('click',()=>{
+    window.location.href='../php/remito1.php'
+})
+
+const irsocios=document.getElementById('irsocios')
+
+irsocios.addEventListener('click',()=>{
+    window.location.href='../php/abmsocios.php'
+})
+
+
+const ventas=document.getElementById('irventas')
+
+ventas.addEventListener('click',()=>{
+    window.location.href='../php/ventas.php'
 })
