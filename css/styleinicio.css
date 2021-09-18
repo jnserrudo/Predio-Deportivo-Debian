@@ -1,3 +1,6 @@
+
+
+
 *{
     box-sizing: border-box;
 }
@@ -43,6 +46,7 @@ img{
     /* border: 5px solid black; */
     font-size: 2em;
     margin-left: 15px;
+    padding-top: 15px;
     color: aliceblue;
     
 }
@@ -115,9 +119,41 @@ p{
     /* background-image:url(../assets/imagenes/iconos/iniciooo.jpg); */
     background-color: #ECF0F1;
     height: 100vh;
+    display: flex;
+    
     /* background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover; */
+    
+}
+.txtbusq{
+    font-size: 1.2em;
+    padding-top: 1px;
+    margin-right: 7px;
+    text-align: right;
+    padding-right: 5px ;
+}
+
+.busqueda{
+    margin-top: 10px;
+    width: 150px;
+    height: 30px;
+    border-radius: 10px;
+    /* text-align: right; */
+    margin-right: 10px;
+}
+
+.buscador{
+    margin-left: (100%);
+    /* margin-right: auto; */
+    display: flex;
+    width: 100px;
+}
+
+.mainmain{
+    padding-left: 5px;
+    /* border: 1px red solid; */
+    width: 100%;
     
 }
 
@@ -143,7 +179,7 @@ p{
     border-radius: 10px;
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: #0059ff;
+    background-color: #AED6F1;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, background-color 0.25s ease-in-out;
 }
 
@@ -225,8 +261,8 @@ p{
 .side-navbar {
     width: 180px;
     height: 100%;
-    position: fixed;
-    margin-left: -300px;
+    /* position: fixed; */
+    /* margin-left: -300px; */
     background-color: #100901;
     transition: 0.5s;
   }
@@ -295,3 +331,43 @@ p{
       border: 2px black solid;
 
   }
+  .textordencompra{
+    font-family: Verdana;
+    color:aliceblue;
+    font-size: 2.5em;
+    text-align: left;
+    padding-left: 0px;
+    background-color: #2874A6;
+    margin-bottom: 30px;
+    margin-top: 5px;
+  }
+  .pages ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-end;
+}
+.pages ul li{
+    display: inline-block;
+    margin: 0 var(--dt-padding-xsm);
+}
+.pages ul li span.active{
+    background-color:  var(--dt-bg-color);
+    border-radius: 3px;
+}
+
+ .pages ul li button:hover{
+    background: var(--dt-bg-active-button);
+    color: var(--dt-text-color-active-button);
+}
+.btnvent{
+    margin-left: auto;
+    border-radius: 10px;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #AED6F1;    
+}
+ .pages ul li button,.pages ul li span{
+    padding: var(--dt-padding-sm) var(--dt-padding);
+}

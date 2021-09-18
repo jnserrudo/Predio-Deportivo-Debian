@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="../css/bootstrap.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/style2.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/styleinicio.css?v=<?php echo(rand()); ?>">
+
+    <link rel="stylesheet" href="../css/datatable.css?v=<?php echo(rand()); ?>">
+
 </head>
 <body>
 
@@ -144,7 +147,7 @@ session_start()
                     
                </div>
     <div class="main">
-                                                                                
+
         <div class="side-navbar  d-flex justify-content-between flex-wrap flex-column sidebar" id="sidebar">
             <ul class="nav flex-column text-white w-100">
               <a href="#" class="nav-link h3 text-white my-2">
@@ -179,30 +182,29 @@ session_start()
             </ul>
           </div>
 
-          <div class="p-0 my-container divcontside ">
+          <!-- <div class="p-0 my-container divcontside ">
             
             <a class="btn contbtnnav" id="menu-btn">
               
                   <img src="../assets/imagenes/iconham.svg" class="iconham" alt="">
             </a>
             
-          </div>
+          </div> -->
 
 
-
-
-                  <div class="buscador">
+<div class="mainmain">
+<p class="textordencompra"> ADMINISTRACION DE INSUMOS  </p>
+                  <!-- <div class="buscador">
                     <p class="txtbusq">Buscar</p>
                     <input type="text" id="busqueda" class="busqueda" name="busqueda"> </input>
                     
-                    </div>
+                    </div> -->
 
                     <p id="txtconsulta">
                      
                     
 
                     </p>
-               <div class="mainflex">
 
 
                                                                       <?php 
@@ -321,11 +323,21 @@ session_start()
                                                                           
                                                                       
 
+                                                            <div class="datatable-container">
 
+                                                                                  <div class="header-tools">
+                                                                                  <div class="contbtnreg">
+                                                                                              <button class="btnvent button " id="btnvent">Registrar Nuevo Insumo</button>   
+                                                                                              </div>
+                                                                                    <div class="buscador">
+                                                                                        <p class="txtbusq">Buscar</p>
+                                                                                        <input type="text" id="busqueda" class="busqueda" name="busqueda"> </input>
+                                                                                        
+                                                                                        </div>  
 
-
-                                                                                          <table id="tabla" class="table table-striped  table-bordered border-primary">
-                                                                                                <thead>       
+                                                                                  </div>
+                                                                                          <table id="tabla" class="table table-striped datatable table-bordered border-primary">
+                                                                                                <thead class="tablaenc">       
                                                                                                     <th id="idproveedor">Id</th>
                                                                                                     <th id="empresa">Id_categoria</th>
                                                                                                     <th id="comercial">Nombre</th>
@@ -334,19 +346,31 @@ session_start()
                                                                                                     <th id="telefono">Stock</th>
                                                                                                     <th id="telefono">Accion</th>
                                                                                                 </thead>
+                                                                                                <!-- <tbody>
+
+                                                                                                </tbody> -->
                                                                                               </table>
-                                                                                          <div class="contbtnreg">
-                                                                                              <button class="btnvent" id="btnvent">Registrar Nuevo Insumo</button>   
+                                                                                              <div class="pages">
+                                                                                                         <ul>
+                                                                                                            <li> <button id="btnpag1">1</button></li>
+                                                                                                            <li><button id="btnpag2">2</button></li>
+                                                                                                             <li><button id="btnpag3">3</button></li>
+                                                                                                            <li><button id="btnpag4">4</button></li>
+                                                                                                              <li><button id="btnpag5">5</button></li>
+                                                                                                               </ul>
+                                                                                                         </div>
+                                                                                              <!--<button>Ant</button><button>Sig</button> -->
                                                                                               </div>
-                        </div>
+                                                                                          
+                        
                 </div>
 
               </div>
 
 
+              </div>
 
-
-
+                                                                                                                                                        
 
 
     <footer class="w-100 footer d-flex  align-items-center justify-content-start flex-wrap">
@@ -382,6 +406,8 @@ session_start()
     <!-- DEBO AGREGAR ESTOS DOS EN TODOS -->
     <script src="../js/prueba.js?v=<?php echo(rand()); ?>"></script>
     <script src="../js/inicio.js?v=<?php echo(rand()); ?>"></script>
+    <script src="../js/paginaciones/insumos.js?v=<?php  echo(rand()); ?>"></script>
+
                     
 
 

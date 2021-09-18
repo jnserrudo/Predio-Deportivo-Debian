@@ -43,6 +43,7 @@ img{
     /* border: 5px solid black; */
     font-size: 2em;
     margin-left: 15px;
+    padding-top: 15px;
     color: aliceblue;
     
 }
@@ -278,3 +279,4 @@ p{
       border: 2px black solid;
 
   }
+  

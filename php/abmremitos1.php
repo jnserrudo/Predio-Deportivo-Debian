@@ -121,7 +121,7 @@
                 <span class="mx-2">Compras</span>
                
               </li>
-              <li href="#" class="nav-link lis" id="irorden">
+              <li href="#" class="nav-link lis" id="irventas">
                 <span class="mx-2">Ventas</span>
                 <!-- falta ventas -->
               </li>
