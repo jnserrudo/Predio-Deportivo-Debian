@@ -386,13 +386,13 @@ if (isset($_GET['t'])&& isset($_GET['n'])&& isset($_GET['p'])&& isset($_GET['c']
                                                             <div class="divreg">
                         <label class="txt"> TOTAL </label>
                           <input type="text" id="total" class="total"></input>
-                          <button id="calcular" class="btncalcular">Calcular</button>
-                          <button id="registrarorden" class="btnregorden">Registrar orden de compra</button>
+                          <button id="calcular" class="btnvent">Calcular</button>
+                          <button id="registrarorden" class="btnvent">Registrar orden de compra</button>
 
 
 
 
-                          <button id='irabmorden' class='btnregorden'> Ver Ordenes de Compras</button>
+                          <button id='irabmorden' class='btnvent'> Ver Ordenes de Compras</button>
 
 
                           </div>

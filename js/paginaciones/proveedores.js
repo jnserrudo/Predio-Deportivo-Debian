@@ -1,70 +1,12 @@
-const input=document.getElementById("input");
 
-
-
-console.log("aaaaaaa");
-
-const consulta=document.getElementById("txtconsulta");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const busq=document.getElementById("busqueda")
-busq.addEventListener('keyup',
-(e)=>{
-  var x= e.target.value;
-  console.log(x);
-  getData(x);
-    
-}
-)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-busq.addEventListener('click',
-(e)=>{
-    console.log(e.target);
-    console.log("nashe")
-
-}
-)
-
-const table = document.getElementById('tabla')
-
-
-const getData = (x) => {
+const getDatap = (p) => {
     let xhr
     if (window.XMLHttpRequest) xhr = new XMLHttpRequest()
     else xhr = new ActiveXObject("Microsoft.XMLHTTP")
 
-    if (x == undefined) {
+    if (p == undefined) {
         
-        xhr.open('GET', "../php/insercion.php")
+        xhr.open('GET', "../php/insercion_prov.php")
 
         xhr.addEventListener('load', (data) => {
             const dataJSON = JSON.parse(data.target.response)
@@ -118,7 +60,7 @@ const getData = (x) => {
             table.appendChild(fragment)
         })
     } else {
-        xhr.open('GET', `../php/insercion.php?x=${x}`)
+        xhr.open('GET', `../php/insercion_prov.php?p=${p}`)
 
         xhr.addEventListener('load', (data) => {
             const dataJSON = JSON.parse(data.target.response)
@@ -183,64 +125,43 @@ const getData = (x) => {
 }
 
 
+const pag1=document.getElementById('btnpag1')
+const pag2=document.getElementById('btnpag2')
+const pag3=document.getElementById('btnpag3')
+const pag4=document.getElementById('btnpag4')
+const pag5=document.getElementById('btnpag5')
 
 
+pag1.addEventListener('click',()=>{
+    let p=pag1.textContent
+  //  window.location.href=`../../php/abminsumo.php?p=${p}`
+  getDatap(p)
 
-const btnvent = document.getElementById('btnvent');
-const reg = document.getElementById('reg');
-const contvent = document.getElementById('cont_vent');
-const iconocerrar = document.getElementById('icono_cerrar');
-
-const form= document.getElementById("f")
-
-// form.addEventListener('submit',(e)=>{
-//     // e.preventDefault()
-//     // form.reset()
-// })
-
-
-if (window.history.replaceState) { // verificamos disponibilidad
-    window.history.replaceState(null, null, window.location.href);
-}
-
-getData() 
-btnvent.addEventListener('click', ()=>{
-	reg.classList.add('activar');
-    console.log("aa")
-	contvent.classList.add('activar');
-});
-
-iconocerrar.addEventListener('click', (e)=>{
-	e.preventDefault();
-	reg.classList.remove('activar');
-	contvent.classList.remove('activar');
-});
-
-
-
-const edicion=document.getElementById('tabla')
-
-
-edicion.addEventListener('click',(e)=>{
-    const editar=e.target;
-    if(editar.classList.contains('btneditar')){
-        let xhr
-         if (window.XMLHttpRequest) xhr = new XMLHttpRequest()
-         else xhr = new ActiveXObject("Microsoft.XMLHTTP")
-         //obtengo el id
-         var t=editar.parentElement.parentElement.firstElementChild.textContent
-         console.log(t)
-        //  xhr.open('GET', `../php/queryedicion.php?t=${t}`)
-        //  xhr.addEventListener('load',()=>
-        //  {
-        //      console.log("llegue")
-        //  })
-         
-        //  xhr.send()
-         
-         window.location.href="../php/edicioninsumo.php?t="+t
-    }
 })
 
+pag2.addEventListener('click',()=>{
+    let p=pag2.textContent
+    // window.location.href=`../../php/abminsumo.php?p=${p}`
+    getDatap(p)
+    
+})
 
+pag3.addEventListener('click',()=>{
+    let p=pag3.textContent
+    //window.location.href=`../../php/abminsumo.php?p=${p}`
+    getDatap(p)
+
+})
+pag4.addEventListener('click',()=>{
+    let p=pag4.textContent
+  //  window.location.href=`../../php/abminsumo.php?p=${p}`
+  getDatap(p)
+})
+
+pag5.addEventListener('click',()=>{
+    let p=pag5.textContent
+  //  window.location.href=`../../php/abminsumo.php?p=${p}`
+  getDatap(p)
+
+})
 
