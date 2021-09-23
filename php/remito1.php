@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../css/style2.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/styleinicio.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/datatable.css?v=<?php echo(rand()); ?>">
 
 </head>
 
@@ -65,16 +66,7 @@
                 <span class="mx-2">Socios</span>
               </li>
             </ul>
-          </div>
-
-          <div class="p-0 my-container divcontside ">
-            
-            <a class="btn contbtnnav" id="menu-btn">
-              <!-- <i class="bx bx-menu "></i> -->
-                  <img src="../assets/imagenes/iconham.svg" class="iconham" alt="">
-            </a>
-            
-          </div>
+        </div>
 
 
         <?php
@@ -128,15 +120,21 @@
 
         <!--        CUERPO DEL PROGRAMA ----------------------------------->
 
+    <div class="mainmain">
+        <p class="textordencompra">RECEPCIÓN DE REMITOS</p>
+        
         <div class="container">
             <div class="row">
                 
                 <div class="col-md-7">
                     <div class="alert alert-dismissible alert-light">
                         <label for="txt_orden_remito">Seleccione la Orden de Compra a la que corresponde el remito:</label>
-                    </div>                
-                    <table class="table table-bordered">
-                        <thead>
+                    </div>
+                    
+                    <div class="datatable-container-remito">
+
+                    <table class="table table-striped datatable table-bordered border-primary">
+                        <thead class="tablaenc">
                             <tr>
                                 <th>Id</th>
                                 <th>Fecha</th>
@@ -156,13 +154,23 @@
                                     <form method="POST">
                                         <input type="hidden" name="txtIDorden" id="tctIDorden" value="<?php echo $orden['Id']; ?>"/>
                                         <!--<input type="sumit" name="accion" value="Seleccionar" class="btn btn-info"/>-->
-                                        <button type="submit" class="btn btn-info" name="accion" value="Seleccionar">Seleccionar</button>
+                                        <button type="submit" class="btneditar" name="accion" value="Seleccionar">Seleccionar</button>
                                     </form>
                                 </td>
                             </tr>
                             <?php } ?>
                         </tbody>
                     </table>
+                    <div class="pages">
+                        <ul>
+                            <li><button id="btnpag1">1</button></li>
+                            <li><button id="btnpag2">2</button></li>
+                            <li><button id="btnpag3">3</button></li>
+                            <li><button id="btnpag4">4</button></li>
+                            <li><button id="btnpag5">5</button></li>
+                        </ul>
+                    </div>
+                    </div>
                 </div>
 
                 <div class="col-md-5">
@@ -203,19 +211,20 @@
         </div>
         <?php
 
-  if(isset($_GET["btn_cancelar"])){
-    $conexion = mysqli_connect('localhost','root','','debian2');
-      $p=$_SESSION['codigo_remito'];
-    $sql="delete from remito_detalle where Id_rem=$p";                                                                                      
-    $result=mysqli_query($conexion,$sql);
-    $sql="delete from remito where Id=$p";                                                                                      
-    $result=mysqli_query($conexion,$sql);
+            if(isset($_GET["btn_cancelar"])){
+                $conexion = mysqli_connect('localhost','root','','debian2');
+                $p=$_SESSION['codigo_remito'];
+                $sql="delete from remito_detalle where Id_rem=$p";                                                                                      
+                $result=mysqli_query($conexion,$sql);
+                $sql="delete from remito where Id=$p";                                                                                      
+                $result=mysqli_query($conexion,$sql);
 
-  }
+            }
 
-?>
+            ?>
 
 
+    </div>
     </div>
 
 
@@ -250,5 +259,6 @@
     <script src="../js/inicio.js?v=<?php echo(rand()); ?>"></script>
 <script src="../js/prueba.js?v=<?php echo(rand()); ?>"></script>
 <script src="../js/remito1.js"></script>
+<script src="../js/paginaciones/remito.js?v=<?php  echo(rand()); ?>"></script>
 </body>
 </html>

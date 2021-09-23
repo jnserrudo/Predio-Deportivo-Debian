@@ -61,3 +61,9 @@ const ventas=document.getElementById('irventas')
 ventas.addEventListener('click',()=>{
     window.location.href='../php/ventas.php'
 })
+
+const irordenpago=document.getElementById('irordenpago')
+
+irordenpago.addEventListener('click',()=>{
+    window.location.href='../php/ordenpago.php'
+})
