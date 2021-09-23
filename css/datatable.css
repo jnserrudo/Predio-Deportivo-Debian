@@ -149,3 +149,160 @@
 .datatable-container .datatable .header-sorted{
     background-color: var(--dt-sorted-color);
 }
+
+
+/* tabla para ordenes pago */
+
+
+
+.datatable-container-ord-pago{
+    border: solid 2px var(--dt-border-color);
+    width: 850px;
+    height: 450px;
+    /* border:1px black solid; */
+    /* margin:  ; */
+    /* margin-left: 5px; */
+    font-size: 0.8em;
+}
+
+.datatable-container-ord-pago .header-tools{
+    border-bottom: solid 1px var(--dt-border-color);
+    padding: var(--dt-padding);
+    display: flex;
+    align-items: baseline;
+}
+
+
+.datatable-container-ord-pago .datatable{
+    border-collapse: collapse;
+    /*table-layout: fixed;*/
+    width: 100%;
+}
+
+.datatable-container-ord-pago .datatable,
+.datatable-container-ord-pago .datatable th,
+.datatable-container-ord-pago .datatable td{
+    padding: var(--dt-padding) var(--dt-padding);
+}
+
+.datatable-container-ord-pago .datatable th{
+    font-weight: bolder;
+    text-align: left;
+    border-bottom: solid 1px var(--dt-border-color);
+    cursor: pointer;
+}
+.datatable-container-ord-pago .datatable th:hover{
+    background-color: var(--dt-hover-color);
+}
+
+.datatable-container-ord-pago .datatable td{
+    border-bottom: solid 1px var(--dt-border-color);
+}
+.datatable-container-ord-pago .datatable  tr:nth-child(even){
+    background-color: var(--dt-cell-color);
+}
+.datatable-container-ord-pago .datatable tr:hover{
+    background-color: var(--dt-hover-color);
+}
+
+/* tabla para ordenes pago detalle */
+
+
+.datatable-container-ord-pago-detalle{
+    border: solid 2px var(--dt-border-color);
+    width: 550px;
+    height: 300px;
+    margin-left: 25px;
+   
+    font-size: 0.8em;
+}
+
+.datatable-container-ord-pago-detalle .header-tools{
+    border-bottom: solid 1px var(--dt-border-color);
+    padding: var(--dt-padding);
+    display: flex;
+    align-items: baseline;
+}
+
+
+.datatable-container-ord-pago-detalle .datatable{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.datatable-container-ord-pago-detalle .datatable,
+.datatable-container-ord-pago-detalle .datatable th,
+.datatable-container-ord-pago-detalle .datatable td{
+    padding: var(--dt-padding) var(--dt-padding);
+}
+
+.datatable-container-ord-pago-detalle .datatable th{
+    font-weight: bolder;
+    text-align: left;
+    border-bottom: solid 1px var(--dt-border-color);
+    cursor: pointer;
+}
+.datatable-container-ord-pago-detalle .datatable th:hover{
+    background-color: var(--dt-hover-color);
+}
+
+.datatable-container-ord-pago-detalle .datatable td{
+    border-bottom: solid 1px var(--dt-border-color);
+}
+.datatable-container-ord-pago-detalle .datatable  tr:nth-child(even){
+    background-color: var(--dt-cell-color);
+}
+.datatable-container-ord-pago-detalle .datatable tr:hover{
+    background-color: var(--dt-hover-color);
+}
+
+/* tabla de remito */
+
+
+.datatable-container-remito{
+    border: solid 2px var(--dt-border-color);
+    width: 720px;
+    height: 300px;
+   
+    font-size: 0.8em;
+}
+
+.datatable-container-remito .header-tools{
+    border-bottom: solid 1px var(--dt-border-color);
+    padding: var(--dt-padding);
+    display: flex;
+    align-items: baseline;
+}
+
+
+.datatable-container-remito .datatable{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.datatable-container-remito .datatable,
+.datatable-container-remito .datatable th,
+.datatable-container-remito .datatable td{
+    padding: var(--dt-padding) var(--dt-padding);
+}
+
+.datatable-container-remito .datatable th{
+    font-weight: bolder;
+    text-align: left;
+    border-bottom: solid 1px var(--dt-border-color);
+    cursor: pointer;
+}
+.datatable-container-remito .datatable th:hover{
+    background-color: var(--dt-hover-color);
+}
+
+.datatable-container-remito .datatable td{
+    border-bottom: solid 1px var(--dt-border-color);
+    border-color: var(--dt-border-color);
+}
+.datatable-container-remito .datatable  tr:nth-child(even){
+    background-color: var(--dt-cell-color);
+}
+.datatable-container-remito .datatable tr:hover{
+    background-color: var(--dt-hover-color);
+}
