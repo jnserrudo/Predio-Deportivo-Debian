@@ -214,8 +214,8 @@ table.addEventListener('click',(e)=>{
 tablamov.addEventListener('click',(e)=>{
     const editar=e.target;
     if(editar.classList.contains('btneditar')){
-        console.log(editar.parentElement.parentElement)
-        tablamov.removeChild(editar.parentElement.parentElement)
+        console.log(editar.parentElement)
+        tablamov.removeChild(editar.parentElement)
         
 
     }

@@ -24,19 +24,19 @@
 
     <div class="main">
 
-    <div class="imgedit">
+    <!--<div class="imgedit">
             <img src="../assets/imagenes/canchas.jpg"  class="imgcancha" alt="">
-        </div>
-        <div class="cont">
-            <div class="contedicion">
+        </div> -->
+        <div class="cont_orden_pago">
+            <div class="contedicion_orden_pago">
             <img src="../assets/imagenes/bebi.png"class="imgicon" alt="">
                     <img src="../assets/imagenes/camiseta.png"class="imgicon" alt="">
                     <img src="../assets/imagenes/pelota.png"class="imgicon" alt="">
                
             </div>
-            <div class="contform">
-                <form action="abmproveedores.php" method="get" id="form">
-                    <div class="contformitems">
+            <div class="contform_orden_pago">
+                <form class="form_orden_pago"action="abmproveedores.php" method="get" id="form">
+                    <div class="contformitems_ordenpago">
 
                                                                 <?php 
                                                                         $conexion = NULL;
@@ -74,10 +74,10 @@
 
 
 
-                    <label for="precio">id:</label>
-                    <!-- este no se deberia editar -->
-                        <input id="id"type="text" name="id" value=<?php  echo $resultados[0]; ?>>
-                        <label for="nom">Nombre:</label>
+                   <!-- <label for="precio">id:</label>
+                    
+                     <input id="id"type="text" name="id" value=<?php // echo $resultados[0]; ?>>
+                        <label for="nom">Nombre:</label>   -->
                         <?php 
                         $conexion = NULL;
                                 try{
@@ -103,34 +103,35 @@
                         require('queryedicion_prov.php');
                         ?>
                         
-                        <input type="text" id="nom" class="input" name="nom" value=<?php  echo $resultados[1]; ?>>
+                        <input type="text" id="nom" class="input_ordenpago" name="nom" value=<?php  echo $resultados[1]; ?>>
 
                         <label for="direc">Direccion:</label>
-                        <input name="direc" id="direc" cols="15" rows="3" name="direc" value=<?php  echo $resultados[2]; ?>>
+                        <input name="direc"class="input_ordenpago" id="direc" cols="15" rows="3" name="direc" value=<?php  echo $resultados[2]; ?>>
 
                         <label for="tel">Telefono:</label>
-                        <input type="text" id="tel" class="precio" name="tel" value=<?php  echo $resultados[3]; ?>>
+                        <input type="text" id="tel" class="input_ordenpago" name="tel" value=<?php  echo $resultados[3]; ?>>
 
                         <label for="correo">Correo:</label>
-                        <input type="text" id="correo" class="input" name="correo" value=<?php  echo $resultados[4]; ?>>
+                        <input type="text" id="correo" class="input_ordenpago" name="correo" value=<?php  echo $resultados[4]; ?>>
 
                     
                         </div>
                 </form>
-                    <div class="contbtneliminar">
-                         <button class="btn" id="btnrip" >Eliminar Proveedor</button>
-                    </div>
+                <div class="div_contbtn_orden_pago">
+                 <!--   <div class="contbtneliminar"> -->
+                         <button class="btn_editar_orden_pago" id="btnrip" >Eliminar Proveedor</button>
+               <!--     </div>
                 </div>
                
             <div class="contbtn">
-           
-             <button class="btn btnconfirmar" id="btnconf" >Confirmar</button>    
-                <button class="btn btncancelar" id="btncanc">Volver</button>
+                            -->
+             <button class="btn_editar_orden_pago" id="btnconf" >Confirmar</button>    
+                <button class="btn_editar_orden_pago" id="btncanc">Volver</button>
             </div>
         </div>
         <p id="prueba"> <?php  echo $resultados[0]; ?> </p>
 
-
+                            </div>
 
     </div>
 

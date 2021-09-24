@@ -164,17 +164,17 @@
                 </table>
                 <div class="pages">
                     <ul>
-                        <li><button id="btnpag1">1</button></li>
-                        <li><button id="btnpag2">2</button></li>
-                        <li><button id="btnpag3">3</button></li>
-                        <li><button id="btnpag4">4</button></li>
-                        <li><button id="btnpag5">5</button></li>
+                        <li><button id="btnpaga">1</button></li>
+                        <li><button id="btnpagb">2</button></li>
+                        <li><button id="btnpagc">3</button></li>
+                        <li><button id="btnpagd">4</button></li>
+                        <li><button id="btnpage">5</button></li>
                     </ul>
                 </div>
         
             <div class="formu">
                 <form method="get" action="remito1.php">
-                    <input class="btn btn-primary" type="submit"id="btn_cancelar" name="btn_cancelar"value="cancelar ">
+                    <input class="btn btn-primary" type="submit"id="btn_cancelar" name="pagina"value="cancelar">
                     <input type="submit"id="btn_remito" class="btn btn-primary" value="confirmar"> 
                 </form>
             </div>
@@ -220,7 +220,8 @@
     <script src="../js/mov_stock_remito.js"></script>
     <script src="../js/inicio.js?v=<?php echo(rand()); ?>"></script>
     <script src="../js/prueba.js?v=<?php echo(rand()); ?>"></script>  
-    <script src="../js/paginaciones/remitoproductos.js?v=<?php  echo(rand()); ?>"></script> 
+    <script src="../js/paginaciones/remitoproductos.js?v=<?php  echo(rand()); ?>"></script>
+    <script src="../js/paginaciones/productosdelremito.js?v=<?php  echo(rand()); ?>"></script> 
                                   
 
 </body>

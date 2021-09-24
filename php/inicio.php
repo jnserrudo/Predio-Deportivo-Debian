@@ -39,7 +39,7 @@ $conexion = NULL;
     }catch (PDOException $e){
         echo "Error ".$e->getMessage();
     }
-    // session_start();
+    session_start();
 ?>
 
 <header class="header">

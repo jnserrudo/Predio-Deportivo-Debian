@@ -17,7 +17,7 @@ const btnrip=document.getElementById('btnrip')
  btnconf.addEventListener('click',()=>{
 
 
-   var opcion = confirm("Esta seguro de editar el proveedor?");
+   var opcion = confirm("Esta seguro de editar el socio?");
   if (opcion == true) {
        mensaje = "Has clickado OK";
         //var id1 =document.getElementById('id1').textContent
@@ -36,7 +36,7 @@ const btnrip=document.getElementById('btnrip')
 	} 
 }) 
 btnrip.addEventListener('click',()=>{
-    var opcion = confirm("Esta seguro de eliminar el proveedor?");
+    var opcion = confirm("Esta seguro de eliminar el socio?");
     var r=document.getElementById('prueba').textContent
     if (opcion == true) {
         mensaje = "Has clickado OK";

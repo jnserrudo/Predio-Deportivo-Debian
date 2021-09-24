@@ -51,7 +51,7 @@ const getData = (x) => {
                         const databtnedit=document.createElement('TD')
                         const btnedit=document.createElement('button')
                         btnedit.classList.add("btneditar")
-                        btnedit.textContent="Seleccionar"
+                        btnedit.textContent="Elegir"
                         databtnedit.append(btnedit)
                         
                         dataid.textContent = orden[0]
@@ -93,7 +93,7 @@ const getData = (x) => {
                 const databtnedit=document.createElement('TD')
                 const btnedit=document.createElement('button')
                 btnedit.classList.add("btneditar")
-                btnedit.textContent="Seleccionar"
+                btnedit.textContent="Elegir"
                 databtnedit.append(btnedit)
                   console.log("soy el id nro"+orden.Id)
                 dataid.textContent = orden[0]

@@ -1,4 +1,4 @@
- <?php session_start(); ?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/bootstrap.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/style2.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/styleinicio.css?v=<?php echo(rand()); ?>">
-    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/datatable.css?v=<?php echo(rand()); ?>">
 
 </head>
@@ -37,36 +37,11 @@
         
         <!-- MENU DE NAVEGACION ------------------------------------------->
 
-        <div class="side-navbar  d-flex justify-content-between flex-wrap flex-column sidebar" id="sidebar">
-            <ul class="nav flex-column text-white w-100">
-              <a href="#" class="nav-link h3 text-white my-2">
-                Areas
-              </a>
-              <li href="#" class="nav-link lis" id="irinsumo">
-                <span class="mx-2">Insumos</span>
-              </li>
-              <li href="#" class="nav-link lis" id="irproveedores">
-                <span class="mx-2">Proveedores</span>
-              </li>
-              <li href="#" class="nav-link lis" id="irorden">
-                <span class="mx-2">Compras</span>
-               
-              </li>
-              <li href="#" class="nav-link lis" id="irventas">
-                <span class="mx-2">Ventas</span>
-                <!-- falta ventas -->
-              </li>
-              <li href="#" class="nav-link lis" id="irremitos">
-                <span class="mx-2">Remitos</span>
-              </li>
-              <li href="#" class="nav-link lis" id="irmov">
-                <span class="mx-2">Movimientos de Stock</span>
-              </li>
-              <li href="#" class="nav-link lis" id="irsocios">
-                <span class="mx-2">Socios</span>
-              </li>
-            </ul>
-        </div>
+        <?php
+    include '../includes/panel.php'
+    ?>
+
+
 
 
         <?php
@@ -75,12 +50,36 @@
 
         //OBTIENE LAS ORDENES DE COMPRA
        
-        $SQLordencompra = $conexion->prepare("SELECT orden.Id, orden.Fecha,proveedor.Nombre FROM orden, proveedor WHERE orden.Id_proveedor=proveedor.Id
+        $SQLordenescomp = $conexion->prepare("SELECT orden.Id, orden.Fecha,proveedor.Nombre FROM orden, proveedor WHERE orden.Id_proveedor=proveedor.Id
         ");
+        $SQLordenescomp->execute();
+        $todaslasordenes=$SQLordenescomp->fetchAll(PDO::FETCH_ASSOC);
+        
+        $ordenes_x_pagina = 6;
+        $total_resultados = $SQLordenescomp->rowCount();
+        $paginas = $total_resultados/$ordenes_x_pagina;
+        $paginas= ceil($paginas);
+        //-------------------- LAS ORDENES DE COMPRA CON LIMIT
+        if($_GET['pagina']=="cancelar"){
+            header('Location:remito1.php?pagina=1');
+        }
+
+        if(!$_GET){
+            header('Location:remito1.php?pagina=1');
+            $inicio=$ordenes_x_pagina;
+        }
+        else{
+            $inicio=($_GET['pagina']-1)*$ordenes_x_pagina;
+        }
+
+
+        $SQLordencompra = $conexion->prepare("SELECT orden.Id, orden.Fecha,proveedor.Nombre FROM orden, proveedor WHERE orden.Id_proveedor=proveedor.Id LIMIT :iniciar,:articulosxpag");
+        $SQLordencompra->bindParam(':iniciar',$inicio, PDO::PARAM_INT);
+        $SQLordencompra->bindParam(':articulosxpag',$ordenes_x_pagina,PDO::PARAM_INT);
         $SQLordencompra->execute();
-        $listaordenes=$SQLordencompra->fetchAll(PDO::FETCH_ASSOC); 
-        //------------------------
-        // print_r($_POST);//solo los muestra para ver si se envian
+        $listaordenes=$SQLordencompra->fetchAll(PDO::FETCH_ASSOC);
+
+        //--------------------
 
         $txtcodremito=(isset($_POST['txt_cod_remito']))?$_POST['txt_cod_remito']:"";  //RECEPCIONA LOS DATOS
         $txtfecha=(isset($_POST['date_fec_remito']))?$_POST['date_fec_remito']:"";
@@ -120,17 +119,18 @@
 
         <!--        CUERPO DEL PROGRAMA ----------------------------------->
 
-    <div class="mainmain">
+        <div class="mainmain">
         <p class="textordencompra">RECEPCIÓN DE REMITOS</p>
-        
+
+
         <div class="container">
             <div class="row">
                 
                 <div class="col-md-7">
                     <div class="alert alert-dismissible alert-light">
                         <label for="txt_orden_remito">Seleccione la Orden de Compra a la que corresponde el remito:</label>
-                    </div>
-                    
+                    </div>                
+                   
                     <div class="datatable-container-remito">
 
                     <table class="table table-striped datatable table-bordered border-primary">
@@ -154,7 +154,7 @@
                                     <form method="POST">
                                         <input type="hidden" name="txtIDorden" id="tctIDorden" value="<?php echo $orden['Id']; ?>"/>
                                         <!--<input type="sumit" name="accion" value="Seleccionar" class="btn btn-info"/>-->
-                                        <button type="submit" class="btneditar" name="accion" value="Seleccionar">Seleccionar</button>
+                                        <button type="submit" class="btneditar" name="accion" value="Seleccionar">Elegir</button>
                                     </form>
                                 </td>
                             </tr>
@@ -163,11 +163,14 @@
                     </table>
                     <div class="pages">
                         <ul>
-                            <li><button id="btnpag1">1</button></li>
-                            <li><button id="btnpag2">2</button></li>
-                            <li><button id="btnpag3">3</button></li>
-                            <li><button id="btnpag4">4</button></li>
-                            <li><button id="btnpag5">5</button></li>
+                            <?php for($i=0;$i<$paginas;$i++){ ?>
+                            <li>
+                                <a id="btnpag1" class="link-boton" href="remito1.php?pagina=<?php echo $i+1 ?>">
+                                <?php echo $i+1 ?>
+                            </a>
+                            </li>
+                            <?php } ?>
+                            
                         </ul>
                     </div>
                     </div>
@@ -211,20 +214,19 @@
         </div>
         <?php
 
-            if(isset($_GET["btn_cancelar"])){
-                $conexion = mysqli_connect('localhost','root','','debian2');
-                $p=$_SESSION['codigo_remito'];
-                $sql="delete from remito_detalle where Id_rem=$p";                                                                                      
-                $result=mysqli_query($conexion,$sql);
-                $sql="delete from remito where Id=$p";                                                                                      
-                $result=mysqli_query($conexion,$sql);
+if(isset($_GET["btn_cancelar"]))
+{
+    $conexion = mysqli_connect('localhost','root','','debian2');
+    $p=$_SESSION['codigo_remito'];
+    $sql="delete from remito_detalle where Id_rem=$p";                                                           $result=mysqli_query($conexion,$sql);
+    $sql="delete from remito where Id=$p";                                                               $result=mysqli_query($conexion,$sql);
+}
 
-            }
-
-            ?>
+?>
 
 
     </div>
+
     </div>
 
 
@@ -260,5 +262,7 @@
 <script src="../js/prueba.js?v=<?php echo(rand()); ?>"></script>
 <script src="../js/remito1.js"></script>
 <script src="../js/paginaciones/remito.js?v=<?php  echo(rand()); ?>"></script>
+
+
 </body>
 </html>

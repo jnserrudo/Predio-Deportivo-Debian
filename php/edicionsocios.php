@@ -22,21 +22,21 @@
     </header>
 
     <div class="main">
-
+<!--
     <div class="imgedit">
             <img src="../assets/imagenes/canchas.jpg"  class="imgcancha" alt="">
-        </div>
-        <div class="cont">
-            <div class="contedicion">
+        </div>  -->
+        <div class="cont_orden_pago">
+            <div class="contedicion_orden_pago">
             <img src="../assets/imagenes/bebi.png"class="imgicon" alt="">
                     <img src="../assets/imagenes/camiseta.png"class="imgicon" alt="">
                     <img src="../assets/imagenes/pelota.png"class="imgicon" alt="">
                 
             
             </div>
-            <div class="contform">
-                <form action="abmsocios.php" method="get" id="form">
-                    <div class="contformitems">
+            <div class="contformsocios">
+                <form class="form_orden_pago"action="abmsocios.php" method="get" id="form">
+                    <div class="contformitems_ordenpago_socios">
 
                                                                 <?php 
                                                                         $conexion = NULL;
@@ -74,7 +74,7 @@
 
 
 
-                    <label for="precio"></label>
+                    <!--<label for="precio"></label> -->
                     
                         <?php 
                         $conexion = NULL;
@@ -100,28 +100,29 @@
 
                         require('queryedicion_socios.php');
                         ?>
-                                               id: <input type="text" id="id" class="input" name="id" value=<?php  echo $resultados[0]; ?>>  
+                        <label for="id">id:</label>
+                         <input type="text" id="id" class="input_ordenpago" name="id" value=<?php  echo $resultados[0]; ?>>  
 
-                        <label for="nom"></label>
-                        Nombre: <input type="text" id="nom" class="input" name="nom" value=<?php  echo $resultados[1]; ?>>  
+                        <label for="nom">
+                        Nombre:</label> <input type="text" id="nom" class="input_ordenpago" name="nom" value=<?php  echo $resultados[1]; ?>>  
 
                         <label for="apellido">Apellido:</label>
-                        <input type="text" id="tel" class="imput" name="Apellido" value=<?php  echo $resultados[2]; ?>>
+                        <input type="text" id="tel" class="input_ordenpago" name="Apellido" value=<?php  echo $resultados[2]; ?>>
 
                         <label for="DNI">DNI:</label>
-                        <input type="text" id="DNI" class="input" name="DNI" value=<?php  echo $resultados[3]; ?>>
+                        <input type="text" id="DNI" class="input_ordenpago" name="DNI" value=<?php  echo $resultados[3]; ?>>
                         
                         <label for="Estado">Estado:</label>
-                        <input type="text" id="Estado" class="input" name="Estado" value=<?php  echo $resultados[4]; ?>>
+                        <input type="text" id="Estado" class="input_ordenpago" name="Estado" value=<?php  echo $resultados[4]; ?>>
 
                         <label for="Email">Email:</label>
-                        <input type="text" id="Email" class="input" name="Email" value=<?php  echo $resultados[5]; ?>>
+                        <input type="text" id="Email" class="input_ordenpago" name="Email" value=<?php  echo $resultados[5]; ?>>
 
                         <label for="Direccion">Direccion:</label>
-                        <input type="text" id="Direccion" class="input" name="Direccion" value=<?php  echo $resultados[6]; ?>>
+                        <input type="text" id="Direccion" class="input_ordenpago" name="Direccion" value=<?php  echo $resultados[6]; ?>>
 
                         <label for="Telefono">Telefono:</label>
-                        <input type="text" id="Telefono" class="input" name="Telefono" value=<?php  echo $resultados[7]; ?>>
+                        <input type="text" id="Telefono" class="input_ordenpago" name="Telefono" value=<?php  echo $resultados[7]; ?>>
 
 
 
@@ -133,21 +134,22 @@
                     
                         </div>
                 </form>
-                    <div class="contbtneliminar">
-                         <button class="btn" id="btnrip" >Eliminar Socio</button>
-                    </div>
+                <div class="div_contbtn_orden_pago">
+                <!--    <div class="contbtneliminar"> -->
+                         <button class="btn_editar_orden_pago" id="btnrip" >Eliminar Socio</button>
+                <!--    </div>
                 </div>
                
-            <div class="contbtn">
+            <div class="contbtn">   -->
            
-             <button class="btn btnconfirmar" id="btnconf" >Confirmar</button>    
-                <button class="btn btncancelar" id="btncanc">Volver</button>
+             <button class="btn_editar_orden_pago" id="btnconf" >Confirmar</button>    
+                <button class="btn_editar_orden_pago" id="btncanc">Volver</button>
             </div>
         </div>
-        <p id="prueba"> <?php  echo $resultados[0]; ?> </p>
+        <!-- <p id="prueba"> <?php // echo $resultados[0]; ?> </p> -->
 
 
-
+                            </div>
     </div>
 
 

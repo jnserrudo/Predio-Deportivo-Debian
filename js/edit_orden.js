@@ -12,7 +12,7 @@ const btnrip=document.getElementById('btnrip')
  btnconf.addEventListener('click',()=>{
 
 
-   var opcion = confirm("Esta seguro de editar la orden de Compra?");
+   var opcion = confirm("Esta seguro de editar la Orden de Compra?");
   if (opcion == true) {
        mensaje = "Has clickado OK";
         //var id1 =document.getElementById('id1').textContent

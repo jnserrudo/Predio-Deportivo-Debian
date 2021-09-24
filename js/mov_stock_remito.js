@@ -47,7 +47,7 @@ const getData = (x) => {
                         const btnedit=document.createElement('button') /*creo boton*/
                         btnedit.classList.add("btneditar")
                            /*meto boton*/
-                        btnedit.textContent="Seleccionar"   /*texto del boton*/
+                        btnedit.textContent="Elegir"   /*texto del boton*/
                         databtnedit.append(btnedit) 
                         
                       //  lbl_cant.textContent="0"   /*texto del boton*/
@@ -113,7 +113,7 @@ const getData = (x) => {
                 const databtnedit=document.createElement('TD')
                 const btnedit=document.createElement('button')
                 btnedit.classList.add("btneditar")
-                btnedit.textContent="Seleccionar"
+                btnedit.textContent="Elegir"
                 databtnedit.append(btnedit)
 
                // lbl_cant.textContent=""   /*texto del boton*/

@@ -335,8 +335,10 @@ p{
      height: 500px;
      /* margin-top: 50px; */
      padding-top: 0px;
-     background-color:var(--fondoedit);
+     background-color: rgb(193, 240, 255);        /*:var(--fondoedit);*/
      border:2px black solid;
+
+
  }
 
  .cont_orden_pago{
@@ -352,18 +354,20 @@ p{
     /* background-color: red; */
 }
 
+
+
 .contformitems_ordenpago{
-    padding: 150px 10px;
+    /* padding: 150px 10px; */
     border:1px rgb(88, 88, 255) solid;
      margin-top: 0px; 
-   /* margin-left: auto;
-    margin-right: auto;*/
+   margin-left: auto;
+    margin-right: auto;
     display: grid;
     gap: 20px;
     background-color: rgb(193, 240, 255);
     grid-template-columns:100px 150px;
-    width: 600px; 
-    height: 500px;  
+    width: 400px; 
+    height: 400px;  
 }
 .form_orden_pago{
         height: 300px;
@@ -372,7 +376,7 @@ p{
     .input_ordenpago{
         border-radius: 3px;
         height: 30px;
-        width: 400px;
+        width: 200px;
     }
 
 
@@ -388,3 +392,27 @@ p{
         margin-left: 10px;
     }
     /*fin martin*/
+    .contformitems_ordenpago_socios{
+        /* padding: 150px 10px; */
+        /* border:1px rgb(88, 88, 255) solid; */
+         margin-top: 0px; 
+       margin-left: auto;
+        margin-right: auto;
+        display: grid;
+        gap: 20px;
+        background-color: rgb(193, 240, 255);
+        grid-template-columns:100px 150px;
+        width: 400px; 
+        height: 450px;  
+    }
+
+    .contformsocios{
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        height: 550px;
+        /* margin-top: 50px; */
+        padding-top: 5px;
+        background-color:rgb(193, 240, 255);
+        border:2px black solid;
+    }

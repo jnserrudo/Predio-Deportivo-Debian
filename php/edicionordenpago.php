@@ -24,9 +24,9 @@
 
 
     <div class="main">
-        <div class="imgedit">
+       <!-- <div class="imgedit">
             <img src="../assets/imagenes/canchas.jpg"  class="imgcancha" alt="">
-        </div> 
+        </div> -->
         <div class="cont_orden_pago">
 
         

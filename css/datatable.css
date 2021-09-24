@@ -157,12 +157,12 @@
 
 .datatable-container-ord-pago{
     border: solid 2px var(--dt-border-color);
-    width: 850px;
+    width: 1050px;
     height: 450px;
     /* border:1px black solid; */
     /* margin:  ; */
     /* margin-left: 5px; */
-    font-size: 0.8em;
+    font-size: 1.2em;
 }
 
 .datatable-container-ord-pago .header-tools{
@@ -306,7 +306,74 @@
 .datatable-container-remito .datatable tr:hover{
     background-color: var(--dt-hover-color);
 }
+.link-boton {
+    color: var(--dt-text-color-button);
+    width: 100%;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 3px;
+    background: transparent;
+    cursor: pointer; 
+    padding: var(--dt-padding-sm) var(--dt-padding);
+}
+.link-boton a:hover{
+    background: var(--dt-bg-active-button);
+    color: var(--dt-text-color-active-button);
+}
+.link-boton a.active{
+    background-color:  var(--dt-bg-color);
+    border-radius: 3px;
+}
 
+/* tabla para ver los remitos */
+
+.datatable-container-ver-remito{
+    border: solid 2px var(--dt-border-color);
+    width: 100%;
+    height: 70%;
+   
+    font-size: 0.8em;
+}
+
+.datatable-container-ver-remito .header-tools{
+    border-bottom: solid 1px var(--dt-border-color);
+    padding: var(--dt-padding);
+    display: flex;
+    align-items: baseline;
+}
+
+
+.datatable-container-ver-remito .datatable{
+    border-collapse: collapse;
+    width: 96%;
+}
+
+.datatable-container-ver-remito .datatable,
+.datatable-container-ver-remito .datatable th,
+.datatable-container-ver-remito .datatable td{
+    padding: var(--dt-padding) var(--dt-padding);
+}
+
+.datatable-container-ver-remito .datatable th{
+    font-weight: bolder;
+    text-align: left;
+    border-bottom: solid 1px var(--dt-border-color);
+    cursor: pointer;
+}
+.datatable-container-ver-remito .datatable th:hover{
+    background-color: var(--dt-hover-color);
+}
+
+.datatable-container-ver-remito .datatable td{
+    border-bottom: solid 1px var(--dt-border-color);
+    border-color: var(--dt-border-color);
+}
+.datatable-container-ver-remito .datatable  tr:nth-child(even){
+    background-color: var(--dt-cell-color);
+}
+.datatable-container-ver-remito .datatable tr:hover{
+    background-color: var(--dt-hover-color);
+}
 
 /* tabla productos de un remito  martin*/
 
@@ -369,7 +436,7 @@
     /* border:1px black solid; */
     /* margin:  ; */
     /* margin-left: 5px; */
-    font-size: 0.8em;
+    font-size: 1.2em;
 }
 
 .datatable-container-ord-pago-abm .header-tools{
@@ -483,8 +550,8 @@
 
 .datatable-container-cantinsumo-movstock{
     border: solid 2px var(--dt-border-color);
-    width: 300px;
-    height: 250px;
+    width: 600px;
+    height: 400px;
     /* border:1px black solid; */
     /* margin:  ; */
     /* margin-left: 5px; */
