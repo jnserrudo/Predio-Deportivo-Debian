@@ -1,11 +1,3 @@
-const input=document.getElementById("input");
-
-
-
-console.log("aaaaaaa");
-
-const consulta=document.getElementById("txtconsulta");
-
 
 
 
@@ -31,9 +23,14 @@ busq.addEventListener('click',
 }
 )
 
+const btnvolverordenpago=document.getElementById("btnvolverordenpago");
+btnvolverordenpago.addEventListener('click',()=>{
+    window.location.href="../php/ordenpago.php"
+})
+
+
+
 const table = document.getElementById('tabla')
-
-
 const getData = (x) => {
     let xhr
     if (window.XMLHttpRequest) xhr = new XMLHttpRequest()
@@ -41,7 +38,7 @@ const getData = (x) => {
 
     if (x == undefined) {
         
-        xhr.open('GET', "../php/insercion_remitos1.php")
+        xhr.open('GET', "../php/insercion_orden_pago.php")
 
         xhr.addEventListener('load', (data) => {
             const dataJSON = JSON.parse(data.target.response)
@@ -49,45 +46,34 @@ const getData = (x) => {
 
             const fragment = document.createDocumentFragment()
 
-            for (const proveedor of dataJSON) {
-                        console.log(proveedor+"y su primero seria"+proveedor[0])
+            for (const orden of dataJSON) {
+                        console.log(orden+"y su primero seria"+orden[0])
                         const row = document.createElement('TR')
-                        row.classList.add('fila')
+                        // row.classList.add('fila')
                         const dataid = document.createElement('TD')
-                        const dataid_orden = document.createElement('TD')
                         const datafecha = document.createElement('TD')
-                        const dataid_insumo = document.createElement('TD')
-                        const datanombre = document.createElement('TD')
-                        const datacantidad = document.createElement('TD')
+                        const datairproveedor = document.createElement('TD')
                         const databtnedit=document.createElement('TD')
                         const btnedit=document.createElement('button')
                         btnedit.classList.add("btneditar")
                         btnedit.textContent="Editar"
                         databtnedit.append(btnedit)
                         
-                        dataid.textContent = proveedor[0]
-                        dataid_orden.textContent = proveedor[1]
-                        datafecha.textContent = proveedor[2]
-                        dataid_insumo.textContent = proveedor[3]
-                        datanombre.textContent = proveedor[4]
-                        datacantidad.textContent = proveedor[5]
+                        dataid.textContent = orden[0]
+                        datafecha.textContent = orden[1]
+                        datairproveedor.textContent = orden[2]                      
 
                         dataid.classList.add('celda')
-                        dataid_orden.classList.add('celda')
                         datafecha.classList.add('celda')
-                        dataid_insumo.classList.add('celda')
-                        datanombre.classList.add('celda')
-                        datacantidad.classList.add('celda')
+                        datairproveedor.classList.add('celda')
                         databtnedit.classList.add('celda')
 
                        
                         // console.log("soy el data id :"+dataid.textContent)
                         row.append(dataid)
-                        row.append(dataid_orden)
                         row.append(datafecha)
-                        row.append(dataid_insumo)
-                        row.append(datanombre)
-                        row.append(datacantidad)
+                        row.append(datairproveedor)
+                        
                         row.append(databtnedit)
 
                         fragment.append(row)
@@ -95,7 +81,7 @@ const getData = (x) => {
             table.appendChild(fragment)
         })
     } else {
-        xhr.open('GET', `../php/insercion_remitos1.php?x=${x}`)
+        xhr.open('GET', `../php/insercion_orden_pago.php?x=${x}`)
 
         xhr.addEventListener('load', (data) => {
             const dataJSON = JSON.parse(data.target.response)
@@ -103,45 +89,34 @@ const getData = (x) => {
 
             const fragment = document.createDocumentFragment()
 
-            for (const proveedor of dataJSON) {
+            for (const orden of dataJSON) {
                 const row = document.createElement('TR')
                 row.classList.add('fila')
                 const dataid = document.createElement('TD')
-                const dataid_orden = document.createElement('TD')
                 const datafecha = document.createElement('TD')
-                const dataid_insumo = document.createElement('TD')
-                const datanombre = document.createElement('TD')
-                const datacantidad = document.createElement('TD')
+                const datairproveedor = document.createElement('TD')
                 const databtnedit=document.createElement('TD')
                 const btnedit=document.createElement('button')
                 btnedit.classList.add("btneditar")
                 btnedit.textContent="Editar"
                 databtnedit.append(btnedit)
-                  console.log("soy el id nro"+proveedor.Id)
-                dataid.textContent = proveedor[0]
-                dataid_orden.textContent = proveedor[1]
-                datafecha.textContent = proveedor[2]
-                dataid_insumo.textContent = proveedor[3]
-                datanombre.textContent = proveedor[4]
-                datacantidad.textContent = proveedor[5]
+                  console.log("soy el id nro"+orden.Id)
+                dataid.textContent = orden[0]
+                datafecha.textContent = orden[1]
+                datairproveedor.textContent = orden[2]  
                 
 
 
                 dataid.classList.add('celda')
-                dataid_orden.classList.add('celda')
                 datafecha.classList.add('celda')
-                dataid_insumo.classList.add('celda')
-                datanombre.classList.add('celda')
-                datacantidad.classList.add('celda')
+                datairproveedor.classList.add('celda')
                 databtnedit.classList.add('celda')
 
 
                 row.append(dataid)
-                row.append(dataid_orden)
                 row.append(datafecha)
-                row.append(dataid_insumo)
-                row.append(datanombre)
-                row.append(datacantidad)
+                row.append(datairproveedor)
+                
                 row.append(databtnedit)
 
                 fragment.append(row)
@@ -159,38 +134,8 @@ const getData = (x) => {
     xhr.send()
 }
 
-
-
-
-
-//const btnvent = document.getElementById('btnvent');
-const reg = document.getElementById('reg');
-const contvent = document.getElementById('cont_vent');
-const iconocerrar = document.getElementById('icono_cerrar');
-
-
-
-
-
-
-getData() 
-/*btnvent.addEventListener('click', ()=>{
-	reg.classList.add('activar');
-    console.log("aa")
-	contvent.classList.add('activar');
-});*/
-
-iconocerrar.addEventListener('click', (e)=>{
-	e.preventDefault();
-	reg.classList.remove('activar');
-	contvent.classList.remove('activar');
-});
-
-
-
+getData()
 const edicion=document.getElementById('tabla')
-
-
 edicion.addEventListener('click',(e)=>{
     const editar=e.target;
     if(editar.classList.contains('btneditar')){
@@ -208,12 +153,6 @@ edicion.addEventListener('click',(e)=>{
          
         //  xhr.send()
          
-         window.location.href="../php/edicionremitos1.php?t="+t
+         window.location.href="../php/edicionordenpago.php?t="+t
     }
 })
-
-const btnvolver=document.getElementById('btn_volver')
-btnvolver.addEventListener('click',()=>{
-    window.location.href='../php/remito1.php'
-})
-

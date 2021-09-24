@@ -326,9 +326,9 @@ btnconfordpago.addEventListener('click',()=>{
 })
 
 
-const btnirabmordpagos= document.getElementById('btnverordpagos')
-btnirabmordpagos.addEventListener('click',()=>{
+// const btnirabmordpagos= document.getElementById('btnverordpagos')
+// btnirabmordpagos.addEventListener('click',()=>{
 
-    window.location.href='../../php/'
-})
+//     window.location.href=`./../../php/abmorden_pago.php`
+// })
 

@@ -116,7 +116,10 @@ p{
     width: 80px;
     height: 30px;
     border-radius:5px;
-    background-color: rgb(243, 243, 129) !important;
+    background-color: #FFF59D !important;
+    font-size: 17px;
+    font-family:Verdana,Helvetica;
+        font-weight:bold;
 }
 
 .btneliminar{
@@ -186,6 +189,12 @@ font-size: 2em;
 
 .cont_vent_mov_stock{
     width: 650px;
+}
+
+
+.cont_vent_remito{
+    width: 650px;
+    height: 550px;
 }
 /* .divimgfondo{
     position: relative

@@ -306,3 +306,281 @@
 .datatable-container-remito .datatable tr:hover{
     background-color: var(--dt-hover-color);
 }
+
+
+/* tabla productos de un remito  martin*/
+
+.datatable-container-remito-productos{
+    border: solid 2px var(--dt-border-color);
+    width: 100%;
+    height: 80%;
+   
+    font-size: 0.8em;
+}
+
+.datatable-container-remito-productos .header-tools{
+    border-bottom: solid 1px var(--dt-border-color);
+    padding: var(--dt-padding);
+    display: flex;
+    align-items: baseline;
+}
+
+
+.datatable-container-remito-productos .datatable{
+    border-collapse: collapse;
+    width: 96%;
+}
+
+.datatable-container-remito-productos .datatable,
+.datatable-container-remito-productos .datatable th,
+.datatable-container-remito-productos .datatable td{
+    padding: var(--dt-padding) var(--dt-padding);
+}
+
+.datatable-container-remito-productos .datatable th{
+    font-weight: bolder;
+    text-align: left;
+    border-bottom: solid 1px var(--dt-border-color);
+    cursor: pointer;
+}
+.datatable-container-remito-productos .datatable th:hover{
+    background-color: var(--dt-hover-color);
+}
+
+.datatable-container-remito-productos .datatable td{
+    border-bottom: solid 1px var(--dt-border-color);
+    border-color: var(--dt-border-color);
+}
+.datatable-container-remito-productos .datatable  tr:nth-child(even){
+    background-color: var(--dt-cell-color);
+}
+.datatable-container-remito-productos .datatable tr:hover{
+    background-color: var(--dt-hover-color);
+}
+
+/* tabla para ordenes pago-abm */
+
+
+
+.datatable-container-ord-pago-abm{
+    border: solid 2px var(--dt-border-color);
+    width: 1250px;
+    height: 500px;
+    /* border:1px black solid; */
+    /* margin:  ; */
+    /* margin-left: 5px; */
+    font-size: 0.8em;
+}
+
+.datatable-container-ord-pago-abm .header-tools{
+    border-bottom: solid 1px var(--dt-border-color);
+    padding: var(--dt-padding);
+    display: flex;
+    align-items: baseline;
+}
+
+
+.datatable-container-ord-pago-abm .datatable{
+    border-collapse: collapse;
+    /*table-layout: fixed;*/
+    width: 100%;
+}
+
+.datatable-container-ord-pago-abm .datatable,
+.datatable-container-ord-pago-abm .datatable th,
+.datatable-container-ord-pago-abm .datatable td{
+    padding: var(--dt-padding) var(--dt-padding);
+}
+
+.datatable-container-ord-pago-abm .datatable th{
+    font-weight: bolder;
+    text-align: left;
+    border-bottom: solid 1px var(--dt-border-color);
+    cursor: pointer;
+}
+.datatable-container-ord-pago-abm .datatable th:hover{
+    background-color: var(--dt-hover-color);
+}
+
+.datatable-container-ord-pago-abm .datatable td{
+    border-bottom: solid 1px var(--dt-border-color);
+}
+.datatable-container-ord-pago-abm .datatable  tr:nth-child(even){
+    background-color: var(--dt-cell-color);
+}
+.datatable-container-ord-pago-abm .datatable tr:hover{
+    background-color: var(--dt-hover-color);
+}
+/*fin martin*/
+
+
+
+
+/* tabla insumo ordencompra */
+
+
+
+
+
+
+
+.datatable-container-insumo-ordencompra{
+    border: solid 2px var(--dt-border-color);
+    width: 780px;
+    height: 450px;
+    /* border:1px black solid; */
+    /* margin:  ; */
+    /* margin-left: 5px; */
+    font-size: 1em;
+}
+
+.datatable-container-insumo-ordencompra .header-tools{
+    border-bottom: solid 1px var(--dt-border-color);
+    padding: var(--dt-padding);
+    display: flex;
+    align-items: baseline;
+}
+
+
+.datatable-container-insumo-ordencompra .datatable{
+    border-collapse: collapse;
+    /*table-layout: fixed;*/
+    width: 100%;
+}
+
+.datatable-container-insumo-ordencompra .datatable,
+.datatable-container-insumo-ordencompra .datatable th,
+.datatable-container-insumo-ordencompra .datatable td{
+    padding: var(--dt-padding) var(--dt-padding);
+}
+
+.datatable-container-insumo-ordencompra .datatable th{
+    font-weight: bolder;
+    text-align: left;
+    border-bottom: solid 1px var(--dt-border-color);
+    cursor: pointer;
+}
+.datatable-container-insumo-ordencompra .datatable th:hover{
+    background-color: var(--dt-hover-color);
+}
+
+.datatable-container-insumo-ordencompra .datatable td{
+    border-bottom: solid 1px var(--dt-border-color);
+}
+.datatable-container-insumo-ordencompra .datatable  tr:nth-child(even){
+    background-color: var(--dt-cell-color);
+}
+.datatable-container-insumo-ordencompra .datatable tr:hover{
+    background-color: var(--dt-hover-color);
+}
+
+
+/* tablita cantidad insumos orden compra */
+
+
+
+
+
+.datatable-container-cantinsumo-movstock{
+    border: solid 2px var(--dt-border-color);
+    width: 300px;
+    height: 250px;
+    /* border:1px black solid; */
+    /* margin:  ; */
+    /* margin-left: 5px; */
+    font-size: 1em;
+}
+
+.datatable-container-cantinsumo-movstock .header-tools{
+    border-bottom: solid 1px var(--dt-border-color);
+    padding: var(--dt-padding);
+    display: flex;
+    align-items: baseline;
+}
+
+
+.datatable-container-cantinsumo-movstock .datatable{
+    border-collapse: collapse;
+    /*table-layout: fixed;*/
+    width: 100%;
+}
+
+.datatable-container-cantinsumo-movstock .datatable,
+.datatable-container-cantinsumo-movstock .datatable th,
+.datatable-container-cantinsumo-movstock .datatable td{
+    padding: var(--dt-padding) var(--dt-padding);
+}
+
+.datatable-container-cantinsumo-movstock .datatable th{
+    font-weight: bolder;
+    text-align: left;
+    border-bottom: solid 1px var(--dt-border-color);
+    cursor: pointer;
+}
+.datatable-container-cantinsumo-movstock .datatable th:hover{
+    background-color: var(--dt-hover-color);
+}
+
+.datatable-container-cantinsumo-movstock .datatable td{
+    border-bottom: solid 1px var(--dt-border-color);
+}
+.datatable-container-cantinsumo-movstock .datatable  tr:nth-child(even){
+    background-color: var(--dt-cell-color);
+}
+.datatable-container-cantinsumo-movstock .datatable tr:hover{
+    background-color: var(--dt-hover-color);
+}
+
+
+/* tabla remitos para mov stock */
+
+
+
+/* datatable-container-remito */
+
+.datatable-container-remito{
+    border: solid 2px var(--dt-border-color);
+    width: 500px;
+    height: 350px;
+    margin-left: 50px;
+    font-size: 1em;
+}
+
+.datatable-container-remito .header-tools{
+    border-bottom: solid 1px var(--dt-border-color);
+    padding: var(--dt-padding);
+    display: flex;
+    align-items: baseline;
+}
+
+
+.datatable-container-remito .datatable{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.datatable-container-remito .datatable,
+.datatable-container-remito .datatable th,
+.datatable-container-remito .datatable td{
+    padding: var(--dt-padding) var(--dt-padding);
+}
+
+.datatable-container-remito .datatable th{
+    font-weight: bolder;
+    text-align: left;
+    border-bottom: solid 1px var(--dt-border-color);
+    cursor: pointer;
+}
+.datatable-container-remito .datatable th:hover{
+    background-color: var(--dt-hover-color);
+}
+
+.datatable-container-remito .datatable td{
+    border-bottom: solid 1px var(--dt-border-color);
+}
+.datatable-container-remito .datatable  tr:nth-child(even){
+    background-color: var(--dt-cell-color);
+}
+.datatable-container-remito .datatable tr:hover{
+    background-color: var(--dt-hover-color);
+}

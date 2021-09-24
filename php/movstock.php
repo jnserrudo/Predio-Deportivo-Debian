@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/style2.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/styleinicio.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/stylemovstock.css?v=<?php echo(rand()); ?>">
+    <link rel="stylesheet" href="../css/datatable.css?v=<?php echo(rand()); ?>">
 
 </head>
 <body>
@@ -142,45 +143,12 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
     <div class="main">
       
 
-        <div class="side-navbar  d-flex justify-content-between flex-wrap flex-column sidebar" id="sidebar">
-            <ul class="nav flex-column text-white w-100">
-              <a href="#" class="nav-link h3 text-white my-2">
-                Areas
-              </a>
-              <li href="#" class="nav-link lis" id="irinsumo">
-                <span class="mx-2">Insumos</span>
-              </li>
-              <li href="#" class="nav-link lis" id="irproveedores">
-                <span class="mx-2">Proveedores</span>
-              </li>
-              <li href="#" class="nav-link lis" id="irorden">
-                <span class="mx-2">Compras</span>
-               
-              </li>
-              <li href="#" class="nav-link lis" id="irventas">
-                <span class="mx-2">Ventas</span>
-                <!-- falta ventas -->
-              </li>
-              <li href="#" class="nav-link lis" id="irremitos">
-                <span class="mx-2">Remitos</span>
-              </li>
-              <li href="#" class="nav-link lis" id="irmov">
-                <span class="mx-2">Movimientos de Stock</span>
-              </li>
-              <li href="#" class="nav-link lis" id="irsocios">
-                <span class="mx-2">Socios</span>
-              </li>
-            </ul>
-          </div>
+    <?php
+    include '../includes/panel.php'
+    ?>
 
-          <div class="p-0 my-container divcontside ">
-            
-            <a class="btn contbtnnav" id="menu-btn">
-              
-                  <img src="../assets/imagenes/iconham.svg" class="iconham" alt="">
-            </a>
-            
-          </div>
+  <div class="mainmain">
+            <p class="textordencompra"> MOVIMIENTO DE STOCK  </p>      
 
                 <div class="contdetalle">
 
@@ -223,19 +191,8 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
                             
                         </select>
                     </div>
-
-
                 </div>
-                
-
-                <div class="contablaimg">
-                    <div class="contimg">
-                        <img src="../assets/imagenes/insumosdep.jfif" alt="stock imagen">
-                    </div>
-
-
-
-                    
+              
                 <div class="divremito">
                         <button class='btnremito' id="btnremito" >Seleccionar Remito</button>
                         <button class='btnagregarmov' id="btnagregarmov" >Agregar</button>
@@ -243,24 +200,26 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
 
 <!-- ventana emergente con los remitos -->
                                                         <div class="reg" id="ventrem">
-                                                                <div class="cont_vent cont_vent_mov_stock" id="cont_ventrem">
+                                                                <div class="cont_vent cont_vent_remito" id="cont_ventrem">
                                                                 <img src="../assets/cruz.svg" alt="" class="icono_cerrar" id="icono_cerrarrem">
                                                                        <p class="txt_registrar" >Seleccionar Remito</p>
 
-                                                                                     
+                                                                                <div class="datatable-container-remito">
+                                                                                            <table id="tablaremito" class="table table-striped datatable table-bordered border-primary">
+                                                                                                            <thead>       
+                                                                                                                <th id="">Id</th>
+                                                                                                                <th id="">Id_Orden</th>
+                                                                                                                <th id="">Fecha</th>
+                                                                                                                <th id="">Accion</th>
+                                                                                                            </thead>
 
-                                                                                         <table id="tablaremito" class="table table-striped  table-bordered border-primary">
-                                                                                                <thead>       
-                                                                                                    <th id="">Id</th>
-                                                                                                    <th id="">Id_Orden</th>
-                                                                                                    <th id="">Fecha</th>
-                                                                                                    <th id="">Accion</th>
-                                                                                                </thead>
+                                                                                                            <!-- <?php
 
-                                                                                                <!-- <?php
+                                                                                                                    ?> -->
+                                                                                                    </table>
 
-                                                                                                        ?> -->
-                                                                                         </table>
+                                                                                </div>
+                                                                                        
                                                                  </div>
                     
                                                       </div>
@@ -268,25 +227,27 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
 
 
 
-                    <div class="">
+                    
+                    <div class="datatable-container-cantinsumo-movstock">
 
-                        <table id="tablamov" class="tablita table-bordered border-primary">
-                            <thead>       
-                                <th id="nominsumo">Nombre</th>
-                                <th id="cantinsumo">Cantidad</th>
-                                <th id="cantinsumo">Accion</th>
-                                                                                                    
-                            </thead>
-                        </table>
-                    </div>
-                </div>
+                    <div class="header-tools">   
+                                <table id="tablamov" class="table table-striped datatable table-bordered border-primary">
+                                    <thead>       
+                                        <th id="nominsumo">Nombre</th>
+                                        <th id="cantinsumo">Cantidad</th>
+                                        <th id="cantinsumo">Accion</th>
+                                                                                                            
+                                    </thead>
+                                </table>
+                                  </div>
+                              </div>
 
 
 
 
                 <!-- VENTANA EMERGENTE CON EL BUSCADOR DE INSUMOS -->
                                                         <div class="reg" id="reg">
-                                                                <div class="cont_vent cont_vent_mov_stock" id="cont_vent">
+                                                                <div class="cont_vent cont_vent_mov_stock cont_ventinsumoorden" id="cont_vent">
                                                                 <img src="../assets/cruz.svg" alt="" class="icono_cerrar" id="icono_cerrar">
                                                                        <p class="txt_registrar" >Seleccionar Insumo</p>
 
@@ -296,17 +257,33 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
                                                                                     
                                                                                     </div>
 
-                                                                                         <table id="tablainsumo" class="table table-striped  table-bordered border-primary">
-                                                                                                <thead>       
-                                                                                                    <th id="">Id</th>
-                                                                                                    <th id="">Id_categoria</th>
-                                                                                                    <th id="">Nombre</th>
-                                                                                                    <th id="">Descripcion</th>
-                                                                                                    <th id="">Precio</th>
-                                                                                                    <th id="">Stock</th>
-                                                                                                    <th id="">Accion</th>
-                                                                                                </thead>
-                                                                                         </table>
+                                                                                    <div class="datatable-container-insumo-ordencompra">
+                                                                                            <table id="tablainsumo" class="table table-striped datatable table-bordered border-primary">
+                                                                                                              
+                                                                                                      
+                                                                                                        <thead>       
+                                                                                                            <th id="">Id</th>
+                                                                                                            <th id="">Id_categoria</th>
+                                                                                                            <th id="">Nombre</th>
+                                                                                                            <th id="">Descripcion</th>
+                                                                                                            <th id="">Precio</th>
+                                                                                                            <th id="">Stock</th>
+                                                                                                            <th id="">Accion</th>
+                                                                                                        </thead>
+                                                                                                </table>
+                                                                                                
+                                                                                                <div class="pages">
+                                                                                                         <ul>
+                                                                                                            <li> <button id="btnpag1">1</button></li>
+                                                                                                            <li><button id="btnpag2">2</button></li>
+                                                                                                             <li><button id="btnpag3">3</button></li>
+                                                                                                            <li><button id="btnpag4">4</button></li>
+                                                                                                              <li><button id="btnpag5">5</button></li>
+                                                                                                               </ul>
+                                                                                                         </div>
+
+                                                                                    </div>
+                                                                                        
                                                                  </div>
                     
                                                       </div>
@@ -344,102 +321,28 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
 
 
             <div class="divbtnconf">
-            <button class="btnconfmov" id="btnconfirmar">Confirmar</button>
+                <button class="btnconfmov" id="btnconfirmar">Confirmar</button>
 
 
             </div>
 
+            
 
 
-
+            
 
 
 
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-        
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <footer class="w-100 footer d-flex  align-items-center justify-content-start flex-wrap">
-        <div id="iconos" class="iconos" >
-            <!-- logos -->
-            <div class="conticono">
-               <img src="../assets/imagenes/iconos/face.png" class="icono" alt=""> DEBIANfc 
-            </div>
-
-            <div class="conticono">
-                <img src="../assets/imagenes/iconos/ig.png" class="icono" alt=""> @DEBIANfc
-            </div>
-            <div class="conticono">
-                <img src="../assets/imagenes/iconos/tel.png" class="icono" alt=""> 4229-7600
-
-            </div>
-            <div class="conticono">
-                <img src="../assets/imagenes/iconos/gmail.png" class="icono" alt=""> Debian@gmail.com.ar
-            </div>
-            <div class="conticono">
-                <img src="../assets/imagenes/iconos/map.png" class="icono" alt=""> Av. Mitre 470 (1870).
-
-            </div>
-                 
-        </div>
-        <p class="frasefooter"> Mas que un club... <br> una Familia</p>  
-
-        <p class="text_debsw"> Desarrollado por Debian Software <br> &copy Derechos Reservados</p>
-      </footer>
+    </div>
+    <?php
+    include '../includes/footer.php'
+    ?>
     <script src="../js/inicio.js?v=<?php echo(rand()); ?>"></script>
     <script src="../js/prueba.js?v=<?php echo(rand()); ?>"></script>
     <script src="../js/movstock.js?v=<?php echo(rand()); ?>"></script>
+    <script src="../js/prueba_orden_pag_martin.js?v=<?php echo(rand()); ?>"></script>
 
     
 </body>
