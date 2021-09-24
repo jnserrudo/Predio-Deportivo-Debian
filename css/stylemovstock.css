@@ -12,12 +12,20 @@ body{
     text-align: center;
 }
 .contdetalle{
-    display: flex;
+    /* display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
     height: 150px;
     border-bottom:1px cadetblue solid;
+     */
     
+    
+        display: flex;
+        height: 10px;
+        float:left;
+        display: inline-block;
+    
+   
 }
 .contselected{
     width: 350px;
@@ -130,10 +138,16 @@ img{
 }
 .ventcant{
     background: #F8F8F8;
-	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
-	border-radius: 10px;
-	font-family: 'Montserrat', sans-serif;
-	padding: 20px;
-	text-align: center;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    padding: 20px;
+    text-align: center;
     width: 300px;
+}
+
+.cont_ventinsumoorden{
+    width: 900px;
+    padding: 20px;
+
 }

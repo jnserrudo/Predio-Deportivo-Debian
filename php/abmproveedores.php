@@ -159,36 +159,17 @@
 
 
 
-          <div class="mainmain">
-
-
-
-
-                  <!-- <div class="buscador">
-                    <p class="txtbusq">Buscar</p>
-                    <input type="text" id="busqueda" class="busqueda" name="busqueda"> </input>
-                  </div>
-
-                    <p id="txtconsulta">
-                     
-                    
-
-                    </p> -->
-               <div class="mainflex">
-
+          
+               <div class="mainmain">
+               <p class="textordencompra"> ADMINISTRACION DE PROVEEDORES  </p>
   <script> if (window.history.replaceState) { // verificamos disponibilidad
     window.history.replaceState(null, null, window.location.href);
 }  </script>
                                                                       <?php 
 
                                                                   $conexion=mysqli_connect('localhost','root','','debian2');
-
-                                                                 
+    
                                                               ?>
-
-
-
-
 
                                                                       <?php
                                                                      
@@ -371,13 +352,13 @@
     
     
 
-   
+   </div>
 
      
 
 
 
-       </div>
+      
     
 
 

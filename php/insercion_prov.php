@@ -1,5 +1,6 @@
 <?php  
 
+
     $conexion = NULL;
         try{
 
@@ -7,7 +8,7 @@
 
         
 
-
+// de aca
           $sql_registe = mysqli_query($conexion,"SELECT COUNT(*) as total_registro FROM proveedor");
           $result_register = mysqli_fetch_array($sql_registe);
           $total_registro = $result_register['total_registro'];
@@ -22,15 +23,19 @@
 
           $desde = ($pagina-1) * $por_pagina;
 
+        //   aca
+
             if (isset($_GET['x'])) {
                 $c = $_GET['x'];
 
                 $sql = "SELECT * FROM proveedor where Id like '%$c%' or Nombre like '%$c%' or Direccion like '%$c%'
                           or Telefono like '%$c%' or Correo like '%$c%' or Fecha_reg like '%$c%' LIMIT $desde,$por_pagina";
+                        //   se agrega el limit
 
             }
             else{
                 $sql = "SELECT * FROM proveedor LIMIT $desde,$por_pagina";
+                // se agrega el limit
             }
           
             $resultado=mysqli_query($conexion,$sql);
@@ -118,4 +123,3 @@
 //           or Descripcion like '%".$c."% or Precio like '%".$c."% or Stock like '%".$c."%
 
 
-//-------------------------------------------------------------

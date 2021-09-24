@@ -178,8 +178,24 @@ btntotal.addEventListener('click',()=>{
 
                                                                 // document.getElementById('tabla2').appendChild(nuevaFila);
 
+const reg=document.getElementById('reg')
 
+const contventinsumoordcompra=document.getElementById('cont_ventinsumoordcompra')
+const iconocerrarinsumoordcompra=document.getElementById('icono_cerrarinsumoordcompra')
 
+const btnbuscarinsumo=document.getElementById('btnbuscarinsumo')
+
+btnbuscarinsumo.addEventListener('click',()=>{
+    reg.classList.add('activar')
+    contventinsumoordcompra.classList.add('activar')
+
+})
+
+iconocerrarinsumoordcompra.addEventListener('click',(e)=>{
+    e.preventDefault();
+	reg.classList.remove('activar')
+    contventinsumoordcompra.classList.remove('activar')
+})
 
 
 

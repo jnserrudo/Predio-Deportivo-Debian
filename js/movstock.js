@@ -50,7 +50,7 @@ const getData = (x) => {
                         const databtnedit=document.createElement('TD')
                         const btnedit=document.createElement('button')
                         btnedit.classList.add("btneditar")
-                        btnedit.textContent="Seleccionar"
+                        btnedit.textContent="Añadir"
                         databtnedit.append(btnedit)
                         
                         dataid.textContent = insumo[0]
@@ -103,7 +103,7 @@ const getData = (x) => {
                 const databtnedit=document.createElement('TD')
                 const btnedit=document.createElement('button')
                 btnedit.classList.add("btneditar")
-                btnedit.textContent="Seleccionar"
+                btnedit.textContent="Añadir"
                 databtnedit.append(btnedit)
                   console.log("soy el id nro"+insumo.Id)
                 dataid.textContent = insumo[0]
@@ -214,8 +214,8 @@ table.addEventListener('click',(e)=>{
 tablamov.addEventListener('click',(e)=>{
     const editar=e.target;
     if(editar.classList.contains('btneditar')){
-        console.log(editar.parentElement)
-        tablamov.removeChild(editar.parentElement)
+        console.log(editar.parentElement.parentElement)
+        tablamov.removeChild(editar.parentElement.parentElement)
         
 
     }
@@ -357,7 +357,7 @@ btnremito.addEventListener('click',()=>{
                         const databtnedit=document.createElement('TD')
                         const btnedit=document.createElement('button')
                         btnedit.classList.add("btneditar")
-                        btnedit.textContent="Seleccionar"
+                        btnedit.textContent="Elegir"
                         databtnedit.append(btnedit)
                         
                         dataid.textContent = remito[0]

@@ -314,3 +314,77 @@ p{
     color: aliceblue;
     margin-right: 10px;
 }
+
+/*martin*/
+.contedicion_orden_pago{
+    height: 80px;
+    background-color:var(--fondoedit);
+    display: flex;
+    background-color: rgb(193, 240, 255);
+    justify-content: space-evenly;
+    padding-top: 0px;
+    border-radius: 10px;
+    border:2px black solid;
+ 
+}
+.contform_orden_pago{
+    /* margin-left: auto;
+     margin-right: auto; */
+     margin-top: 0px;
+    width: 600;
+     height: 500px;
+     /* margin-top: 50px; */
+     padding-top: 0px;
+     background-color:var(--fondoedit);
+     border:2px black solid;
+ }
+
+ .cont_orden_pago{
+   
+    width: 600px;
+    height: 600px;
+    background-color:rgb(193, 240, 255);
+    margin-right: 0px;
+    margin-left: 20px;
+    /* margin-bottom: 150px; */
+    border-radius: 0px;
+    /* display: flex; */
+    /* background-color: red; */
+}
+
+.contformitems_ordenpago{
+    padding: 150px 10px;
+    border:1px rgb(88, 88, 255) solid;
+     margin-top: 0px; 
+   /* margin-left: auto;
+    margin-right: auto;*/
+    display: grid;
+    gap: 20px;
+    background-color: rgb(193, 240, 255);
+    grid-template-columns:100px 150px;
+    width: 600px; 
+    height: 500px;  
+}
+.form_orden_pago{
+        height: 300px;
+
+}
+    .input_ordenpago{
+        border-radius: 3px;
+        height: 30px;
+        width: 400px;
+    }
+
+
+    .btn_editar_orden_pago{
+        width: 175px;
+        margin-top: 10px;
+        text-align: center;
+        margin-right:auto;
+        margin-left: auto;
+    }
+    .div_contbtn_orden_pago{
+        margin-top:150px;
+        margin-left: 10px;
+    }
+    /*fin martin*/

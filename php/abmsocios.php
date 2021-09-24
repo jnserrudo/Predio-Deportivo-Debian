@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/bootstrap.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/style2.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/styleinicio.css?v=<?php echo(rand()); ?>">
-    <link rel="stylesheet" href="../css/styleorden.css?v=<?php echo(rand()); ?>">
+    <link rel="stylesheet" href="../css/datatable.css?v=<?php echo(rand()); ?>">
 
 
 </head>
@@ -89,26 +89,6 @@
        }
 ?>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <div class="reg" id="reg">
                         <div class="cont_vent" id="cont_vent">
                             <img src="../assets/cruz.svg" alt="" class="icono_cerrar" id="icono_cerrar">
@@ -165,31 +145,11 @@
             </ul>
           </div>
 
-          <div class="p-0 my-container divcontside ">
-            
-            <a class="btn contbtnnav" id="menu-btn">
-              
-                  <img src="../assets/imagenes/iconham.svg" class="iconham" alt="">
-            </a>
-            
-          </div>
-
-
-
-
-
-
-     <p class="textordencompra"> ADMINISTRACION DE SOCIOS </p>
-                  <div class="buscador">
-                    <p class="txt">Buscar</p>
-                    <input type="text" id="busqueda" class="busqueda" name="busqueda"> </input>
-                  </div>
-
-                    <p id="txtconsulta">
-                     
-                    </p>
-               <div class="mainflex">
-
+          
+  
+<!--mainmain-->
+          <div class="mainmain">
+          <p class="textordencompra"> ADMINISTRACION DE SOCIOS </p>
   <script> if (window.history.replaceState) { // verificamos disponibilidad
     window.history.replaceState(null, null, window.location.href);
 }  </script>
@@ -197,12 +157,7 @@
 
                                                                   $conexion=mysqli_connect('localhost','root','','debian2');
 
-                                                                 
                                                               ?>
-
-
-
-
 
                                                                       <?php
                                                                      
@@ -256,13 +211,9 @@
                                                                                  } else {
                                                                                    $txt_Telefono = test_input($_POST["txt_Telefono"]);
                                                                                  }
-                                                                           
-                                                                            
-                                                                              
+                                                                                                                                                    
                                                                               }
-                                  
-
-
+                                
                                                                               if(isset($_POST['registrar'])){
                                                                               if(strlen($_POST['txt_nom'])>=1 && strlen($_POST['txt_Apellido'])>=1 && strlen($_POST['txt_DNI'])>=1 && strlen($_POST['txt_Estado'])>=1 && strlen($_POST['txt_Email'])>=1 && strlen($_POST['txt_Direccion'])>=1 && strlen($_POST['txt_Telefono'])>=1){
                                                                                $txt_nom=$_POST['txt_nom'];
@@ -345,26 +296,36 @@
                                                               
                                                                  ?>
                                                                <h3>Cpmplete los campos</h3>
-                                                                <?php
-                                                              
+
+                                                               <!-- <button id="btneditar" class="btneditar" >Editar</button>
+                                                              <button id="btneliminar" class="btneliminar" >Editar</button> -->
+                                                              <!-- <a href="../html/index.html"><button>al index</button></a> -->
+
+                            
+                                                              <!-- <?php                                                       
+                                                              ?>-->
 
 
-                                                              ?> 
+                                                            <div class="datatable-container">
 
-                                                              
-                                                              <!-- <?php 
-                                                            //  require('insercion.php'); 
-                                                              // if(!$_POST['datos']="")
-                                                              //  $tabla = getTableFromDatabase();
-                                                                // $t=$_POST['busqueda'];
-                                                                // $tablabusq=gettabla($t);
-                                                            ?>-->
+                                                                <div class="header-tools">
+                                                                        
+                                                                        <div class="contbtnreg">
+                                                                                              <button class="btnvent button" id="btnvent">Registrar Nuevo Socio</button>   
+                                                                                              </div>
+                                                                        <div class="buscador">
+                                                                                              <p class="txtbusq">Buscar</p>
+                                                                                             <input type="text" id="busqueda" class="busqueda" name="busqueda"> </input>
+
+                                                                </div>
+                                                                </div>
+                                                                
 
                                                                 
 
 
 
-                                                                                          <table id="tabla" class="table table-striped  table-bordered border-primary">
+                                                                                          <table id="tabla" class="table table-striped datatable table-bordered border-primary">
                                                                                                 <thead>       
                                                                                                     <th id="idsocio">Id</th>
                                                                                                     <th id="nom">Nombre</th>
@@ -374,11 +335,22 @@
                                                                                                   <th id="Email">Email</th>
                                                                                                     <th id="Direccion">Direccion</th>
                                                                                                     <th id="Telefono">Telefono</th>
+                                                                                                    <th id="Telefono">Acción</th>
                                                                                                 </thead>
                                                                                               </table>
-                                                                                          <div class="contbtnreg">
-                                                                                              <button class="btnvent" id="btnvent">Registrar Nuevo Socio</button>   
-                                                                                              </div>
+
+                                                                                              <div class="pages">
+                                                                                                         <ul>
+                                                                                                            <li> <button id="btnpag1">1</button></li>
+                                                                                                            <li><button id="btnpag2">2</button></li>
+                                                                                                             <li><button id="btnpag3">3</button></li>
+                                                                                                            <li><button id="btnpag4">4</button></li>
+                                                                                                              <li><button id="btnpag5">5</button></li>
+                                                                                                               </ul>
+                                                                                                         </div>
+
+                                                                                              </div>   
+                                                                                          
                         </div>
                 </div>
 
@@ -432,6 +404,7 @@
     <script src="../js/main_socios.js?v=<?php echo(rand()); ?>"></script>
     <script src="../js/prueba.js?v=<?php echo(rand()); ?>"></script>
     <script src="../js/inicio.js?v=<?php echo(rand()); ?>"></script>
+    <script src="../js/paginaciones/socios.js?v=<?php  echo(rand()); ?>"></script>
                     
 
 
