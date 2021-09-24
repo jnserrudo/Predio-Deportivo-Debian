@@ -92,7 +92,7 @@
                 </div>
                 <div class="row">                        <div class="contimagen1 col-6">
                         <img src="../assets/imagenes/NOTCIAS 7.jpg"alt=""  class="info" />
-                        <p class="textoinfo1"> 24/07/2021 <br> LA NUEVA PIEL AZUL: <br>SEGUN FEDERICO SERRRUDO, PRESIDENTE DEL CLUB, LA NUEVA INDUMENTARIA PARA EL EQUIPO MASCULINO DE FUTBOL 7 YA ESTARIA DISPONIBLE TANTO PARA SUS JUGADORES COMO PARA LOS SOCIOS QUE DESEEN COMPRARLA EN LA TIENDA DEL CLUB.</p>
+                        <p class="textoinfo1"> 24/07/2021 <br> LA NUEVA PIEL AZUL: <br>SEGUN FEDERICO SERRUDO, PRESIDENTE DEL CLUB, LA NUEVA INDUMENTARIA PARA EL EQUIPO MASCULINO DE FUTBOL 7 YA ESTARIA DISPONIBLE TANTO PARA SUS JUGADORES COMO PARA LOS SOCIOS QUE DESEEN COMPRARLA EN LA TIENDA DEL CLUB.</p>
                         </div>
 
                         <div class="contimagen1 col-6">

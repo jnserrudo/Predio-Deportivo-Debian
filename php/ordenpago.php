@@ -137,8 +137,13 @@ if (isset($_GET['ido'])&& isset($_GET['mp'])&& isset($_GET['d'])) {
                                                                                                               <li><button id="btnpag5">5</button></li>
                                                                                                                </ul>
                                                                                                          </div> -->
-                                                                                                         <label class=label > Descripcion:</label> <textarea name="txt_desc" id="desc" cols="30" rows="3"></textarea>                                                                                            <button class="btnvent button btnconfordpago" id="btnconfordpago">Confirmar Orden de Pago</button>
                                                                                               </div>
+                                                                                              <div class="desc_btnconf">
+                                                                                              <label class='label labeldesc' > Descripcion:</label> <textarea name="txt_desc" id="desc" cols="30" rows="3"></textarea> 
+
+                                                                                              </div>
+                                                                                              <button class="btnvent button btnconfordpago" id="btnconfordpago">Confirmar Orden de Pago</button>
+
              </div>
              </div>
 

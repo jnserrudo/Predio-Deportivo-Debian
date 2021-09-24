@@ -32,3 +32,15 @@ width: 50px;
 .btnconfordpago{
 	/* margin-top: 100px; */
 }
+.labeldesc{
+	margin-left: 100px;
+	/* border: 2px black solid; */
+}
+.desc_btnconf{
+	height: 100px;
+	/* border: 2px black solid; */
+	width: 500px;
+	display: flex;
+
+
+}

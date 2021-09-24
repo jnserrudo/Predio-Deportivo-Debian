@@ -194,8 +194,8 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
                 </div>
               
                 <div class="divremito">
-                        <button class='btnremito' id="btnremito" >Seleccionar Remito</button>
-                        <button class='btnagregarmov' id="btnagregarmov" >Agregar</button>
+                        <button class='btnremito btnvent' id="btnremito" >Seleccionar Remito</button>
+                        <button class='btnagregarmov btnvent' id="btnagregarmov" >Agregar</button>
                     </div>
 
 <!-- ventana emergente con los remitos -->
@@ -217,6 +217,15 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
 
                                                                                                                     ?> -->
                                                                                                     </table>
+                                                                                                    <div class="pages">
+                                                                                                         <ul>
+                                                                                                            <li> <button id="btnpag6">1</button></li>
+                                                                                                            <li><button id="btnpag7">2</button></li>
+                                                                                                             <li><button id="btnpag8">3</button></li>
+                                                                                                            <li><button id="btnpag9">4</button></li>
+                                                                                                              <li><button id="btnpag10">5</button></li>
+                                                                                                               </ul>
+                                                                                                         </div>
 
                                                                                 </div>
                                                                                         
@@ -299,30 +308,9 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
                                                                  </div>
                     
                                                       </div>
-
-
-                                                                                            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                                                                               
             <div class="divbtnconf">
-                <button class="btnconfmov" id="btnconfirmar">Confirmar</button>
-
+                <button class="btnconfmov btnvent" id="btnconfirmar">Confirmar</button>
 
             </div>
 
@@ -343,6 +331,7 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
     <script src="../js/prueba.js?v=<?php echo(rand()); ?>"></script>
     <script src="../js/movstock.js?v=<?php echo(rand()); ?>"></script>
     <script src="../js/prueba_orden_pag_martin.js?v=<?php echo(rand()); ?>"></script>
+    <script src="../js/paginaciones/remito_movstock.js?v=<?php echo(rand()); ?>"></script>
 
     
 </body>

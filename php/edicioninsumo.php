@@ -24,20 +24,20 @@
 
 
     <div class="main">
-        <div class="imgedit">
+       <!-- <div class="imgedit">
             <img src="../assets/imagenes/canchas.jpg"  class="imgcancha" alt="">
-        </div>
-        <div class="cont">
+        </div> -->
+        <div class="cont_orden_pago">
 
         
-            <div class="contedicion">
+            <div class="contedicion_orden_pago">
                     <img src="../assets/imagenes/bebi.png"class="imgicon" alt="">
                     <img src="../assets/imagenes/camiseta.png"class="imgicon" alt="">
                     <img src="../assets/imagenes/pelota.png"class="imgicon" alt="">
             </div>
-            <div class="contform">
-                <form action="abminsumo.php" method="POST" id="form">
-                    <div class="contformitems">
+            <div class="contform_orden_pago">
+                <form class="form_orden_pago"action="abminsumo.php" method="POST" id="form">
+                    <div class="contformitems_ordenpago">
 
                                                                         <?php 
                                                                             $conexion = NULL;
@@ -102,38 +102,39 @@
                         <label for="id" class="label">Id:</label>
                     <!-- este no se deberia editar -->
 
-                                <input type="text" id="id" class="input" name="id" value=<?php  echo $resultados[0]; ?>>
+                                <input type="text" id="id" class="input_ordenpago" name="id" value=<?php  echo $resultados[0]; ?>>
                                 
                         <label for="nom" class="label">Nombre:</label>
                         
-                        <input type="text" id="nom" class="input" name="nom" value=<?php  echo $resultados[2]; ?>>
+                        <input type="text" id="nom" class="input_ordenpago" name="nom" value=<?php  echo $resultados[2]; ?>>
 
                         <label for="desc" class="label">Descripcion:</label>
-                        <textarea id="desc" cols="15" rows="3" name="desc" ><?php  echo $resultados[3]; ?></textarea>
+                        <textarea id="desc" cols="15" rows="3" class="input_ordenpago" name="desc" ><?php  echo $resultados[3]; ?></textarea>
 
                         <label for="precio" class="label">Precio:</label>
-                        <input type="text" id="precio" class="precio" name="precio" value=<?php  echo $resultados[4]; ?>>
+                        <input type="text" id="precio" class="input_ordenpago" name="precio" value=<?php  echo $resultados[4]; ?>>
 
                         <label for="stock" class="label">Stock:</label>
-                        <input type="text" id="stock" class="input" name="stock" value=<?php  echo $resultados[5]; ?>>
+                        <input type="text" id="stock" class="input_ordenpago" name="stock" value=<?php  echo $resultados[5]; ?>>
                         
                     
                     </div>
                         
                 </form>
-                <div class="contbtneliminar">
-                         <button class="btn" id="btnrip" >Eliminar Insumo</button>
-                    </div>  
+                <div class="div_contbtn_orden_pago">
+            <!--  <div class="contbtneliminar">  -->
+                         <button class="btn_editar_orden_pago" id="btnrip" >Eliminar Insumo</button>
+              <!--      </div>  
                     
                 </div>
-               
-            <div class="contbtn">
-                <button class="btn btnconfirmar" id="btnconf" >Confirmar</button>
-                <button class="btn btncancelar" id="btncanc">Volver</button>
+                            
+            <div class="contbtn"> -->
+                <button class="btn_editar_orden_pago" id="btnconf" >Confirmar</button>
+                <button class="btn_editar_orden_pago" id="btncanc">Volver</button>
             </div>
         </div>
 
-        
+                            </div>
 
     </div>
 

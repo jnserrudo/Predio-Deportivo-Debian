@@ -157,33 +157,11 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
         <!-- <img src="../assets/imagenes/fondodebian (1).png" class="fondoimg" alt=""> -->
         
 
-        <div class="side-navbar  d-flex justify-content-between flex-wrap flex-column sidebar" id="sidebar">
-            <ul class="nav flex-column text-white w-100">
-              <a href="#" class="nav-link h3 text-white my-2">
-                Areas
-              </a>
-              <li href="#" class="nav-link lis" id="irinsumo">
-                <span class="mx-2">Insumos</span>
-              </li>
-              <li href="#" class="nav-link lis" id="irproveedores">
-                <span class="mx-2">Proveedores</span>
-              </li>
-              <li href="#" class="nav-link lis" id="irorden">
-                <span class="mx-2">Ventas</span>
-                <li href="#" class="nav-link lis" id="irmov">
-                <span class="mx-2">Movimientos Stock</span>
-              </li>
-            </ul>
-          </div>
+        <?php
+    include '../includes/panel.php'
+    ?>
 
-          <div class="p-0 my-container divcontside ">
-            
-            <a class="btn contbtnnav" id="menu-btn">
-              <!-- <i class="bx bx-menu "></i> -->
-                  <img src="../assets/imagenes/iconham.svg" class="iconham" alt="">
-            </a>
-            
-          </div>
+         
 
 
 

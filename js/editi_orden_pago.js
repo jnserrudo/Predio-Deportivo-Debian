@@ -13,14 +13,14 @@ const btnrip=document.getElementById('btnrip')
 btnconf.addEventListener('click',()=>{
 
 
-    var opcion = confirm("Esta seguro de editar el insumo?");
+    var opcion = confirm("Esta seguro de editar la orden de pago?");
     if (opcion == true) {
         mensaje = "Has clickado OK";
         form.submit()
 	} 
 })
 btnrip.addEventListener('click',()=>{
-    var opcion = confirm("Esta seguro de eliminar el insumo?");
+    var opcion = confirm("Esta seguro de eliminar la orden de pago?");
     var r=document.getElementById('id').value
     console.log(r)
     if (opcion == true) {
