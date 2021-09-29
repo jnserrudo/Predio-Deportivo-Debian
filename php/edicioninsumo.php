@@ -73,18 +73,13 @@
                         <?php 
                         $conexion = NULL;
                                 try{
-                                    $conexion = mysqli_connect('localhost','root','','debian2');
-                                    
-                                    if (isset($_GET['t'])) {
+                                    $conexion = mysqli_connect('localhost','root','','debian2');                                   
+                                   if (isset($_GET['t'])) {
                                         $z = $_GET['t'];
                                         $GLOBALS['z']=$z;
-
                                         $sql = "SELECT * FROM insumo where Id=$z";
-
-                                        $resultado=mysqli_query($conexion,$sql);
-                                    
+                                        $resultado=mysqli_query($conexion,$sql);                                  
                                     $resultados=mysqli_fetch_array($resultado);
-
                                     $j=json_encode($resultados);
  
                                     }
@@ -92,9 +87,6 @@
                                 }catch (PDOException $e){
                                     echo "Error ".$e->getMessage();
                                 }
-
-
-
 
                         require('queryedicion.php');
                         ?>

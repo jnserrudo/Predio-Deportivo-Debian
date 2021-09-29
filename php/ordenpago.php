@@ -174,7 +174,7 @@ if (isset($_GET['ido'])&& isset($_GET['mp'])&& isset($_GET['d'])) {
                                                                                                     <th id="idproveedor">Id</th>
                                                                                                     <th id="empresa">Fecha</th>
                                                                                                     
-                                                                                                    <th id="comercial">Id Proveedor</th>
+                                                                                                    <th id="comercial">Nombre de Proveedor</th>
                                                                                                     <th id="telefono">Accion</th>
                                                                                                 </thead>
                                                                                                 <!-- <tbody>

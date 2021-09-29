@@ -182,7 +182,7 @@ window.history.replaceState(null, null, window.location.href);
 }  </script>
 
                       <p class="txtprove"> Seleccione </p><p class="txtprove">Proveedor </p>
-                      <Select class=select id="idprov" name="proveedor" >
+                      <Select class='selected' id="idprov" name="proveedor" >
                         
                           <?php
                           $conexion=mysqli_connect("localhost","root","","debian2");

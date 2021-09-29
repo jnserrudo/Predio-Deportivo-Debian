@@ -67,3 +67,10 @@ const irordenpago=document.getElementById('irordenpago')
 irordenpago.addEventListener('click',()=>{
     window.location.href='../php/ordenpago.php'
 })
+
+const ircomprobante=document.getElementById('ircomprobante')
+
+
+ircomprobante.addEventListener('click',()=>{
+    window.location.href='../php/abmcomprobante.php'
+})
