@@ -22,12 +22,12 @@
           $desde = ($pagina-1) * $por_pagina;
             if (isset($_GET['x'])) {
                 $c = $_GET['x'];
-                $sql = "SELECT * FROM orden where Id like '%$c%' or Fecha like '%$c%' or Id_proveedor like '%$c%'
+                $sql = "SELECT o.Id,o.Fecha,p.Nombre FROM orden as o inner join proveedor as p on o.Id_proveedor=p.Id where Id like '%$c%' or Fecha like '%$c%' or Id_proveedor like '%$c%'
                            LIMIT $desde,$por_pagina";
 
             }
             else{
-                $sql = "SELECT * FROM orden LIMIT $desde,$por_pagina";
+                $sql = "SELECT o.Id,o.Fecha,p.Nombre FROM orden as o inner join proveedor as p on o.Id_proveedor=p.Id LIMIT $desde,$por_pagina";
             }
           
             $resultado=mysqli_query($conexion,$sql);

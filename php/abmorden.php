@@ -388,7 +388,7 @@
                                                                                                 <thead>       
                                                                                                     <th id="Id">Id</th>
                                                                                                     <th id="Fecha">Fecha</th>
-                                                                                                    <th id="Id_proveedor">ID Proveedor</th>                                                                                                   
+                                                                                                    <th id="Id_proveedor">Nombre de Proveedor</th>                                                                                                   
                                                                                                     <th id="accion">Acción</th>      
                                                                                                 </thead>
                                                                                               </table>
@@ -399,10 +399,10 @@
                                                                                                              <li><button id="btnpag3">3</button></li>
                                                                                                             <li><button id="btnpag4">4</button></li>
                                                                                                               <li><button id="btnpag5">5</button></li>
-                                                                                                               </ul>
+                                                                                                                </ul>
                                                                                                          </div>
                                                                                               <!--<button>Ant</button><button>Sig</button> -->
-                                                                                              </div>
+                                                                                             </div>
                                                                                           
                                                                                          
                         </div>

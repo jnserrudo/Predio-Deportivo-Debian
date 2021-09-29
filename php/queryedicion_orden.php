@@ -1,8 +1,6 @@
 <?php  
 $conexion = NULL;
-        
-
-         
+                 
           try{
             $conexion = mysqli_connect('localhost','root','','debian2');
             
