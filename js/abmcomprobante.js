@@ -61,7 +61,7 @@ const getData = (x) => {
                         const databtnedit=document.createElement('TD')
                         const btnedit=document.createElement('button')
                         btnedit.classList.add("btneditar")
-                        btnedit.textContent="Editar"
+                        btnedit.textContent="Elegir"
                         databtnedit.append(btnedit)
                         
                         dataid.textContent = comprobante[0]
@@ -113,9 +113,10 @@ const getData = (x) => {
 
 
                         row.append(databtnedit)
-
                         fragment.append(row)
             }
+                        
+            
             table.appendChild(fragment)
         })
     } else {
@@ -225,7 +226,7 @@ const tablaordpagodetalle=document.getElementById('tablaordpago')
 const ventregordpagodetalle=document.getElementById('ventordpago')
 const contventordpagodetalle=document.getElementById('cont_ordpago_detalle')
 const iconocerrarordpagodetalle = document.getElementById('icono_cerrarordpagodetalle');
-
+const txtfecha=document.getElementById('txtfecha')
 
 
 var idorden
@@ -234,7 +235,7 @@ var monto
 tablaordpago.addEventListener('click',(e)=>{
     const editar=e.target;
     if(editar.classList.contains('btneditar')){
-        idorden=editar.parentElement.parentElement.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.textContent
+        idorden=editar.parentElement.parentElement.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.textContent
         
         inputidorden.value=idorden
         console.log(idorden)
@@ -259,7 +260,7 @@ tablaordpago.addEventListener('click',(e)=>{
                
             })
             xhr.send()
-
+            inputidorden.value=idorden
 
 
 //
@@ -267,8 +268,8 @@ tablaordpago.addEventListener('click',(e)=>{
 
 
 
-        ventregmonto.classList.add('activar')
-        contventmonto.classList.add('activar')
+       // ventregmonto.classList.add('activar')         aqui comente para sacar la ventana emergente
+       // contventmonto.classList.add('activar')
 
         // ventcant.classList.add('activar')
         // contventcant.classList.add('activar')

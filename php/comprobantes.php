@@ -78,9 +78,15 @@ if (isset($_GET['ip'])&& isset($_GET['io'])&& isset($_GET['l'])&& isset($_GET['m
       $n=explode(',',$n);
       $c=explode(',',$c);
 
-  $sql = "INSERT INTO comprobante (Id_proveedor,Id_comprobante,Estado,Monto,Letra,Id_orden_compra,Tipo)
-   values ($ip,0,'Registrado',$m,'$l',$io,'$t');";
-
+    if(isset($_GET['ic'])){
+        $ic=$_GET['ic'];
+        $sql = "INSERT INTO comprobante (Id_proveedor,Id_comprobante,Estado,Monto,Letra,Id_orden_compra,Tipo)
+        values ($ip,$ic,'Registrado',$m,'$l',$io,'$t');";
+    }
+    else{
+        $sql = "INSERT INTO comprobante (Id_proveedor,Id_comprobante,Estado,Monto,Letra,Id_orden_compra,Tipo)
+                values ($ip,0,'Registrado',$m,'$l',$io,'$t');";
+    }
   $resultado=mysqli_query($conexion,$sql);
 
   // Registrar detalle de la orden ------------
@@ -173,13 +179,18 @@ if (isset($_GET['ip'])&& isset($_GET['io'])&& isset($_GET['l'])&& isset($_GET['m
         <div class="datatable-container">
 
              <div class="header-tools">
-             <div class="contbtnreg"><button class="btnvent" id="btnvolvercomprobante">Volver</button>     
+             <div class="contbtnreg">
+                 <button class="btnvent" id="btnvolvercomprobante">Volver</button>     
                                                                                               </div>
               <div class="buscador">
                                                                             <p class="txtbusq">Buscar</p>
                                                                             <input type="text" id="busqueda" class="busqueda" name="busqueda"> </input>
       
                  </div>  
+                 <!-- <div class="contbtnreg"> -->
+                     <button class="btnvent btnverordenes" id="btnverordenes">Ver todas las Ordenes</button>     
+                <!-- </div> -->
+
 
              </div>
 
@@ -300,6 +311,66 @@ if (isset($_GET['ip'])&& isset($_GET['io'])&& isset($_GET['l'])&& isset($_GET['m
                 <!-- fin de ventana emergente factura -->
 
 
+                <!-- ventana emergente de los comprobantes de tipo factura para las nota de credito y debito -->
+                <div class="reg" id="ventcompnota">
+                        <div class="cont_vent cont_ventcomp" id="cont_ventcompnota">
+                              <img src="../assets/cruz.svg" alt="" class="icono_cerrar" id="icono_cerrarcompnota">
+                            <div class="divtipocomprobante">
+                                <div class="datatable-container-compmin">
+
+                                                    <div class="header-tools headerflex">
+                                                        <div class="contbtnreg">
+                                                        <p class="txt_registrar nomtipo">Comprobantes del Tipo Factura</p>
+
+                                                        </div>
+                                                        <div class="buscador">
+                                                            <p class="txtbusq">Buscar</p>
+                                                            <input type="text" id="busquedacompmin" class="busqueda" name="busqueda"> </input>
+
+                                                        </div>  
+                                                    </div>
+                                                    <table id="tablacompmin" class="table table-striped datatable tablacompmin table-bordered border-primary">
+                                                        <thead class="tablaenc">       
+                                                            <th id="idproveedor">Id</th>
+                                                            <th id="empresa">Nombre del proveedor</th>
+                                                            <!-- <th id="telefono">Fecha</th> -->
+                                                            <!-- <th id="telefono">Estado</th> -->
+                                                            <th id="telefono">Monto</th>
+                                                            <th id="telefono">Letra</th>
+                                                            <th id="telefono">Orden de compra</th>
+                                                            <th id="telefono">Tipo</th>
+                                                            <th id="telefono">Accion</th>
+                                                        </thead>
+                                                        <!-- <tbody>
+                                                        </tbody> -->
+                                                    </table>
+                                                    <div class="pages">
+                                                        <ul>
+                                                            <li><button id="btnpag6">1</button></li>    <!--cambie numeracion para no tener mismo id que arriba -->
+                                                            <li><button id="btnpag7">2</button></li>
+                                                            <li><button id="btnpag8">3</button></li>
+                                                            <li><button id="btnpag9">4</button></li>
+                                                            <li><button id="btnpag10">5</button></li>
+                                                        </ul>
+                                                    </div>
+                                </div>
+                                       
+                            </div>  
+                        </div>      
+                        
+                        
+                </div>
+
+
+
+
+
+
+
+                <!-- fin de ventana emergente -->
+
+
+
 
                 </div>
 </div>
@@ -314,9 +385,9 @@ if (isset($_GET['ip'])&& isset($_GET['io'])&& isset($_GET['l'])&& isset($_GET['m
     <?php
     include '../includes/footer.php'
     ?>
-    <script src="../js/comprobante.js"></script>
+    <script src="../js/comprobante.js?v=<?php echo(rand()); ?>"></script>
     <script src="../js/inicio.js?v=<?php echo(rand()); ?>"></script>
     <script src="../js/paginaciones/orden.js?v=<?php  echo(rand()); ?>"></script>
-
+    <script src="../js/paginaciones/paginacioncompmin.js?v=<?php  echo(rand()); ?>"></script>
 </body>
 </html>
