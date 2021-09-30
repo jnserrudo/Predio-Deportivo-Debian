@@ -98,7 +98,7 @@
                                             <p class="txt_registrar" >Monto a Pagar</p>
                                             <div class="texto_inputventmonto">
                                                          <p class="txtventmonto">Id de Orden:</p>
-                                                     <input type="text inputventmonto" id="inputidorden">
+                                                     <input type="text inputventmonto" id="inputidorden11">  <!-- le puse 11-->
                                                 </div>
                                             
                                             <div class="texto_inputventmonto">
@@ -125,11 +125,16 @@
                             <div class="divtipocomprobante">
                                 <div class="encabezadotipocomprobante">
                                     <p class="txt_registrar nomtipo" >Factura</p>
+                                    <div class="contidorden">
+                                                 <p class='txtinfoprov'>Orden: </p>
+
+                                                <input type="text" class="inputidorden" id="inputidorden">   
+                                            </div>
    
                                 </div>
                                 <div class="continfoproveedor">
                                     <!-- fecha calculada con js -->
-                                    <p id="infotxt"></p>
+                                  <!--  <p id="infotxt"></p> -->
                                     <p class="txttituloprov">Datos del Proveedor</p>
                                     <div class="infoproveedor">
                                         <p class="txtinfoprov">Proveedor</p><input type="text" id="nomprov" class="inputprov">
@@ -211,15 +216,12 @@
 
                                                                                               </div>
                                                                                               <button class="btnvent button btnconfordpago" id="btnconfordpago">Confirmar Orden de Pago</button>
+             </div>
 
              </div>
-             </div>
-<!-- lo de abajo lo pongo arriba-->
-              
+<!-- lo de abajo lo pongo arriba-->             
                    <!-- Hasta aquiiiiiii-->
-
-                                                                                          
-
+                                                                                       
     </div>
 </div>
                     

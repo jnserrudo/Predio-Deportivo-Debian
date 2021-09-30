@@ -651,3 +651,81 @@
 .datatable-container-remito .datatable tr:hover{
     background-color: var(--dt-hover-color);
 }
+
+
+
+/* tabla comprobante minimizada en notas */
+
+.datatable-container-compmin{
+    /* border: solid 2px var(--dt-border-color); */
+    width: 820px;
+    height: 300px;
+    padding-right: 50px;
+   
+    font-size: 1em;
+}
+
+.datatable-container-compmin .header-tools{
+    border-bottom: solid 1px var(--dt-border-color);
+    padding: var(--dt-padding);
+    display: flex;
+    align-items: baseline;
+}
+
+
+.datatable-container-compmin .datatable{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.datatable-container-compmin .datatable,
+.datatable-container-compmin .datatable th,
+.datatable-container-compmin .datatable td{
+    padding: var(--dt-padding) var(--dt-padding);
+}
+
+.datatable-container-compmin .datatable th{
+    font-weight: bolder;
+    text-align: left;
+    border-bottom: solid 1px var(--dt-border-color);
+    cursor: pointer;
+}
+.datatable-container-compmin .datatable th:hover{
+    background-color: var(--dt-hover-color);
+}
+
+.datatable-container-compmin .datatable td{
+    border-bottom: solid 1px var(--dt-border-color);
+    border-color: var(--dt-border-color);
+}
+.datatable-container-compmin .datatable  tr:nth-child(even){
+    background-color: var(--dt-cell-color);
+}
+.datatable-container-compmin .datatable tr:hover{
+    background-color: var(--dt-hover-color);
+}
+
+
+.tablacompmin{
+    margin-right: 50px;
+
+}
+
+.link-boton {
+    color: var(--dt-text-color-button);
+    width: 100%;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 3px;
+    background: transparent;
+    cursor: pointer; 
+    padding: var(--dt-padding-sm) var(--dt-padding);
+}
+.link-boton a:hover{
+    background: var(--dt-bg-active-button);
+    color: var(--dt-text-color-active-button);
+}
+.link-boton a.active{
+    background-color:  var(--dt-bg-color);
+    border-radius: 3px;
+}
