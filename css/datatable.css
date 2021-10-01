@@ -729,3 +729,114 @@
     background-color:  var(--dt-bg-color);
     border-radius: 3px;
 }
+
+/* tabla de ventas detalle */
+
+.datatable-container-venta-detalle{
+    /* border: solid 2px var(--dt-border-color); */
+    width: 450px;
+    height: 300px;
+    padding-right: 50px;
+   
+    font-size: 0.8em;
+}
+
+.datatable-container-venta-detalle .header-tools{
+    border-bottom: solid 1px var(--dt-border-color);
+    padding: var(--dt-padding);
+    display: flex;
+    align-items: baseline;
+}
+
+
+.datatable-container-venta-detalle .datatable{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.datatable-container-venta-detalle .datatable,
+.datatable-contventa-detalle .datatable th,
+.datatable-container-venta-detalle .datatable td{
+    padding: var(--dt-padding) var(--dt-padding);
+}
+
+.datatable-container-venta-detalle .datatable th{
+    font-weight: bolder;
+    text-align: left;
+    border-bottom: solid 1px var(--dt-border-color);
+    cursor: pointer;
+}
+.datatable-container-venta-detalle .datatable th:hover{
+    background-color: var(--dt-hover-color);
+}
+
+.datatable-container-venta-detalle .datatable td{
+    border-bottom: solid 1px var(--dt-border-color);
+    border-color: var(--dt-border-color);
+}
+.datatable-container-venta-detalle .datatable  tr:nth-child(even){
+    background-color: var(--dt-cell-color);
+}
+.datatable-container-venta-detalle .datatable tr:hover{
+    background-color: var(--dt-hover-color);
+}
+
+
+/* ----------------DEPOSITOS --------------------*/
+
+.datatable-container-depositos{
+    border: solid 2px var(--dt-border-color);
+    width: 1000px;
+    height: 500px;
+    margin-left: 50px;
+    font-size: 1em;
+}
+
+.datatable-container-depositos .header-tools{
+    border-bottom: solid 1px var(--dt-border-color);
+    padding: var(--dt-padding);
+    display: flex;
+    align-items: baseline;
+}
+
+
+.datatable-container-depositos .datatable{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.datatable-container-depositos .datatable,
+.datatable-container-depositos .datatable th,
+.datatable-container-depositos .datatable td{
+    padding: var(--dt-padding) var(--dt-padding);
+}
+
+.datatable-container-depositos .datatable th{
+    font-weight: bolder;
+    text-align: left;
+    border-bottom: solid 1px var(--dt-border-color);
+    cursor: pointer;
+}
+.datatable-container-depositos .datatable th:hover{
+    background-color: var(--dt-hover-color);
+}
+
+.datatable-container-depositos .datatable td{
+    border-bottom: solid 1px var(--dt-border-color);
+}
+.datatable-container-depositos .datatable  tr:nth-child(even){
+    background-color: var(--dt-cell-color);
+}
+.datatable-container-depositos .datatable tr:hover{
+    background-color: var(--dt-hover-color);
+}
+
+.btnseleccionardepo{
+    width: 150px;
+    height: 35px;
+    border-radius:5px;
+    background-color: #FFF59D !important;
+    font-size: 14px;
+    font-family:Verdana,Helvetica;
+        font-weight:bold;
+}

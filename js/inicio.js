@@ -82,3 +82,16 @@ irdeposito.addEventListener('click',()=>{
     window.location.href='../php/abmdepositos.php'
 })
 
+const irreservas=document.getElementById('irreservas')
+
+
+irreservas.addEventListener('click',()=>{
+    window.location.href='../php/abmreservaf5.php'
+})
+
+const irinstalaciones=document.getElementById('irinstalaciones')
+
+
+irinstalaciones.addEventListener('click',()=>{
+    window.location.href='../php/abminstalacion.php'
+})

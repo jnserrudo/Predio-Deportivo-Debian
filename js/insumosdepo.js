@@ -6,7 +6,7 @@ const consulta=document.getElementById("txtconsulta");
 
 //  Control de la busqueda de un deposito
 
-const busq=document.getElementById("busquedadepo")
+const busq=document.getElementById("busquedainsumo")
 busq.addEventListener('keyup',
 (e)=>{
   var x= e.target.value;
@@ -14,7 +14,7 @@ busq.addEventListener('keyup',
   getData(x);
 })
 
-const tabla = document.getElementById('tabladepositos')
+const tabla = document.getElementById('tablainsumos')
 
 
 const getData = (x) => {
@@ -24,38 +24,41 @@ const getData = (x) => {
 
     if (x == undefined) {
         
-        xhr.open('GET', "../php/inserciondepo.php")
+        xhr.open('GET', "../php/inserinsumdepo.php")
 
         xhr.addEventListener('load', (datosconsulta) => {
             const dataJSON = JSON.parse(datosconsulta.target.response)
             //console.log(dataJSON)
             const fragment = document.createDocumentFragment()
 
-            for (const deposito of dataJSON) {
+            for (const insumo of dataJSON) {
                 //console.log(insumo+"y su primero seria"+insumo[0])
                 const row = document.createElement('TR')
                 const dataid = document.createElement('TD')
                 const datanombre = document.createElement('TD')
-                const datatipo = document.createElement('TD')
-                const databtnedit=document.createElement('TD')
+                const datadescripcion = document.createElement('TD')
+                const datastock = document.createElement('TD')
+
+                /*const databtnedit=document.createElement('TD')
                 const btnedit=document.createElement('button')
                 btnedit.classList.add("btnseleccionardepo")
                 btnedit.textContent="Seleccionar"
-                databtnedit.append(btnedit)
+                databtnedit.append(btnedit)*/
                         
-                dataid.textContent = deposito[0]
-                datanombre.textContent = deposito[1]
-                datatipo.textContent = deposito[2]
+                dataid.textContent = insumo[0]
+                datanombre.textContent = insumo[1]
+                datadescripcion.textContent = insumo[2]
+                datastock.textContent = insumo[3]
 
                 dataid.classList.add('celda')
                 datanombre.classList.add('celda')
-                datatipo.classList.add('celda')
-                databtnedit.classList.add('celda')
+                datadescripcion.classList.add('celda')
+                datastock.classList.add('celda')
 
                 row.append(dataid)
                 row.append(datanombre)
-                row.append(datatipo)
-                row.append(databtnedit)
+                row.append(datadescripcion)
+                row.append(datastock)
 
                 fragment.append(row)
             }
@@ -63,38 +66,41 @@ const getData = (x) => {
         })
     } 
     else {
-        xhr.open('GET', `../php/inserciondepo.php?x=${x}`)
+        xhr.open('GET', `../php/inserinsumdepo.php?x=${x}`)
 
         xhr.addEventListener('load', (datosconsulta) => {
             const dataJSON = JSON.parse(datosconsulta.target.response)
             //console.log(dataJSON)
             const fragment = document.createDocumentFragment()
 
-            for (const deposito of dataJSON) {
+            for (const insumo of dataJSON) {
                 //console.log(insumo+"y su primero seria"+insumo[0])
                 const row = document.createElement('TR')
                 const dataid = document.createElement('TD')
                 const datanombre = document.createElement('TD')
-                const datatipo = document.createElement('TD')
-                const databtnedit=document.createElement('TD')
-                const btnedit =document.createElement('button')
+                const datadescripcion = document.createElement('TD')
+                const datastock = document.createElement('TD')
+
+                /*const databtnedit=document.createElement('TD')
+                const btnedit=document.createElement('button')
                 btnedit.classList.add("btnseleccionardepo")
                 btnedit.textContent="Seleccionar"
-                databtnedit.append(btnedit)
+                databtnedit.append(btnedit)*/
                         
-                dataid.textContent = deposito[0]
-                datanombre.textContent = deposito[1]
-                datatipo.textContent = deposito[2]
+                dataid.textContent = insumo[0]
+                datanombre.textContent = insumo[1]
+                datadescripcion.textContent = insumo[2]
+                datastock.textContent = insumo[3]
 
                 dataid.classList.add('celda')
                 datanombre.classList.add('celda')
-                datatipo.classList.add('celda')
-                databtnedit.classList.add('celda')
+                datadescripcion.classList.add('celda')
+                datastock.classList.add('celda')
 
                 row.append(dataid)
                 row.append(datanombre)
-                row.append(datatipo)
-                row.append(databtnedit)
+                row.append(datadescripcion)
+                row.append(datastock)
 
                 fragment.append(row)
             }
@@ -110,7 +116,7 @@ const getData = (x) => {
 
     xhr.send()
 }
-
+/*
 const btnver = document.getElementById('verinsumos');
 btnver.addEventListener('click', ()=>{
     window.location.href="../php/depositosxinsumos.php?"
@@ -148,7 +154,7 @@ iconocerrar.addEventListener('click', (e)=>{
 });
 
 
-*/
+
 const seleccionar =document.getElementById('tabladepositos')
 
 
@@ -173,6 +179,6 @@ seleccionar.addEventListener('click',(e)=>{
         window.location.href="../php/depositosxinsumos.php?"
     }
 })
-
+*/
 
 
