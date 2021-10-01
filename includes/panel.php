@@ -35,6 +35,9 @@ $panel="<div class='side-navbar  d-flex justify-content-between flex-wrap flex-c
   <li href='#' class='nav-link lis' id='ircomprobante'>
     <span class='mx-2'>Comprobantes</span>
   </li>
+  <li href='#' class='nav-link lis' id='irdeposito'>
+    <span class='mx-2'>Depositos</span>
+  </li>
 </ul>
 </div>";
 echo $panel

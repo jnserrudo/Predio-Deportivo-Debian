@@ -69,7 +69,7 @@
                     <th id="telefono">Estado</th>
                     <th id="telefono">Monto</th>
                     <th id="telefono">Letra</th>
-                    <th id="telefono">Id_orden_compra</th>
+                    <th id="telefono">Orden Compra</th>
                     <th id="telefono">Tipo</th>
                     <th id="telefono">Accion</th>
                 </thead>
@@ -124,7 +124,9 @@
                         <img src="../assets/cruz.svg" alt="" class="icono_cerrar" id="icono_cerrarcomp">
                             <div class="divtipocomprobante">
                                 <div class="encabezadotipocomprobante">
-                                    <p class="txt_registrar nomtipo" >Factura</p>
+                                    <p class="txt_registrar nomtipo" id="txttipo"></p>
+                                    <p id="txtfecha" class="txttituloprov">Fecha:</p>
+
                                     <div class="contidorden">
                                                  <p class='txtinfoprov'>Orden: </p>
 
@@ -141,6 +143,18 @@
                                         <p class="txtinfoprov">Direccion</p><input type="text" id="dirprov" class="inputprov">
                                         <p class="txtinfoprov">Telefono</p><input type="text" id="telprov" class="inputprov">
                                         <p class="txtinfoprov">Correo</p><input type="text" id="correoprov" class="inputprov">
+                                        <div class="contletra">
+                                        <p class='txtinfoprov'>Letra: </p><input type="text" id="inputletra" class="inputprov">
+                                           <!-- <select name="selectletra" class="selectedletra" id="selectletra">
+                                                <option value="" selected disabled hidden>Seleccionar</option>
+
+                                                <option value="A">A</option>
+                                                <option value="B">B</option>
+                                                <option value="C">C</option>   
+                                            </select>  -->
+                                           
+                                            
+                                              </div>
                                     </div>
                                 </div>
                                     <div class="tabla_total">
@@ -149,10 +163,11 @@
                                             <div class="datatable-container-remito dt-container-comp">
                                                                 <table id="tablaremito" class="table table-striped datatable table-bordered border-primary">
                                                                                 <thead>       
-                                                                                    <th id="">Orden</th>
+                                                                                   <!-- <th id="">Orden</th>  -->
                                                                                     <th id="">Insumo</th>
                                                                                     <th id="">Descripcion</th>
                                                                                     <th id="">Precio Unitario</th>
+                                                                                    <th id="">Cantidad</th>
                                                                                 </thead>
                                                                                                                         <!-- <?php
                                                                                     ?> -->

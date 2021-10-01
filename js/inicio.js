@@ -59,13 +59,13 @@ irsocios.addEventListener('click',()=>{
 const ventas=document.getElementById('irventas')
 
 ventas.addEventListener('click',()=>{
-    window.location.href='../php/ventas.php'
+    window.location.href='../php/pagina_ventas.php'
 })
 
 const irordenpago=document.getElementById('irordenpago')
 
 irordenpago.addEventListener('click',()=>{
-    window.location.href='../php/ordenpago.php'
+    window.location.href='../php/abmorden_pago.php'
 })
 
 const ircomprobante=document.getElementById('ircomprobante')
@@ -74,3 +74,11 @@ const ircomprobante=document.getElementById('ircomprobante')
 ircomprobante.addEventListener('click',()=>{
     window.location.href='../php/abmcomprobante.php'
 })
+
+const irdeposito=document.getElementById('irdeposito')
+
+
+irdeposito.addEventListener('click',()=>{
+    window.location.href='../php/abmdepositos.php'
+})
+
