@@ -408,3 +408,190 @@ icono_cerrar.addEventListener('click', (e)=>{
 
 
 //fin
+
+
+//comienzo ultimo-----------------
+
+
+
+// const table = document.getElementById('tabla')
+
+const tabladetalle=document.getElementById('tablaremito')
+
+const inputtotal=document.getElementById('inputtotal')
+
+// const inputidorden=document.getElementById('inputidorden')
+
+const txttipo=document.getElementById('txttipo')
+
+// const txtfecha=document.getElementById('txtfecha')
+
+const inputletra=document.getElementById('inputletra')
+
+
+
+var prov
+var totalcomp
+var monto
+var idorden
+var idcomp
+var letra
+var tipo
+var fecha
+edicion.addEventListener('click',(e)=>{
+    const editar=e.target;
+    
+    if(editar.classList.contains('btneditar')){
+        // antes de mostrar consulto a la bd
+        let xhr
+        if (window.XMLHttpRequest) xhr = new XMLHttpRequest()
+        else xhr = new ActiveXObject("Microsoft.XMLHTTP")
+
+        // los datos del proveedor
+     
+        tipo=editar.parentElement.previousElementSibling.textContent
+        prov=editar.parentElement.parentElement.firstElementChild.nextElementSibling.textContent
+        console.log(prov)
+        idcomp=editar.parentElement.parentElement.firstElementChild.textContent
+        
+        
+        xhr.open('GET', `../php/consultas_comprobantes/consultaprovpornom.php?x=${prov}`)
+
+        xhr.addEventListener('load', (data) => {
+            const dataJSON = JSON.parse(data.target.response)
+            console.log(dataJSON)
+            nomprov.value=dataJSON[0][1]
+            dirprov.value=dataJSON[0][2]
+            telprov.value=dataJSON[0][3]
+            correoprov.value=dataJSON[0][4]
+            
+        })
+
+
+        xhr.send()  
+
+
+
+
+        // lleno la tabla de orden
+
+        let xhr1
+        if (window.XMLHttpRequest) xhr1 = new XMLHttpRequest()
+        else xhr1 = new ActiveXObject("Microsoft.XMLHTTP")
+
+        idorden=editar.parentElement.previousElementSibling.previousElementSibling.textContent
+        
+        xhr1.open('GET', `../php/consultas_comprobantes/consultaordendetalle.php?x=${idorden}`)
+
+        xhr1.addEventListener('load', (data) => {
+            const dataJSON = JSON.parse(data.target.response)
+            console.log(dataJSON)
+
+            const fragment = document.createDocumentFragment()
+
+            for (const insumo of dataJSON) {
+                const row = document.createElement('TR')
+                row.classList.add('fila')
+                const nominsumo = document.createElement('TD')
+                const descinsumo = document.createElement('TD')
+                const precioinsumo = document.createElement('TD')
+                const cantinsumo = document.createElement('TD')
+
+                nominsumo.textContent = insumo[0]
+                descinsumo.textContent = insumo[1]
+                precioinsumo.textContent = insumo[2]
+                cantinsumo.textContent = insumo[3]
+
+                
+                
+
+
+                nominsumo.classList.add('celda')
+                descinsumo.classList.add('celda')
+                precioinsumo.classList.add('celda')
+                cantinsumo.classList.add('celda')
+
+                
+
+                row.append(nominsumo)
+                row.append(descinsumo)
+                row.append(precioinsumo)
+                row.append(cantinsumo)
+
+               
+
+                fragment.append(row)
+            }
+            const hijo=tabladetalle.children[0];
+                
+            while(hijo.nextElementSibling){;
+                tabladetalle.removeChild(hijo.nextElementSibling);
+            }
+
+            
+            tabladetalle.append(fragment);
+        })    
+        
+
+        xhr1.send()
+
+
+
+
+
+        
+        // consigo el total
+
+        let xhr2
+        if (window.XMLHttpRequest) xhr2 = new XMLHttpRequest()
+        else xhr2 = new ActiveXObject("Microsoft.XMLHTTP")
+
+
+        xhr2.open('GET', `../php/consultas_comprobantes/consultamontocomprobante.php?i=${idcomp}`)
+
+        xhr2.addEventListener('load', (data) => {
+            const dataJSON = JSON.parse(data.target.response)
+            console.log(dataJSON)
+            inputtotal.value=dataJSON[0][0]
+            monto=inputtotal.value
+            totalcomp=inputtotal.value
+            txtfecha.textContent='Fecha:'+dataJSON[0][1]
+            inputletra.value=letra=dataJSON[0][2]
+                
+            
+        })    
+        inputidorden.value=idorden
+
+        xhr2.send()
+
+
+        // activo la ventana emergente
+        txttipo.textContent=tipo
+        // txtfecha.textContent='Fecha:'+fecha.getDate()+'/'+(fecha.getMonth()+1)+'/'+fecha.getFullYear()
+       reg.classList.add('activar')
+       if(tipo=='Nota de Credito'||tipo=='Nota de Debito'){
+        
+        // inputmonto.classList.add('activar')
+        // p_monto.classList.add('activar')
+    }
+    }
+
+    
+        
+    
+})
+
+
+
+
+icono_cerrar.addEventListener('click', (e)=>{
+	e.preventDefault();
+	reg.classList.remove('activar');
+	ventcomp.classList.remove('activar');
+    inputmonto.classList.remove('activar')
+    p_monto.classList.remove('activar')
+
+
+});
+
+//termina

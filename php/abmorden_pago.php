@@ -162,7 +162,7 @@ session_start()
 
     <div class="header-tools">
 <div class="contbtnreg">
-            <button class="btnvent button " id="btnvolverordenpago">Volver</button>   
+            <button class="btnvent button " id="btnvolverordenpago">Registrar Orden de Pago</button>   
             <!-- tendria que estar oculto hasta que se seleccione una orden -->
             </div>
   <div class="buscador">
