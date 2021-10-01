@@ -39,7 +39,7 @@ const getData = (x) => {
                         row.classList.add('fila')
                         const dataId = document.createElement('TD')
                         const dataFecha = document.createElement('TD')
-                        const datanomdep = document.createElement('TD')
+                      //  const datanomdep = document.createElement('TD')
                         const datatotal = document.createElement('TD')
 
                         const databtnedit=document.createElement('TD')
@@ -51,15 +51,15 @@ const getData = (x) => {
                         
                         dataId.textContent = orden[0]
                         dataFecha.textContent = orden[1]
-                        datanomdep.textContent = orden [2]
-                        datatotal.textContent = orden [3]
+                        //datanomdep.textContent = orden [2]
+                        datatotal.textContent = orden [2]
 
                         
 
 
                         dataId.classList.add('celda')
                         dataFecha.classList.add('celda')
-                        datanomdep.classList.add('celda')
+                        //datanomdep.classList.add('celda')
                         datatotal.classList.add('celda')
 
 
@@ -67,7 +67,7 @@ const getData = (x) => {
                         // console.log("soy el data id :"+dataid.textContent)
                         row.append(dataId)
                         row.append(dataFecha)
-                        row.append(datanomdep)
+                      //  row.append(datanomdep)
                         row.append(datatotal)
 
                         row.append(databtnedit)
@@ -96,7 +96,7 @@ const getData = (x) => {
                         row.classList.add('fila')
                         const dataId = document.createElement('TD')
                         const dataFecha = document.createElement('TD')
-                        const datanomdep = document.createElement('TD')
+                        //const datanomdep = document.createElement('TD')
                         const datatotal = document.createElement('TD')
 
                         const databtnedit=document.createElement('TD')
@@ -108,7 +108,7 @@ const getData = (x) => {
                         
                         dataId.textContent = orden[0]
                         dataFecha.textContent = orden[1]
-                        datanomdep.textContent = orden [2]
+                       // datanomdep.textContent = orden [2]
                         datatotal.textContent = orden [3]
 
                         
@@ -116,7 +116,7 @@ const getData = (x) => {
 
                         dataId.classList.add('celda')
                         dataFecha.classList.add('celda')
-                        datanomdep.classList.add('celda')
+                        //datanomdep.classList.add('celda')
                         datatotal.classList.add('celda')
 
 
@@ -124,7 +124,7 @@ const getData = (x) => {
                         // console.log("soy el data id :"+dataid.textContent)
                         row.append(dataId)
                         row.append(dataFecha)
-                        row.append(datanomdep)
+                       // row.append(datanomdep)
                         row.append(datatotal)
 
                         row.append(databtnedit)

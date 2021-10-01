@@ -67,7 +67,7 @@
                     <thead>       
                         <th id="Id">Id</th>
                         <th id="Fecha">Fecha</th>
-                        <th id="Id_proveedor">Nombre del Deposito</th>  
+                        <!-- <th id="Id_proveedor">Nombre del Deposito</th>   -->
                         <th id="accion">Total</th>      
                                                                                                                         
                         <th id="accion">Acción</th>      

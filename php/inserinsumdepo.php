@@ -4,7 +4,7 @@
         {
             $conexion = mysqli_connect('localhost','root','','debian2');
 
-			$sql_registe = mysqli_query($conexion,"SELECT COUNT(*) as total_registro FROM deposito");
+			$sql_registe = mysqli_query($conexion,"SELECT COUNT(*) as total_registro FROM deposito_detalle");
 			$result_register = mysqli_fetch_array($sql_registe);
 			$total_registro = $result_register['total_registro'];
 			$por_pagina = 5;
@@ -22,11 +22,13 @@
             if (isset($_GET['x'])) 
             {
                 $c = $_GET['x'];
-                $sql = "SELECT * FROM deposito where Id like '%$c%' or Nombre like '%$c%' or Tipo like '%$c%' LIMIT $desde,$por_pagina ";
+        
+                $sql = "SELECT deposito_detalle.Id,insumo.Nombre,insumo.Descripcion,deposito_detalle.stock FROM deposito_detalle,insumo WHERE deposito_detalle.Id_insumo = insumo.Id and deposito_detalle.Id like '%$c%' or insumo.Nombre like '%$c%' or insumo.Descripcion like '%$c%' or deposito_detalle.stock like '%$c%' LIMIT $desde,$por_pagina";
+
             }
             else
             {
-                $sql = "SELECT * FROM deposito LIMIT $desde,$por_pagina"; 
+                $sql = "SELECT deposito_detalle.Id,insumo.Nombre,insumo.Descripcion,deposito_detalle.stock FROM deposito_detalle,insumo WHERE deposito_detalle.Id_insumo = insumo.Id LIMIT $desde,$por_pagina";
             }
 
             $resultado=mysqli_query($conexion,$sql);

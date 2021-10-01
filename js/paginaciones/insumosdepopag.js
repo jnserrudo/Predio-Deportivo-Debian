@@ -6,37 +6,41 @@ const getDatadepo = (p) => {
 
     if (p == undefined) {
         
-        xhr.open('GET', "../php/inserciondepo.php")
+        xhr.open('GET', "../php/inserinsumdepo.php")
 
         xhr.addEventListener('load', (datosconsulta) => {
             const dataJSON = JSON.parse(datosconsulta.target.response)
             //console.log(dataJSON)
             const fragment = document.createDocumentFragment()
 
-            for (const deposito of dataJSON) {
+            for (const insumo of dataJSON) {
+                //console.log(insumo+"y su primero seria"+insumo[0])
                 const row = document.createElement('TR')
                 const dataid = document.createElement('TD')
                 const datanombre = document.createElement('TD')
-                const datatipo = document.createElement('TD')
-                const databtnedit=document.createElement('TD')
+                const datadescripcion = document.createElement('TD')
+                const datastock = document.createElement('TD')
+
+                /*const databtnedit=document.createElement('TD')
                 const btnedit=document.createElement('button')
                 btnedit.classList.add("btnseleccionardepo")
                 btnedit.textContent="Seleccionar"
-                databtnedit.append(btnedit)
+                databtnedit.append(btnedit)*/
                         
-                dataid.textContent = deposito[0]
-                datanombre.textContent = deposito[1]
-                datatipo.textContent = deposito[2]
+                dataid.textContent = insumo[0]
+                datanombre.textContent = insumo[1]
+                datadescripcion.textContent = insumo[2]
+                datastock.textContent = insumo[3]
 
                 dataid.classList.add('celda')
                 datanombre.classList.add('celda')
-                datatipo.classList.add('celda')
-                databtnedit.classList.add('celda')
+                datadescripcion.classList.add('celda')
+                datastock.classList.add('celda')
 
                 row.append(dataid)
                 row.append(datanombre)
-                row.append(datatipo)
-                row.append(databtnedit)
+                row.append(datadescripcion)
+                row.append(datastock)
 
                 fragment.append(row)
             }
@@ -44,37 +48,41 @@ const getDatadepo = (p) => {
         })
     } 
     else {
-        xhr.open('GET', `../php/inserciondepo.php?p=${p}`)
+        xhr.open('GET', `../php/inserinsumdepo.php?p=${p}`)
 
         xhr.addEventListener('load', (datosconsulta) => {
             const dataJSON = JSON.parse(datosconsulta.target.response)
             //console.log(dataJSON)
             const fragment = document.createDocumentFragment()
 
-            for (const deposito of dataJSON) {
+            for (const insumo of dataJSON) {
+                //console.log(insumo+"y su primero seria"+insumo[0])
                 const row = document.createElement('TR')
                 const dataid = document.createElement('TD')
                 const datanombre = document.createElement('TD')
-                const datatipo = document.createElement('TD')
-                const databtnedit=document.createElement('TD')
+                const datadescripcion = document.createElement('TD')
+                const datastock = document.createElement('TD')
+
+                /*const databtnedit=document.createElement('TD')
                 const btnedit=document.createElement('button')
                 btnedit.classList.add("btnseleccionardepo")
                 btnedit.textContent="Seleccionar"
-                databtnedit.append(btnedit)
+                databtnedit.append(btnedit)*/
                         
-                dataid.textContent = deposito[0]
-                datanombre.textContent = deposito[1]
-                datatipo.textContent = deposito[2]
+                dataid.textContent = insumo[0]
+                datanombre.textContent = insumo[1]
+                datadescripcion.textContent = insumo[2]
+                datastock.textContent = insumo[3]
 
                 dataid.classList.add('celda')
                 datanombre.classList.add('celda')
-                datatipo.classList.add('celda')
-                databtnedit.classList.add('celda')
+                datadescripcion.classList.add('celda')
+                datastock.classList.add('celda')
 
                 row.append(dataid)
                 row.append(datanombre)
-                row.append(datatipo)
-                row.append(databtnedit)
+                row.append(datadescripcion)
+                row.append(datastock)
 
                 fragment.append(row)
             }

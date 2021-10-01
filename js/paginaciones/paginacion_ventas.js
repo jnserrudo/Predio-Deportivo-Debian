@@ -19,7 +19,7 @@ const getDatavent = (p) => {
                         row.classList.add('fila')
                         const dataid = document.createElement('TD')
                         const datafecha = document.createElement('TD')
-                        const datanom_dep = document.createElement('TD')            
+                        //const datanom_dep = document.createElement('TD')            
                         const datatotal = document.createElement('TD') 
 
 
@@ -31,21 +31,21 @@ const getDatavent = (p) => {
                         
                         dataid.textContent = venta[0]   
                         datafecha.textContent = venta[1]
-                        datanom_dep.textContent = venta[2]
-                        datatotal.textContent = venta[3]
+                      //  datanom_dep.textContent = venta[2]
+                        datatotal.textContent = venta[2]
 
               
                         dataid.classList.add('celda')
                         datafecha.classList.add('celda')                     
-                        datanom_dep.classList.add('celda')
+                       // datanom_dep.classList.add('celda')
                         datatotal.classList.add('celda')
                       
                         databtnedit.classList.add('celda')
                        
                         row.append(dataid)
-                        row.append(dataid_proveedor)
                         row.append(datafecha)
-                        row.append(dataestado)                  
+                        row.append(datatotal)
+                                          
                         row.append(databtnedit)
                         fragment.append(row)
             }
@@ -65,7 +65,7 @@ const getDatavent = (p) => {
                 row.classList.add('fila')
                 const dataid = document.createElement('TD')
                 const datafecha = document.createElement('TD')              
-                const datanom_dep = document.createElement('TD')
+                //const datanom_dep = document.createElement('TD')
                 const datatotal = document.createElement('TD')
                 const databtnedit=document.createElement('TD')
                 const btnedit=document.createElement('button')
@@ -75,19 +75,19 @@ const getDatavent = (p) => {
                 console.log("soy el id nro"+venta.Id)
                 dataid.textContent = venta[0]
                 datafecha.textContent = venta[1]        
-                datanom_dep.textContent = venta[2]
-                datatotal.textContent = venta[3]
+               // datanom_dep.textContent = venta[2]
+                datatotal.textContent = venta[2]
 
                 dataid.classList.add('celda')
                 datafecha.classList.add('celda')            
-                datanom_dep.classList.add('celda')
+               // datanom_dep.classList.add('celda')
                 datatotal.classList.add('celda')
                 databtnedit.classList.add('celda')
 
 
                 row.append(dataid)
                 row.append(datafecha)
-                row.append(datanom_dep)
+               // row.append(datanom_dep)
                 row.append(datatotal)           
                 row.append(databtnedit)
                 fragment.append(row)

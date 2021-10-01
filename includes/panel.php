@@ -38,6 +38,12 @@ $panel="<div class='side-navbar  d-flex justify-content-between flex-wrap flex-c
   <li href='#' class='nav-link lis' id='irdeposito'>
     <span class='mx-2'>Depositos</span>
   </li>
+  <li href='#' class='nav-link lis' id='irreservas'>
+  <span class='mx-2'>Reservas</span>
+</li>
+<li href='#' class='nav-link lis' id='irinstalaciones'>
+<span class='mx-2'>Instalaciones</span>
+</li>
 </ul>
 </div>";
 echo $panel

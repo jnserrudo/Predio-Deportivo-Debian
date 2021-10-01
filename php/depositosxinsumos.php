@@ -41,24 +41,26 @@
       <p class="textordencompra">DEPOSITOS</p>
       <div class="datatable-container-depositos">
         <div class="container">
-          <div class="header-tools">
-            <div class="contbtnreg">
-              <button class="btnvent button " id="btnnuevodepo">Registrar Nuevo Deposito</button> 
-              <button class="btnvent button " id="verinsumos">Ver Insumos del Deposito</button>  
+            <div class="header-tools">
+                <div class="buscador">
+                  <p class="txtbusq">Deposito:</p>
+                  <input type="text" id="busquedadepo" class="busqueda" name="busquedadepo" readonly=""> </input>
+                </div>  
             </div>
-            <div class="buscador">
-              <p class="txtbusq">Buscar:</p>
-              <input type="text" id="busquedadepo" class="busqueda" name="busquedadepo"> </input>
+            <div class="header-tools">
+              <div class="buscador">
+                <p class="txtbusq">Buscar:</p>
+                <input type="text" id="busquedainsumo" class="busqueda" name="busquedainsumo"> </input>
+              </div> 
             </div>
-          </div>
-          <table id="tabladepositos" class="table table-striped datatable table-bordered border-primary">
-            <thead class="tablaenc">       
-              <th id="iddepo">Id</th>
-              <th id="nombredepo">Nombre</th>
-              <th id="tipodepo">Tipo</th>
-              <th id="accion">Accion</th>
-            </thead>
-          </table>
+            <table id="tablainsumos" class="table table-striped datatable table-bordered border-primary">
+              <thead class="tablaenc">       
+                <th id="idproduc">Id</th>
+                <th id="nomproduc">Nombre</th>
+                <th id="descripproduc">Descripcion</th>
+                <th id="stockproduc">Stock</th>
+              </thead>
+            </table>
           <div class="pages">
             <ul>
               <li><button id="btnpag1">1</button></li>
@@ -81,12 +83,11 @@
 
 
 
-  <script src="../js/maindepo.js?v=<?php echo(rand()); ?>"></script>
-  <!-- <script src="../js/insumosxdeposito.js?v=<?php //echo(rand()); ?>"></script> -->
+  <script src="../js/insumosdepo.js?v=<?php echo(rand()); ?>"></script>
   <!-- DEBO AGREGAR ESTOS DOS EN TODOS -->
   <script src="../js/prueba.js?v=<?php echo(rand()); ?>"></script>
   <script src="../js/inicio.js?v=<?php echo(rand()); ?>"></script>
-  <script src="../js/paginaciones/depositos.js?v=<?php  echo(rand()); ?>"></script>
+  <script src="../js/paginaciones/insumosdepopag.js?v=<?php  echo(rand()); ?>"></script>
 
 </body>
 </html>
