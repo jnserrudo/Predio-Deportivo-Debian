@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ventas</title>
     <link rel="stylesheet" href="../css/bootstrap.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/style2.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/styleinicio.css?v=<?php echo(rand()); ?>">
@@ -84,6 +84,59 @@
                              </div>
                   <!--<button>Ant</button><button>Sig</button> -->
                   </div>
+
+
+
+                  <!-- ventana emergente mostrando detalles de la orden seleccionado -->
+                  <div class="reg" id="ventventa">
+                        <div class="cont_vent cont_ventcomp" id="cont_ventventa">
+                              <img src="../assets/cruz.svg" alt="" class="icono_cerrar" id="icono_cerrarventa">
+                            <div class="divtipocomprobante">
+                                <div class="datatable-container-compmin">
+
+                                                    <div class="header-tools headerflex">
+                                                        <div class="contbtnreg">
+                                                        <p class="txt_registrar nomtipo">Comprobantes del Tipo Factura</p>
+
+                                                        </div>
+                                                        <div class="buscador">
+                                                            <p class="txtbusq">Buscar</p>
+                                                            <input type="text" id="busquedacompmin" class="busqueda" name="busqueda"> </input>
+
+                                                        </div>  
+                                                    </div>
+                                                    <table id="tablaventadetalle" class="table table-striped datatable tablacompmin table-bordered border-primary">
+                                                        <thead class="tablaenc">       
+                                                            <th id="idproveedor">Id</th>
+                                                            <th id="empresa">Nombre del proveedor</th>
+                                                            <!-- <th id="telefono">Fecha</th> -->
+                                                            <!-- <th id="telefono">Estado</th> -->
+                                                            <th id="telefono">Monto</th>
+                                                            <th id="telefono">Letra</th>
+                                                            <th id="telefono">Orden de compra</th>
+                                                            <th id="telefono">Tipo</th>
+                                                            <th id="telefono">Accion</th>
+                                                        </thead>
+                                                        <!-- <tbody>
+                                                        </tbody> -->
+                                                    </table>
+                                                    <div class="pages">
+                                                         <ul>
+                                                           <li><button id="btnpag6">1</button></li>    <!--cambie numeracion para no tener mismo id que arriba -->
+                                                            <li><button id="btnpag7">2</button></li>
+                                                            <li><button id="btnpag8">3</button></li>
+                                                            <li><button id="btnpag9">4</button></li>
+                                                            <li><button id="btnpag10">5</button></li>
+                                                        </ul>
+                                                    </div>
+                                </div>
+                                       
+                            </div>  
+                        </div>      
+                        
+                        
+                </div>
+<!-- fin ventana emergente -->
 
         
 

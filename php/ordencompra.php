@@ -141,7 +141,6 @@ if (isset($_GET['t'])&& isset($_GET['n'])&& isset($_GET['p'])&& isset($_GET['c']
             $rqs1=$rqs[0][0];
           
             ?>
-            <p id='nombres'> <?php echo  var_dump($resultados[0][0]), var_dump( $rqs[0][0]), var_dump( $p[0]), var_dump( $c);?> </p>  
             <?php
             $p1=$p[$i];
             $c1=$c[$i];
@@ -221,14 +220,14 @@ window.history.replaceState(null, null, window.location.href);
                                                                       
 
 
-                                                                          <div class="datatable-container">
+                                                                          <div class="datatable-container fuentetamordencompra">
                                                                           <button class="btnvent" id="btnbuscarinsumo"> Buscar Insumo</button>
 
                                                                                 <div class="header-tools">
 
                                                                                     <div class="contbtnreg">
-                                                                                    <button id="registrarorden" class="btnvent">Registrar orden de compra</button>
-                                                                                    <button id='irabmorden' class='btnvent'> Ver Ordenes de Compras</button>
+                                                                                    <button id="registrarorden" class="btnvent">Registrar Orden de compra</button>
+                                                                                    <button id='irabmorden' class='btnvent'> Volver</button>
                                                                                                                         </div>
                                                                                                   
                                                                                                                         

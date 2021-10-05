@@ -145,3 +145,104 @@ const getData = (x) => {
 
 getData() 
 
+
+// const edicion = document.getElementById('tabla')
+
+
+// edicion.addEventListener('click',(e)=>{
+//     const editar=e.target;
+//     if(editar.classList.contains('btneditar')){
+//         let xhr
+//          if (window.XMLHttpRequest) xhr = new XMLHttpRequest()
+//          else xhr = new ActiveXObject("Microsoft.XMLHTTP")
+//          idd=editar.parentElement.parentElement.firstElementChild.textContent
+//          nomdep=editar.parentElement.parentElement.firstElementChild.nextElementSibling.textContent
+//          inputdeposito.value=nomdep
+
+//          console.log(idd)
+        
+
+//         xhr.open('GET', `../php/consultadepositodetalle.php?x=${idd}`)
+
+//         xhr.addEventListener('load', (data) => {
+//             const dataJSON = JSON.parse(data.target.response)
+//             console.log(dataJSON)
+
+//             const fragment = document.createDocumentFragment()
+
+//             for (const insumo of dataJSON) {
+//                 const row = document.createElement('TR')
+//                 row.classList.add('fila')
+//                 // const datadepo = document.createElement('TD')
+
+//                 const dataid = document.createElement('TD')
+//                 const datanom = document.createElement('TD')
+//                 const datadesc = document.createElement('TD')
+//                 const dataprecio = document.createElement('TD')
+//                 const dataStock = document.createElement('TD')
+//                 const datacant=document.createElement('TD')
+//                 const cant=document.createElement('input')
+//                 cant.classList.add('inputventas')
+
+//                 const databtnedit=document.createElement('TD')
+//                 const btnedit=document.createElement('button')
+//                 btnedit.classList.add("btneditar")
+//                 btnedit.textContent="Añadir"
+//                 datacant.append(cant)
+//                 databtnedit.append(btnedit)
+//                   console.log("soy el id nro"+insumo.Id)
+//                 //   datadepo.textContent=idd
+//                 dataid.textContent = insumo[0]
+//                 datanom.textContent = insumo[1]
+//                 datadesc.textContent = insumo[2]
+//                 dataprecio.textContent = insumo[3]
+//                 dataStock.textContent = insumo[4]
+                
+
+//                 // datadepo.classList.add('celda')
+
+//                 dataid.classList.add('celda')
+//                 datanom.classList.add('celda')
+//                 datadesc.classList.add('celda')
+//                 dataprecio.classList.add('celda')
+//                 dataStock.classList.add('celda')
+//                 datacant.classList.add('celda')
+//                 databtnedit.classList.add('celda')
+
+//                 // row.append(datadepo)
+
+//                 row.append(dataid)
+//                 row.append(datanom)
+//                 row.append(datadesc)
+//                 row.append(dataprecio)
+//                 row.append(dataStock)
+//                 row.append(datacant)
+
+//                 row.append(databtnedit)
+
+//                 fragment.append(row)
+//             }
+//             const hijo=tablainsumo.children[0];
+                
+//             while(hijo.nextElementSibling){;
+//                 tablainsumo.removeChild(hijo.nextElementSibling);
+//             }
+            
+//             tablainsumo.append(fragment);
+//         })
+//         xhr.send()
+
+         
+//          regins.classList.add('activar');
+// 	    contventins.classList.add('activar');
+        
+//     }
+// })
+
+    // ventana emergente de los insumos 
+
+
+// const regventa = document.getElementById('ventventa');
+// const contventventa = document.getElementById('cont_ventventa');
+// const iconocerrarventadetalle = document.getElementById('icono_cerrarventa');
+// const tablaventadetalle =document.getElementById('tablaventadetalle')

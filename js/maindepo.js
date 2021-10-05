@@ -110,7 +110,7 @@ const getData = (x) => {
 
     xhr.send()
 }
-
+getData()
 const btnver = document.getElementById('verinsumos');
 btnver.addEventListener('click', ()=>{
     window.location.href="../php/depositosxinsumos.php?"

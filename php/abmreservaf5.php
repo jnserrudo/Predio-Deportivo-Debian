@@ -341,7 +341,10 @@
                                                                                         
                                                                                         </div>  
                                                                                         <button class="btnvent button " id="btnvent">Registrar Nueva Reserva</button> 
-                                                                                        <table id="tabla" class="table table-striped datatable table-bordered border-primary">
+                                                                                       
+                                                                                              <!--<button>Ant</button><button>Sig</button> -->
+                                                                                              </div>
+                                                                                              <table id="tabla" class="table table-striped datatable table-bordered border-primary">
                                                                                                 <thead class="tablaenc">       
                                                                                                     <th id="idproveedor">Id</th>
                                                                                                     <th id="empresa">Fecha</th>
@@ -366,8 +369,6 @@
                                                                                                               <li><button id="btnpag5">5</button></li>
                                                                                                                </ul>
                                                                                                          </div>
-                                                                                              <!--<button>Ant</button><button>Sig</button> -->
-                                                                                              </div>
                                                                                   </div>
                                                                                          
                                                                                           

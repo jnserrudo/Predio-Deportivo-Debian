@@ -14,14 +14,6 @@ const consulta=document.getElementById("txtconsulta");
 
 
 const busq=document.getElementById("busqueda")
-busq.addEventListener('keyup',
-(e)=>{
-  var x= e.target.value;
-  console.log(x);
-  getData(x);
-    
-}
-)
 
 const btnvolvercomprobante=document.getElementById('btnvolvercomprobante')
 
@@ -32,6 +24,9 @@ btnvolvercomprobante.addEventListener('click',()=>{
 const table = document.getElementById('tabla')
 
 
+
+
+
 const getData = (x) => {
     let xhr
     if (window.XMLHttpRequest) xhr = new XMLHttpRequest()
@@ -39,7 +34,7 @@ const getData = (x) => {
 
     if (x == undefined) {
         
-        xhr.open('GET', "../php/insercion_orden.php")
+        xhr.open('GET', "../php/registrarcomprobante.php")
 
         xhr.addEventListener('load', (data) => {
             const dataJSON = JSON.parse(data.target.response)
@@ -88,7 +83,7 @@ const getData = (x) => {
             table.appendChild(fragment)
         })
     } else {
-        xhr.open('GET', `../php/insercion_orden.php?x=${x}`)
+        xhr.open('GET', `../php/registrarcomprobante.php?x=${x}`)
 
         xhr.addEventListener('load', (data) => {
             const dataJSON = JSON.parse(data.target.response)
@@ -151,7 +146,7 @@ const getData = (x) => {
 
 
 
-getData() 
+// getData() 
 
 
 const edicion=document.getElementById('tabla')
@@ -182,7 +177,8 @@ var tipo
 
 
 // ver todas las ordenes
-const btnverordenes=document.getElementById('btnverordenes')
+//  estamos mostrando solo por proveedor( correccion del profe)
+// const btnverordenes=document.getElementById('btnverordenes')
 
 
 
@@ -196,7 +192,7 @@ selectprov.addEventListener('change',()=>{
     let xhr
     if (window.XMLHttpRequest) xhr = new XMLHttpRequest()
     else xhr = new ActiveXObject("Microsoft.XMLHTTP")
-    xhr.open('GET', `../php/insercion_orden.php?pr=${idprov}`)
+    xhr.open('GET', `../php/registrarcomprobante.php?pr=${idprov}`)
 
     xhr.addEventListener('load', (data) => {
         const dataJSON = JSON.parse(data.target.response)
@@ -210,6 +206,7 @@ selectprov.addEventListener('change',()=>{
             const dataId = document.createElement('TD')
             const dataFecha = document.createElement('TD')
             const dataId_proveedor = document.createElement('TD')
+
             const databtnedit=document.createElement('TD')
             const btnedit=document.createElement('button')
             btnedit.classList.add("btneditar")
@@ -249,18 +246,18 @@ selectprov.addEventListener('change',()=>{
     xhr.send()
 
 
-    btnverordenes.classList.add('activarcomp')
+    // btnverordenes.classList.add('activarcomp')
 
 
 })
 
-btnverordenes.addEventListener('click',()=>{
-    btnverordenes.classList.remove('activarcomp')
-    getData() 
-    selectprov.selectedIndex=0
-    selecttipo.selectedIndex=0
+// btnverordenes.addEventListener('click',()=>{
+//     btnverordenes.classList.remove('activarcomp')
+//     // getData() 
+//     selectprov.selectedIndex=0
+//     selecttipo.selectedIndex=0
 
-})
+// })
 
 
 const p_monto=document.getElementById("p_monto");
@@ -456,7 +453,14 @@ icono_cerrar.addEventListener('click', (e)=>{
     monto.classList.remove('activar')
     p_monto.classList.remove('activar')
 
-    getData() 
+    
+
+    const hijo=edicion.children[0];
+                
+    while(hijo.nextElementSibling){;
+                edicion.removeChild(hijo.nextElementSibling);
+    }
+    // getData() 
     selectprov.selectedIndex=0
     selecttipo.selectedIndex=0
 
@@ -853,3 +857,22 @@ tablacompmin.addEventListener('click',(e)=>{
 
 
 
+busq.addEventListener('keyup',
+(e)=>{
+  var x= e.target.value;
+  console.log(x+' es de tipo: '+typeof(x)+'y su length : '+x.length);
+    if(x.length!=0){
+        getData(x);
+
+        selectprov.selectedIndex=0
+    }else{
+        const hijo=table.children[0];
+        selectprov.selectedIndex=0
+
+        while(hijo.nextElementSibling){;
+            table.removeChild(hijo.nextElementSibling);
+        }
+    }
+    
+}
+)

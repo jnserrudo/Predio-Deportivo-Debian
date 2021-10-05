@@ -74,10 +74,10 @@
 
 
 
-                   <!-- <label for="precio">id:</label>
+                    <label for="precio">id:</label>
                     
-                     <input id="id"type="text" name="id" value=<?php // echo $resultados[0]; ?>>
-                        <label for="nom">Nombre:</label>   -->
+                     <input id="id"type="text" name="id" class="input_ordenpago" value=<?php echo $resultados[0]; ?>>
+                        <label for="nom">Nombre:</label>   
                         <?php 
                         $conexion = NULL;
                                 try{
@@ -103,6 +103,7 @@
                         require('queryedicion_prov.php');
                         ?>
                         
+                        <!-- <label for="nom">Nombre:</label> -->
                         <input type="text" id="nom" class="input_ordenpago" name="nom" value=<?php  echo $resultados[1]; ?>>
 
                         <label for="direc">Direccion:</label>

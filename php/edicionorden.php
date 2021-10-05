@@ -68,7 +68,7 @@
 
 
 
-                                                                            require('queryedicion_socios.php');
+                                                                            // require('queryedicion_socios.php');
                                                                             ?>
 
 
@@ -78,41 +78,15 @@
 
 
 
-                    <label for="precio"></label>
+                    <label for="id">Id:</label>
                     <!-- este no se deberia editar -->
-                        <?php 
-                        $conexion = NULL;
-                                try{
-                                    $conexion = mysqli_connect('localhost','root','','debian2');
-                                    
-                                    if (isset($_GET['t'])) {
-                                        $z = $_GET['t'];
-                                        $GLOBALS['z']=$z;
-                                        // echo $c;
-                                        // if(!$c=""){
-                                        $sql = "SELECT * FROM orden where Id=$z";
-                                        // }else{
-                                        //   $sql = "SELECT * FROM insumo";
-                                    $resultado=mysqli_query($conexion,$sql);                             
-                                    $resultados=mysqli_fetch_array($resultado);
-                                    // var_dump($resultados);
-                                    $j=json_encode($resultados);
-                                    // $GLOBALS['res']=$resultados;
-                                    }
-                                    
-                                } catch (PDOException $e){
-                                    echo "Error ".$e->getMessage();
-                                } 
+                     <input type="text" id="id" class="input" name="id" value=<?php  echo $resultados[0]; ?>>  
 
-                        require('queryedicion_socios.php');
-                        ?>
-                                               Id: <input type="text" id="id" class="input" name="id" value=<?php  echo $resultados[0]; ?>>  
+                        <label for="Fecha">Fecha:</label>
+                        <input type="text" id="Fecha" class="input" name="Fecha" value=<?php  echo $resultados[1]; ?>>  
 
-                        <label for="nom"></label>
-                        Fecha: <input type="text" id="Fecha" class="input" name="Fecha" value=<?php  echo $resultados[1]; ?>>  
-
-                        <label for="apellido">Id_proveedor:</label>
-                        <input type="text" id="tel" class="imput" name="Id_proveedor" value=<?php  echo $resultados[2]; ?>>
+                        <label for="Id_proveedor">Id_proveedor:</label>
+                        <input type="text" id="Id_proveedor" class="imput" name="Id_proveedor" value=<?php  echo $resultados[2]; ?>>
 
                      
                         </div>
@@ -120,15 +94,14 @@
                     <div class="contbtneliminar">
                          <button class="btn" id="btnrip" >Eliminar Orden de Compra</button>
                     </div>
-                </div>
-               
-            <div class="contbtn">
-           <!-- <input type="submit" class="btn btnconfirmar" id="btnconf" value="confirmar"> -->
+                    <div class="contbtn">
              <button class="btn btnconfirmar" id="btnconf" >Confirmar</button>    
                 <button class="btn btncancelar" id="btncanc">Volver</button>
             </div>
+                </div>
+           
         </div>
-        <p id="prueba"> <?php  echo $resultados[0]; ?> </p>
+        <!-- <p id="prueba"> <?php  //echo $resultados[0]; ?> </p> -->
 
 
 
@@ -149,35 +122,9 @@
 
 
 
-
-<footer class="w-100 footer d-flex  align-items-center justify-content-start flex-wrap">
-        <!-- <p class="fs-5 px-3  pt-3">ExpertD. &copy; Todos Los Derechos Reservados 2021</p> -->
-        <div id="iconos" class="iconos" >
-            <!-- logos -->
-            <div class="conticono">
-               <img src="../assets/imagenes/iconos/face.png" class="icono" alt=""> DEBIANfc 
-            </div>
-
-            <div class="conticono">
-                <img src="../assets/imagenes/iconos/ig.png" class="icono" alt=""> @DEBIANfc
-            </div>
-            <div class="conticono">
-                <img src="../assets/imagenes/iconos/tel.png" class="icono" alt=""> 4229-7600
-
-            </div>
-            <div class="conticono">
-                <img src="../assets/imagenes/iconos/gmail.png" class="icono" alt=""> Debian@gmail.com.ar
-            </div>
-            <div class="conticono">
-                <img src="../assets/imagenes/iconos/map.png" class="icono" alt=""> Av. Mitre 470 (1870).
-
-            </div>
-                 
-        </div>
-        <p class="frasefooter"> Mas que un club... <br> una Familia</p>  
-
-        <p class="text_debsw"> Desarrollado por Debian Software <br> &copy Derechos Reservados</p>
-      </footer>
+<?php
+include '../includes/footer.php'
+?>
 
       <script src="../js/edit_orden.js?v=<?php echo(rand()); ?>"></script>
    <!-- <script src="../js/editinsumo.js?v=<?php echo(rand()); ?>"></script>  -->
