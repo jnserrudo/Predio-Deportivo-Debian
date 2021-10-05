@@ -840,3 +840,17 @@
     font-family:Verdana,Helvetica;
         font-weight:bold;
 }
+
+
+/* tamaño de la fuente para las tablas de comprobantes y registracion de orden de pago que tienen a la tabla comprobante */
+.fuentetam{
+    font-size: 1.3em;
+
+}
+
+.fuentetamordencompra{
+    font-size: 1.5em;
+    width: 1300px;
+    height: 550px;
+
+}

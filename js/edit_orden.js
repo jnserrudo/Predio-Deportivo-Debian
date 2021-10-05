@@ -32,14 +32,14 @@ const btnrip=document.getElementById('btnrip')
 }) 
 btnrip.addEventListener('click',()=>{
     var opcion = confirm("Esta seguro de eliminar la Orden de Compra?");
-    var r=document.getElementById('prueba').textContent
+    var r=document.getElementById('id').value
     if (opcion == true) {
         mensaje = "Has clickado OK";
-        window.location.href="../php/abmsocios.php?r="+r
+        window.location.href="../php/abmorden.php?r="+r
 	} 
 })
 
 btncanc.addEventListener('click',()=>{
 
-    window.location.href="../php/abmsocios.php"
+    window.location.href="../php/abmorden.php"
 })

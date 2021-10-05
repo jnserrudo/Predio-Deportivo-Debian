@@ -27,7 +27,7 @@ const irorden=document.getElementById('irorden')
 
 irorden.addEventListener('click',()=>
 {
-    window.location.href='../php/ordencompra.php'
+    window.location.href='../php/abmorden.php'
 })
 
 const logoinicio=document.getElementById('logoinicio')

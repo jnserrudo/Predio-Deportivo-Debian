@@ -78,12 +78,11 @@
                 $c = $_GET['x'];
                 // echo $c;
                 // if(!$c=""){
-                $sql = "SELECT o.Id,o.Fecha,p.Nombre FROM orden as o inner join proveedor as p on o.Id_proveedor=p.Id where o.Id like '%$c%' or o.Fecha like '%$c%' or o.Id_proveedor like '%$c%' LIMIT $desde,$por_pagina";
-            // }else{
-                //   $sql = "SELECT * FROM insumo";
-            } else {
-                $sql = "SELECT o.Id,o.Fecha,p.Nombre FROM orden as o inner join proveedor as p on o.Id_proveedor=p.Id LIMIT $desde,$por_pagina";
-            }
+                $sql = "SELECT o.Id,o.Fecha,p.Nombre FROM orden as o inner join proveedor as p on o.Id_proveedor=p.Id where o.Id like '%$c%' or o.Fecha like '%$c%' or p.Nombre like '%$c%' LIMIT $desde,$por_pagina";
+            
+             } else {
+                 $sql = "SELECT o.Id,o.Fecha,p.Nombre FROM orden as o inner join proveedor as p on o.Id_proveedor=p.Id LIMIT $desde,$por_pagina";
+             }  // POR SI HAY PROBLEMAS, SE COMENTO ESTE ELSE
         }
           
 

@@ -188,7 +188,7 @@ if (isset($_GET['ip'])&& isset($_GET['io'])&& isset($_GET['l'])&& isset($_GET['m
       
                  </div>  
                  <!-- <div class="contbtnreg"> -->
-                     <button class="btnvent btnverordenes" id="btnverordenes">Ver todas las Ordenes</button>     
+                     <!-- <button class="btnvent btnverordenes" id="btnverordenes">Ver todas las Ordenes</button>      -->
                 <!-- </div> -->
 
 
@@ -387,7 +387,7 @@ if (isset($_GET['ip'])&& isset($_GET['io'])&& isset($_GET['l'])&& isset($_GET['m
     ?>
     <script src="../js/comprobante.js?v=<?php echo(rand()); ?>"></script>
     <script src="../js/inicio.js?v=<?php echo(rand()); ?>"></script>
-    <script src="../js/paginaciones/orden.js?v=<?php  echo(rand()); ?>"></script>
+    <script src="../js/paginaciones/paginacioncomprobantes.js?v=<?php  echo(rand()); ?>"></script>
     <script src="../js/paginaciones/paginacioncompmin.js?v=<?php  echo(rand()); ?>"></script>
 </body>
 </html>

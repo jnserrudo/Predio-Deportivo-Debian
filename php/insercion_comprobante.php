@@ -7,7 +7,7 @@
           $conexion = mysqli_connect('localhost','root','','debian2');
 
 //Paginador
-			$sql_registe = mysqli_query($conexion,"SELECT COUNT(*) as total_registro FROM comprobante as c inner join proveedor as p on p.Id=c.Id_proveedor");
+			$sql_registe = mysqli_query($conexion,"SELECT COUNT(*) as total_registro FROM comprobante as c inner join proveedor as p on p.Id=c.Id_proveedor where c.tipo='Factura'");
 			$result_register = mysqli_fetch_array($sql_registe);
 			$total_registro = $result_register['total_registro'];
 
@@ -25,17 +25,30 @@
 			// 	");
 
 
-            if (isset($_GET['x'])) {
-                $c = $_GET['x'];
 
-                $sql = "SELECT c.Id,p.Nombre,c.Fecha,c.Estado,c.Monto,c.Letra,c.Id_orden_compra,c.Tipo FROM comprobante as c inner join proveedor as p on p.Id=c.Id_proveedor where c.Id like '%$c%' or p.Nombre like '%$c%'  
-                          or c.Fecha like '%$c%' or c.Estado like '%$c%' or c.Monto like '%$c%' or c.Letra like '%$c%'or c.Id_orden_compra like '%$c%'or c.Tipo like '%$c%' LIMIT $desde,$por_pagina ";
-
+            if (isset($_GET['pr'])) {
+                $c = $_GET['pr'];
+                // echo $c;
+                // if(!$c=""){
+                $sql = "SELECT c.Id,p.Nombre,c.Fecha,c.Estado,c.Monto,c.Letra,c.Id_orden_compra,c.Tipo FROM comprobante as c inner join proveedor as p on p.Id=c.Id_proveedor 
+                where c.Id_proveedor=$c and c.Id not in(select Id_comprobante from ordenpago_detalle) and c.tipo='Factura'
+                LIMIT $desde,$por_pagina ";
+                // }else{
+                //   $sql = "SELECT * FROM insumo";
             }
             else{
-               
-                    $sql = "SELECT c.Id,p.Nombre,c.Fecha,c.Estado,c.Monto,c.Letra,c.Id_orden_compra,c.Tipo FROM comprobante as c inner join proveedor as p on p.Id=c.Id_proveedor  LIMIT $desde,$por_pagina";
-                
+                if (isset($_GET['x'])) {
+                    $c = $_GET['x'];
+
+                    $sql = "SELECT c.Id,p.Nombre,c.Fecha,c.Estado,c.Monto,c.Letra,c.Id_orden_compra,c.Tipo FROM comprobante as c inner join proveedor as p on p.Id=c.Id_proveedor
+                     where c.Id not in(select Id_comprobante from ordenpago_detalle) and c.tipo='Factura' and(
+                     c.Id like '%$c%' or p.Nombre like '%$c%'  
+                          or c.Fecha like '%$c%' or c.Estado like '%$c%' or c.Monto like '%$c%' or c.Letra like '%$c%'or
+                           c.Id_orden_compra like '%$c%'or c.Tipo like '%$c%') 
+                          LIMIT $desde,$por_pagina ";
+                } else {
+                    $sql = "SELECT c.Id,p.Nombre,c.Fecha,c.Estado,c.Monto,c.Letra,c.Id_orden_compra,c.Tipo FROM comprobante as c inner join proveedor as p on p.Id=c.Id_proveedor and c.Id not in(select Id_comprobante from ordenpago_detalle)  and c.tipo='Factura'  LIMIT $desde,$por_pagina";
+                }
             }
 
 

@@ -1,27 +1,11 @@
 
 
 
-const busq=document.getElementById("busqueda")
-busq.addEventListener('keyup',
-(e)=>{
-  var x= e.target.value;
-  console.log(x);
-  getData(x);
-    
-}
-)
 
 
 
 
 
-busq.addEventListener('click',
-(e)=>{
-    console.log(e.target);
-    console.log("nashe")
-
-}
-)
 
 const table = document.getElementById('tabla')
 
@@ -319,7 +303,7 @@ const getData = (x) => {
 
     xhr.send()
 }
-getData() 
+// getData() 
 
 
 const btnirabmordpagos= document.getElementById('btnverordpagos')
@@ -649,3 +633,137 @@ btnconfordpago.addEventListener('click',()=>{
 
 
 })
+
+
+// select proveedor
+const selectprov=document.getElementById('idprov')
+
+var idprov
+
+selectprov.addEventListener('change',()=>{
+    idprov=selectprov.options[selectprov.selectedIndex].value
+    // cargar las ordenes de compra que se vinculen con ese proveedor
+    console.log('idprove : ' +idprov)
+    let xhr
+    if (window.XMLHttpRequest) xhr = new XMLHttpRequest()
+    else xhr = new ActiveXObject("Microsoft.XMLHTTP")
+    xhr.open('GET', `../php/insercion_comprobante.php?pr=${idprov}`)
+
+    xhr.addEventListener('load', (data) => {
+        const dataJSON = JSON.parse(data.target.response)
+        console.log(dataJSON)
+
+        const fragment = document.createDocumentFragment()
+
+        for (const comprobante of dataJSON) {
+            const row = document.createElement('TR')
+                        row.classList.add('fila')
+                        const dataid = document.createElement('TD')
+                        const dataid_proveedor = document.createElement('TD')
+                      //  const dataid_comprobante = document.createElement('TD')
+                        const datafecha = document.createElement('TD')
+                        const dataestado = document.createElement('TD')
+                        const datamonto = document.createElement('TD')
+
+                        const dataletra = document.createElement('TD')
+                        const dataId_orden_compra = document.createElement('TD')
+                        const datatipo = document.createElement('TD') 
+
+
+                        const databtnedit=document.createElement('TD')
+                        const btnedit=document.createElement('button')
+                        btnedit.classList.add("btneditar")
+                        btnedit.textContent="Elegir"
+                        databtnedit.append(btnedit)
+                        
+                        dataid.textContent = comprobante[0]
+                        dataid_proveedor.textContent = comprobante[1]
+                      //  dataid_comprobante.textContent = comprobante[2]
+                        datafecha.textContent = comprobante[2]
+                        dataestado.textContent = comprobante[3]
+                        datamonto.textContent = comprobante[4]
+
+                        dataletra.textContent = comprobante[5]
+                        dataId_orden_compra.textContent = comprobante[6]
+                        datatipo.textContent = comprobante[7]
+
+
+
+
+                        dataid.classList.add('celda')
+                        dataid_proveedor.classList.add('celda')
+                      //  dataid_comprobante.classList.add('celda')
+                        datafecha.classList.add('celda')
+                        dataestado.classList.add('celda')
+                        datamonto.classList.add('celda')
+
+                   
+                        dataletra.classList.add('celda')
+                        dataId_orden_compra.classList.add('celda')
+                        datatipo.classList.add('celda')
+
+
+
+
+
+                        databtnedit.classList.add('celda')
+
+                       
+                        // console.log("soy el data id :"+dataid.textContent)
+                        row.append(dataid)
+                        row.append(dataid_proveedor)
+                      //  row.append(dataid_comprobante)
+                        row.append(datafecha)
+                        row.append(dataestado)
+                        row.append(datamonto)
+
+
+                        
+                        row.append(dataletra)
+                        row.append(dataId_orden_compra)
+                        row.append(datatipo)
+
+
+                        row.append(databtnedit)
+                        fragment.append(row)
+        }
+        const hijo=table.children[0];
+            
+        while(hijo.nextElementSibling){;
+            table.removeChild(hijo.nextElementSibling);
+        }
+        
+        table.append(fragment);
+    })
+    xhr.send()
+
+
+    // btnverordenes.classList.add('activarcomp')
+
+
+})
+
+
+
+
+const busq=document.getElementById("busqueda")
+busq.addEventListener('keyup',
+(e)=>{
+  var x= e.target.value;
+  console.log(x+' es de tipo: '+typeof(x)+'y su length : '+x.length);
+    if(x.length!=0){
+        getData(x);
+        selectprov.selectedIndex=0
+
+    }else{
+        const hijo=table.children[0];
+        selectprov.selectedIndex=0
+
+                
+        while(hijo.nextElementSibling){;
+            table.removeChild(hijo.nextElementSibling);
+        }
+    }
+    
+}
+)

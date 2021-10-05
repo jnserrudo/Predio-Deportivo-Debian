@@ -48,7 +48,7 @@
 
 
 
-        <div class="datatable-container">
+        <div class="datatable-container fuentetam">
 
             <div class="header-tools">
                 <div class="contbtnreg">

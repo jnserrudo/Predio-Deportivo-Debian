@@ -186,7 +186,7 @@ if (isset($_GET['ido'])&& isset($_GET['mp'])&& isset($_GET['d'])) {
                                                                                               </div> -->
 
 
-                                                                                              <div class="datatable-container">
+                                                                                              <div class="datatable-container fuentetam">
 
                                                                                                             <div class="header-tools">
                                                                                                                 <div class="contbtnreg">
@@ -199,8 +199,24 @@ if (isset($_GET['ido'])&& isset($_GET['mp'])&& isset($_GET['d'])) {
                                                                                                                 <div class="buscador">
                                                                                                                     <p class="txtbusq">Buscar</p>
                                                                                                                     <input type="text" id="busqueda" class="busqueda" name="busqueda"> </input>
-
+                                                                                                                    
                                                                                                                 </div>  
+                                                                                                                <p class="txtbusq"> Seleccione Proveedor </p>
+                                                                                                                    <Select class='selected' id="idprov" name="proveedor" >    
+                                                                                                                        <option value="" selected disabled hidden>Seleccionar</option>
+                                                                                                                
+                                                                                                                        <?php
+                                                                                                                        $conexion=mysqli_connect("localhost","root","","debian2");
+                                                                                                                        $consulta="select * from proveedor";
+                                                                                                                        $ejecutar=mysqli_query($conexion,$consulta) 
+
+                                                                                                                        ?>
+
+                                                                                                                        
+                                                                                                                            <?php foreach ($ejecutar as $opciones): ?>
+                                                                                                                            <option id='idprov' class='option' value = "<?php echo $opciones['Id']?>"><?php echo $opciones['Nombre']?></option>
+                                                                                                                            <?php endforeach ?>
+                                                                                                                        </Select>
                                                                                                             </div>
                                                                                                             <table id="tabla" class="table table-striped datatable table-bordered border-primary">
                                                                                                                 <thead class="tablaenc">       
@@ -441,6 +457,6 @@ include '../includes/footer.php';
     <script src="../js/ordenpago.js?v=<?php echo(rand()); ?>"></script>
     <script src="../js/prueba.js?v=<?php echo(rand()); ?>"></script>
     <script src="../js/inicio.js?v=<?php echo(rand()); ?>"></script>
-    <script src="../js/paginaciones/comprobante_pag.js?php  echo(rand()); ?>"></script>
+    <script src="../js/paginaciones/comprobante_pag.js?v=<?php  echo(rand()); ?>"></script>
 </body>
 </html>

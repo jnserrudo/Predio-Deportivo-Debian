@@ -105,14 +105,23 @@
                $r=$_GET['r'];
                // echo $c;
                // if(!$c=""){
-               $sql = "   
-               delete from orden
-               where id=$r;
+               $sql = " 
+               delete from orden_detalle where Id_orden=$r;  
+              
                 
                ";
                // }else{
-               //   $sql = "SELECT * FROM insumo";
+               //   $sql = "SELECT * FROM insumo"; delete from orden_detalle where Id_orden=$r;
                $resultado=mysqli_query($conexion,$sql);
+                $sql1=" 
+  
+                delete from orden
+                where Id=$r;             
+                 
+                ";
+                $resultado=mysqli_query($conexion,$sql1);
+
+
 
            // $GLOBALS['res']=$resultados;
            }          
@@ -371,10 +380,10 @@
 <div class="contbtnreg">
                                                                                               
                                                                                               </div>
-<div class="datatable-container">
+<div class="datatable-container fuentetamordencompra">
 
                                                                 <div class="header-tools">
-                                                                <div class="contbtnreg"><button class="btnvent" id="btnvolverord">Volver</button>     
+                                                                <div class="contbtnreg"><button class="btnvent" id="btnvolverord">Registrar Orden de Compra</button>     
                                                                                               </div>
                                                                  <div class="buscador">
                                                                             <p class="txtbusq">Buscar</p>
