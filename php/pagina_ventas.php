@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/bootstrap.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/style2.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/styleinicio.css?v=<?php echo(rand()); ?>">
+    <link rel="stylesheet" href="../css/abmcomprobantes.css?v=<?php echo(rand()); ?>">
 
     <link rel="stylesheet" href="../css/datatable.css?v=<?php echo(rand()); ?>">
 </head>
@@ -65,7 +66,7 @@
 
               <table id="tabla" class="table table-striped datatable table-bordered border-primary">
                     <thead>       
-                        <th id="Id">Id</th>
+                        <th id="Id">Venta</th>
                         <th id="Fecha">Fecha</th>
                         <!-- <th id="Id_proveedor">Nombre del Deposito</th>   -->
                         <th id="accion">Total</th>      
@@ -90,52 +91,46 @@
                   <!-- ventana emergente mostrando detalles de la orden seleccionado -->
                   <div class="reg" id="ventventa">
                         <div class="cont_vent cont_ventcomp" id="cont_ventventa">
-                              <img src="../assets/cruz.svg" alt="" class="icono_cerrar" id="icono_cerrarventa">
+                        <img src="../assets/cruz.svg" alt="" class="icono_cerrar" id="icono_cerrarventa">
                             <div class="divtipocomprobante">
-                                <div class="datatable-container-compmin">
+                                <div class="encabezadotipocomprobante">
+                                    <p class="txt_registrar nomtipo" id="txttipo">Venta</p>
+                                    <p id="txtfecha" class="txttituloprov">Fecha:</p>
 
-                                                    <div class="header-tools headerflex">
-                                                        <div class="contbtnreg">
-                                                        <p class="txt_registrar nomtipo">Comprobantes del Tipo Factura</p>
+                                    <div class="contidorden">
+                                                 <p class='txtinfoprov'>Nro de Venta: </p>
 
-                                                        </div>
-                                                        <div class="buscador">
-                                                            <p class="txtbusq">Buscar</p>
-                                                            <input type="text" id="busquedacompmin" class="busqueda" name="busqueda"> </input>
-
-                                                        </div>  
-                                                    </div>
-                                                    <table id="tablaventadetalle" class="table table-striped datatable tablacompmin table-bordered border-primary">
-                                                        <thead class="tablaenc">       
-                                                            <th id="idproveedor">Id</th>
-                                                            <th id="empresa">Nombre del proveedor</th>
-                                                            <!-- <th id="telefono">Fecha</th> -->
-                                                            <!-- <th id="telefono">Estado</th> -->
-                                                            <th id="telefono">Monto</th>
-                                                            <th id="telefono">Letra</th>
-                                                            <th id="telefono">Orden de compra</th>
-                                                            <th id="telefono">Tipo</th>
-                                                            <th id="telefono">Accion</th>
-                                                        </thead>
-                                                        <!-- <tbody>
-                                                        </tbody> -->
-                                                    </table>
-                                                    <div class="pages">
-                                                         <ul>
-                                                           <li><button id="btnpag6">1</button></li>    <!--cambie numeracion para no tener mismo id que arriba -->
-                                                            <li><button id="btnpag7">2</button></li>
-                                                            <li><button id="btnpag8">3</button></li>
-                                                            <li><button id="btnpag9">4</button></li>
-                                                            <li><button id="btnpag10">5</button></li>
-                                                        </ul>
-                                                    </div>
+                                                <input type="text" class="inputidorden" id="inputventa">   
+                                            </div>
+   
                                 </div>
-                                       
+                                <div class="continfoproveedor">
+                                    <!-- fecha calculada con js -->
+                                  <!--  <p id="infotxt"></p> -->
+                                    <p class="txttituloprov" id="nomdeposito"></p>
+                                    
+                                </div>
+                                    <div class="tabla_total">
+
+                                    
+                                            <div class="datatable-container-remito dt-container-comp">
+                                                                <table id="tablaventadetalle" class="table table-striped datatable table-bordered border-primary">
+                                                                                <thead>       
+                                                                                   <!-- <th id="">Orden</th>  -->
+                                                                                    <th id="">Insumo</th>
+                                                                                    <th id="">Cantidad</th>
+                                                                                </thead>                                                                                    
+                                                                </table>
+                                                                                                                                                                                                          
+                                            </div>
+                                            <div class="total">
+                                                <p class="txtinfoprov">TOTAL: $<input type="text" class="inputtotal" readonly id="inputtotal"></p>
+                                            </div>
+                                    </div>        
                             </div>  
-                        </div>      
-                        
-                        
-                </div>
+                            <!-- <button class="btnvent" style="visibility: none;">Registrar Comprobante</button>                 -->
+                        </div>                                                    
+                  </div>
 <!-- fin ventana emergente -->
 
         

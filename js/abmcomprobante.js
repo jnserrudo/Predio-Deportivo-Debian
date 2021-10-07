@@ -10,11 +10,9 @@ busq.addEventListener('keyup',
 (e)=>{
   var x= e.target.value;
   console.log(x);
-  getData(x);
-    
+  getData(x);    
 }
 )
-
 
 busq.addEventListener('click',
 (e)=>{
@@ -199,6 +197,7 @@ const getData = (x) => {
     xhr.send()
 }
 getData() 
+
 
 
 
