@@ -190,7 +190,7 @@
                                             </div>
                                     </div>        
                             </div>  
-                            <button class="btnvent" style="visibility: none;">Registrar Comprobante</button>                
+                            <!-- <button class="btnvent" style="visibility: none;">Registrar Comprobante</button>                 -->
                         </div>      
                         
                        
