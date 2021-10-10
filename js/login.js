@@ -4,6 +4,7 @@ const contra=document.getElementById('contra')
 const error=document.getElementById('error')
 const contventl=document.getElementById('cont_vent')
 const iconocerrarl=document.getElementById('icono_cerrar')
+console.log('dea')
 var er="error"
 const txterror=document.getElementById('txt_error')
 iconocerrarl.addEventListener('click', (e)=>{
@@ -99,6 +100,25 @@ btnlogin.addEventListener('click',(e)=>{
 
 
 
+const ventreg=document.getElementById('ventreg')
+const contventreg=document.getElementById('cont_ventreg')
+const iconocerrarreg=document.getElementById('icono_cerrarreg')
+
+
+iconocerrarreg.addEventListener('click',(e)=>{
+    e.preventDefault();
+	ventreg.classList.remove('activar');
+	contventreg.classList.remove('activar');
+})
+
+const btnregistrar=document.getElementById('btnregistrarse')
+
+
+btnregistrar.addEventListener('click',()=>{
+    ventreg.classList.add('activar')
+    contventreg.classList.add('activar')
+
+})
 
 const logoinicio=document.getElementById('logoinicio')
 

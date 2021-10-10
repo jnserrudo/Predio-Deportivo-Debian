@@ -11,7 +11,7 @@
                 $y = $_GET['y'];
 
                 $sql = "SELECT Id FROM usuario
-                    where Usuario=$x and Contraseña=$y
+                    where Usuario='$x' and Contraseña=$y
                  ";
                 $resultado=mysqli_query($conexion,$sql);
 

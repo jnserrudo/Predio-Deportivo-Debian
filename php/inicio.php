@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inicio</title>
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/styleinicio.css?v=<?php echo(rand()); ?>">
 </head>
@@ -42,6 +42,7 @@ $conexion = NULL;
     // session_start();
 ?>
 
+
 <header class="header">
         <div class="logo" id="logoinicio">
             <img  src="../assets/imagenes/DEBIANfc.png" class="logodebian" alt="">
@@ -66,7 +67,21 @@ $conexion = NULL;
     background-size: cover;">
 
 <?php
-include '../includes/panel.php'
+    switch ($_SESSION['usuario']){
+        case 'Encargado de Deposito':
+             include '../includes/panelencdeposito.php';
+            break;
+        case 'Administrador':
+            include '../includes/panel.php';
+            break;
+        case 'Encargado de Ventas':
+            include '../includes/panelencventas.php';
+            break;
+        case 'Responsable de Atencion al Cliente';
+            include '../includes/panelresponsablecliente.php';
+            break;
+    }
+
 ?>
 
 

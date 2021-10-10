@@ -15,18 +15,47 @@
 </head>
 <body>
 <?php
-session_start();
+    session_start()
+    ?>
 
-include '../includes/encabezado.php'
-?>
+    <header class="header">
+        <div class="logo" id="logoinicio">
+            <img  src="../assets/imagenes/DEBIANfc.png" class="logodebian" alt="">
+        </div>
+        <p class="ptitulo"> Debian Futbol Club</p>
+        <div class="login_logo">
+            <p class="usuario" ><?php echo $_SESSION['usuario']?></p>
+            <div class="logo_usuario">
+                <img src="../assets/imagenes/logousuario.png" alt="">
+            </div>
+            <button class="btnlogin" id="btnsesion"> <p class="text">CERRAR SESION</p> </button>
+            <div class="pinguino">
+                <img src="../assets/imagenes/pinguidebian.png" class="logopinguino" alt="">
+            </div>
+        </div>
+    </header>
 
 
 <div class="main">
 <!-- que el main contenga al include -->
-    <?php
-    include '../includes/panel.php'
-    ?>
+<?php
+    switch ($_SESSION['usuario']){
+        case 'Encargado de Deposito':
+             include '../includes/panelencdeposito.php';
+            break;
+        case 'Administrador':
+            include '../includes/panel.php';
+            break;
+        case 'Encargado de Ventas':
+            include '../includes/panelencventas.php';
+            break;
+        case 'Responsable de Atencion al Cliente';
+        include '../includes/panelresponsablecliente.php';
 
+            break;
+    }
+
+?>
 <div class="mainmain">
 <p class="textordencompra"> ORDENES DE PAGO  </p>
 

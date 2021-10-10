@@ -142,11 +142,24 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
     </header>
     <div class="main">
       
-
     <?php
-    include '../includes/panel.php'
-    ?>
+    switch ($_SESSION['usuario']){
+        case 'Encargado de Deposito':
+             include '../includes/panelencdeposito.php';
+            break;
+        case 'Administrador':
+            include '../includes/panel.php';
+            break;
+        case 'Encargado de Ventas':
+            include '../includes/panelencventas.php';
+            break;
+        case 'Responsable de Atencion al Cliente';
+        include '../includes/panelresponsablecliente.php';
 
+            break;
+    }
+
+?>
   <div class="mainmain">
             <p class="textordencompra"> MOVIMIENTO DE STOCK  </p>      
 
