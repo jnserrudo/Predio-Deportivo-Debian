@@ -10,88 +10,102 @@ sesion.addEventListener('click',()=>{
 
 
 const irinsumo=document.getElementById('irinsumo')
-
-irinsumo.addEventListener('click',()=>
-{
-    window.location.href='../php/abminsumo.php'
-})
-
+if(irinsumo){
+    irinsumo.addEventListener('click',()=>
+    {
+        window.location.href='../php/abminsumo.php'
+    })
+}
 const irproveedores=document.getElementById('irproveedores')
 
-irproveedores.addEventListener('click',()=>
-{
-    window.location.href='../php/abmproveedores.php'
-})
+if(irproveedores){
+    irproveedores.addEventListener('click',()=>
+    {
+        window.location.href='../php/abmproveedores.php'
+    })
+}
+
 
 const irorden=document.getElementById('irorden')
 
-irorden.addEventListener('click',()=>
-{
-    window.location.href='../php/abmorden.php'
-})
-
+if(irorden){
+    irorden.addEventListener('click',()=>
+    {
+        window.location.href='../php/abmorden.php'
+    })
+}
 const logoinicio=document.getElementById('logoinicio')
-
-logoinicio.addEventListener('click',()=>{
-    window.location.href='../php/inicio.php'
-})
+if(logoinicio){
+        logoinicio.addEventListener('click',()=>{
+        window.location.href='../php/inicio.php'
+            })
+}
 
 const irmov=document.getElementById('irmov')
-
-irmov.addEventListener('click',()=>{
+if(irmov){
+    irmov.addEventListener('click',()=>{
     window.location.href='../php/movstock.php'
-})
-
+        }   )
+}
 
 const irremitos=document.getElementById('irremitos')
-
-irremitos.addEventListener('click',()=>{
-    window.location.href='../php/remito1.php'
-})
-
+if(irremitos){
+    irremitos.addEventListener('click',()=>{
+        window.location.href='../php/remito1.php'
+    })
+}
 const irsocios=document.getElementById('irsocios')
-
-irsocios.addEventListener('click',()=>{
-    window.location.href='../php/abmsocios.php'
-})
-
+if(irsocios){
+    irsocios.addEventListener('click',()=>{
+        window.location.href='../php/abmsocios.php'
+    })
+}
 
 const ventas=document.getElementById('irventas')
-
-ventas.addEventListener('click',()=>{
+if(ventas){
+    ventas.addEventListener('click',()=>{
     window.location.href='../php/pagina_ventas.php'
-})
-
+    })
+}
 const irordenpago=document.getElementById('irordenpago')
-
-irordenpago.addEventListener('click',()=>{
+if(irordenpago){
+    irordenpago.addEventListener('click',()=>{
     window.location.href='../php/abmorden_pago.php'
-})
-
+    })
+}
 const ircomprobante=document.getElementById('ircomprobante')
 
-
-ircomprobante.addEventListener('click',()=>{
-    window.location.href='../php/abmcomprobante.php'
-})
-
+if(ircomprobante){
+        ircomprobante.addEventListener('click',()=>{
+        window.location.href='../php/abmcomprobante.php'
+    })
+}
 const irdeposito=document.getElementById('irdeposito')
 
-
-irdeposito.addEventListener('click',()=>{
-    window.location.href='../php/abmdepositos.php'
-})
-
+if(irdeposito){
+    irdeposito.addEventListener('click',()=>{
+        window.location.href='../php/abmdepositos.php'
+    })
+}
 const irreservas=document.getElementById('irreservas')
 
-
-irreservas.addEventListener('click',()=>{
-    window.location.href='../php/abmreservaf5.php'
-})
-
+if(irreservas){
+    irreservas.addEventListener('click',()=>{
+        window.location.href='../php/abmreservaf5.php'
+    })
+}
 const irinstalaciones=document.getElementById('irinstalaciones')
 
+if(irinstalaciones){
+    irinstalaciones.addEventListener('click',()=>{
+        window.location.href='../php/abminstalacion.php'
+    })
+}
 
-irinstalaciones.addEventListener('click',()=>{
-    window.location.href='../php/abminstalacion.php'
-})
+const irusuario=document.getElementById('irusuarios')
+
+if(irusuario){
+    irusuario.addEventListener('click',()=>{
+        window.location.href='../php/usuario.php'
+    })
+}

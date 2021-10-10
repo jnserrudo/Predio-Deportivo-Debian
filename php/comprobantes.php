@@ -38,9 +38,24 @@
     
 <div class="main">
 <!-- que el main contenga al include -->
-    <?php
-    include '../includes/panel.php'
-    ?>
+<?php
+    switch ($_SESSION['usuario']){
+        case 'Encargado de Deposito':
+             include '../includes/panelencdeposito.php';
+            break;
+        case 'Administrador':
+            include '../includes/panel.php';
+            break;
+        case 'Encargado de Ventas':
+            include '../includes/panelencventas.php';
+            break;
+        case 'Responsable de Atencion al Cliente';
+        include '../includes/panelresponsablecliente.php';
+
+            break;
+    }
+
+?>
     <?php 
                         $conexion = NULL;
                                 try{

@@ -165,10 +165,24 @@ if (isset($_GET['t'])&& isset($_GET['n'])&& isset($_GET['p'])&& isset($_GET['c']
  
                
     <div class="main">
+    <?php
+    switch ($_SESSION['usuario']){
+        case 'Encargado de Deposito':
+             include '../includes/panelencdeposito.php';
+            break;
+        case 'Administrador':
+            include '../includes/panel.php';
+            break;
+        case 'Encargado de Ventas':
+            include '../includes/panelencventas.php';
+            break;
+        case 'Responsable de Atencion al Cliente';
+        include '../includes/panelresponsablecliente.php';
 
-   <?php
-   include '../includes/panel.php'
-   ?>
+            break;
+    }
+
+?>
 
          
 
