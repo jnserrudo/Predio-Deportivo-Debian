@@ -33,7 +33,7 @@ const getDatausu = (p) => {
 
                         const btnedit=document.createElement('button')
                         btnedit.classList.add("btneditar")
-                        btnedit.textContent="Editar"
+                        btnedit.textContent="Borrar"
                         databtnedit.append(btnedit)
                         
                         dataid.textContent = socio[0]
@@ -95,7 +95,7 @@ const getDatausu = (p) => {
                 const databtnedit=document.createElement('TD')
                 const btnedit=document.createElement('button')
                 btnedit.classList.add("btneditar")
-                btnedit.textContent="Editar"
+                btnedit.textContent="Borrar"
                 databtnedit.append(btnedit)
                   console.log("soy el id nro"+socio.Id)
                 dataid.textContent = socio[0]
@@ -158,31 +158,31 @@ const pag5=document.getElementById('btnpag5')
 pag1.addEventListener('click',()=>{
     let p=pag1.textContent
   //  window.location.href=`../../php/abminsumo.php?p=${p}`
-  getDatacom(p)
+  getDatausu(p)
 
 })
 
 pag2.addEventListener('click',()=>{
     let p=pag2.textContent
     // window.location.href=`../../php/abminsumo.php?p=${p}`
-    getDatacom(p)
+    getDatausu(p)
     
 })
 
 pag3.addEventListener('click',()=>{
     let p=pag3.textContent
     //window.location.href=`../../php/abminsumo.php?p=${p}`
-    getDatacom(p)
+    getDatausu(p)
 
 })
 pag4.addEventListener('click',()=>{
     let p=pag4.textContent
   //  window.location.href=`../../php/abminsumo.php?p=${p}`
-  getDatacom(p)
+  getDatausu(p)
 })
 pag5.addEventListener('click',()=>{
     let p=pag5.textContent
   //  window.location.href=`../../php/abminsumo.php?p=${p}`
-  getDatacom(p)
+  getDatausu(p)
 
 })

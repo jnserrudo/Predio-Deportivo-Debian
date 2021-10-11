@@ -3,3 +3,12 @@
     border-radius: 3px;
     border: 1px black solid;
 }
+
+.busqdepo{
+    visibility: hidden;
+    display: flex;
+}
+
+.activar{
+    visibility: visible;
+}

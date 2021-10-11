@@ -52,6 +52,27 @@
             break;
     }
 
+    // eliminacion de un usuario
+    
+       $conexion = NULL;
+       try{
+            $conexion = mysqli_connect('localhost','root','','debian2');
+           
+            if ( isset($_GET['r'])) {
+               
+               $r=$_GET['r'];
+               
+               $sql = "delete from usuario where Id=$r;";
+               
+               $resultado=mysqli_query($conexion,$sql);
+            }
+           
+        }catch (PDOException $e){
+            echo "Error ".$e->getMessage();
+        }
+
+    
+
 ?>
 
     <div class="mainmain">
@@ -77,7 +98,8 @@
                         <th id="telefono">DNI</th>
                         <th id="telefono">Direccion</th>
                         <th id="telefono">Usuario</th>
-                        <th id="telefono">Contraseña</th>
+                        <th id="telefono">Fecha de registro</th>
+                        <th id="telefono">Rol</th>
 
 
                         <th id="telefono">Accion</th>
@@ -117,6 +139,7 @@
     
     <script src="../js/inicio.js?v=<?php echo(rand()); ?>"></script>
     <script src="../js/abmusuario.js?v=<?php echo(rand()); ?>"></script>
+    <script src="../js/paginaciones/usuario.js?v=<?php echo(rand()); ?>"></script>
     
 </body>
 </html>
