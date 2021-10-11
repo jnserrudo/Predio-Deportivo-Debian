@@ -167,7 +167,7 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
 
 
                     <div class="contselected">
-                        <p class='selecttxt'>Ubicacion: </p>
+                        <p class='selecttxt'>Deposito: </p>
                         <select name="selectubi"  class="selected" id="selectubi">
                         <option value="" selected disabled hidden>Seleccionar</option>
 

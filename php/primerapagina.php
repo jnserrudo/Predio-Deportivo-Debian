@@ -51,9 +51,12 @@
                         <div class="contimagen1 col-6">
                         <img src="../assets/imagenes/INFORMACIÓN Y EVENTOS 4.jpg"alt=""  class="info" />
                         <p class="textoinfo1"> PANADERIA EL LOCO HARINA, ES NUESTRO SPONSOR NUMERO 1, AQUI PODRAS ENCONTRAR LOS MEJORES PANES DE GUEMES </p>
+                        
                         </div>
 
-</div>                </div>   
+                </div>   
+                       
+    </div>   
 <P class="TITULO1"> ULTIMAS NOTICIAS
         <div class="continfo1">
                 <div class="row">

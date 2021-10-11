@@ -89,9 +89,9 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
 
                                                                 
         $sql = "INSERT INTO movimientos (Ubicacion,Tipo,Motivo) values ('$u','$t','$m')";
-
+       
         $resultado=mysqli_query($conexion, $sql);
-
+        
         // Registrar detalle de la orden ------------
         $consultaidmov = "select Id from movimientos order by Id desc limit 1";
         $idmovconsulta=mysqli_query($conexion, $consultaidmov);

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/style2.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/styleinicio.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/stylemovstock.css?v=<?php echo(rand()); ?>">
-    <link rel="stylesheet" href="../css/styleregventas.css?php echo(rand()); ?>">
+    <link rel="stylesheet" href="../css/styleregventas.css?v=<?php echo(rand()); ?>">
 
     <link rel="stylesheet" href="../css/datatable.css?v=<?php echo(rand()); ?>">
 </head>
@@ -69,63 +69,88 @@
        
         
             try{
-           $conexion = mysqli_connect('localhost','root','','debian2');
-          
-                if ( isset($_GET['dep'])&& isset($_GET['ins'])&& isset($_GET['c']) && isset($_GET['to']) ) {
-                  $idep=$_GET['dep'];
-                  
-                  $ins=$_GET['ins'];
-                  $c=$_GET['c'];
-                  $t=$_GET['to'];
-                  $idep=explode(',',$idep);
-
-                    $cant=explode(',',$c);
-                    $ins=explode(',',$ins);
+                    $conexion = mysqli_connect('localhost','root','','debian2');
+                
+                    if ( isset($_GET['dep'])&& isset($_GET['ins'])&& isset($_GET['c']) && isset($_GET['to']) ) {
+                            $idep=$_GET['dep'];
+                            //   idep es el id del deposito seleccionado
+                            $ins=$_GET['ins'];
+                            $c=$_GET['c'];
+                            $t=$_GET['to'];
+                
+                            $cant=explode(',',$c);
+                            $ins=explode(',',$ins);
              
+                 
+                 
+                            $sql ="INSERT INTO ventas (Total) values ('$t')";
+                            $resultado=mysqli_query($conexion,$sql);
+                
 
-                  
-               $sql ="INSERT INTO ventas (Total) values ('$t')";
-               $resultado=mysqli_query($conexion,$sql);
-
-             $consultaidventa = "select Id from ventas order by Id desc limit 1";
-             $idventa=mysqli_query($conexion,$consultaidventa);
-             $resultados=mysqli_fetch_all($idventa,PDO::FETCH_ASSOC);
-             
-                    // insercion    
-                    $i=0;
-                    ?>
-                    <?php
-
-                        while($i<count($ins)){
-                            // $s="select Id from insumo where Nombre='$ins[$i]'";
-                            // $rq=mysqli_query($conexion, $s);
-        
-                            // $idnoms=mysqli_fetch_all($rq, PDO::FETCH_ASSOC);
-                            // $idn=$idnoms[0][0];
-
-                            
-                             $resultados1=$resultados[0][0];
-                             $id0=$idep[$i];
-                            //  $id1=$ins[$i];
-                             $c1=$cant[$i];
-                                           
-                             $sql = "INSERT INTO ventas_detalle (Id_venta,Id_insumo,Cantidad,Id_deposito) values ('$resultados1',(select Id from insumo where Nombre='$ins[$i]'),'$c1',(select Id from deposito where Nombre='$id0'));";
+                             $consultaidventa = "select Id from ventas order by Id desc limit 1";
+                             $idventa=mysqli_query($conexion,$consultaidventa);
+                             $resultados=mysqli_fetch_all($idventa,PDO::FETCH_ASSOC);
+                            //insert en la tabla movimiento
             
-                                $resultado=mysqli_query($conexion, $sql);
-                                $i=$i+1;
-                         }
 
-        
-}
+                            $sql1="INSERT INTO movimientos(Id_deposito,Tipo,Motivo) values('$idep','Salida','Venta')";
+                            $resultado1=mysqli_query($conexion, $sql1); 
+
+                            $consultaidmov = "select Id from movimientos order by Id desc limit 1";
+                             $idmov=mysqli_query($conexion,$consultaidmov);
+                             $idmovs=mysqli_fetch_all($idmov,PDO::FETCH_ASSOC);
+                             $idmov=$idmovs[0][0];
+                    
+                                // insercion    
+                            $i=0;
+                             ?>
+                                <?php
+
+                                        while($i<count($ins)){
+                                            
+
+                                            
+                                            $resultados1=$resultados[0][0];
+                                            //  $id1=$ins[$i];
+                                            $c1=$cant[$i];
+                                            //consulta para ingresar una vez
+                                            
+
+                                            $sql = "INSERT INTO ventas_detalle (Id_venta,Id_insumo,Cantidad,Id_deposito) values ('$resultados1',(select Id from insumo where Nombre='$ins[$i]'),'$c1','$idep');";    
+                                            $resultado=mysqli_query($conexion, $sql);
+
+                                                //  insert en la tabla movimiento_detalle
+                                            $sql2="INSERT INTO movimiento_detalle(Id_insumo,Id_movimiento,Cantidad) values((select Id from insumo where Nombre='$ins[$i]'),'$idmov','$c1')";
+                                            $resultado=mysqli_query($conexion, $sql2);
+
+                                            // agregue
+                                            // disminuir stock por deposito
+
+
+//                                             UPDATE deposito_detalle
+                                                // SET stock=(SELECT stock from deposito_detalle WHERE Id_deposito=1 and Id_insumo=21)+1
+                                            $sql = "UPDATE deposito_detalle 
+                                                    set  stock=(SELECT stock from deposito_detalle 
+                                                    WHERE Id_deposito='$idep' and Id_insumo=(select Id from insumo where Nombre='$ins[$i]'))-$c1";                                  
+                                            $resultado=mysqli_query($conexion, $sql);
+                                            $i=$i+1;                                           
+                                           
+                                        }                                
+                                        
+                                        unset($_GET['dep']);
+                                        unset($_GET['ins']);
+                                        unset($_GET['c']);
+                                        unset($_GET['to']);
+                    }
             
 
                
               
                
 
-       }catch (PDOException $e){
-           echo "Error ".$e->getMessage();
-       }
+                }catch (PDOException $e){
+                    echo "Error ".$e->getMessage();
+                     }
 
         
        
@@ -140,16 +165,43 @@
                                                 <button class="btnvent button " id="btnvolver">Volver</button>   
                                             </div>
                                             <div class="buscador">
-                                                <p class="txtbusq">Buscar:</p>
-                                                <input type="text" id="busqueda" class="busqueda" name="busqueda"> </input>
-                                                <button class="btnvent button " id="btnverdetalle">Ver Detalle</button>  
+                                                <!-- comente el buscador, primero quiero que ande, habria problema con los parametros que se envia al getdata -->
+                                                <!-- <p class="txtbusq">Buscar:</p>
+                                                <input type="text" id="busqueda" class="busqueda" name="busqueda"> </input> -->
+
+                                                <p class="txtbusq"> Deposito </p>
+                                                    <Select class='selected' id="iddep" name="proveedor" >    
+                                                        <option value="" selected disabled hidden>Seleccionar</option>
+                                                                                                                
+                                                        <?php
+                                                        $conexion=mysqli_connect("localhost","root","","debian2");
+                                                        $consulta="select * from deposito";
+                                                        $ejecutar=mysqli_query($conexion,$consulta) 
+
+                                                        ?>
+
+                                                                                                                        
+                                                             <?php foreach ($ejecutar as $opciones): ?>
+                                                             <option id='idprov' class='option' value = "<?php echo $opciones['Id']?>"><?php echo $opciones['Nombre']?></option>
+                                                             <?php endforeach ?>
+                                                    </Select>
+                                                    <button class="btnvent button " id="btnverdetalle">Ver Detalle</button>  
+                                                <div class="busqdepo" id="busqdepo">
+                                                    <p class="txtbusq">Buscar:</p>
+                                                    <input type="text" id="busqueda" class="busqueda" name="busqueda"> </input>
+                                                </div>
+                                                   
+
                                             </div> 
                                             </div>
                                             <table id="tabla" class="table table-striped datatable table-bordered border-primary">
                                             <thead class="tablaenc">       
-                                                <th id="idproveedor">Id</th>
                                                 <th id="empresa">Nombre</th>
-                                                <th id="comercial">Tipo</th> 
+                                                <th id="comercial">Stock x Deposito</th> 
+                                                <th id="comercial">Cantidad</th> 
+                                                <th id="comercial">Precio</th> 
+
+
                                                 <th id="comercial">Accion</th>   
                                     
                                             </thead>
@@ -169,81 +221,14 @@
 
                                         
 <!-- ventana emergente que usare para los insumos por depositos y ver su detalle -->
-            <div class="reg" id="reg">
-                        <div class="cont_vent cont_vent_ordpagodetalle" id="cont_vent">
-                        <img src="../assets/cruz.svg" alt="" class="icono_cerrar" id="icono_cerrar">
-                                                <div class="datatable-container-ord-pago-detalle">                                          
-                                                        <table id="tablainsumodep" class="table table-striped datatable table-bordered border-primary">
-                                                                <thead class="tablaenc">       
-                                                                    <th id="id_col_op1">Deposito</th>
-                                                                    <th id="id_col_op2">Insumo</th>
-                                                                    
-                                                                    <th id="id_col_op3">Stock</th>
-
-                                                                    <th id="id_col_op4">Accion</th>
-                                                                </thead>
-                                                            
-                                                            </table>
-                                                            
-                                                            </div>
-                                                            <div class="desc_btnconf">
-                                                            <label class='label labeldesc' > Descripcion:</label> <textarea name="txt_desc" id="desc" cols="30" rows="3"></textarea> 
-
-                                                            </div>
-                                                            <button class="btnvent button btnconfordpago" id="btnconfordpago">Confirmar Orden de Pago</button>
-
-                     </div>
-             </div>
+           
              <!-- fin ventana emergente -->
 
 
 
 
              <!-- ventana emergente de los insumos por deposito -->
-             <div class="reg" id="regins">
-                    <div class="cont_vent cont_vent_mov_stock cont_ventinsumoorden" id="cont_ventins">
-                    <img src="../assets/cruz.svg" alt="" class="icono_cerrar" id="icono_cerrarins">
-                                           <p class="txt_registrar" >Seleccionar Insumo</p>
-
-                                                          <div class="buscador">
-                                                          <p class="txtbusq">Deposito:</p> <input type="text" class="inputventas" id="inputdeposito">
-
-                                                        <p class="txtbusq">Buscar</p>
-                                                           <input type="text" id="busquedamov" class="busquedamov" name="busquedamov"> </input>
-                                                                                    
-                                                        </div>
-
-                                                        <div class="datatable-container-insumo-ordencompra">
-                                                                <table id="tablainsumo" class="table table-striped datatable table-bordered border-primary">
-                                                                                                              
-                                                                          
-                                                                            <thead>       
-                                                                                <th id="">Id</th>
-                                                                                <th id="">Nombre</th>
-                                                                                <th id="">Descripcion</th>
-                                                                                <th id="">Precio</th>
-                                                                                <th id="">Stock por Deposito</th>
-                                                                                <th id="">Cantidad</th>
-
-                                                                                <th id="">Accion</th>
-                                                                            </thead>
-                                                                                                </table>
-                                                                    
-                                                                    <div class="pages">
-                                                                             <ul>
-                                                                                <li> <button id="btnpag1">1</button></li>
-                                                                                <li><button id="btnpag2">2</button></li>
-                                                                                 <li><button id="btnpag3">3</button></li>
-                                                                                <li><button id="btnpag4">4</button></li>
-                                                                                  <li><button id="btnpag5">5</button></li>
-                                                                                   </ul>
-                                                                             </div>
-
-                                                        </div>
-                                                                                        
-                                                                 </div>
-                    
-                                                      </div>
+             
 
                                                       <!-- fin ventana emergente -->
 
@@ -260,12 +245,10 @@
 
                                                                 
                                                                             <table id="tabla_ordpago" class="table table-striped datatable table-bordered border-primary">
-                                                                                    <thead class="tablaenc">  
-                                                                                        <th id="id_col_op1">Deposito</th>
-     
+                                                                                    <thead class="tablaenc">     
                                                                                         <th id="id_col_op1">Insumo</th>
-                                                                                        <th id="id_col_op2">Precio</th>
-                                                                                        
+                                                                                        <th id="id_col_op1">Precio</th>
+
                                                                                         <th id="id_col_op3">Cantidad</th>
                                                                                         <th id="id_col_op3">Total</th>
 
@@ -305,7 +288,8 @@
     
     <script src="../js/inicio.js?v=<?php echo(rand()); ?>"></script>
     <script src="../js/regventas.js?v=<?php echo(rand()); ?>"></script>
-    <script src="../js/paginaciones/depositos.js?v=<?php echo(rand()); ?>"></script>
+   <!-- <script src="../js/paginaciones/depositos.js?v=<?php echo(rand()); ?>"></script>   -->
+    <script src="../js/paginaciones/paginacion_ventas.js?v=<?php echo(rand()); ?>"></script>
 
 
 </body>
