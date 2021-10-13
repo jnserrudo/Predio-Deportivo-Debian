@@ -109,3 +109,25 @@ if(irusuario){
         window.location.href='../php/usuario.php'
     })
 }
+
+const irequipo=document.getElementById('irequipos')
+
+if(irequipo){
+    irequipo.addEventListener('click',()=>{
+        window.location.href='../php/abmequipo.php'
+    })
+}
+const irdis=document.getElementById('irdis')
+
+if(irdis){
+    irdis.addEventListener('click',()=>{
+        window.location.href='../php/abmdisciplina.php'
+    })
+}
+const irparticipante=document.getElementById('irparticipantes')
+
+if(irparticipante){
+    irparticipante.addEventListener('click',()=>{
+        window.location.href='../php/abmparticipante.php'
+    })
+}

@@ -137,10 +137,10 @@
                                            
                                         }                                
                                         
-                                        unset($_GET['dep']);
-                                        unset($_GET['ins']);
-                                        unset($_GET['c']);
-                                        unset($_GET['to']);
+                                        $_GET['dep']=null;
+                                        $_GET['ins']=null;
+                                        $_GET['c']=null;
+                                        $_GET['to']=null;
                     }
             
 

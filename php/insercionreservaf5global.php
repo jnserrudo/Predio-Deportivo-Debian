@@ -41,26 +41,24 @@
 
 			// $query = mysqli_query($conection,"SELECT u.idusuario, u.nombre, u.correo, u.usuario, r.rol FROM usuario u INNER JOIN rol r ON u.rol = r.idrol WHERE estatus = 1 ORDER BY u.idusuario ASC LIMIT $desde,$por_pagina 
 			// 	");
-            
-            $d= $_GET['y'];
+
 
             if (isset($_GET['x'])) {
 
                 //if (isset($_GET['tipo'])) {
 
+                    
                   
                $c=$_GET['x'];
                 
-                $sql = "SELECT * FROM reservaf5 where Fecha like '%$c%' and Disciplina like '%$d%'
-                LIMIT $desde,$por_pagina";
+                $sql = "SELECT * FROM reservaf5 where Solicitante like '%$c%' or Contacto like '%$c%' or Instalacion like '%$c%'
+                LIMIT $desde,$por_pagina ";
 
                 
 
             }
             else{
-                // $c = $_GET['x'];
-                $sql = "SELECT * FROM reservaf5 where Disciplina like '%$d%' LIMIT $desde,$por_pagina";
-       
+                $sql = "SELECT * FROM reservaf5 LIMIT $desde,$por_pagina ";
             }
 
 

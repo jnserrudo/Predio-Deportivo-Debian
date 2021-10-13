@@ -4,6 +4,9 @@ console.log("MAIN DEPOSITOS");
 
 const consulta=document.getElementById("txtconsulta");
 
+const parrafo=document.getElementById("parrafo");
+console.log("entro en ",parrafo);
+
 //  Control de la busqueda de un deposito
 
 const busq=document.getElementById("busquedadepo")
@@ -110,57 +113,21 @@ const getData = (x) => {
 
     xhr.send()
 }
-getData()
-const btnver = document.getElementById('verinsumos');
-btnver.addEventListener('click', ()=>{
-    window.location.href="../php/depositosxinsumos.php?"
-});
 
-/*
-const btnvent = document.getElementById('btnvent');
-const reg = document.getElementById('reg');
-const contvent = document.getElementById('cont_vent');
-const iconocerrar = document.getElementById('icono_cerrar');
+getData();
 
-const form= document.getElementById("f")
-
-// form.addEventListener('submit',(e)=>{
-//     // e.preventDefault()
-//     // form.reset()
-// })
-
-
-if (window.history.replaceState) { // verificamos disponibilidad
-    window.history.replaceState(null, null, window.location.href);
-}
-
-getData() 
-btnvent.addEventListener('click', ()=>{
-	reg.classList.add('activar');
-    console.log("aa")
-	contvent.classList.add('activar');
-});
-
-iconocerrar.addEventListener('click', (e)=>{
-	e.preventDefault();
-	reg.classList.remove('activar');
-	contvent.classList.remove('activar');
-});
-
-
-*/
 const seleccionar =document.getElementById('tabladepositos')
 
 
 seleccionar.addEventListener('click',(e)=>{
     const seleccion =e.target;
-    if(seleccion.classList.contains('btnedit')){
+    if(seleccion.classList.contains('btnseleccionardepo')){
         let xhr
          if (window.XMLHttpRequest) xhr = new XMLHttpRequest()
          else xhr = new ActiveXObject("Microsoft.XMLHTTP")
          //obtengo el id
-         //var t=seleccion.parentElement.parentElement.firstElementChild.textContent
-         //console.log(t)
+         var t=seleccion.parentElement.parentElement.firstElementChild.textContent
+         console.log(t)
         //  xhr.open('GET', `../php/queryedicion.php?t=${t}`)
         //  xhr.addEventListener('load',()=>
         //  {
@@ -169,10 +136,30 @@ seleccionar.addEventListener('click',(e)=>{
          
         //  xhr.send()
          
-        //var t = 1;
-        window.location.href="../php/depositosxinsumos.php?"
+        
+        console.log("entro en 1");
+        window.location.href=`../php/depositosxinsumos.php?t=${t}`;
+    }
+    else{
+        console.log("entro aca");
     }
 })
 
 
 
+
+
+const btnnuevodepo = document.getElementById('btnnuevodepo');
+const reg = document.getElementById('reg');
+const contvent = document.getElementById('cont_vent');
+const iconocerrar = document.getElementById('icono_cerrar');
+btnnuevodepo.addEventListener('click', ()=>{
+	reg.classList.add('activar');
+    console.log("aa")
+	contvent.classList.add('activar');
+});
+iconocerrar.addEventListener('click', (e)=>{
+	e.preventDefault();
+	reg.classList.remove('activar');
+	contvent.classList.remove('activar');
+});

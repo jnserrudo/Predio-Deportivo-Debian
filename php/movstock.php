@@ -76,7 +76,7 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
 
 
                                                                 
-        $sql = "INSERT INTO movimientos (Ubicacion,Tipo,Motivo) values ('$u','$t','$m')";
+        $sql = "INSERT INTO movimientos (Id_deposito,Tipo,Motivo) values ('$u','$t','$m')";
 
         $resultado=mysqli_query($conexion, $sql);
 
@@ -103,14 +103,37 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
                                                                             <!-- <p id='nombres'> <?php //echo  var_dump($idmov[0]), var_dump($idnoms[0]); ?> </p>   -->
                                                                             <?php
                                                                             $c1=$c[$i];
-
+                                                                             if($t='Entrada'){   
                                                                                 
                                                                             $sql = "INSERT INTO movimiento_detalle (Id_insumo, Id_movimiento,Cantidad) values ($idn,$idm,$c1);";
-                                                                            
-                                                                            
-                                                                            $resultado=mysqli_query($conexion, $sql);
+                                                                            //le agregue lo de abajo
+
+                                                                             $sql3 = "  UPDATE deposito_detalle 
+                                                                                        set  stock=(SELECT stock from deposito_detalle 
+                                                                                        WHERE Id_deposito='$u' and Id_insumo=(select Id from insumo where Nombre='$idn'))+$c1";                                  
+                                                                               $resultado3=mysqli_query($conexion, $sql3);}
+                                                                               else{
+                                                                                    $sql3 = "  UPDATE deposito_detalle 
+                                                                                    set  stock=(SELECT stock from deposito_detalle 
+                                                                                    WHERE Id_deposito='$u' and Id_insumo=(select Id from insumo where Nombre='$idn'))-$c1";                                  
+                                                                                    $resultado3=mysqli_query($conexion, $sql3);
+                                                                                }       
+
+
+
+
+                                                                               }
+                                                                            //hasta aqui
+                                                                            $resultado3=mysqli_query($conexion, $sql3);
                                                                             $i=$i+1;
                                                                         }
+                                                                         //le agregue lo de abajo martin
+                                                                        $t = $_GET['t']=null;
+                                                                        $c=$_GET['c']=null;
+                                                                        $u=$_GET['u']=null;
+                                                                        $n=$_GET['n']=null;
+                                                                        $m=$_GET['m']=null;
+                                                                        //hasta aqui martin
                      }
                      unset($comprobardato);
 }

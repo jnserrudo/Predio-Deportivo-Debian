@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../css/bootstrap.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/style2.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/styleinicio.css?v=<?php echo(rand()); ?>">
-    <!-- <link rel="stylesheet" href="../css/bootstrap.min.css"/> -->
 
     <link rel="stylesheet" href="../css/datatable.css?v=<?php echo(rand()); ?>">
 
@@ -52,18 +51,14 @@ session_start()
        try{
            $conexion = mysqli_connect('localhost','root','','debian2');
            
-           if ( isset($_POST['Id']) && isset($_POST['Fecha']) && isset($_POST['Hora']) && isset($_POST['Solicitante'] ) && isset($_POST['Contacto']) && isset($_POST['Instalacion']) && isset($_POST['Disciplina'])){
+           if ( isset($_POST['Id']) && isset($_POST['Nombre']) && isset($_POST['Tipo']) ) {
                 $i=$_POST['Id'];
-               $d = $_POST['Fecha'];
-               $f = $_POST['Hora'];
-               $g = $_POST['Solicitante'];
-               $h = $_POST['Contacto'];
-               $k = $_POST['Instalacion'];
-               $j = $_POST['Disciplina'];
-
+               $n=$_POST['Nombre'];
+               $d = $_POST['Tipo'];
+               
                $sql = "   
-               update reservaf5
-               set Fecha='$d', Hora='$f', Solicitante='$g', Contacto='$h', Instalacion='$k', Disciplina='$j' 
+               update disciplina
+               set Nombre='$n', Tipo='$d'
                where Id='$i';
                 
                ";
@@ -90,7 +85,7 @@ session_start()
                $r=$_GET['r'];
                
                $sql = "   
-               delete from reservaf5
+               delete from disciplina
                where Id=$r;
                 
                ";
@@ -129,18 +124,13 @@ session_start()
     <div class="reg" id="reg">
                         <div class="cont_vent" id="cont_vent">
                             <img src="../assets/cruz.svg" alt="" class="icono_cerrar" id="icono_cerrar">
-                                <p class="txt_registrar" >Registrar Nueva Reserva</p>
+                                <p class="txt_registrar" >Registrar Disciplina</p>
                             
                                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" id="f"  class="forminsumo">
                                 <div class="registrar" >
-                                          <!--<label class=label > ID: </label> <input type="text" name="txt_Id" required> </input>-->
+                                          <label class=label > Nombre: </label> <input type="text" name="txt_Nombre" required> </input>
                                     
-                                      <label class=label > Fecha: </label> <input type="date" name="txt_Fecha" required> </input>
-                                      <label class=label > Hora: </label> <input type="time" name="txt_Hora" required> </input>
-                                      <label class=label > Solicitante: </label> <input type="text" name="txt_Solicitante" required> </input>
-                                      <label class=label > Contacto: </label> <input type="text" name="txt_Contacto" required> </input>
-                                      <label class=label > Instalacion: </label> <input type="text" name="txt_Instalacion" required> </input>
-                                      <label class=label > Disciplina: </label> <input type="text" name="txt_Disciplina" required> </input>
+                                      <label class=label > Tipo: </label> <input type="text" name="txt_Tipo" required> </input>
                                   
                                       <input type="submit" name="registrar" value="Registrar"  class="btnregistrar">
                                 </div>
@@ -168,16 +158,24 @@ session_start()
     }
 
 ?>
+          <!-- <div class="p-0 my-container divcontside ">
+            
+            <a class="btn contbtnnav" id="menu-btn">
+              
+                  <img src="../assets/imagenes/iconham.svg" class="iconham" alt="">
+            </a>
+            
+          </div> -->
+
 
 <div class="mainmain">
-<p class="textordencompra">RESERVAS</p>
+<p class="textordencompra"> ADMINISTRACION DE DISCIPLINAS  </p>
+                  <!-- <div class="buscador">
+                    <p class="txtbusq">Buscar</p>
+                    <input type="text" id="busqueda" class="busqueda" name="busqueda"> </input>
+                    
+                    </div> -->
 
-  
-                          
-
-                          
-
-                          
                     <p id="txtconsulta">
                      
                     
@@ -204,78 +202,31 @@ session_start()
                                                                                     <?php
 
                                                                           
-                                                                          if (!isset($_POST["txt_Fecha"])) {
-                                                                              $nameErr = "Fecha is required";
-                                                                              $_POST["txt_Fecha"]=array();
+                                                                          if (!isset($_POST["txt_Nombre"])) {
+                                                                              $nameErr = "Nombre is required";
+                                                                              $_POST["txt_Nombre"]=array();
                                                                               $x=1;
                                                                           
                                                                           } else {
-                                                                              $txt_Fecha = test_input($_POST["txt_Fecha"]);
+                                                                              $txt_Nombre = test_input($_POST["txt_Nombre"]);
                                                                           }
                                                                               
-                                                                          if (!isset($_POST["txt_Hora"])) {
-                                                                              $catErr = "Hora is required";
-                                                                              $_POST["txt_Hora"]=array();
+                                                                          if (!isset($_POST["txt_Tipo"])) {
+                                                                              $catErr = "Tipo is required";
+                                                                              $_POST["txt_Tipo"]=array();
                                                                               $x=1;
                                                                           
                                                                           } else {
-                                                                              $txt_Hora= test_input($_POST["txt_Hora"]);
+                                                                              $txt_Tipo= test_input($_POST["txt_Tipo"]);
                                                                           }
-
-                                                                          if (!isset($_POST["txt_Solicitante"])) {
-                                                                            $catErr = "Solicitante is required";
-                                                                            $_POST["txt_Solicitante"]=array();
-                                                                            $x=1;
-                                                                        
-                                                                        } else {
-                                                                            $txt_Solicitante= test_input($_POST["txt_Solicitante"]);
-                                                                        }
-
-                                                                        if (!isset($_POST["txt_Contacto"])) {
-                                                                            $catErr = "Contacto is required";
-                                                                            $_POST["txt_Contacto"]=array();
-                                                                            $x=1;
-                                                                        
-                                                                        } else {
-                                                                            $txt_Contacto= test_input($_POST["txt_Contacto"]);
-                                                                        }
-                                                                        if (!isset($_POST["txt_Instalacion"])) {
-                                                                            $catErr = "Instalacion is required";
-                                                                            $_POST["txt_Instalacion"]=array();
-                                                                            $x=1;
-                                                                        
-                                                                        } else {
-                                                                            $txt_Instalacion= test_input($_POST["txt_Instalacion"]);
-                                                                        }
-                                                                        if (!isset($_POST["txt_Disciplina"])) {
-                                                                          $catErr = "Disciplina is required";
-                                                                          $_POST["txt_Disciplina"]=array();
-                                                                          $x=1;
-                                                                      
-                                                                      } else {
-                                                                          $txt_Disciplina= test_input($_POST["txt_Disciplina"]);
-                                                                      }
-
-
-
-
-
-
-
-
-
                 
                                                                           if ($x==0) {
                                                                               
-                                                                              $txt_Fecha=$_POST['txt_Fecha'];
-                                                                              $txt_Hora=$_POST['txt_Hora'];
-                                                                              $txt_Solicitante=$_POST['txt_Solicitante'];
-                                                                              $txt_Contacto=$_POST['txt_Contacto'];
-                                                                              $txt_Instalacion=$_POST['txt_Instalacion'];
-                                                                              $txt_Disciplina=$_POST['txt_Disciplina'];
+                                                                              $txt_Nombret=$_POST['txt_Nombre'];
+                                                                              $txt_Tipo=$_POST['txt_Tipo'];
                                         
 
-                                                                              $comprobardato = mysqli_query($conexion,"select * from reservaf5 where Fecha = '$txt_Fecha' ");
+                                                                              $comprobardato = mysqli_query($conexion,"select * from disciplina where Nombre = '$txt_Nombre' ");
                                                                               if(mysqli_num_rows($comprobardato)>0)
                                                                               {
                                                                               }
@@ -283,7 +234,7 @@ session_start()
                                                                               {
                                                                 
                                                                               //-------------------------------------------
-                                                                              $sql="INSERT INTO reservaf5 (Fecha,Hora,Solicitante,Contacto,Instalacion,Disciplina)Values($txt_Fecha,$txt_Hora,$txt_Solicitante,$txt_Contacto,$txt_Instalacion,$txt_Disciplina)";
+                                                                              $sql="INSERT INTO disciplina (Nombre, Tipo)Values('$txt_Nombre','$txt_Tipo')";
                                                                                 $result=mysqli_query($conexion,$sql);
                                                                                 $_SESSION['inserted_db'] = FALSE;
                                                                 
@@ -291,12 +242,8 @@ session_start()
                                                                               unset($comprobardato);
 
 
-                                                                              unset($_POST['txt_Fecha']);
-                                                                              unset($_POST['txt_Hora']);
-                                                                              unset($_POST['txt_Solicitante']);
-                                                                              unset($_POST['txt_Contacto']);
-                                                                              unset($_POST['txt_Instalacion']);
-                                                                              unset($_POST['txt_Disciplina']);
+                                                                              unset($_POST['txt_Nombre']);
+                                                                              unset($_POST['txt_Tipo']);
                
                                                                           }
 
@@ -318,46 +265,21 @@ session_start()
                                                             <div class="datatable-container">
 
                                                                                   <div class="header-tools">
-                                                                                  <input type="date" class="txtbusq" name ="date_fec_remito" id="busqueda2" placeholder=".col-xs-3" >
-                                                                                  
-
-                                                                                  <p class="txtbusq"> Seleccione Disciplina </p>
-                                                                                  <Select class=select id="idprov" name="proveedor" 
-
-                        
-                          <?php
-                          $conexion=mysqli_connect("localhost","root","","debian2");
-                          $consulta="select * from disciplina";
-                          $ejecutar=mysqli_query($conexion,$consulta) 
-
-                      ?>
-                          
-                          <?php foreach ($ejecutar as $opciones): ?>
-                            
-                              <option id='idprov' class='option' value = "<?php echo $opciones['Id']?>"><?php echo $opciones['Nombre']?></option>
-                          <?php endforeach ?>
-                          </Select>
                                                                                   <div class="contbtnreg">
-                                                                                                
+                                                                                              <button class="btnvent button " id="btnvent">Registrar Nueva Disciplina</button>   
                                                                                               </div>
                                                                                     <div class="buscador">
                                                                                         <p class="txtbusq">Buscar</p>
                                                                                         <input type="text" id="busqueda" class="busqueda" name="busqueda"> </input>
                                                                                         
                                                                                         </div>  
-                                                                                        <button class="btnvent button " id="btnvent">Registrar Nueva Reserva</button> 
-                                                                                       
-                                                                                              <!--<button>Ant</button><button>Sig</button> -->
-                                                                                              </div>
-                                                                                              <table id="tabla" class="table table-striped datatable table-bordered border-primary">
+
+                                                                                  </div>
+                                                                                          <table id="tabla" class="table table-striped datatable table-bordered border-primary">
                                                                                                 <thead class="tablaenc">       
                                                                                                     <th id="idproveedor">Id</th>
-                                                                                                    <th id="empresa">Fecha</th>
-                                                                                                    <th id="empresa">Hora</th>
-                                                                                                    <th id="comercial">Solicitante</th>
-                                                                                                    <th id="comercial">Contacto</th>
-                                                                                                    <th id="comercial">Instalacion</th>
-                                                                                                    <th id="comercial">Disciplina</th>
+                                                                                                    <th id="empresa">Nombre</th>
+                                                                                                    <th id="comercial">Tipo</th>
                                                                                                     <th id="comercial">Accion</th>
 
                                                                                                     
@@ -366,7 +288,6 @@ session_start()
 
                                                                                                 </tbody> -->
                                                                                               </table>
-                                                                                              
                                                                                               <div class="pages">
                                                                                                          <ul>
                                                                                                             <li> <button id="btnpag1">1</button></li>
@@ -376,8 +297,8 @@ session_start()
                                                                                                               <li><button id="btnpag5">5</button></li>
                                                                                                                </ul>
                                                                                                          </div>
-                                                                                  </div>
-                                                                                         
+                                                                                              <!--<button>Ant</button><button>Sig</button> -->
+                                                                                              </div>
                                                                                           
                         
                 </div>
@@ -387,16 +308,20 @@ session_start()
 
               </div>
 
+                                                                                                                                                        
+
+
+    
               <?php
     include '../includes/footer.php'
     ?>
-
-    <script src="../js/mainreservaf5.js?v=<?php echo(rand()); ?>"></script>
+    
+    <script src="../js/maindisciplina.js?v=<?php echo(rand()); ?>"></script>
 
     <!-- DEBO AGREGAR ESTOS DOS EN TODOS -->
     <script src="../js/prueba.js?v=<?php echo(rand()); ?>"></script>
     <script src="../js/inicio.js?v=<?php echo(rand()); ?>"></script>
-    <script src="../js/paginaciones/reservaf5.js?v=<?php  echo(rand()); ?>"></script>
+    <script src="../js/paginaciones/disciplina.js?v=<?php  echo(rand()); ?>"></script>
 
                     
 

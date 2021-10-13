@@ -25,7 +25,7 @@
 
 
 //Paginador
-			$sql_registe = mysqli_query($conexion,"SELECT COUNT(*) as total_registro FROM reservaf5");
+			$sql_registe = mysqli_query($conexion,"SELECT COUNT(*) as total_registro FROM equipo");
 			$result_register = mysqli_fetch_array($sql_registe);
 			$total_registro = $result_register['total_registro'];
 
@@ -41,28 +41,20 @@
 
 			// $query = mysqli_query($conection,"SELECT u.idusuario, u.nombre, u.correo, u.usuario, r.rol FROM usuario u INNER JOIN rol r ON u.rol = r.idrol WHERE estatus = 1 ORDER BY u.idusuario ASC LIMIT $desde,$por_pagina 
 			// 	");
-            
-            $d= $_GET['y'];
+
 
             if (isset($_GET['x'])) {
+                $c = $_GET['x'];
 
-                //if (isset($_GET['tipo'])) {
-
-                  
-               $c=$_GET['x'];
-                
-                $sql = "SELECT * FROM reservaf5 where Fecha like '%$c%' and Disciplina like '%$d%'
-                LIMIT $desde,$por_pagina";
-
-                
+                $sql = "SELECT * FROM equipo where Id like '%$c%' or Nombre like '%$c%' or Disciplina like '%$c%' 
+                LIMIT $desde,$por_pagina ";
 
             }
             else{
-                // $c = $_GET['x'];
-                $sql = "SELECT * FROM reservaf5 where Disciplina like '%$d%' LIMIT $desde,$por_pagina";
-       
+               
+                    $sql = "SELECT * FROM equipo LIMIT $desde,$por_pagina";
+                
             }
-
 
 
 
@@ -74,12 +66,7 @@
 
             echo json_encode($resultados);
             
+        }catch (PDOException $e){
+            echo "Error ".$e->getMessage();
         }
-    
-    catch (PDOException $e){
-         echo "Error ".$e->getMessage();
-        }
-?>
 
-
-      

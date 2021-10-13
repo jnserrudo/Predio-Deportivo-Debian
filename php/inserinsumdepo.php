@@ -8,27 +8,65 @@
 			$result_register = mysqli_fetch_array($sql_registe);
 			$total_registro = $result_register['total_registro'];
 			$por_pagina = 5;
+            
+            //---------------------------------------------
+            /*$host="localhost";
+            $base="debian2";
+            $usuario="root";
+            $contrasenia="";
+            $port=3307;
+            try 
+            { 
+            $conect=new PDO("mysql:host=$host;dbname=$base",$usuario,$contrasenia);
+            } 
+            catch (Exception $ex) 
+            {
+                echo $ex->getMessage();//muestra msj si falla la coneccion
+            }*/
+            //------------------------------
 
-            if(empty($_GET['p']))
+
+            $iddepo = $_GET['h'];
+            /*$SQLdepo = $conect-> prepare ("SELECT d.Id FROM deposito as d where d.Nombre = :nombre");
+            $SQLdepo->bindParam(':nombre',$nom);
+            $SQLdepo->execute();
+            $Iddepo=$SQLdepo->fetch(PDO::FETCH_LAZY);
+            $depo=$Iddepo[0];*/
+            
+            if(empty($_GET['f']))
 			{
 				$pagina = 1;
 			}
             else{
-				$pagina = $_GET['p'];
+				$pagina = $_GET['f'];
 			}
+
+            //$iddeposito = $_GET['t'];
 
 			$desde = ($pagina-1) * $por_pagina;
 
             if (isset($_GET['x'])) 
             {
                 $c = $_GET['x'];
+
+                //<script> console.log("entro aca");</script>
         
-                $sql = "SELECT deposito_detalle.Id,insumo.Nombre,insumo.Descripcion,deposito_detalle.stock FROM deposito_detalle,insumo WHERE deposito_detalle.Id_insumo = insumo.Id and deposito_detalle.Id like '%$c%' or insumo.Nombre like '%$c%' or insumo.Descripcion like '%$c%' or deposito_detalle.stock like '%$c%' LIMIT $desde,$por_pagina";
+                $sql = "SELECT d.Id_insumo,i.Nombre,i.Descripcion,d.stock 
+                FROM deposito_detalle as d 
+                JOIN insumo as i on d.Id_insumo = i.Id 
+                WHERE d.Id_insumo in 
+                (SELECT insumo.Id from insumo where insumo.id like '%$c%' or insumo.Nombre like '%$c%' or insumo.Descripcion like '%$c%' or insumo.stock like '%$c%') 
+                and d.Id_deposito = $iddepo
+                LIMIT $desde,$por_pagina";
 
             }
             else
             {
-                $sql = "SELECT deposito_detalle.Id,insumo.Nombre,insumo.Descripcion,deposito_detalle.stock FROM deposito_detalle,insumo WHERE deposito_detalle.Id_insumo = insumo.Id LIMIT $desde,$por_pagina";
+                $sql = "SELECT d.Id_insumo,i.Nombre,i.Descripcion,d.stock 
+                FROM deposito_detalle as d 
+                JOIN insumo as i on d.Id_insumo = i.Id 
+                WHERE d.Id_deposito = $iddepo
+                LIMIT $desde,$por_pagina";
             }
 
             $resultado=mysqli_query($conexion,$sql);
