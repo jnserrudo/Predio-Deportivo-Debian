@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/bootstrap.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/style2.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/styleinicio.css?v=<?php echo(rand()); ?>">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/datatable.css?v=<?php echo(rand()); ?>">
 
 </head>
@@ -31,35 +32,107 @@
       </div>
     </div>
   </header>
-    
+  
+  
+  <!--  ________________________________________   VENTANA EMERGENTE _______________________________________ -->
+
+  <div class="reg" id="reg">
+    <div class="cont_vent" id="cont_vent">
+      <img src="../assets/cruz.svg" alt="" class="icono_cerrar" id="icono_cerrar">
+      <p class="txt_registrar" >Registrar Nuevo Deposito</p> 
+      <form  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" class="forminsumo">
+        <div class="registrar">
+          <label class=label > Nombre:</label> <input type="text" name="txtnombre" required placeholder="Deposito"> </input>
+          <label class=label > Tipo:</label> <input type="text" name="txttipo" required placeholder="Tipo Deposito"> </input>
+          <input id="submit"type="submit" name="registrar" value="registrar" class="btnregistrar" required>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <?php 
+    $conexion=mysqli_connect('localhost','root','','debian2');
+    $x=0;
+    if ($_SERVER["REQUEST_METHOD"] == "POST") 
+    {
+      if (!isset($_POST["txtnombre"])) 
+      {
+        $NameErr = "Name is required";
+        $_POST["txtnombre"]=array();
+        $x=1;
+      } 
+      else 
+      {
+        $txtnombre = test_input($_POST["txtnombre"]);
+      }
+
+      if (!isset($_POST["txttipo"])) 
+      {
+        $TipoErr = "Type is required";
+        $_POST["txttipo"]=array();
+        $x=1;        
+      } 
+      else 
+      {
+        $txttipo= test_input($_POST["txttipo"]);
+      }
+
+      if ($x==0) 
+      {         
+        $txtnombre=$_POST['txtnombre'];
+        $txttipo=$_POST['txttipo'];
+        $comprobardato = mysqli_query($conexion,"select * from deposito where Nombre = '$txtnombre' ");
+        if(mysqli_num_rows($comprobardato)>0)
+        {}
+        else
+        {                                                         
+            $sql="INSERT INTO deposito(Nombre,Tipo) VALUES ('$txtnombre','$txttipo')";
+            $result=mysqli_query($conexion,$sql);
+            $_SESSION['inserted_db'] = FALSE;                                                                
+        }
+        unset($comprobardato);
+        unset($_POST['txtnombre']);
+        unset($_POST['txttipo']);
+      }
+    } 
+    function test_input($data) {
+      $data = trim($data);
+      $data = stripslashes($data);
+      $data = htmlspecialchars($data);
+      return $data;
+    }?>
+  <!-- ________________________________________ FIN VENTANA EMERGENTE _______________________________________ -->
+
+
+
 
   <div class="main">
-  <?php
-    switch ($_SESSION['usuario']){
+    <?php
+      switch ($_SESSION['usuario']){
         case 'Encargado de Deposito':
-             include '../includes/panelencdeposito.php';
-            break;
+          include '../includes/panelencdeposito.php';
+          break;
         case 'Administrador':
-            include '../includes/panel.php';
-            break;
+          include '../includes/panel.php';
+          break;
         case 'Encargado de Ventas':
-            include '../includes/panelencventas.php';
-            break;
+          include '../includes/panelencventas.php';
+          break;
         case 'Responsable de Atencion al Cliente';
-        include '../includes/panelresponsablecliente.php';
+          include '../includes/panelresponsablecliente.php';
+          break;
+      }
+    ?>
 
-            break;
-    }
-
-?>
     <div class="mainmain">
       <p class="textordencompra">DEPOSITOS</p>
+      
       <div class="datatable-container-depositos">
         <div class="container">
           <div class="header-tools">
             <div class="contbtnreg">
               <button class="btnvent button " id="btnnuevodepo">Registrar Nuevo Deposito</button> 
-              <button class="btnvent button " id="verinsumos">Ver Insumos del Deposito</button>  
             </div>
             <div class="buscador">
               <p class="txtbusq">Buscar:</p>

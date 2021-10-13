@@ -281,7 +281,8 @@ session_start()
                                                                                                     <th id="idproveedor">Id</th>
                                                                                                     <th id="empresa">Nombre</th>
                                                                                                     <th id="comercial">Tipo</th>
-                                                                                                    
+                                                                                                    <th id="comercial">Accion</th>
+
                                                                                                 </thead>
                                                                                                 <!-- <tbody>
 

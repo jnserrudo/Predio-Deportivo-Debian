@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/bootstrap.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/style2.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/styleinicio.css?v=<?php echo(rand()); ?>">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/datatable.css?v=<?php echo(rand()); ?>">
 
 </head>
@@ -32,37 +33,153 @@
     </div>
   </header>
     
+  <?php
+
+   //Toma el id del deposito de la pagina abmdepositos.php y encuentra el nombre del deposito seleccionado
+    $t = $_GET['t'];
+    include("configcomprobante/confg.php");//incluye la conexion
+    $SQLdepositonombre = $conexion-> prepare ("SELECT Nombre from deposito where Id = :iddeposito");
+    $SQLdepositonombre->bindParam(':iddeposito',$t);
+    $SQLdepositonombre->execute();
+    $NombreDeposito=$SQLdepositonombre->fetch(PDO::FETCH_LAZY);
+
+    $txtDeposito=$NombreDeposito[0];
+  ?>
+
+  <div class="reg" id="reg">
+    <div class="cont_vent_insumxdepo" id="cont_vent">
+      <img src="../assets/cruz.svg" alt="" class="icono_cerrar" id="icono_cerrar">
+      <p class="txt_registrar" >Agregar Insumos</p> 
+      <div class="container">
+        <div class="header-tools">
+          <div class="buscador">
+            <p class="txtbusq">Buscar:</p>
+            <input type="text" id="busquedainsumo2" class="busqueda" name="busquedainsumo2"> </input>
+          </div> 
+        </div>
+        <br>
+        <div class="header-tools">
+          <div class="row">
+            <div class="col-md-2">
+              <p class="txtbusq">Cantidad:</p>
+            </div>
+            <div class="col-md-3">
+              <input type="number" class="form-control" value="" name ="inputcant" id="inputcant" required placeholder="Cantidad a agregar">
+            </div>
+            <div class="col-md-4">
+              <p class="txtbusq">Nombre del Deposito:</p>
+            </div>
+            <div class="col-md-3">
+              <input type="text" class="form-control" value="<?php echo $txtDeposito; ?>" name ="txtDepositoventana" id="txtDepositoventana" readonly="">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+          <div class="datatable-container-depositos-insumos">
+            <table id="tablatotalinsumos" class="table table-striped datatable table-bordered border-primary">
+              <thead class="tablaenc">       
+                <th id="idproduc">Id</th>
+                <th id="nomproduc">Nombre</th>
+                <th id="descripproduc">Descripcion</th>
+                <th id="stockproduc">Stock</th>
+                <th id="btnagregar">Acción</th>
+              </thead>
+            </table>
+            <div class="pages">
+              <ul>
+                <li><button id="btnpagina1">1</button></li>
+                <li><button id="btnpagina2">2</button></li>
+                <li><button id="btnpagina3">3</button></li>
+                <li><button id="btnpagina4">4</button></li>
+                <li><button id="btnpagina5">5</button></li>
+              </ul>
+            </div>
+          </div>
+          </div>
+          <div class="col-md-6">
+          <div class="datatable-container-depositos-insumos">
+            <table id="tablainsumosnew" class="table table-striped datatable table-bordered border-primary">
+              <thead class="tablaenc">       
+                <th id="idproducnew">Id</th>
+                <th id="nomproducnew">Nombre</th>
+                <th id="descripproducnew">Descripcion</th>
+                <th id="cantproducnew">Cant</th>
+                <th id="btneliminar">Acción</th>
+              </thead>
+            </table>
+            <!--<div class="pages">
+              <ul>
+                <li><button id="btnpag1">1</button></li>
+                <li><button id="btnpag2">2</button></li>
+                <li><button id="btnpag3">3</button></li>
+                <li><button id="btnpag4">4</button></li>
+                <li><button id="btnpag5">5</button></li>
+              </ul>
+            </div>-->
+          </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-6">
+          </div>  
+          <div class="col-md-3">
+            <!--<input id="submit"type="submit" name="btncancelar" value="Cancelar" class="btncancelarnew" required>-->
+            <button class="btncancelarnew" id="btncancelar">Cancelar</button> 
+          </div>
+          <div class="col-md-3">
+            <!--<input id="submit"type="submit" name="btnconfirmar" value="Confirmar" class="btnconfirmarnew" required>-->
+            <button class="btnconfirmarnew" id="btnconfirmar">Confirmar</button> 
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
   <div class="main">
-  <?php
-    switch ($_SESSION['usuario']){
+    <?php
+      switch ($_SESSION['usuario']){
         case 'Encargado de Deposito':
-             include '../includes/panelencdeposito.php';
-            break;
+          include '../includes/panelencdeposito.php';
+          break;
         case 'Administrador':
-            include '../includes/panel.php';
-            break;
+          include '../includes/panel.php';
+          break;
         case 'Encargado de Ventas':
-            include '../includes/panelencventas.php';
-            break;
+          include '../includes/panelencventas.php';
+          break;
         case 'Responsable de Atencion al Cliente';
-        include '../includes/panelresponsablecliente.php';
+          include '../includes/panelresponsablecliente.php';
+          break;
+      }
+    ?>
 
-            break;
-    }
-
-?>
     <div class="mainmain">
       <p class="textordencompra">DEPOSITOS</p>
       <div class="datatable-container-depositos">
         <div class="container">
             <div class="header-tools">
-                <div class="buscador">
-                  <p class="txtbusq">Deposito:</p>
-                  <input type="text" id="busquedadepo" class="busqueda" name="busquedadepo" readonly=""> </input>
-                </div>  
+              <div class="row">
+                <div class="col-md-3">
+                  <p class="txtbusq">Id del Deposito:</p>
+                </div>
+                <div class="col-md-3">
+                  <input type="text" class="form-control" value="<?php echo $t; ?>" name ="txtiddeposito" id="txtiddeposito" readonly="">
+                </div>
+                <div class="col-md-3">
+                  <p class="txtbusq">Nombre del Deposito:</p>
+                </div>
+                <div class="col-md-3">
+                  <input type="text" class="form-control" value="<?php echo $txtDeposito; ?>" name ="txtDeposito" id="txtDeposito" readonly="">
+                </div>
+              </div>
             </div>
             <div class="header-tools">
+              <div class="contbtnreg">
+                <button class="btnvent button " id="btnnuevinsumo">Agregar Insumos</button> 
+              </div>
               <div class="buscador">
                 <p class="txtbusq">Buscar:</p>
                 <input type="text" id="busquedainsumo" class="busqueda" name="busquedainsumo"> </input>
@@ -90,7 +207,6 @@
 
     </div>
     </div>
-
     <?php include '../includes/footer.php'?>
   </div>
 
