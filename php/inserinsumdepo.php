@@ -51,9 +51,11 @@
 
                 //<script> console.log("entro aca");</script>
         
-                $sql = "SELECT d.Id_insumo,i.Nombre,i.Descripcion,d.stock 
+                $sql = "SELECT d.Id_insumo,i.Nombre,i.Descripcion,d.stock,i.Stock
                 FROM deposito_detalle as d 
-                JOIN insumo as i on d.Id_insumo = i.Id 
+
+
+                inner JOIN insumo as i on d.Id_insumo = i.Id 
                 WHERE d.Id_insumo in 
                 (SELECT insumo.Id from insumo where insumo.id like '%$c%' or insumo.Nombre like '%$c%' or insumo.Descripcion like '%$c%' or insumo.stock like '%$c%') 
                 and d.Id_deposito = $iddepo
@@ -62,9 +64,9 @@
             }
             else
             {
-                $sql = "SELECT d.Id_insumo,i.Nombre,i.Descripcion,d.stock 
+                $sql = "SELECT d.Id_insumo,i.Nombre,i.Descripcion,d.stock,i.Stock
                 FROM deposito_detalle as d 
-                JOIN insumo as i on d.Id_insumo = i.Id 
+               inner  JOIN insumo as i on d.Id_insumo = i.Id 
                 WHERE d.Id_deposito = $iddepo
                 LIMIT $desde,$por_pagina";
             }

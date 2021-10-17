@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="../css/bootstrap.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/style2.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/styleinicio.css?v=<?php echo(rand()); ?>">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/datatable.css?v=<?php echo(rand()); ?>">
+    <link rel="stylesheet" href="../css/insuposxdepo.css?v=<?php echo(rand()); ?>">
+
 
 </head>
 <body>
@@ -191,6 +192,8 @@
                 <th id="nomproduc">Nombre</th>
                 <th id="descripproduc">Descripcion</th>
                 <th id="stockproduc">Stock</th>
+                <th id="stockproduc">Estado</th>
+
               </thead>
             </table>
           <div class="pages">

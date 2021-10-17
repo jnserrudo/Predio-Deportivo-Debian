@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../css/style2.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/styleinicio.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/stylemovstock.css?v=<?php echo(rand()); ?>">
+    <link rel="stylesheet" href="../css/insuposxdepo.css?v=<?php echo(rand()); ?>">
+
     <link rel="stylesheet" href="../css/datatable.css?v=<?php echo(rand()); ?>">
 
 </head>
@@ -20,6 +22,7 @@ $conexion = NULL;
     try{
 
       $conexion = mysqli_connect('localhost','root','','debian2');
+     
 
         if (isset($_GET['x'])) {
             $x = $_GET['x'];
@@ -59,14 +62,20 @@ $conexion = NULL;
 
 if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c'])&& isset($_GET['m'])) {
     $t = $_GET['t'];
+    
+?>
+    <?php 
     $c=$_GET['c'];
     $u=$_GET['u'];
     $n=$_GET['n'];
     $m=$_GET['m'];
+    
 
-    $comprobardato = mysqli_query($conexion, "select * from movimientos where Ubicacion = '$u' and Tipo='$t' and Motivo='$m' ");
-    if (mysqli_num_rows($comprobardato)>0) {
-    } else {
+    // $comprobardato = mysqli_query($conexion, "select * from movimientos where Id_deposito = $u and Tipo='$t' and Motivo='$m' ");
+    // if (mysqli_num_rows($comprobardato)>0) {
+
+
+    // } else {
 
   //-------------------------------------------
   
@@ -76,7 +85,7 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
 
 
                                                                 
-        $sql = "INSERT INTO movimientos (Id_deposito,Tipo,Motivo) values ('$u','$t','$m')";
+        $sql = "INSERT INTO movimientos (Id_deposito,Tipo,Motivo) values ($u,'$t','$m')";
 
         $resultado=mysqli_query($conexion, $sql);
 
@@ -100,43 +109,44 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
                                                                             $idm=$idmov[0][0];
                                                                             $idn=$idnoms[0][0];
                                                                             ///?>
-                                                                            <!-- <p id='nombres'> <?php //echo  var_dump($idmov[0]), var_dump($idnoms[0]); ?> </p>   -->
+                                                                            <!-- <p id='nombres'> <?php //echo  var_dump($idmov[0]), var_dump($idnoms[0]);?> </p>   -->
                                                                             <?php
                                                                             $c1=$c[$i];
-                                                                             if($t='Entrada'){   
-                                                                                
-                                                                            $sql = "INSERT INTO movimiento_detalle (Id_insumo, Id_movimiento,Cantidad) values ($idn,$idm,$c1);";
-                                                                            //le agregue lo de abajo
+                                                                            $sql4 = "INSERT INTO movimiento_detalle (Id_insumo, Id_movimiento,Cantidad) values ($idn,$idm,$c1);";
+                                                                            $resultado=mysqli_query($conexion, $sql4);
 
-                                                                             $sql3 = "  UPDATE deposito_detalle 
+                                                                           if ($t='Entrada') {
+                                                                                //le agregue lo de abajo
+                                                                                $sql3 = "  UPDATE deposito_detalle 
                                                                                         set  stock=(SELECT stock from deposito_detalle 
-                                                                                        WHERE Id_deposito='$u' and Id_insumo=(select Id from insumo where Nombre='$idn'))+$c1";                                  
-                                                                               $resultado3=mysqli_query($conexion, $sql3);}
-                                                                               else{
-                                                                                    $sql3 = "  UPDATE deposito_detalle 
+                                                                                        WHERE Id_deposito=$u and Id_insumo=$idn)+$c1
+                                                                                        WHERE Id_deposito=$u and Id_insumo=$idn";
+                                                                                        $resultado3=mysqli_query($conexion, $sql3);
+                                                                            } else {
+                                                                                $sql3 = "  UPDATE deposito_detalle 
                                                                                     set  stock=(SELECT stock from deposito_detalle 
-                                                                                    WHERE Id_deposito='$u' and Id_insumo=(select Id from insumo where Nombre='$idn'))-$c1";                                  
-                                                                                    $resultado3=mysqli_query($conexion, $sql3);
-                                                                                }       
-
-
-
-
-                                                                               }
+                                                                                    WHERE Id_deposito=$u and Id_insumo=$idn)-$c1
+                                                                                    
+                                                                                    WHERE Id_deposito=$u and Id_insumo=$idn
+                                                                                    ";
+                                                                                $resultado3=mysqli_query($conexion, $sql3);
+                                                                            }
+                                                                        
                                                                             //hasta aqui
-                                                                            $resultado3=mysqli_query($conexion, $sql3);
                                                                             $i=$i+1;
                                                                         }
-                                                                         //le agregue lo de abajo martin
-                                                                        $t = $_GET['t']=null;
-                                                                        $c=$_GET['c']=null;
-                                                                        $u=$_GET['u']=null;
-                                                                        $n=$_GET['n']=null;
-                                                                        $m=$_GET['m']=null;
-                                                                        //hasta aqui martin
-                     }
-                     unset($comprobardato);
-}
+                                                                        
+        //le agregue lo de abajo martin
+        $t = $_GET['t']=null;
+        $c=$_GET['c']=null;
+        $u=$_GET['u']=null;
+        $n=$_GET['n']=null;
+        $m=$_GET['m']=null;
+        //hasta aqui martin
+                     
+      //  unset($comprobardato);
+    }
+// }
         ?>
 
         
@@ -193,9 +203,21 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
                         <p class='selecttxt'>Deposito: </p>
                         <select name="selectubi"  class="selected" id="selectubi">
                         <option value="" selected disabled hidden>Seleccionar</option>
+                        
+                          
+                            <?php
+                            $conexion=mysqli_connect("localhost","root","","debian2");
+                            $consulta="select Id,Nombre from deposito";
+                            $ejecutar=mysqli_query($conexion,$consulta) 
 
-                            <option value="Kiosko">Kiosko</option>
-                            <option value="Accesorios">Accesorios</option>
+                            ?>
+
+                                                                                                                        
+                                <?php foreach ($ejecutar as $opciones): ?>
+                                <option id='idprov' class='option' value = "<?php echo $opciones['Id']?>"><?php echo $opciones['Nombre']?></option>
+                                <?php endforeach ?>
+
+                            
                         </select>
                     </div>
 
@@ -290,7 +312,7 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
 
 
 
-                <!-- VENTANA EMERGENTE CON EL BUSCADOR DE INSUMOS -->
+                <!-- VENTANA EMERGENTE CON EL BUSCADOR DE INSUMOS (por deposito) -->
                                                         <div class="reg" id="reg">
                                                                 <div class="cont_vent cont_vent_mov_stock cont_ventinsumoorden" id="cont_vent">
                                                                 <img src="../assets/cruz.svg" alt="" class="icono_cerrar" id="icono_cerrar">
@@ -308,11 +330,10 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
                                                                                                       
                                                                                                         <thead>       
                                                                                                             <th id="">Id</th>
-                                                                                                            <th id="">Id_categoria</th>
                                                                                                             <th id="">Nombre</th>
                                                                                                             <th id="">Descripcion</th>
-                                                                                                            <th id="">Precio</th>
-                                                                                                            <th id="">Stock</th>
+                                                                                                            <th id="">Stock x Deposito</th>
+                                                                                                            <th id="">Estado</th>
                                                                                                             <th id="">Accion</th>
                                                                                                         </thead>
                                                                                                 </table>
@@ -366,8 +387,9 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
     <script src="../js/inicio.js?v=<?php echo(rand()); ?>"></script>
     <script src="../js/prueba.js?v=<?php echo(rand()); ?>"></script>
     <script src="../js/movstock.js?v=<?php echo(rand()); ?>"></script>
-    <script src="../js/prueba_orden_pag_martin.js?v=<?php echo(rand()); ?>"></script>
-    <script src="../js/paginaciones/remito_movstock.js?v=<?php echo(rand()); ?>"></script>
+  <!--  <script src="../js/prueba_orden_pag_martin.js?v=<?php //echo(rand()); ?>"></script>  -->
+    <script src="../js/paginaciones/remito_movstock.js?v=<?php echo(rand()); ?>"></script>   
+    <script src="../js/paginaciones/paginacionmov_stock.js?v=<?php echo(rand()); ?>"></script>
 
     
 </body>
