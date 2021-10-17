@@ -9,7 +9,7 @@ const tablamov= document.getElementById('tablamov')
 
 
 
-const table = document.getElementById('tablainsumo')
+const tabla = document.getElementById('tablainsumo')
 
 const busq=document.getElementById("busquedamov")
 busq.addEventListener('keyup',
@@ -28,119 +28,180 @@ const getData = (x) => {
     else xhr = new ActiveXObject("Microsoft.XMLHTTP")
 
     if (x == undefined) {
-        
-        xhr.open('GET', "../php/insercion.php")
 
-        xhr.addEventListener('load', (data) => {
-            const dataJSON = JSON.parse(data.target.response)
-            console.log(dataJSON)
+        const h = document.getElementById("selectubi").options[document.getElementById("selectubi").selectedIndex].value;
+        console.log(h+"  "+document.getElementById("selectubi").options[document.getElementById("selectubi").selectedIndex]);
 
+        xhr.open('GET', `../php/inserinsumdepo.php?h=${h}`)
+
+        xhr.addEventListener('load', (datosconsulta) => {
+            const dataJSON = JSON.parse(datosconsulta.target.response)
+            //console.log(dataJSON)
             const fragment = document.createDocumentFragment()
 
             for (const insumo of dataJSON) {
-                        console.log(insumo+"y su primero seria"+insumo[0])
-                        const row = document.createElement('TR')
-                        row.classList.add('fila')
-                        const dataid = document.createElement('TD')
-                        const dataidcat = document.createElement('TD')
-                        const datanom = document.createElement('TD')
-                        const datadesc = document.createElement('TD')
-                        const dataprecio = document.createElement('TD')
-                        const dataStock = document.createElement('TD')
-                        const databtnedit=document.createElement('TD')
-                        const btnedit=document.createElement('button')
-                        btnedit.classList.add("btneditar")
-                        btnedit.textContent="Añadir"
-                        databtnedit.append(btnedit)
-                        
-                        dataid.textContent = insumo[0]
-                        dataidcat.textContent = insumo[1]
-                        datanom.textContent = insumo[2]
-                        datadesc.textContent = insumo[3]
-                        dataprecio.textContent = insumo[4]
-                        dataStock.textContent = insumo[5]
-
-                        dataid.classList.add('celda')
-                        dataidcat.classList.add('celda')
-                        datanom.classList.add('celda')
-                        datadesc.classList.add('celda')
-                        dataprecio.classList.add('celda')
-                        dataStock.classList.add('celda')
-                        databtnedit.classList.add('celda')
-
-                       
-                        // console.log("soy el data id :"+dataid.textContent)
-                        row.append(dataid)
-                        row.append(dataidcat)
-                        row.append(datanom)
-                        row.append(datadesc)
-                        row.append(dataprecio)
-                        row.append(dataStock)
-                        row.append(databtnedit)
-
-                        fragment.append(row)
-            }
-            table.appendChild(fragment)
-        })
-    } else {
-        xhr.open('GET', `../php/insercion.php?x=${x}`)
-
-        xhr.addEventListener('load', (data) => {
-            const dataJSON = JSON.parse(data.target.response)
-            console.log(dataJSON)
-
-            const fragment = document.createDocumentFragment()
-
-            for (const insumo of dataJSON) {
+                //console.log(insumo+"y su primero seria"+insumo[0])
+                let x=parseInt(insumo[3])//stock deposito
+                let s=parseInt(insumo[4])//stock minimo
                 const row = document.createElement('TR')
-                row.classList.add('fila')
                 const dataid = document.createElement('TD')
-                const dataidcat = document.createElement('TD')
-                const datanom = document.createElement('TD')
-                const datadesc = document.createElement('TD')
-                const dataprecio = document.createElement('TD')
-                const dataStock = document.createElement('TD')
-                const databtnedit=document.createElement('TD')
-                const btnedit=document.createElement('button')
-                btnedit.classList.add("btneditar")
-                btnedit.textContent="Añadir"
-                databtnedit.append(btnedit)
-                  console.log("soy el id nro"+insumo.Id)
-                dataid.textContent = insumo[0]
-                dataidcat.textContent = insumo[1]
-                datanom.textContent = insumo[2]
-                datadesc.textContent = insumo[3]
-                dataprecio.textContent = insumo[4]
-                dataStock.textContent = insumo[5]
+                const datanombre = document.createElement('TD')
+                const datadescripcion = document.createElement('TD')
+                const datastock = document.createElement('TD')
+                
+                const dataestado=document.createElement('TD')
+                const datadivicono=document.createElement('DIV')
+                // const dataicono=document.createElement('IMG')
+                datadivicono.classList.add('div_icono_estado')
+                dataestado.classList.add('celdaestado')
+                // dataicono.classList.add('icono_estado')
+                // datadivicono.append(dataicono)
+                dataestado.append(datadivicono)
                 
 
 
+
+                const databtnedit=document.createElement('TD')
+                const btnedit=document.createElement('button')
+                btnedit.classList.add("btneditar")
+                btnedit.textContent="Elegir"
+                databtnedit.append(btnedit)
+                        
+                dataid.textContent = insumo[0]
+                datanombre.textContent = insumo[1]
+                datadescripcion.textContent = insumo[2]
+                datastock.textContent = insumo[3]
+
+
                 dataid.classList.add('celda')
-                dataidcat.classList.add('celda')
-                datanom.classList.add('celda')
-                datadesc.classList.add('celda')
-                dataprecio.classList.add('celda')
-                dataStock.classList.add('celda')
-                databtnedit.classList.add('celda')
-
-
+                datanombre.classList.add('celda')
+                datadescripcion.classList.add('celda')
+                datastock.classList.add('celda')
+                dataestado.classList.add('celda')
                 row.append(dataid)
-                row.append(dataidcat)
-                row.append(datanom)
-                row.append(datadesc)
-                row.append(dataprecio)
-                row.append(dataStock)
+                row.append(datanombre)
+                row.append(datadescripcion)
+                row.append(datastock)
+                // comparamos estado
+                if(s>x){
+                    //stock por deposito menor al stock minimo
+                    datadivicono.classList.add('cruz')
+
+                }
+                else{
+                    if(s===x){
+                        // alerta dea
+                        datadivicono.classList.add('alerta')
+                    }
+                    else{
+                        //stock deposito mayor al stock minimo
+                        datadivicono.classList.add('tilde')
+                    }
+                }
+                row.append(dataestado)
+                row.append(databtnedit)
+                
+
+                fragment.append(row)
+            }
+            const hijo=tabla.children[0];
+                
+            while(hijo.nextElementSibling){;
+                tabla.removeChild(hijo.nextElementSibling);
+            }
+
+            tabla.appendChild(fragment)
+        })
+    } 
+    else {
+
+        const h = document.getElementById("selectubi").options[document.getElementById("selectubi").selectedIndex].value;
+        console.log(h);
+        xhr.open('GET', `../php/inserinsumdepo.php?h=${h}`)
+
+
+
+
+        xhr.addEventListener('load', (datosconsulta) => {
+            const dataJSON = JSON.parse(datosconsulta.target.response)
+            //console.log(dataJSON)
+            const fragment = document.createDocumentFragment()
+
+            for (const insumo of dataJSON) {
+                //console.log(insumo+"y su primero seria"+insumo[0])
+                let x=parseInt(insumo[3])//stock deposito
+                let s=parseInt(insumo[4])//stock minimo
+                const row = document.createElement('TR')
+                const dataid = document.createElement('TD')
+                const datanombre = document.createElement('TD')
+                const datadescripcion = document.createElement('TD')
+                const datastock = document.createElement('TD')
+                const dataestado=document.createElement('TD')
+                const datadivicono=document.createElement('DIV')
+                //const dataicono=document.createElement('IMG')
+                datadivicono.classList.add('div_icono_estado')
+                dataestado.classList.add('celdaestado')
+
+                //dataicono.classList.add('icono_estado')
+               // datadivicono.append(dataicono)
+
+
+                
+
+
+                const databtnedit=document.createElement('TD')
+                const btnedit=document.createElement('button')
+                btnedit.classList.add("btneditar")
+                btnedit.textContent="Elegir"
+                databtnedit.append(btnedit)
+
+
+                
+                
+                dataestado.append(datadivicono)
+                        
+                dataid.textContent = insumo[0]
+                datanombre.textContent = insumo[1]
+                datadescripcion.textContent = insumo[2]
+                datastock.textContent = insumo[3]
+
+                dataid.classList.add('celda')
+                datanombre.classList.add('celda')
+                datadescripcion.classList.add('celda')
+                datastock.classList.add('celda')
+                dataestado.classList.add('celda')
+                row.append(dataid)
+                row.append(datanombre)
+                row.append(datadescripcion)
+                row.append(datastock)
+                // comparamos estado
+                if(s>x){
+                    //stock por deposito menor al stock minimo
+                    dataicono.classList.add('cruz')
+
+                }
+                else{
+                    if(s===x){
+                        // alerta dea
+                        dataicono.classList.add('alerta')
+                    }
+                    else{
+                        //stock deposito mayor al stock minimo
+                        dataicono.classList.add('tilde')
+                    }
+                }
+                row.append(dataestado)
                 row.append(databtnedit)
 
                 fragment.append(row)
             }
-            const hijo=table.children[0];
+            const hijo=tabla.children[0];
                 
             while(hijo.nextElementSibling){;
-                table.removeChild(hijo.nextElementSibling);
+                tabla.removeChild(hijo.nextElementSibling);
             }
             
-            table.append(fragment);
+            tabla.append(fragment);
         })
     }
 
@@ -148,7 +209,7 @@ const getData = (x) => {
 }
 
 
-getData() 
+// getData() 
 if (window.history.replaceState) { // verificamos disponibilidad
     window.history.replaceState(null, null, window.location.href);
 }
@@ -161,6 +222,7 @@ const iconocerrar = document.getElementById('icono_cerrar');
 
 
 btnvent.addEventListener('click', ()=>{
+    getData()
 	reg.classList.add('activar');
     console.log("aa")
 	contvent.classList.add('activar');
@@ -200,10 +262,10 @@ icono_cerrarcant.addEventListener('click', (e)=>{
     inputcant.value=0
 });
 
-table.addEventListener('click',(e)=>{
+tabla.addEventListener('click',(e)=>{
     const editar=e.target;
     if(editar.classList.contains('btneditar')){
-        m=editar.parentElement.parentElement.firstElementChild.nextElementSibling.nextElementSibling.textContent
+        m=editar.parentElement.parentElement.firstElementChild.nextElementSibling.textContent
         console.log(m)
         ventcant.classList.add('activar')
         contventcant.classList.add('activar')
@@ -215,7 +277,7 @@ tablamov.addEventListener('click',(e)=>{
     const editar=e.target;
     if(editar.classList.contains('btneditar')){
         console.log(editar.parentElement)
-        tablamov.removeChild(editar.parentElement)
+        tablamov.removeChild(editar.parentElement.parentElement)
         
 
     }
@@ -230,20 +292,20 @@ btnaceptarcant.addEventListener('click',()=>{
     const row = document.createElement('TR')
     const nombremov = document.createElement('TD')
     const cantmov = document.createElement('TD')
-    const contbtnmov = document.createElement('TD')
+    const databtnedit=document.createElement('TD')
     const btnedit=document.createElement('button')
 
     nombremov.classList.add('celda')
     cantmov.classList.add('celda')
-    contbtnmov.classList.add('celda')
+    databtnedit.classList.add('celda')
     btnedit.classList.add("btneditar")
     btnedit.textContent="Quitar"
-    contbtnmov.append(btnedit)
+    databtnedit.append(btnedit)
     nombremov.textContent=m
     cantmov.textContent=c
     row.append(nombremov)
     row.append(cantmov)
-    row.append(btnedit)
+    row.append(databtnedit)
     fragmento.append(row)
     tablamov.append(fragmento)
     ventcant.classList.remove('activar');

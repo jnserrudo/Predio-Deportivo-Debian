@@ -33,11 +33,26 @@ const getData = (x) => {
 
             for (const insumo of dataJSON) {
                 //console.log(insumo+"y su primero seria"+insumo[0])
+                let x=parseInt(insumo[3])//stock deposito
+                let s=parseInt(insumo[4])//stock minimo
+
                 const row = document.createElement('TR')
                 const dataid = document.createElement('TD')
                 const datanombre = document.createElement('TD')
                 const datadescripcion = document.createElement('TD')
                 const datastock = document.createElement('TD')
+                
+                const dataestado=document.createElement('TD')
+                const datadivicono=document.createElement('DIV')
+                // const dataicono=document.createElement('IMG')
+                datadivicono.classList.add('div_icono_estado')
+                dataestado.classList.add('celdaestado')
+                // dataicono.classList.add('icono_estado')
+                // datadivicono.append(dataicono)
+                dataestado.append(datadivicono)
+                
+
+
 
                 /*const databtnedit=document.createElement('TD')
                 const btnedit=document.createElement('button')
@@ -50,15 +65,44 @@ const getData = (x) => {
                 datadescripcion.textContent = insumo[2]
                 datastock.textContent = insumo[3]
 
+
                 dataid.classList.add('celda')
                 datanombre.classList.add('celda')
                 datadescripcion.classList.add('celda')
                 datastock.classList.add('celda')
-
+                dataestado.classList.add('celda')
                 row.append(dataid)
                 row.append(datanombre)
                 row.append(datadescripcion)
                 row.append(datastock)
+                // comparamos estado
+                console.log('s: '+s +' x: '+x)
+                console.log(typeof(s)+' '+typeof(x))
+
+                console.log(s>x)
+
+                if(s>x){
+                    console.log('s: '+s +'x: '+x)
+                    //stock por deposito menor al stock minimo
+                    datadivicono.classList.add('cruz')
+
+                }
+                else{
+                    if(s===x){
+                        // alerta dea
+                        console.log('s: '+s +'x: '+x)
+
+                        datadivicono.classList.add('alerta')
+                    }
+                    else{
+                        //stock deposito mayor al stock minimo
+                        console.log('s: '+s +'x: '+x)
+
+                        datadivicono.classList.add('tilde')
+                    }
+                }
+                row.append(dataestado)
+                
 
                 fragment.append(row)
             }
@@ -83,17 +127,28 @@ const getData = (x) => {
 
             for (const insumo of dataJSON) {
                 //console.log(insumo+"y su primero seria"+insumo[0])
+                let x=parseInt(insumo[3])//stock deposito
+                let s=parseInt(insumo[4])//stock minimo
                 const row = document.createElement('TR')
                 const dataid = document.createElement('TD')
                 const datanombre = document.createElement('TD')
                 const datadescripcion = document.createElement('TD')
                 const datastock = document.createElement('TD')
+                const dataestado=document.createElement('TD')
+                const datadivicono=document.createElement('DIV')
+                //const dataicono=document.createElement('IMG')
+                datadivicono.classList.add('div_icono_estado')
+                dataestado.classList.add('celdaestado')
 
+                //dataicono.classList.add('icono_estado')
+               // datadivicono.append(dataicono)
                 /*const databtnedit=document.createElement('TD')
                 const btnedit=document.createElement('button')
                 btnedit.classList.add("btnseleccionardepo")
                 btnedit.textContent="Seleccionar"
                 databtnedit.append(btnedit)*/
+                
+                dataestado.append(datadivicono)
                         
                 dataid.textContent = insumo[0]
                 datanombre.textContent = insumo[1]
@@ -104,11 +159,28 @@ const getData = (x) => {
                 datanombre.classList.add('celda')
                 datadescripcion.classList.add('celda')
                 datastock.classList.add('celda')
-
+                dataestado.classList.add('celda')
                 row.append(dataid)
                 row.append(datanombre)
                 row.append(datadescripcion)
                 row.append(datastock)
+                // comparamos estado
+                if(s>x){
+                    //stock por deposito menor al stock minimo
+                    dataicono.classList.add('cruz')
+
+                }
+                else{
+                    if(s===x){
+                        // alerta dea
+                        dataicono.classList.add('alerta')
+                    }
+                    else{
+                        //stock deposito mayor al stock minimo
+                        dataicono.classList.add('tilde')
+                    }
+                }
+                row.append(dataestado)
 
                 fragment.append(row)
             }
