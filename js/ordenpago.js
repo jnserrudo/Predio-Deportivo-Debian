@@ -139,7 +139,7 @@ const getData = (x) => {
 
     if (x == undefined) {
         
-        xhr.open('GET', "../php/insercion_comprobante.php")  
+        xhr.open('GET', "../php/comprobanteordpago.php")  
 
         xhr.addEventListener('load', (data) => {
             const dataJSON = JSON.parse(data.target.response)
@@ -225,7 +225,7 @@ const getData = (x) => {
             table.appendChild(fragment)
         })
     } else {
-        xhr.open('GET', `../php/insercion_comprobante.php?x=${x}`)
+        xhr.open('GET', `../php/comprobanteordpago.php?x=${x}`)
 
         xhr.addEventListener('load', (data) => {
             const dataJSON = JSON.parse(data.target.response)
@@ -514,13 +514,14 @@ const ventregordpagodetalle=document.getElementById('ventordpago')
 const contventordpagodetalle=document.getElementById('cont_ordpago_detalle')
 const iconocerrarordpagodetalle = document.getElementById('icono_cerrarordpagodetalle');
 const btnverdetalle=document.getElementById('btnvent')
-
+const nombre_proveedor=document.getElementById('nomprov')
 
 
 btnregcomp.addEventListener('click',()=>{
     // monto=inputmonto.value
     const fragment= document.createDocumentFragment()
     const row=document.createElement('tr')
+    const tdproveedor=document.createElement('td')
     const tdid=document.createElement('td')
     const tdmonto=document.createElement('td')
     const tdtipo=document.createElement('td')
@@ -532,12 +533,13 @@ btnregcomp.addEventListener('click',()=>{
     
     btn.classList.add("btneditar")
 
-
+    tdproveedor.textContent=nombre_proveedor.value
     tdid.textContent=idcomp
     tdmonto.textContent=monto
     tdtipo.textContent=tipo
     tdletra.textContent=letra
     tdbtn.append(btn)
+     row.append(tdproveedor)
     row.append(tdid)
     row.append(tdmonto)
     row.append(tdtipo)
@@ -592,7 +594,7 @@ const btnconfordpago=document.getElementById('btnconfordpago')
 btnconfordpago.addEventListener('click',()=>{
 
     var hijo=tablaordpagodetalle.lastElementChild
-
+    
     var idcomprobante
     var tipoo
     var letraa
@@ -604,15 +606,19 @@ btnconfordpago.addEventListener('click',()=>{
     var desc = document.getElementById('desc').value
     console.log(desc)
 
+
     var idcomprobantes = []
     // var totalordens = []
     var montopagars = []
 
     console.log(hijo)
     // nextElementSibling
-
+   
+    
     while(hijo!=tablaordpagodetalle.children[0]){
         idcomprobante=hijo.firstElementChild.textContent
+        //
+
         // totalorden = hijo.firstElementChild.nextElementSibling.textContent
         montopagar=hijo.firstElementChild.nextElementSibling.textContent
         
@@ -647,7 +653,7 @@ selectprov.addEventListener('change',()=>{
     let xhr
     if (window.XMLHttpRequest) xhr = new XMLHttpRequest()
     else xhr = new ActiveXObject("Microsoft.XMLHTTP")
-    xhr.open('GET', `../php/insercion_comprobante.php?pr=${idprov}`)
+    xhr.open('GET', `../php/comprobanteordpago.php?pr=${idprov}`)
 
     xhr.addEventListener('load', (data) => {
         const dataJSON = JSON.parse(data.target.response)

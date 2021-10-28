@@ -1,6 +1,8 @@
 
+
 const getDatadepo = (f) => {
     let xhr
+    
     if (window.XMLHttpRequest) xhr = new XMLHttpRequest()
     else xhr = new ActiveXObject("Microsoft.XMLHTTP")
 
@@ -198,8 +200,10 @@ pag5.addEventListener('click',()=>{
 
 //----------------------------------- PAGINACION INSUMOS ----------------------------
 
+
 const getDatosInsumos = (p) => {
     let xhr
+    var depo=txtDeposito.value
     if (window.XMLHttpRequest) xhr = new XMLHttpRequest()
     else xhr = new ActiveXObject("Microsoft.XMLHTTP")
 
@@ -208,7 +212,7 @@ const getDatosInsumos = (p) => {
         const z = document.getElementById("busquedainsumo2").value;
         console.log(z);
         
-        xhr.open('GET', `../php/insercioninsumos.php?z=${z}`)
+        xhr.open('GET', `../php/insercioninsumos_depo.php?z=${z}&depo=${depo}`)
 
         xhr.addEventListener('load', (datosconsulta) => {
             const dataJSON = JSON.parse(datosconsulta.target.response)
@@ -251,10 +255,11 @@ const getDatosInsumos = (p) => {
         })
     } 
     else {
+        var depo=txtDeposito.value
         const z = document.getElementById("busquedainsumo2").value;
         console.log(z);
 
-        xhr.open('GET', `../php/insercioninsumos.php?p=${p}&z=${z}`)
+        xhr.open('GET', `../php/insercioninsumos_depo.php?p=${p}&z=${z}&depo=${depo}`)
 
         xhr.addEventListener('load', (datosconsulta) => {
             const dataJSON = JSON.parse(datosconsulta.target.response)

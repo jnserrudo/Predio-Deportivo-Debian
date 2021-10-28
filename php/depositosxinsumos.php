@@ -45,6 +45,30 @@
     $NombreDeposito=$SQLdepositonombre->fetch(PDO::FETCH_LAZY);
 
     $txtDeposito=$NombreDeposito[0];
+
+
+    $conexion = NULL;
+       try{
+           $conexion = mysqli_connect('localhost','root','','debian2');
+           
+           if ( isset($_GET['q'])) {
+               
+               $q=$_GET['q'];
+               
+               $sql = "   
+               delete from deposito_detalle
+               where Id_insumo=$q and Id_deposito=$t ;
+                
+               ";
+               
+               $resultado=mysqli_query($conexion,$sql);
+           
+
+           }
+           
+       }catch (PDOException $e){
+           echo "Error ".$e->getMessage();
+       }
   ?>
 
   <div class="reg" id="reg">
@@ -62,17 +86,19 @@
         <div class="header-tools">
           <div class="row">
             <div class="col-md-2">
-              <p class="txtbusq">Cantidad:</p>
+              <p class="txtbusq invisible">Cantidad:</p>
             </div>
             <div class="col-md-3">
-              <input type="number" class="form-control" value="" name ="inputcant" id="inputcant" required placeholder="Cantidad a agregar">
+              <input type="number" class="form-control invisible" value="" name ="inputcant" id="inputcant" required placeholder="Cantidad a agregar">
             </div>
             <div class="col-md-4">
               <p class="txtbusq">Nombre del Deposito:</p>
             </div>
             <div class="col-md-3">
               <input type="text" class="form-control" value="<?php echo $txtDeposito; ?>" name ="txtDepositoventana" id="txtDepositoventana" readonly="">
+            
             </div>
+             
           </div>
         </div>
         <div class="row">
@@ -139,6 +165,22 @@
     </div>
   </div>
 
+
+  
+<div class="reg" id="ventquitar">
+             <div class="cont_vent cont_vent_quitar" id="cont_quitar">
+             <img src="../assets/cruz.svg" alt="" class="icono_cerrar" id="icono_cerrarquitar">
+                                <div class="divquitar">
+                                    <p class="txtbusq">Estas seguro de quitar este insumo del Deposito?</p>
+                                    <button class="btnvent butto" id="btnsi">Si</button>
+                                    <button class="btnvent butto" id="btnno">No</button>
+
+                                </div>
+                                                
+
+             </div>
+             </div>
+
   <div class="main">
     <?php
       switch ($_SESSION['usuario']){
@@ -179,7 +221,8 @@
             </div>
             <div class="header-tools">
               <div class="contbtnreg">
-                <button class="btnvent button " id="btnnuevinsumo">Agregar Insumos</button> 
+                <button class="btnvent button " id="btnnuevinsumo">Agregar Insumos</button>
+                <button class="btnvent button " id="btnvolver"> Volver </button> 
               </div>
               <div class="buscador">
                 <p class="txtbusq">Buscar:</p>
@@ -191,8 +234,11 @@
                 <th id="idproduc">Id</th>
                 <th id="nomproduc">Nombre</th>
                 <th id="descripproduc">Descripcion</th>
+                <th id="stockproduc">Stock Minimo</th>
                 <th id="stockproduc">Stock</th>
                 <th id="stockproduc">Estado</th>
+                <th id="stockproduc">Accion</th>
+
 
               </thead>
             </table>

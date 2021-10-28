@@ -283,7 +283,7 @@ session_start()
                                                                               {
                                                                 
                                                                               //-------------------------------------------
-                                                                              $sql="INSERT INTO reservaf5 (Fecha,Hora,Solicitante,Contacto,Instalacion,Disciplina)Values($txt_Fecha,$txt_Hora,$txt_Solicitante,$txt_Contacto,$txt_Instalacion,$txt_Disciplina)";
+                                                                              $sql="INSERT INTO reservaf5 (Fecha,Hora,Solicitante,Contacto,Instalacion,Disciplina)Values('$txt_Fecha','$txt_Hora','$txt_Solicitante','$txt_Contacto','$txt_Instalacion','$txt_Disciplina')";
                                                                                 $result=mysqli_query($conexion,$sql);
                                                                                 $_SESSION['inserted_db'] = FALSE;
                                                                 

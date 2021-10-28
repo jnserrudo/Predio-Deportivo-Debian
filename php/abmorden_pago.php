@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -192,6 +193,7 @@ session_start()
   <div class="buscador">
       <p class="txtbusq">Buscar</p>
       <input type="text" id="busqueda" class="busqueda" name="busqueda"> </input>
+      <a href="../php/pdfprueba.php">pdf</a>
       
       </div>  
 
@@ -268,8 +270,8 @@ session_start()
     <!-- DEBO AGREGAR ESTOS DOS EN TODOS -->
     <script src="../js/prueba.js?v=<?php echo(rand()); ?>"></script>
     <script src="../js/inicio.js?v=<?php echo(rand()); ?>"></script>
-    <script src="../js/abmorden_pago.js?php  echo(rand()); ?>"></script>
-    <script src="../js/orden_pago_pago.js?php  echo(rand()); ?>"></script>
+    <script src="../js/abmorden_pago.js?v=<?php  echo(rand()); ?>"></script>
+    <script src="../js/orden_pago_pago.js?v=<?php  echo(rand()); ?>"></script>
 
                     
 

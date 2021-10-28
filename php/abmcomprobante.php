@@ -267,6 +267,7 @@
     ?>
     <script src="../js/abmcomprobante.js?v=<?php echo(rand()); ?>"></script>
     <script src="../js/inicio.js?v=<?php echo(rand()); ?>"></script>
-    <script src="../js/paginaciones/comprobante_pag.js?v=<?php  echo(rand()); ?>"></script>
+  <!--  <script src="../js/paginaciones/comprobante_pag.js?v=<?php // echo(rand()); ?>"></script>   -->
+    <script src="../js/paginaciones/paginacion_comprobante.js?v=<?php  echo(rand()); ?>"></script>
 </body>
 </html>

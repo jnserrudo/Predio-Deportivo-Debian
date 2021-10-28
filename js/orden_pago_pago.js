@@ -139,20 +139,27 @@ const edicion=document.getElementById('tabla')
 edicion.addEventListener('click',(e)=>{
     const editar=e.target;
     if(editar.classList.contains('btneditar')){
-        let xhr
-         if (window.XMLHttpRequest) xhr = new XMLHttpRequest()
-         else xhr = new ActiveXObject("Microsoft.XMLHTTP")
-         //obtengo el id
-         var t=editar.parentElement.parentElement.firstElementChild.textContent
-         console.log(t)
-        //  xhr.open('GET', `../php/queryedicion.php?t=${t}`)
-        //  xhr.addEventListener('load',()=>
-        //  {
-        //      console.log("llegue")
-        //  })
+        // let xhr
+        //  if (window.XMLHttpRequest) xhr = new XMLHttpRequest()
+        //  else xhr = new ActiveXObject("Microsoft.XMLHTTP")
+        //  //obtengo el id
+        //  var t=editar.parentElement.parentElement.firstElementChild.textContent
+        //  console.log(t)
+        // //  xhr.open('GET', `../php/queryedicion.php?t=${t}`)
+        // //  xhr.addEventListener('load',()=>
+        // //  {
+        // //      console.log("llegue")
+        // //  })
          
-        //  xhr.send()
+        // //  xhr.send()
          
-         window.location.href="../php/edicionordenpago.php?t="+t
+        //  window.location.href="../php/edicionordenpago.php?t="+t
+
+        // ver en pdf
+      var t=editar.parentElement.parentElement.firstElementChild.textContent
+      window.location.href="../php/crearPdf.php"
+    
+
+
     }
 })
