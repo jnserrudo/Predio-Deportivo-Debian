@@ -82,7 +82,7 @@
 
                 <div class="header-tools">
                     <div class="contbtnreg">
-                        <button class="btnvent button " id="btnvent">Registrar Nuevo Insumo</button>   
+                        <button class="btnvent button " id="btnvent">Registrar Nuevo Usuario</button>   
                     </div>
                     <div class="buscador">
                         <p class="txtbusq">Buscar</p>

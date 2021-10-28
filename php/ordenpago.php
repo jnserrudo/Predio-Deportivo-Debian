@@ -145,11 +145,89 @@ if (isset($_GET['ido'])&& isset($_GET['mp'])&& isset($_GET['d'])) {
 <div class="reg" id="ventordpago">
              <div class="cont_vent cont_vent_ordpagodetalle" id="cont_ordpago_detalle">
              <img src="../assets/cruz.svg" alt="" class="icono_cerrar" id="icono_cerrarordpagodetalle">
-                                        <div class="datatable-container-ord-pago-detalle">
+                                        <div class="datatable-container-ord-pago-detalle ">
+                                        <div class="buscador fuentetam busqordpago">
+                                                                               <p class="txtbusq">Buscar</p>
+                                                                            <input type="text" id="busqueda" class="busqueda" name="busqueda"> </input>
+                                                                            <p class="txtbusq"> Seleccione Proveedor </p>
+                                                                            <Select class='selected' id="idprov" name="proveedor" >    
+                                                                                <option value="" selected disabled hidden>Seleccionar</option>
+                                                                                
+                                                                                <?php
+                                                                                $conexion=mysqli_connect("localhost","root","","debian2");
+                                                                                $consulta="select * from proveedor";
+                                                                                $ejecutar=mysqli_query($conexion,$consulta) 
 
-                                       
-                                                  <table id="tabla_ordpago" class="table table-striped datatable table-bordered border-primary">
+                                                                                ?>
+
+                                                                                
+                                                                                    <?php foreach ($ejecutar as $opciones): ?>
+                                                                                                                            <option id='idprov' class='option' value = "<?php echo $opciones['Id']?>"><?php echo $opciones['Nombre']?></option>
+                                                                                    <?php endforeach ?>
+                                                                                </Select>
+                                                                        </div>  
+                                                    <!--  -->
+                                                    <table id="tabla" class="table table-striped datatable table-bordered border-primary">
                                                         <thead class="tablaenc">       
+                                                            <th id="idproveedor">Id</th>
+                                                            <th id="empresa">Nombre del proveedor</th>
+                                                        <!-- <th id="comercial">Id_comprobante</th>  -->
+                                                            <th id="telefono">Fecha</th>
+                                                            <th id="telefono">Estado</th>
+                                                            <th id="telefono">Monto</th>
+                                                            <th id="telefono">Letra</th>
+                                                            <th id="telefono">Orden de Compra</th>
+                                                            <th id="telefono">Tipo</th>
+                                                            <th id="telefono">Accion</th>
+                                                        </thead>
+                                                        <!-- <tbody>
+                                                        </tbody> -->
+                                                    </table>
+                                                    <div class="pages">
+                                                        <ul>
+                                                            <li><button id="btnpag1">1</button></li>
+                                                            <li><button id="btnpag2">2</button></li>
+                                                            <li><button id="btnpag3">3</button></li>
+                                                            <li><button id="btnpag4">4</button></li>
+                                                            <li><button id="btnpag5">5</button></li>
+                                                        </ul>
+                                                    </div>
+                                                    <!--  -->
+
+
+
+
+
+                                                    
+                                                      </div>
+                                                     
+
+             </div>
+             </div>
+
+
+
+<!--  -->
+
+
+
+                                                                  <div class="datatable-container-rel fuentetam">
+
+                                                                                <div class="header-tools">
+                                                                                    <div class="contbtnreg">
+                                                                                        <!-- <button class="btnvent button " id="btnvent">Registrar Nuevo Comprobante</button>    -->
+                                                                                        <button class="btnvent button " id="btnvent">Buscar Comprobante</button>  
+                                                                                        <button class="btnvent button " id="btnverordpagos"> Volver</button>
+ 
+
+                                                                                    </div>
+                                                                                   
+                                                                                   
+                                                                                </div>
+                                                                               
+                                                                                <table id="tabla_ordpago" class="table table-striped datatable table-bordered border-primary">
+                                                        <thead class="tablaenc">
+                                                            <th id="id_col_op0">Proveedor</th>      
                                                             <th id="id_col_op1">Comprobante</th>
                                                             <th id="id_col_op2">Total</th>
                                                             
@@ -162,116 +240,12 @@ if (isset($_GET['ido'])&& isset($_GET['mp'])&& isset($_GET['d'])) {
                                                       </table>
                                                     
                                                       </div>
-                                                      <div class="desc_btnconf">
-                                                      <label class='label labeldesc' > Descripcion:</label> <textarea name="txt_desc" id="desc" cols="30" rows="3"></textarea> 
+                                                      <div class="desc_btnconf fuentetam">
+                                                             <label class='label labeldesc' > Descripcion:</label> <textarea name="txt_desc" id="desc" cols="30" rows="3"></textarea> 
+                                                             <button class="btnvent button btnconfordpago" id="btnconfordpago">Confirmar Orden de Pago</button>
 
                                                       </div>
-                                                      <button class="btnvent button btnconfordpago" id="btnconfordpago">Confirmar Orden de Pago</button>
 
-             </div>
-             </div>
-
-
-
-
-<!--  -->
-
-                                                            <!-- <div class="datatable-container-ord-pago">
-
-                                                                                  <div class="header-tools">
-                                                                                  <div class="contbtnreg">
-                                                                                              <button class="btnvent button " id="btnvent">Ver detalle</button>   
-                                                                                               tendria que estar oculto hasta que se seleccione una orden 
-                                                                                              </div>
-                                                                                    <div class="buscador">
-                                                                                        <p class="txtbusq">Buscar</p>
-                                                                                        <input type="text" id="busqueda" class="busqueda" name="busqueda"> </input>
-                                                                                       
-                                                                                       
-                                                                                        </div>  
-                                                                                                    
-
-                                                                                        
-                                                                                  </div>
-                                                                                          <table id="tabla" class="table table-striped datatable table-bordered border-primary">
-                                                                                                <thead class="tablaenc">       
-                                                                                                    <th id="idproveedor">Id</th>
-                                                                                                    <th id="empresa">Fecha</th>
-                                                                                                    
-                                                                                                    <th id="comercial">Nombre de Proveedor</th>
-                                                                                                    <th id="telefono">Accion</th>
-                                                                                                </thead>
-                                                          
-                                                                                              </table>
-                                                                                              <div class="pages">
-                                                                                                         <ul>
-                                                                                                            <li><button id="btnpag1p">1</button></li>
-                                                                                                            <li><button id="btnpag2p">2</button></li>
-                                                                                                             <li><button id="btnpag3p">3</button></li>
-                                                                                                            <li><button id="btnpag4p">4</button></li>
-                                                                                                              <li><button id="btnpag5p">5</button></li>
-                                                                                                               </ul>
-                                                                                                         </div>
-                                                                                              </div> -->
-
-
-                                                                                              <div class="datatable-container fuentetam">
-
-                                                                                                            <div class="header-tools">
-                                                                                                                <div class="contbtnreg">
-                                                                                                                    <!-- <button class="btnvent button " id="btnvent">Registrar Nuevo Comprobante</button>    -->
-                                                                                                                    <button class="btnvent button " id="btnvent">Ver detalle</button>  
-                                                                                                                    <button class="btnvent button " id="btnverordpagos"> Volver</button>
- 
-
-                                                                                                                </div>
-                                                                                                                <div class="buscador">
-                                                                                                                    <p class="txtbusq">Buscar</p>
-                                                                                                                    <input type="text" id="busqueda" class="busqueda" name="busqueda"> </input>
-                                                                                                                    
-                                                                                                                </div>  
-                                                                                                                <p class="txtbusq"> Seleccione Proveedor </p>
-                                                                                                                    <Select class='selected' id="idprov" name="proveedor" >    
-                                                                                                                        <option value="" selected disabled hidden>Seleccionar</option>
-                                                                                                                
-                                                                                                                        <?php
-                                                                                                                        $conexion=mysqli_connect("localhost","root","","debian2");
-                                                                                                                        $consulta="select * from proveedor";
-                                                                                                                        $ejecutar=mysqli_query($conexion,$consulta) 
-
-                                                                                                                        ?>
-
-                                                                                                                        
-                                                                                                                            <?php foreach ($ejecutar as $opciones): ?>
-                                                                                                                            <option id='idprov' class='option' value = "<?php echo $opciones['Id']?>"><?php echo $opciones['Nombre']?></option>
-                                                                                                                            <?php endforeach ?>
-                                                                                                                        </Select>
-                                                                                                            </div>
-                                                                                                            <table id="tabla" class="table table-striped datatable table-bordered border-primary">
-                                                                                                                <thead class="tablaenc">       
-                                                                                                                    <th id="idproveedor">Id</th>
-                                                                                                                    <th id="empresa">Nombre del proveedor</th>
-                                                                                                                <!-- <th id="comercial">Id_comprobante</th>  -->
-                                                                                                                    <th id="telefono">Fecha</th>
-                                                                                                                    <th id="telefono">Estado</th>
-                                                                                                                    <th id="telefono">Monto</th>
-                                                                                                                    <th id="telefono">Letra</th>
-                                                                                                                    <th id="telefono">Orden de Compra</th>
-                                                                                                                    <th id="telefono">Tipo</th>
-                                                                                                                    <th id="telefono">Accion</th>
-                                                                                                                </thead>
-                                                                                                                <!-- <tbody>
-                                                                                                                </tbody> -->
-                                                                                                            </table>
-                                                                                                            <div class="pages">
-                                                                                                                <ul>
-                                                                                                                    <li><button id="btnpag1">1</button></li>
-                                                                                                                    <li><button id="btnpag2">2</button></li>
-                                                                                                                    <li><button id="btnpag3">3</button></li>
-                                                                                                                    <li><button id="btnpag4">4</button></li>
-                                                                                                                    <li><button id="btnpag5">5</button></li>
-                                                                                                                </ul>
-                                                                                                            </div>
                                                                                                             </div>
                                                                                               <!-- <button class="btnvent button " id="btnverordpagos"> Volver</button> -->
                                                                                           

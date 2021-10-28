@@ -210,8 +210,8 @@
 
 .datatable-container-ord-pago-detalle{
     border: solid 2px var(--dt-border-color);
-    width: 550px;
-    height: 300px;
+    width: 750px;
+    height: 400px;
     margin-left: 25px;
    
     font-size: 0.8em;
@@ -969,5 +969,59 @@
     background-color: var(--dt-cell-color);
 }
 .datatable-container-depositos-insumos .datatable tr:hover{
+    background-color: var(--dt-hover-color);
+}
+
+
+
+/* prueba de tamaños relativos */
+.datatable-container-rel{
+    border: solid 1px var(--dt-border-color);
+    width: 98%;
+    height: 450px;
+    /* border:1px black solid; */
+    /* margin:  ; */
+    /* margin-left: 5px; */
+    font-size: 1.5em;
+}
+
+
+.datatable-container-rel .header-tools{
+    border-bottom: solid 1px var(--dt-border-color);
+    padding: var(--dt-padding);
+    display: flex;
+    align-items: baseline;
+}
+
+
+.datatable-container-rel .datatable{
+    border-collapse: collapse;
+    /*table-layout: fixed;*/
+    width: 100%;
+}
+
+.datatable-container-rel .datatable,
+.datatable-container-rel .datatable th,
+.datatable-container-rel .datatable td{
+    padding: var(--dt-padding) var(--dt-padding);
+}
+
+.datatable-container-rel .datatable th{
+    font-weight: bolder;
+    text-align: left;
+    border-bottom: solid 1px var(--dt-border-color);
+    cursor: pointer;
+}
+.datatable-container-rel .datatable th:hover{
+    background-color: var(--dt-hover-color);
+}
+
+.datatable-container-rel .datatable td{
+    border-bottom: solid 1px var(--dt-border-color);
+}
+.datatable-container-rel .datatable  tr:nth-child(even){
+    background-color: var(--dt-cell-color);
+}
+.datatable-container-rel .datatable tr:hover{
     background-color: var(--dt-hover-color);
 }

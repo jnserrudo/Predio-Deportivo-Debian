@@ -5,6 +5,9 @@
     /* border: 2px red solid; */
 
 }
+.invisible{
+    visibility: hidden;
+}
 .icono_estado{
     width:100% ;
     height: 100%;

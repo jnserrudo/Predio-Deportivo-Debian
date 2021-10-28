@@ -2,7 +2,14 @@ const input=document.getElementById("input");
 var elementosnew = 0;
 const consulta=document.getElementById("txtconsulta");
 
+const btnvolver=document.getElementById("btnvolver");
+
+btnvolver.addEventListener('click',()=>{
+    window.location.href='../php/abmdepositos.php'
+})
+
 //  Control de la busqueda de los insumos de un deposito
+
 
 const busq=document.getElementById("busquedainsumo")
 busq.addEventListener('keyup',
@@ -14,6 +21,8 @@ busq.addEventListener('keyup',
 
 const tabla = document.getElementById('tablainsumos')
 const tablanew=document.getElementById('tablainsumosnew')
+
+
 
 const getData = (x) => {
     let xhr
@@ -40,11 +49,18 @@ const getData = (x) => {
                 const dataid = document.createElement('TD')
                 const datanombre = document.createElement('TD')
                 const datadescripcion = document.createElement('TD')
+                const datastockmin = document.createElement('TD')
                 const datastock = document.createElement('TD')
                 
                 const dataestado=document.createElement('TD')
                 const datadivicono=document.createElement('DIV')
+                const databtnedit=document.createElement('TD')
+                const btnedit=document.createElement('button')
                 // const dataicono=document.createElement('IMG')
+
+                btnedit.classList.add("btninsumosdepo")
+                btnedit.textContent="Quitar"
+                databtnedit.append(btnedit)
                 datadivicono.classList.add('div_icono_estado')
                 dataestado.classList.add('celdaestado')
                 // dataicono.classList.add('icono_estado')
@@ -64,16 +80,23 @@ const getData = (x) => {
                 datanombre.textContent = insumo[1]
                 datadescripcion.textContent = insumo[2]
                 datastock.textContent = insumo[3]
+                datastockmin.textContent = insumo[4]
+
 
 
                 dataid.classList.add('celda')
                 datanombre.classList.add('celda')
                 datadescripcion.classList.add('celda')
                 datastock.classList.add('celda')
+                datastockmin.classList.add('celda')
+
                 dataestado.classList.add('celda')
+
                 row.append(dataid)
                 row.append(datanombre)
                 row.append(datadescripcion)
+                row.append(datastockmin)
+
                 row.append(datastock)
                 // comparamos estado
                 console.log('s: '+s +' x: '+x)
@@ -102,6 +125,7 @@ const getData = (x) => {
                     }
                 }
                 row.append(dataestado)
+                row.append(databtnedit)
                 
 
                 fragment.append(row)
@@ -118,7 +142,7 @@ const getData = (x) => {
     else {
         const h = document.getElementById("txtiddeposito").value;
         console.log(h);
-        xhr.open('GET', `../php/inserinsumdepo.php?x=${x}&h=${h}`)
+        xhr.open('GET', `../php/inserinsumdepo.php?x=${x}&h=${h}&depo=${depo}`)
 
         xhr.addEventListener('load', (datosconsulta) => {
             const dataJSON = JSON.parse(datosconsulta.target.response)
@@ -199,6 +223,46 @@ const getData = (x) => {
 
 getData();
 
+// eliminar un insumo x deposito
+var id
+const regquitar=document.getElementById('ventquitar')
+const contquitar=document.getElementById('cont_quitar')
+const icono_cerrarquitar=document.getElementById('icono_cerrarquitar')
+const btnsi=document.getElementById('btnsi')
+const btnno=document.getElementById('btnno')
+
+tabla.addEventListener('click',(e)=>{
+    let x=e.target
+    
+    if(x.classList.contains('btninsumosdepo')){
+        id=x.parentElement.parentElement.firstElementChild.textContent
+        regquitar.classList.add('activar')
+        contquitar.classList.add('activar')
+
+    }
+})
+icono_cerrarquitar.addEventListener('click',(e)=>{
+    e.preventDefault();
+    regquitar.classList.remove('activar')
+    contquitar.classList.remove('activar')
+
+})
+btnno.addEventListener('click',()=>{
+    regquitar.classList.remove('activar')
+    contquitar.classList.remove('activar')
+    let b= document.getElementById('txtiddeposito').value
+    console.log(b)
+
+})
+btnsi.addEventListener('click',()=>{
+    regquitar.classList.remove('activar')
+    contquitar.classList.remove('activar')
+    let b= document.getElementById('txtiddeposito').value
+
+    window.location.href=`../php/depositosxinsumos.php?q=${id}&t=${b}`
+})
+
+
 //---------------- BOTON AGREGAR PRODUCTOS -----------------------
 
 const btnnuevinsumo = document.getElementById('btnnuevinsumo');
@@ -275,7 +339,7 @@ btnaceptar.addEventListener('click', (e)=>{
         getData();
     }
     const hijoborrar=tablanew.children[0];     
-    while(hijoborrar.nextElementSibling){;
+    while(hijoborrar.nextElementSibling){
         tablanew.removeChild(hijoborrar.nextElementSibling);
     }
     inputcant.value = "";
@@ -285,20 +349,24 @@ btnaceptar.addEventListener('click', (e)=>{
 
 /*--------------------Insumos de la tbala-----------------------------*/
 
-const tablainsumos = document.getElementById('tablatotalinsumos')
+const tabl
+        var depo=txtDeposito.valueainsumos = document.getElementById('tablatotalinsumos')
+const txtDeposito = document.getElementById('txtDeposito')
 
 const DatosInsumos = (z) => {
+    var depo=txtDeposito.value
+
     let xhr
-    if (window.XMLHttpRequest) xhr = new XMLHttpRequest()
+//cons deposi== document.getElementById('')  
+  if (window.XMLHttpRequest) xhr = new XMLHttpRequest()
     else xhr = new ActiveXObject("Microsoft.XMLHTTP")
 
     if (z == undefined) {
         
-        xhr.open('GET', `../php/insercioninsumos.php`)
+        xhr.open('GET',`../php/insercioninsumos_depo.php?depo=${depo}`)
 
         xhr.addEventListener('load', (datosconsulta) => {
             const dataJSON = JSON.parse(datosconsulta.target.response)
-            //console.log(dataJSON)
             const fragment = document.createDocumentFragment()
 
             for (const insumo of dataJSON) {
@@ -337,7 +405,8 @@ const DatosInsumos = (z) => {
         })
     } 
     else {
-        xhr.open('GET', `../php/insercioninsumos.php?z=${z}`)
+        var depo=txtDeposito.value
+        xhr.open('GET',` ../php/insercioninsumos_depo.php?z=${z}&depo=${depo}`)
 
         xhr.addEventListener('load', (datosconsulta) => {
             const dataJSON = JSON.parse(datosconsulta.target.response)
@@ -413,7 +482,7 @@ tablainsumos.addEventListener('click',(e)=>
         window.alert("No se puede agregar mas de 6 productos.")
     }
     else{
-    var cant=inputcant.value
+    var cant=0
     const añadir=e.target;
     console.log(inputcant.value)
     console.log(añadir.classList.contains('btninsumosdepo'))

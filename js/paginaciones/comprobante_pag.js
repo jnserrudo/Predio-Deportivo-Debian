@@ -6,8 +6,21 @@ const getDatacom = (p) => {
 
     if (p == undefined) {
         
-        xhr.open('GET', "../php/insercion_comprobante.php")  
-
+        const selectprov=document.getElementById('idprov')
+        
+        idprov=selectprov.options[selectprov.selectedIndex].value
+        if(selectprov==undefined){
+        
+          xhr.open('GET', "../php/insercion_comprobante.php?")
+       // xhr.open('GET', "../php/insercion_comprobante.php")  
+          }
+        else{
+          
+          xhr.open('GET', `../php/insercion_comprobante.php?pr=${idprov}`) 
+        }
+        
+        
+        
         xhr.addEventListener('load', (data) => {
             const dataJSON = JSON.parse(data.target.response)
             console.log(dataJSON)
@@ -91,7 +104,20 @@ const getDatacom = (p) => {
             table.appendChild(fragment)
         })
     } else {
-        xhr.open('GET', `../php/insercion_comprobante.php?p=${p}`)
+         const selectprov=document.getElementById('idprov')
+        var idprov
+        idprov=selectprov.options[selectprov.selectedIndex].value
+        if(selectprov==undefined){
+
+          xhr.open('GET', `../php/insercion_comprobante.php?p=${p}`)
+        }else{
+
+          xhr.open('GET', `../php/insercion_comprobante.php?p=${p}&pr=${idprov}`)
+
+        }
+
+
+        
 
         xhr.addEventListener('load', (data) => {
             const dataJSON = JSON.parse(data.target.response)
