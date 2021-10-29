@@ -131,3 +131,11 @@ if(irparticipante){
         window.location.href='../php/abmparticipante.php'
     })
 }
+
+const ircobros=document.getElementById('ircobros')
+
+if(ircobros){
+    ircobros.addEventListener('click',()=>{
+        window.location.href='../php/cobros.php'
+    })
+}
