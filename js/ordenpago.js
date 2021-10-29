@@ -506,6 +506,8 @@ icono_cerrar.addEventListener('click', (e)=>{
 
 const btnregcomp=document.getElementById('btnregcomp')
 
+const a=document.getElementById('apdf')
+
 
 
 
@@ -551,6 +553,32 @@ btnregcomp.addEventListener('click',()=>{
     reg.classList.remove('activar');
 	ventcomp.classList.remove('activar');
     inputmonto.value=0
+
+
+    // elimino la ultima columna
+    // var tablitadoc=document.createDocumentFragment()
+    // tablita=tablaordpagodetalle.cloneNode(true)
+    // console.log(tablita)
+    // var m=tablita.lastElementChild
+    // while(m!=tablita.children[0]){
+    //     m.removeChild(m.lastElementChild)
+    //     console.log(m)
+    //     m=m.previousElementSibling
+    // }
+    // tablita.children[0].removeChild(tablita.children[0].lastElementChild)
+    // tablitadoc.appendChild(tablita)
+
+    // let z=tablitadoc.outerHTML
+    // console.log(z)
+    // a.classList.add('activar')
+
+
+    // -----------------------------
+    let z=tablaordpagodetalle.outerHTML
+
+        a.classList.add('activar')
+
+    a.setAttribute('href',`../php/pdfprueba.php?pdf=${z}`)
 //     va prov
 // totalcomp
 // monto
@@ -570,7 +598,11 @@ tablaordpagodetalle.addEventListener('click',(e)=>{
         
 
     }
-})
+    const hijo=tablaordpagodetalle.children[0];
+                
+    if(!hijo.nextElementSibling){;
+        a.classList.remove('activar')
+    }})
 
 
 btnverdetalle.addEventListener('click',(e)=>{
@@ -592,6 +624,20 @@ contventordpagodetalle.classList.remove('activar')
 const btnconfordpago=document.getElementById('btnconfordpago')
 
 btnconfordpago.addEventListener('click',()=>{
+    let pdf= tablaordpagodetalle.outerHTML
+    console.log(pdf)
+    // 
+    // let xhr2
+    // if (window.XMLHttpRequest) xhr2 = new XMLHttpRequest()
+    // else xhr2 = new ActiveXObject("Microsoft.XMLHTTP")
+
+
+    // xhr2.open('GET', `../includes/ordpagopdf.php?pdf=${pdf}`)
+    // xhr2.send()
+
+    // window.open(`../php/pdfprueba.php`, '_blank');
+
+    // 
 
     var hijo=tablaordpagodetalle.lastElementChild
     
@@ -635,6 +681,7 @@ btnconfordpago.addEventListener('click',()=>{
     ventregordpagodetalle.classList.remove('activar')
     contventordpagodetalle.classList.remove('activar')
 
+    // comento para prueba
     window.location.href=`../php/ordenpago.php?ido=${idcomprobantes}&mp=${montopagars}&d=${desc}`
 
 

@@ -62,6 +62,7 @@
 
 
 
+
 <?php 
 
 // Registrar en la tabla orden de paga usando el id 
@@ -218,30 +219,39 @@ if (isset($_GET['ido'])&& isset($_GET['mp'])&& isset($_GET['d'])) {
                                                                                         <!-- <button class="btnvent button " id="btnvent">Registrar Nuevo Comprobante</button>    -->
                                                                                         <button class="btnvent button " id="btnvent">Buscar Comprobante</button>  
                                                                                         <button class="btnvent button " id="btnverordpagos"> Volver</button>
- 
+                                                                                        <!-- <img src="../assets/imagenes/SLIDE 3.jpg" alt=""> -->
+
 
                                                                                     </div>
                                                                                    
                                                                                    
                                                                                 </div>
                                                                                
-                                                                                <table id="tabla_ordpago" class="table table-striped datatable table-bordered border-primary">
-                                                        <thead class="tablaenc">
-                                                            <th id="id_col_op0">Proveedor</th>      
-                                                            <th id="id_col_op1">Comprobante</th>
-                                                            <th id="id_col_op2">Total</th>
-                                                            
-                                                            <th id="id_col_op3">Tipo</th>
-                                                            <th id="id_col_op3">Letra</th>
+                                                                                <table id="tabla_ordpago" class="table table-striped datatable table-bordered border-primary centro">
+                                                                                            <thead class="tablaenc">
+                                                                                                <th id="id_col_op0">Proveedor</th>      
+                                                                                                <th id="id_col_op1">Comprobante</th>
+                                                                                                <th id="id_col_op2">Total</th>
+                                                                                                
+                                                                                                <th id="id_col_op3">Tipo</th>
+                                                                                                <th id="id_col_op3">Letra</th>
 
-                                                            <th id="id_col_op4">Accion</th>
-                                                        </thead>
+                                                                                                <th id="id_col_op4">Accion</th>
+                                                                                            </thead>
                                                        
                                                       </table>
                                                     
                                                       </div>
                                                       <div class="desc_btnconf fuentetam">
+                                                      <label class=label > Forma de Pago:</label>
+                                                      <select class="form-select metpago" id="exampleSelect1">
+                                                            <option>Efectivo</option>
+                                                            <option>Tarjeta de Debito</option>
+                                                            <option>Tarjeta de Credito</option>
+                                                            <option>Transferencia</option>
+                                                        </select>
                                                              <label class='label labeldesc' > Descripcion:</label> <textarea name="txt_desc" id="desc" cols="30" rows="3"></textarea> 
+                                                             <a id='apdf' class="apdf" target="_blank">Generar Pdf</a>
                                                              <button class="btnvent button btnconfordpago" id="btnconfordpago">Confirmar Orden de Pago</button>
 
                                                       </div>

@@ -12,7 +12,7 @@
 			$total_registro = $result_register['total_registro'];
 
             if($total_registro == 0){
-                $sql = "INSERT INTO `deposito_detalle` (`Id_deposito`, `Id_insumo`, `stock`) VALUES ($iddepo, $idinsumo, $cantinsumo)";
+                $sql = "INSERT INTO `deposito_detalle` (`Id_deposito`, `Id_insumo`,`stockmin`, `stock`) VALUES ($iddepo, $idinsumo, $cantinsumo,'0')";
             }
             else{
 

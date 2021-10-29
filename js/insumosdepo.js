@@ -349,8 +349,8 @@ btnaceptar.addEventListener('click', (e)=>{
 
 /*--------------------Insumos de la tbala-----------------------------*/
 
-const tabl
-        var depo=txtDeposito.valueainsumos = document.getElementById('tablatotalinsumos')
+const tablainsumos = document.getElementById('tablatotalinsumos')
+// var depo=txtDeposito.value
 const txtDeposito = document.getElementById('txtDeposito')
 
 const DatosInsumos = (z) => {
@@ -482,7 +482,8 @@ tablainsumos.addEventListener('click',(e)=>
         window.alert("No se puede agregar mas de 6 productos.")
     }
     else{
-    var cant=0
+    var cant=inputcant.value
+    console.log(cant)
     const añadir=e.target;
     console.log(inputcant.value)
     console.log(añadir.classList.contains('btninsumosdepo'))

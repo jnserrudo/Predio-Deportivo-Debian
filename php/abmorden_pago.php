@@ -115,37 +115,6 @@ session_start()
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-    <!-- <div class="reg" id="reg">
-                        <div class="cont_vent" id="cont_vent">
-                            <img src="../assets/cruz.svg" alt="" class="icono_cerrar" id="icono_cerrar">
-                                <p class="txt_registrar" >Registrar Orden de Pago</p>
-                            
-                                <form action="<?php //echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" id="f"  class="forminsumo">
-                                <div class="registrar" >
-                                          
-                                          <label class=label > Id Orden:</label> <input type="text" name="txt_nom" required> </input>
-                                    
-                                          <label class=label > Fecha:</label> <input type="date" name="txt_cat" required> </input>
-                                    
-                  
-                       
-                                      <input type="submit" name="registrar" value="Registrar"  class="btnregistrar">
-                                </div>
-                                </form>
-                      </div>
-                    
-               </div> -->
     <div class="main">
 
     <?php
@@ -193,7 +162,7 @@ session_start()
   <div class="buscador">
       <p class="txtbusq">Buscar</p>
       <input type="text" id="busqueda" class="busqueda" name="busqueda"> </input>
-      <a href="../php/pdfprueba.php">pdf</a>
+      <!-- <a href="../php/pdfprueba.php" target="_blank" >pdf</a> -->
       
       </div>  
 

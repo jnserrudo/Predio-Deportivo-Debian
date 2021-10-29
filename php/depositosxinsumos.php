@@ -86,10 +86,10 @@
         <div class="header-tools">
           <div class="row">
             <div class="col-md-2">
-              <p class="txtbusq invisible">Cantidad:</p>
+              <p class="txtbusq ">Stock Minimo:</p>
             </div>
             <div class="col-md-3">
-              <input type="number" class="form-control invisible" value="" name ="inputcant" id="inputcant" required placeholder="Cantidad a agregar">
+              <input type="number" class="form-control " value="" name ="inputcant" id="inputcant" required placeholder="Stock minimo">
             </div>
             <div class="col-md-4">
               <p class="txtbusq">Nombre del Deposito:</p>
@@ -131,7 +131,7 @@
                 <th id="idproducnew">Id</th>
                 <th id="nomproducnew">Nombre</th>
                 <th id="descripproducnew">Descripcion</th>
-                <th id="cantproducnew">Cant</th>
+                <th id="cantproducnew">Stock Minimo</th>
                 <th id="btneliminar">Acción</th>
               </thead>
             </table>
