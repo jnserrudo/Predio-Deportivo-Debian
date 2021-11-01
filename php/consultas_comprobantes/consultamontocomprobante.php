@@ -7,7 +7,7 @@
 
             if (isset($_GET['i'])) {
                 $i = $_GET['i'];
-                $sql = "SELECT Monto,Fecha,Letra FROM comprobante WHERE Id='$i'";
+                $sql = "SELECT Monto,Fecha,Letra,Nro_Factura,Fecha_Factura FROM comprobante WHERE Id='$i'";
 
             }
                      

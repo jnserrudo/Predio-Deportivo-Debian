@@ -30,7 +30,7 @@
                 $c = $_GET['pr'];
                 // echo $c;
                 // if(!$c=""){
-                $sql = "SELECT c.Id,p.Nombre,c.Fecha,c.Estado,c.Monto,c.Letra,c.Id_orden_compra,c.Tipo FROM comprobante as c inner join proveedor as p on p.Id=c.Id_proveedor 
+                $sql = "SELECT c.Id,p.Nombre,c.Fecha,c.Estado,c.Monto,c.Letra,c.Id_orden_compra,c.Tipo,c.Nro_Factura,c.Fecha_Factura,c.Nro_Factura,c.Fecha_Factura FROM comprobante as c inner join proveedor as p on p.Id=c.Id_proveedor 
                 where c.Id_proveedor=$c and c.Id not in(select Id_comprobante from ordenpago_detalle) and c.tipo='Factura'
                 LIMIT $desde,$por_pagina ";
                 // }else{
@@ -40,14 +40,14 @@
                 if (isset($_GET['x'])) {
                     $c = $_GET['x'];
 
-                    $sql = "SELECT c.Id,p.Nombre,c.Fecha,c.Estado,c.Monto,c.Letra,c.Id_orden_compra,c.Tipo FROM comprobante as c inner join proveedor as p on p.Id=c.Id_proveedor
+                    $sql = "SELECT c.Id,p.Nombre,c.Fecha,c.Estado,c.Monto,c.Letra,c.Id_orden_compra,c.Tipo,c.Nro_Factura,c.Fecha_Factura FROM comprobante as c inner join proveedor as p on p.Id=c.Id_proveedor
                      where c.Id not in(select Id_comprobante from ordenpago_detalle) and c.tipo='Factura' and(
                      c.Id like '%$c%' or p.Nombre like '%$c%'  
                           or c.Fecha like '%$c%' or c.Estado like '%$c%' or c.Monto like '%$c%' or c.Letra like '%$c%'or
                            c.Id_orden_compra like '%$c%'or c.Tipo like '%$c%') 
                           LIMIT $desde,$por_pagina ";
                 } else {
-                    $sql = "SELECT c.Id,p.Nombre,c.Fecha,c.Estado,c.Monto,c.Letra,c.Id_orden_compra,c.Tipo FROM comprobante as c inner join proveedor as p on p.Id=c.Id_proveedor and c.Id not in(select Id_comprobante from ordenpago_detalle)  and c.tipo='Factura'  LIMIT $desde,$por_pagina";
+                    $sql = "SELECT c.Id,p.Nombre,c.Fecha,c.Estado,c.Monto,c.Letra,c.Id_orden_compra,c.Tipo,c.Nro_Factura,c.Fecha_Factura,c.Nro_Factura,c.Fecha_Factura FROM comprobante as c inner join proveedor as p on p.Id=c.Id_proveedor and c.Id not in(select Id_comprobante from ordenpago_detalle)  and c.tipo='Factura'  LIMIT $desde,$por_pagina";
                 }
             }
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Comprobantes</title>
     <link rel="stylesheet" href="../css/bootstrap.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/style2.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/styleinicio.css?v=<?php echo(rand()); ?>">
@@ -79,28 +79,28 @@
 
 // Registrar en la tabla comprobante detalle usando el id  del comprobante
 $conexion = mysqli_connect('localhost','root','','debian2');
-if (isset($_GET['ip'])&& isset($_GET['io'])&& isset($_GET['l'])&& isset($_GET['m'])&& isset($_GET['t'])&& isset($_GET['n'])&& isset($_GET['c'])) {
+if (isset($_GET['ip'])&& isset($_GET['io'])&& isset($_GET['l'])&& isset($_GET['m'])&& isset($_GET['t'])&& isset($_GET['n'])&& isset($_GET['c'])&&isset($_GET['ffactura'])&&isset($_GET['nrof'])) {
     $ip=$_GET['ip'];
     $io=$_GET['io'];
     $l=$_GET['l'];
     $m=$_GET['m'];
     $t=$_GET['t'];
-
-
+    $ff=$_GET['ffactura'];
+    $nf=$_GET['nrof'];
     $n=$_GET['n'];
-  $c=$_GET['c'];
+    $c=$_GET['c'];
 
       $n=explode(',',$n);
       $c=explode(',',$c);
 
     if(isset($_GET['ic'])){
         $ic=$_GET['ic'];
-        $sql = "INSERT INTO comprobante (Id_proveedor,Id_comprobante,Estado,Monto,Letra,Id_orden_compra,Tipo)
-        values ($ip,$ic,'Registrado',$m,'$l',$io,'$t');";
+        $sql = "INSERT INTO comprobante (Id_proveedor,Id_comprobante,Estado,Monto,Letra,Id_orden_compra,Tipo,Nro_Factura,Fecha_Factura)
+        values ($ip,$ic,'Registrado',$m,'$l',$io,'$t',$nf,'$ff');";
     }
     else{
-        $sql = "INSERT INTO comprobante (Id_proveedor,Id_comprobante,Estado,Monto,Letra,Id_orden_compra,Tipo)
-                values ($ip,0,'Registrado',$m,'$l',$io,'$t');";
+        $sql = "INSERT INTO comprobante (Id_proveedor,Id_comprobante,Estado,Monto,Letra,Id_orden_compra,Tipo,Nro_Factura,Fecha_Factura)
+                values ($ip,0,'Registrado',$m,'$l',$io,'$t',$nf,'$ff');";
     }
   $resultado=mysqli_query($conexion,$sql);
 
@@ -179,15 +179,23 @@ if (isset($_GET['ip'])&& isset($_GET['io'])&& isset($_GET['l'])&& isset($_GET['m
                           <p class='txtprove'>Tipo: </p>
                         <select name="selecttipo" class="selected" id="selecttipo">
                         <option value="" selected disabled hidden>Seleccionar</option>
-
                             <option value="Factura">Factura</option>
                             <option value="Notacredito">Nota de Credito</option>
                             <option value="Notadebito">Nota de Debito</option>
-
-
+                       
+                        
                             
                         </select>
             </div>
+             <!-- agrego el nro y fecha -->
+             <!-- <div class="divflexitem">
+                <p class="txtprove">Nro Factura:</p>
+                <input type="text" id='nrofactura' class="inputnrocomprobante" >
+            </div>
+            <div class="divflexitem">
+                <p class="txtprove">Fecha Factura:</p>
+                <input type="Date" id='fechafactura' class="inputnrocomprobante" >
+            </div> -->
              
         </div>
 
@@ -241,7 +249,7 @@ if (isset($_GET['ip'])&& isset($_GET['io'])&& isset($_GET['l'])&& isset($_GET['m
                                     <div class="contidorden">
                                                  <p class='txtinfoprov'>Orden: </p>
 
-                                                <input type="text" class="inputidorden" id="inputidorden">   
+                                                <input type="text" class="inputidorden" id="inputidorden" readonly>   
                                             </div>
    
                                 </div>
@@ -249,10 +257,14 @@ if (isset($_GET['ip'])&& isset($_GET['io'])&& isset($_GET['l'])&& isset($_GET['m
                                     <!-- fecha calculada con js -->
                                     <p class="txttituloprov">Datos del Proveedor</p>
                                     <div class="infoproveedor">
-                                        <p class="txtinfoprov">Proveedor</p><input type="text" id="nomprov" class="inputprov">
-                                        <p class="txtinfoprov">Direccion</p><input type="text" id="dirprov" class="inputprov">
-                                        <p class="txtinfoprov">Telefono</p><input type="text" id="telprov" class="inputprov">
-                                        <p class="txtinfoprov">Correo</p><input type="text" id="correoprov" class="inputprov">
+                                        <p class="txtinfoprov">Nro Factura</p><input type="text" id="nrofactura" class="inputprov" >
+                                        <p class="txtinfoprov ">Fecha Factura</p><input type="date" id="fechafactura" class="inputprov ffecha" >
+
+                                        <p class="txtinfoprov">Proveedor</p><input type="text" id="nomprov" class="inputprov" readonly>
+                                        <p class="txtinfoprov">Direccion</p><input type="text" id="dirprov" class="inputprov" readonly>
+                                        <p class="txtinfoprov txttel">Telefono</p><input type="text" id="telprov" class="inputprov inputtel" readonly>
+                                        <p class="txtinfoprov txtcorreo">Correo</p><input type="text" id="correoprov" class="inputprov inputcorreo" readonly>
+                                        
                                         <div class="contletra">
                                             <p class='txtinfoprov'>Letra: </p>
                                             <select name="selectletra" class="selectedletra" id="selectletra">
@@ -265,6 +277,7 @@ if (isset($_GET['ip'])&& isset($_GET['io'])&& isset($_GET['l'])&& isset($_GET['m
                                            
                                             
                                               </div>
+                                        
                                     </div>
                                     
                                    
@@ -343,17 +356,21 @@ if (isset($_GET['ip'])&& isset($_GET['io'])&& isset($_GET['l'])&& isset($_GET['m
                                                             <input type="text" id="busquedacompmin" class="busqueda" name="busqueda"> </input>
 
                                                         </div>  
-                                                    </div>
+P                                                    </div>
                                                     <table id="tablacompmin" class="table table-striped datatable tablacompmin table-bordered border-primary">
                                                         <thead class="tablaenc">       
                                                             <th id="idproveedor">Id</th>
-                                                            <th id="empresa">Nombre del proveedor</th>
-                                                            <!-- <th id="telefono">Fecha</th> -->
+                                                            <th id="empresa">Proveedor</th>
+                                                            <!-- <th id="telefono">Fech
+                                                            <th id="telefono">Nro Factura</th>
+                                                            <th id="telefono">Fecha Factura</th>a</th> -->
                                                             <!-- <th id="telefono">Estado</th> -->
                                                             <th id="telefono">Monto</th>
                                                             <th id="telefono">Letra</th>
                                                             <th id="telefono">Orden de compra</th>
                                                             <th id="telefono">Tipo</th>
+                                                            <th id="telefono">Nro Factura</th>
+                                                            <th id="telefono">Fecha Factura</th>
                                                             <th id="telefono">Accion</th>
                                                         </thead>
                                                         <!-- <tbody>

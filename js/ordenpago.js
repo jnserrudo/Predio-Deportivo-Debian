@@ -161,7 +161,8 @@ const getData = (x) => {
                         const dataletra = document.createElement('TD')
                         const dataId_orden_compra = document.createElement('TD')
                         const datatipo = document.createElement('TD') 
-
+                        const datanro_fac = document.createElement('TD') 
+                        const data_fecha= document.createElement('TD')
 
                         const databtnedit=document.createElement('TD')
                         const btnedit=document.createElement('button')
@@ -179,7 +180,8 @@ const getData = (x) => {
                         dataletra.textContent = comprobante[5]
                         dataId_orden_compra.textContent = comprobante[6]
                         datatipo.textContent = comprobante[7]
-
+                        datanro_fac.textContent = comprobante[8]
+                        data_fecha.textContent = comprobante[9]
 
 
 
@@ -194,7 +196,8 @@ const getData = (x) => {
                         dataletra.classList.add('celda')
                         dataId_orden_compra.classList.add('celda')
                         datatipo.classList.add('celda')
-
+                        datanro_fac.classList.add('celda')
+                        data_fecha.classList.add('celda')
 
 
 
@@ -215,7 +218,8 @@ const getData = (x) => {
                         row.append(dataletra)
                         row.append(dataId_orden_compra)
                         row.append(datatipo)
-
+                        row.append(datanro_fac)
+                        row.append(data_fecha)
 
                         row.append(databtnedit)
                         fragment.append(row)
@@ -247,7 +251,8 @@ const getData = (x) => {
                 const dataletra = document.createElement('TD')
                 const dataId_orden_compra = document.createElement('TD')
                 const datatipo = document.createElement('TD') 
-
+                const datanro_fac = document.createElement('TD') 
+                const data_fecha= document.createElement('TD')
                 const databtnedit=document.createElement('TD')
                 const btnedit=document.createElement('button')
                 btnedit.classList.add("btneditar")
@@ -263,6 +268,8 @@ const getData = (x) => {
                 dataletra.textContent = comprobante[5]
                 dataId_orden_compra.textContent = comprobante[6]
                 datatipo.textContent = comprobante[7]
+                datanro_fac.textContent = comprobante[8]
+                data_fecha.textContent = comprobante[9]
 
 
                 dataid.classList.add('celda')
@@ -274,7 +281,8 @@ const getData = (x) => {
                 dataletra.classList.add('celda')
                 dataId_orden_compra.classList.add('celda')
                 datatipo.classList.add('celda')
-
+                datanro_fac.classList.add('celda')
+                data_fecha.classList.add('celda')
                 databtnedit.classList.add('celda')
 
 
@@ -287,6 +295,8 @@ const getData = (x) => {
                 row.append(dataletra)
                 row.append(dataId_orden_compra)
                 row.append(datatipo)
+                row.append(data_fecha)
+                row.append(databtnedit)
                 row.append(databtnedit)
 
                 fragment.append(row)
@@ -331,6 +341,8 @@ const correoprov=document.getElementById('correoprov')
 const p_monto=document.getElementById("p_monto");
 const inputmonto=document.getElementById("input_monto");
 
+const inputnrofactura=document.getElementById('nrofactura')
+const inputfechafactura=document.getElementById('fechafactura')
 
 var prov
 var totalcomp
@@ -340,6 +352,8 @@ var idcomp
 var letra
 var tipo
 var fecha
+
+
 
 const edicion=document.getElementById('tabla')
 
@@ -384,7 +398,7 @@ edicion.addEventListener('click',(e)=>{
         if (window.XMLHttpRequest) xhr1 = new XMLHttpRequest()
         else xhr1 = new ActiveXObject("Microsoft.XMLHTTP")
 
-        idorden=editar.parentElement.previousElementSibling.previousElementSibling.textContent
+        idorden=editar.parentElement.parentElement.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.textContent
         
         xhr1.open('GET', `../php/consultas_comprobantes/consultaordendetalle.php?x=${idorden}`)
 
@@ -462,6 +476,8 @@ edicion.addEventListener('click',(e)=>{
             totalcomp=inputtotal.value
             txtfecha.textContent='Fecha:'+dataJSON[0][1]
             inputletra.value=letra=dataJSON[0][2]
+            inputnrofactura.value=dataJSON[0][3]
+            inputfechafactura.value=dataJSON[0][4]
                 
             
         })    
@@ -722,7 +738,8 @@ selectprov.addEventListener('change',()=>{
                         const dataId_orden_compra = document.createElement('TD')
                         const datatipo = document.createElement('TD') 
 
-
+                        const datanro_fac = document.createElement('TD') 
+                        const data_fecha= document.createElement('TD')
                         const databtnedit=document.createElement('TD')
                         const btnedit=document.createElement('button')
                         btnedit.classList.add("btneditar")
@@ -739,6 +756,8 @@ selectprov.addEventListener('change',()=>{
                         dataletra.textContent = comprobante[5]
                         dataId_orden_compra.textContent = comprobante[6]
                         datatipo.textContent = comprobante[7]
+                        datanro_fac.textContent = comprobante[8]
+                        data_fecha.textContent = comprobante[9]
 
 
 
@@ -754,6 +773,8 @@ selectprov.addEventListener('change',()=>{
                         dataletra.classList.add('celda')
                         dataId_orden_compra.classList.add('celda')
                         datatipo.classList.add('celda')
+                        datanro_fac.classList.add('celda')
+                        data_fecha.classList.add('celda')
 
 
 
@@ -776,7 +797,8 @@ selectprov.addEventListener('change',()=>{
                         row.append(dataId_orden_compra)
                         row.append(datatipo)
 
-
+                        row.append(datanro_fac)
+                        row.append(data_fecha)
                         row.append(databtnedit)
                         fragment.append(row)
         }
