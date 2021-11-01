@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="../css/styleinicio.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/abmcomprobantes.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/datatable.css?v=<?php echo(rand()); ?>">
+    <link rel="stylesheet" href="../css/comprobantes.css?v=<?php echo(rand()); ?>">
+
 </head>
 <body>
 <?php
@@ -78,7 +80,7 @@
             <table id="tabla" class="table table-striped datatable table-bordered border-primary">
                 <thead class="tablaenc">       
                     <th id="idproveedor">Id</th>
-                    <th id="empresa">Nombre del proveedor</th>
+                    <th id="empresa">Proveedor</th>
                    <!-- <th id="comercial">Id_comprobante</th>  -->
                     <th id="telefono">Fecha</th>
                     <th id="telefono">Estado</th>
@@ -86,6 +88,8 @@
                     <th id="telefono">Letra</th>
                     <th id="telefono">Orden Compra</th>
                     <th id="telefono">Tipo</th>
+                    <th id="telefono">Nro Factura</th>
+                    <th id="telefono">Fecha Factura</th>
                     <th id="telefono">Accion</th>
                 </thead>
                 <!-- <tbody>
@@ -154,12 +158,15 @@
                                   <!--  <p id="infotxt"></p> -->
                                     <p class="txttituloprov">Datos del Proveedor</p>
                                     <div class="infoproveedor">
-                                        <p class="txtinfoprov">Proveedor</p><input type="text" id="nomprov" class="inputprov">
-                                        <p class="txtinfoprov">Direccion</p><input type="text" id="dirprov" class="inputprov">
-                                        <p class="txtinfoprov">Telefono</p><input type="text" id="telprov" class="inputprov">
-                                        <p class="txtinfoprov">Correo</p><input type="text" id="correoprov" class="inputprov">
+                                    <p class="txtinfoprov">Nro Factura</p><input type="text" id="nrofactura" class="inputprov" >
+                                        <p class="txtinfoprov">Fecha Factura</p><input type="date" id="fechafactura" class="ffecha inputprov" >
+
+                                        <p class="txtinfoprov">Proveedor</p><input type="text" id="nomprov" class="inputprov" readonly>
+                                        <p class="txtinfoprov">Direccion</p><input type="text" id="dirprov" class="inputprov" readonly>
+                                        <p class="txtinfoprov txttel">Telefono</p><input type="text" id="telprov" class="inputprov inputtel" readonly>
+                                        <p class="txtinfoprov txtcorreo">Correo</p><input type="text" id="correoprov" class="inputprov inputcorreo" readonly>
                                         <div class="contletra">
-                                        <p class='txtinfoprov'>Letra: </p><input type="text" id="inputletra" class="inputprov">
+                                        <p class='txtinfoprov'>Letra: </p><input type="text" id="inputletra" class="inputprov" readonly>
                                            <!-- <select name="selectletra" class="selectedletra" id="selectletra">
                                                 <option value="" selected disabled hidden>Seleccionar</option>
 

@@ -26,13 +26,16 @@ const getDatacompmin = (p) => {
 
                         const dataletra = document.createElement('TD')
                         const dataId_orden_compra = document.createElement('TD')
-                        const datatipo = document.createElement('TD') 
+                        const datatipo = document.createElement('TD')
+                        const datanro_fac = document.createElement('TD') 
+                        const data_fecha= document.createElement('TD')
 
+                        
 
                         const databtnedit=document.createElement('TD')
                         const btnedit=document.createElement('button')
                         btnedit.classList.add("btneditar")
-                        btnedit.textContent="Editar"
+                        btnedit.textContent="Elegir"
                         databtnedit.append(btnedit)
                         
                         dataid.textContent = comprobante[0]
@@ -45,7 +48,8 @@ const getDatacompmin = (p) => {
                         dataletra.textContent = comprobante[3]
                         dataId_orden_compra.textContent = comprobante[4]
                         datatipo.textContent = comprobante[5]
-
+                        datanro_fac.textContent = comprobante[6]
+                        data_fecha.textContent = comprobante[7]
 
 
 
@@ -60,8 +64,9 @@ const getDatacompmin = (p) => {
                         dataletra.classList.add('celda')
                         dataId_orden_compra.classList.add('celda')
                         datatipo.classList.add('celda')
-
-
+                        datanro_fac.classList.add('celda')
+                        data_fecha.classList.add('celda')
+                        
 
 
 
@@ -82,7 +87,8 @@ const getDatacompmin = (p) => {
                         row.append(dataId_orden_compra)
                         row.append(datatipo)
 
-
+                        row.append(datanro_fac)
+                        row.append(data_fecha)
                         row.append(databtnedit)
             }
                         fragment.append(row)
@@ -112,11 +118,12 @@ const getDatacompmin = (p) => {
                 const dataletra = document.createElement('TD')
                 const dataId_orden_compra = document.createElement('TD')
                 const datatipo = document.createElement('TD') 
-
+                const datanro_fac = document.createElement('TD') 
+                const data_fecha= document.createElement('TD')
                 const databtnedit=document.createElement('TD')
                 const btnedit=document.createElement('button')
                 btnedit.classList.add("btneditar")
-                btnedit.textContent="Editar"
+                btnedit.textContent="Elegir"
                 databtnedit.append(btnedit)
                   console.log("soy el id nro"+comprobante.Id)
                 dataid.textContent = comprobante[0]
@@ -128,7 +135,8 @@ const getDatacompmin = (p) => {
                 dataletra.textContent = comprobante[3]
                 dataId_orden_compra.textContent = comprobante[4]
                 datatipo.textContent = comprobante[5]
-
+                datanro_fac.textContent = comprobante[6]
+                 data_fecha.textContent = comprobante[7]
 
                 dataid.classList.add('celda')
                 dataid_proveedor.classList.add('celda')
@@ -139,7 +147,8 @@ const getDatacompmin = (p) => {
                 dataletra.classList.add('celda')
                 dataId_orden_compra.classList.add('celda')
                 datatipo.classList.add('celda')
-
+                datanro_fac.classList.add('celda')
+                data_fecha.classList.add('celda')
                 databtnedit.classList.add('celda')
 
 
@@ -152,6 +161,8 @@ const getDatacompmin = (p) => {
                 row.append(dataletra)
                 row.append(dataId_orden_compra)
                 row.append(datatipo)
+                row.append(datanro_fac)
+                row.append(data_fecha)
                 row.append(databtnedit)
 
                 fragment.append(row)

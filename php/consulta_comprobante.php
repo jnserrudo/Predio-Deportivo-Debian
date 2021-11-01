@@ -30,10 +30,10 @@
                 if (isset($_GET['x'])) {
                     $c = $_GET['x'];
 
-                    $sql = "SELECT c.Id,p.Nombre,c.Monto,c.Letra,c.Id_orden_compra,c.Tipo FROM comprobante as c inner join proveedor as p on p.Id=c.Id_proveedor where c.Id like '%$c%' or p.Nombre like '%$c%'  
+                    $sql = "SELECT c.Id,p.Nombre,c.Monto,c.Letra,c.Id_orden_compra,c.Tipo,c.Nro_Factura,c.Fecha_Factura FROM comprobante as c inner join proveedor as p on p.Id=c.Id_proveedor where c.Id like '%$c%' or p.Nombre like '%$c%'  
                             or c.Monto like '%$c%' or c.Letra like '%$c%'or c.Id_orden_compra like '%$c%'or c.Tipo like '%$c%' and c.Tipo='Factura' and p.Id=$ip LIMIT $desde,$por_pagina ";
                 } else {
-                    $sql = "SELECT c.Id,p.Nombre,c.Monto,c.Letra,c.Id_orden_compra,c.Tipo FROM comprobante as c inner join proveedor as p on p.Id=c.Id_proveedor and  c.Tipo='Factura' and p.Id=$ip LIMIT $desde,$por_pagina";
+                    $sql = "SELECT c.Id,p.Nombre,c.Monto,c.Letra,c.Id_orden_compra,c.Tipo,c.Nro_Factura,c.Fecha_Factura FROM comprobante as c inner join proveedor as p on p.Id=c.Id_proveedor and  c.Tipo='Factura' and p.Id=$ip LIMIT $desde,$por_pagina";
                 }
                 $resultado=mysqli_query($conexion, $sql);
             

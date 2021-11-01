@@ -171,7 +171,7 @@ if (isset($_GET['ido'])&& isset($_GET['mp'])&& isset($_GET['d'])) {
                                                     <table id="tabla" class="table table-striped datatable table-bordered border-primary">
                                                         <thead class="tablaenc">       
                                                             <th id="idproveedor">Id</th>
-                                                            <th id="empresa">Nombre del proveedor</th>
+                                                            <th id="empresa">Proveedor</th>
                                                         <!-- <th id="comercial">Id_comprobante</th>  -->
                                                             <th id="telefono">Fecha</th>
                                                             <th id="telefono">Estado</th>
@@ -179,6 +179,8 @@ if (isset($_GET['ido'])&& isset($_GET['mp'])&& isset($_GET['d'])) {
                                                             <th id="telefono">Letra</th>
                                                             <th id="telefono">Orden de Compra</th>
                                                             <th id="telefono">Tipo</th>
+                                                            <th id="telefono">Nro Factura</th>
+                                                            <th id="telefono">Fecha Factura</th>
                                                             <th id="telefono">Accion</th>
                                                         </thead>
                                                         <!-- <tbody>
@@ -283,6 +285,8 @@ if (isset($_GET['ido'])&& isset($_GET['mp'])&& isset($_GET['d'])) {
                                     <!-- fecha calculada con js -->
                                     <p class="txttituloprov">Datos del Proveedor</p>
                                     <div class="infoproveedor">
+                                    <p class="txtinfoprov">Nro Factura</p><input type="text" id="nrofactura" class="inputprov" >
+                                        <p class="txtinfoprov">Fecha Factura</p><input type="date" id="fechafactura" class="ffecha inputprov" >
                                         <p class="txtinfoprov">Proveedor</p><input type="text" id="nomprov" class="inputprov">
                                         <p class="txtinfoprov">Direccion</p><input type="text" id="dirprov" class="inputprov">
                                         <p class="txtinfoprov">Telefono</p><input type="text" id="telprov" class="inputprov">

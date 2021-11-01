@@ -41,7 +41,8 @@ const getDatacom = (p) => {
                         const dataletra = document.createElement('TD')
                         const dataId_orden_compra = document.createElement('TD')
                         const datatipo = document.createElement('TD') 
-
+                        const datanro_fac = document.createElement('TD') 
+                        const data_fecha= document.createElement('TD')
 
                         const databtnedit=document.createElement('TD')
                         const btnedit=document.createElement('button')
@@ -59,7 +60,8 @@ const getDatacom = (p) => {
                         dataletra.textContent = comprobante[5]
                         dataId_orden_compra.textContent = comprobante[6]
                         datatipo.textContent = comprobante[7]
-
+                        datanro_fac.textContent = comprobante[8]
+                        data_fecha.textContent = comprobante[9]
 
 
 
@@ -74,7 +76,8 @@ const getDatacom = (p) => {
                         dataletra.classList.add('celda')
                         dataId_orden_compra.classList.add('celda')
                         datatipo.classList.add('celda')
-
+                        datanro_fac.classList.add('celda')
+                        data_fecha.classList.add('celda')
 
 
 
@@ -95,7 +98,8 @@ const getDatacom = (p) => {
                         row.append(dataletra)
                         row.append(dataId_orden_compra)
                         row.append(datatipo)
-
+                        row.append(datanro_fac)
+                         row.append(data_fecha)
 
                         row.append(databtnedit)
 
@@ -139,7 +143,8 @@ const getDatacom = (p) => {
                 const dataletra = document.createElement('TD')
                 const dataId_orden_compra = document.createElement('TD')
                 const datatipo = document.createElement('TD') 
-
+                const datanro_fac = document.createElement('TD') 
+                const data_fecha= document.createElement('TD')
                 const databtnedit=document.createElement('TD')
                 const btnedit=document.createElement('button')
                 btnedit.classList.add("btneditar")
@@ -155,6 +160,8 @@ const getDatacom = (p) => {
                 dataletra.textContent = comprobante[5]
                 dataId_orden_compra.textContent = comprobante[6]
                 datatipo.textContent = comprobante[7]
+                datanro_fac.textContent = comprobante[8]
+                data_fecha.textContent = comprobante[9]
 
 
                 dataid.classList.add('celda')
@@ -166,7 +173,8 @@ const getDatacom = (p) => {
                 dataletra.classList.add('celda')
                 dataId_orden_compra.classList.add('celda')
                 datatipo.classList.add('celda')
-
+                datanro_fac.classList.add('celda')
+                data_fecha.classList.add('celda')
                 databtnedit.classList.add('celda')
 
 
@@ -179,6 +187,8 @@ const getDatacom = (p) => {
                 row.append(dataletra)
                 row.append(dataId_orden_compra)
                 row.append(datatipo)
+                row.append(datanro_fac)
+                row.append(data_fecha)
                 row.append(databtnedit)
 
                 fragment.append(row)
