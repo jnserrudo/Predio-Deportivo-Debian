@@ -71,6 +71,9 @@
                                                                             <input type="text" id="busqueda" class="busqueda" name="busqueda"> </input>
       
                  </div>  
+
+                 <button class="btnvent" id="btnirgraficoventas">Informe</button>     
+
                  <!-- <div class="contbtnreg"> -->
                      <!-- <button class="btnvent btnverordenes" id="btnverordenes">Ver todas las Ordenes</button>      -->
                 <!-- </div> -->

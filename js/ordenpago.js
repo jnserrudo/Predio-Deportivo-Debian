@@ -639,6 +639,18 @@ contventordpagodetalle.classList.remove('activar')
 
 const btnconfordpago=document.getElementById('btnconfordpago')
 
+// forma de pago
+
+const selectformpago=document.getElementById('selectformpago')
+var formpago=selectformpago.options[0].textContent
+console.log(formpago)
+
+selectformpago.addEventListener('change',()=>{
+    formpago=selectformpago.options[selectformpago.selectedIndex].textContent
+    console.log(formpago)
+})
+
+
 btnconfordpago.addEventListener('click',()=>{
     let pdf= tablaordpagodetalle.outerHTML
     console.log(pdf)
@@ -678,11 +690,11 @@ btnconfordpago.addEventListener('click',()=>{
    
     
     while(hijo!=tablaordpagodetalle.children[0]){
-        idcomprobante=hijo.firstElementChild.textContent
+        idcomprobante=hijo.firstElementChild.nextElementSibling.textContent
         //
 
         // totalorden = hijo.firstElementChild.nextElementSibling.textContent
-        montopagar=hijo.firstElementChild.nextElementSibling.textContent
+        montopagar=hijo.firstElementChild.nextElementSibling.nextElementSibling.textContent
         
         console.log(`id comprobante : ${idcomprobante} descripcion: ${desc} monto a pagar: ${montopagar}`)
         
@@ -698,7 +710,7 @@ btnconfordpago.addEventListener('click',()=>{
     contventordpagodetalle.classList.remove('activar')
 
     // comento para prueba
-    window.location.href=`../php/ordenpago.php?ido=${idcomprobantes}&mp=${montopagars}&d=${desc}`
+    window.location.href=`../php/ordenpago.php?ido=${idcomprobantes}&mp=${montopagars}&d=${desc}&fp=${formpago}`
 
 
 })

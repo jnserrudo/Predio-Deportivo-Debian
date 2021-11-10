@@ -235,7 +235,7 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
 
                     <div class="contselected">
                         <p class='selecttxt'>Motivo: </p>
-                        <select name="selectmot" class="selected" id="selectmot">
+                        <select name="selectmot" class="selected selectmot" id="selectmot">
                         <option value="" selected disabled hidden>Seleccionar</option>
 
                             <option value="Recepcion de Mercaderia">Recepcion de Mercaderia</option>
@@ -249,12 +249,16 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
                             
                         </select>
                     </div>
-                </div>
-              
-                <div class="divremito">
+                    <div class="divremito">
                         <button class='btnremito btnvent' id="btnremito" >Seleccionar Remito</button>
                         <button class='btnagregarmov btnvent' id="btnagregarmov" >Agregar</button>
                     </div>
+                </div>
+<!--               
+                <div class="divremito">
+                        <button class='btnremito btnvent' id="btnremito" >Seleccionar Remito</button>
+                        <button class='btnagregarmov btnvent' id="btnagregarmov" >Agregar</button>
+                    </div> -->
 
 <!-- ventana emergente con los remitos -->
                                                         <div class="reg" id="ventrem">

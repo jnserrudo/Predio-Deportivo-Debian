@@ -326,9 +326,13 @@ btnconfordpago.addEventListener('click',()=>{
 })
 
 
-// const btnirabmordpagos= document.getElementById('btnverordpagos')
-// btnirabmordpagos.addEventListener('click',()=>{
+ //const btnirabmordpagos= document.getElementById('btnverordpagos')
+ //btnirabmordpagos.addEventListener('click',()=>{
+   //  window.location.href=`./../../php/abmorden_pago.php`
+ //})
 
-//     window.location.href=`./../../php/abmorden_pago.php`
-// })
-
+ const btnirgraficocompras= document.getElementById('btnirgraficocompras')
+ btnirabmordpagos.addEventListener('click',()=>{
+  window.location.href=`./../../php/informe_ord_pago.php`
+ })
+ 

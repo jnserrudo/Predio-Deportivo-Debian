@@ -407,3 +407,29 @@ font-size: 2em;
     background-color: rgb(199, 38, 38);
     color: white;
 }
+
+.divrangofechas{
+    margin: 0 auto;
+    text-align: center;
+    width: 50%;
+    border: 2px black solid;
+    height: 150px;
+}
+.verinforme{
+    width: 50px;
+}
+.fecha{
+    font-size: 2rem;
+    margin: 0 auto;
+}
+
+.inputfecha{
+    margin-left: 10px;
+}
+.otrafecha{
+    visibility: hidden;
+}
+.btnotrafecha{
+    width: 150px;
+
+}

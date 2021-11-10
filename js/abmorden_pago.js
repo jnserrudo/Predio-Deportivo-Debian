@@ -23,7 +23,8 @@ const getDataabmop = (p) => {
                        
                         const datanom = document.createElement('TD')
                         const datadesc = document.createElement('TD')
-                        
+                        const dataformpg = document.createElement('TD')
+
                         const databtnedit=document.createElement('TD')
                         const btnedit=document.createElement('button')
                         btnedit.classList.add("btneditar")
@@ -34,13 +35,15 @@ const getDataabmop = (p) => {
                         
                         datanom.textContent = insumo[1]
                         datadesc.textContent = insumo[2]
-                        
+                        dataformpg.textContent = insumo[3]                      
+
 
                         dataid.classList.add('celda')
                        
                         datanom.classList.add('celda')
                         datadesc.classList.add('celda')
-                       
+                        dataformpg.classList.add('celda')
+
                         databtnedit.classList.add('celda')
 
                        
@@ -49,7 +52,8 @@ const getDataabmop = (p) => {
                         
                         row.append(datanom)
                         row.append(datadesc)
-                        
+                        row.append(dataformpg)
+
                         row.append(databtnedit)
 
                         fragment.append(row)
@@ -72,7 +76,8 @@ const getDataabmop = (p) => {
                 
                 const datanom = document.createElement('TD')
                 const datadesc = document.createElement('TD')
-                
+                const dataformpg = document.createElement('TD')
+
                 const databtnedit=document.createElement('TD')
                 const btnedit=document.createElement('button')
                 btnedit.classList.add("btneditar")
@@ -82,7 +87,8 @@ const getDataabmop = (p) => {
                 dataid.textContent = insumo[0]
                 datanom.textContent = insumo[1]
                 datadesc.textContent = insumo[2]
-                
+                dataformpg.textContent = insumo[3]  
+
                 
 
 
@@ -90,7 +96,8 @@ const getDataabmop = (p) => {
                 
                 datanom.classList.add('celda')
                 datadesc.classList.add('celda')
-                
+                dataformpg.classList.add('celda')
+
                 databtnedit.classList.add('celda')
 
 
@@ -98,7 +105,8 @@ const getDataabmop = (p) => {
                
                 row.append(datanom)
                 row.append(datadesc)
-               
+                row.append(dataformpg)
+
                 row.append(databtnedit)
 
                 fragment.append(row)
@@ -157,6 +165,10 @@ pag5.addEventListener('click',()=>{
 
 })
 
+const btnirgraficocompras=document.getElementById('btnirgraficocompras')
+btnirgraficocompras.addEventListener('click',()=>{
+    window.location.href='../php/informe_ord_pago.php'
+})
 
 
 

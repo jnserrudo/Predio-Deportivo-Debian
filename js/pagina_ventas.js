@@ -240,3 +240,9 @@ edicion.addEventListener('click',(e)=>{
         
     }
 })
+
+const btnifgraficoventas=document.getElementById('btnirgraficoventas')
+
+btnifgraficoventas.addEventListener('click',()=>{
+    window.location.href='../php/informe_ventas.php'
+})
