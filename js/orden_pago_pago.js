@@ -53,6 +53,8 @@ const getData = (x) => {
                         const dataid = document.createElement('TD')
                         const datafecha = document.createElement('TD')
                         const datairproveedor = document.createElement('TD')
+                        const dataformpg = document.createElement('TD')
+
                         const databtnedit=document.createElement('TD')
                         const btnedit=document.createElement('button')
                         btnedit.classList.add("btneditar")
@@ -62,10 +64,14 @@ const getData = (x) => {
                         dataid.textContent = orden[0]
                         datafecha.textContent = orden[1]
                         datairproveedor.textContent = orden[2]                      
+                        dataformpg.textContent = orden[3]                      
 
+                        
                         dataid.classList.add('celda')
                         datafecha.classList.add('celda')
                         datairproveedor.classList.add('celda')
+
+                        dataformpg.classList.add('celda')
                         databtnedit.classList.add('celda')
 
                        
@@ -73,7 +79,9 @@ const getData = (x) => {
                         row.append(dataid)
                         row.append(datafecha)
                         row.append(datairproveedor)
-                        
+
+                        row.append(dataformpg)
+
                         row.append(databtnedit)
 
                         fragment.append(row)
@@ -95,6 +103,8 @@ const getData = (x) => {
                 const dataid = document.createElement('TD')
                 const datafecha = document.createElement('TD')
                 const datairproveedor = document.createElement('TD')
+                const dataformpg = document.createElement('TD')
+
                 const databtnedit=document.createElement('TD')
                 const btnedit=document.createElement('button')
                 btnedit.classList.add("btneditar")
@@ -104,19 +114,25 @@ const getData = (x) => {
                 dataid.textContent = orden[0]
                 datafecha.textContent = orden[1]
                 datairproveedor.textContent = orden[2]  
-                
+
+                dataformpg.textContent = orden[3]  
+
 
 
                 dataid.classList.add('celda')
                 datafecha.classList.add('celda')
                 datairproveedor.classList.add('celda')
+                dataformpg.classList.add('celda')
+
                 databtnedit.classList.add('celda')
 
 
                 row.append(dataid)
                 row.append(datafecha)
                 row.append(datairproveedor)
-                
+
+                row.append(dataformpg)
+
                 row.append(databtnedit)
 
                 fragment.append(row)

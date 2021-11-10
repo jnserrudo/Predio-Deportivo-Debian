@@ -109,7 +109,7 @@
                 <th id="idproduc">Id</th>
                 <th id="nomproduc">Nombre</th>
                 <th id="descripproduc">Descripcion</th>
-                <th id="stockproduc">Stock</th>
+                <!-- <th id="stockproduc">Stock</th> -->
                 <th id="btnagregar">Acción</th>
               </thead>
             </table>

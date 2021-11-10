@@ -67,15 +67,17 @@
 
 // Registrar en la tabla orden de paga usando el id 
 $conexion = mysqli_connect('localhost','root','','debian2');
-if (isset($_GET['ido'])&& isset($_GET['mp'])&& isset($_GET['d'])) {
+if (isset($_GET['ido'])&& isset($_GET['mp'])&& isset($_GET['d'])&& isset($_GET['fp'])) {
   $id = $_GET['ido'];
   $mp=$_GET['mp'];
   $d=$_GET['d'];
+  $fp=$_GET['fp'];
+
 
       $id=explode(',',$id);
       $mp=explode(',',$mp);
 
-  $sql = "INSERT INTO ordenpago (Descripcion) values ('$d')";
+  $sql = "INSERT INTO ordenpago (Descripcion,Forma_pago) values ('$d','$fp')";
 
   $resultado=mysqli_query($conexion,$sql);
 
@@ -100,7 +102,7 @@ if (isset($_GET['ido'])&& isset($_GET['mp'])&& isset($_GET['d'])) {
             $mp1=$mp[$i];
 
                   
-            $sql = "INSERT INTO ordenpago_detalle (Id_orden_pago, Id_comprobante, Monto) values ($resultados1,$id1,$mp1);";
+            $sql = "INSERT INTO ordenpago_detalle (Id_orden_pago, Id_comprobante, Monto) values ('$resultados1','$id1','$mp1');";
             
             //ejemplo de insert 
             //INSERT INTO orden_detalle (Id_orden, Id_insumo, Precio, Cantidad) values (2,1,2,3);
@@ -245,14 +247,14 @@ if (isset($_GET['ido'])&& isset($_GET['mp'])&& isset($_GET['d'])) {
                                                     
                                                       </div>
                                                       <div class="desc_btnconf fuentetam">
-                                                      <label class=label > Forma de Pago:</label>
-                                                      <select class="form-select metpago" id="exampleSelect1">
+                                                      <label class='label forma_pago' > Forma de Pago:</label>
+                                                      <select class="form-select metpago" id="selectformpago">
                                                             <option>Efectivo</option>
                                                             <option>Tarjeta de Debito</option>
                                                             <option>Tarjeta de Credito</option>
                                                             <option>Transferencia</option>
                                                         </select>
-                                                             <label class='label labeldesc' > Descripcion:</label> <textarea name="txt_desc" id="desc" cols="30" rows="3"></textarea> 
+                                                             <label class='label labeldesc' > Descripcion:</label> <textarea name="txt_desc" id="desc" class="txtareadesc" cols="30" rows="2"></textarea> 
                                                              <a id='apdf' class="apdf" target="_blank">Generar Pdf</a>
                                                              <button class="btnvent button btnconfordpago" id="btnconfordpago">Confirmar Orden de Pago</button>
 

@@ -156,7 +156,8 @@ session_start()
 
     <div class="header-tools">
 <div class="contbtnreg">
-            <button class="btnvent button " id="btnvolverordenpago">Registrar Orden de Pago</button>   
+            <button class="btnvent button " id="btnvolverordenpago">Registrar Orden de Pago</button> 
+              
             <!-- tendria que estar oculto hasta que se seleccione una orden -->
             </div>
   <div class="buscador">
@@ -165,13 +166,14 @@ session_start()
       <!-- <a href="../php/pdfprueba.php" target="_blank" >pdf</a> -->
       
       </div>  
-
+      <button class="btnvent" id="btnirgraficocompras">Informe</button>
 </div>
         <table id="tabla" class="table table-striped datatable table-bordered border-primary">
               <thead class="tablaenc">       
                   <th id="idproveedor">Id</th>
                   <th id="empresa">Fecha</th>                  
                   <th id="comercial">Descripcion</th>
+                  <th id="comercial">Forma de Pago</th>
                   <th id="telefono">Accion</th>
               </thead>
               <!-- <tbody>

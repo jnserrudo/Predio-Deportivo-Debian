@@ -46,7 +46,7 @@
             if (isset($_GET['x'])) {
                 $c = $_GET['x'];
 
-                $sql = "SELECT * FROM ordenpago where Id like '%$c%' or Descripcion like '%$c%' or Fecha like '%$c%'
+                $sql = "SELECT * FROM ordenpago where Id like '%$c%' or Descripcion like '%$c%' or Fecha like '%$c%' or Forma_pago like '%$c%'
                            LIMIT $desde,$por_pagina ";
 
             }

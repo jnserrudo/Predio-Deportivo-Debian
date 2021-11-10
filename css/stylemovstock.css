@@ -21,7 +21,12 @@ body{
         display: flex;
         height: 10px;
         float:left;
-        display: inline-block;    
+        /* display: inline-block;     */
+            border:2px black solid;
+            width: 98%;
+            height: 100px;
+
+
 }
 .contselected{
     width: 350px;
@@ -62,20 +67,28 @@ body{
 .selecttxt{
     font-size: 1.8rem;
 }
+.selectmot{
+    width: 250px;
+}
 .divremito{
     margin: auto auto;
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 80px;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: space-evenly;
     align-items: center;
-    /* border:2px black solid */
+    border:2px black solid
 }
 
 
 .btnremito{
     visibility: hidden;
+    height: 30px;
+    width: 150px;
+    font-size: 0.8rem;
+
+    
 
 }
 
@@ -100,6 +113,7 @@ body{
     height: 30px;
     width: 80px;
     border-radius: 5px;
+    font-size: 0.8rem;
     /* margin-left: 100px; */
 }
 img{
@@ -116,6 +130,8 @@ img{
     /* text-align: end; */
     /* padding-left: 0px; */
     height: 100px;
+    font-size: 0.8rem;
+
 }
 
 .busquedamov{

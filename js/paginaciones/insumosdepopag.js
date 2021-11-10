@@ -225,7 +225,7 @@ const getDatosInsumos = (p) => {
                 const dataid = document.createElement('TD')
                 const datanombre = document.createElement('TD')
                 const datadescripcion = document.createElement('TD')
-                const datastock = document.createElement('TD')
+                // const datastock = document.createElement('TD')
                 const databtnedit=document.createElement('TD')
                 const btnedit=document.createElement('button')
                 btnedit.classList.add("btninsumosdepo")
@@ -240,13 +240,13 @@ const getDatosInsumos = (p) => {
                 dataid.classList.add('celda')
                 datanombre.classList.add('celda')
                 datadescripcion.classList.add('celda')
-                datastock.classList.add('celda')
+                // datastock.classList.add('celda')
                 databtnedit.classList.add('celda')
 
                 row.append(dataid)
                 row.append(datanombre)
                 row.append(datadescripcion)
-                row.append(datastock)
+                // row.append(datastock)
                 row.append(databtnedit)
 
                 fragment.append(row)
@@ -272,7 +272,7 @@ const getDatosInsumos = (p) => {
                 const dataid = document.createElement('TD')
                 const datanombre = document.createElement('TD')
                 const datadescripcion = document.createElement('TD')
-                const datastock = document.createElement('TD')
+                // const datastock = document.createElement('TD')
                 const databtnedit=document.createElement('TD')
                 const btnedit=document.createElement('button')
                 btnedit.classList.add("btninsumosdepo")
@@ -282,18 +282,18 @@ const getDatosInsumos = (p) => {
                 dataid.textContent = insumo[0]
                 datanombre.textContent = insumo[1]
                 datadescripcion.textContent = insumo[2]
-                datastock.textContent = insumo[3]
+                // datastock.textContent = insumo[3]
 
                 dataid.classList.add('celda')
                 datanombre.classList.add('celda')
                 datadescripcion.classList.add('celda')
-                datastock.classList.add('celda')
+                // datastock.classList.add('celda')
                 databtnedit.classList.add('celda')
 
                 row.append(dataid)
                 row.append(datanombre)
                 row.append(datadescripcion)
-                row.append(datastock)
+                // row.append(datastock)
                 row.append(databtnedit)
 
                 fragment.append(row)

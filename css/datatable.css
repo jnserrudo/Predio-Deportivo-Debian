@@ -550,7 +550,7 @@
 
 .datatable-container-cantinsumo-movstock{
     border: solid 2px var(--dt-border-color);
-    width: 600px;
+    width: 98%;
     height: 400px;
     /* border:1px black solid; */
     /* margin:  ; */
