@@ -25,7 +25,7 @@
 
 
 //Paginador
-			$sql_registe = mysqli_query($conexion,"SELECT COUNT(*) as total_registro FROM reservaf5");
+			$sql_registe = mysqli_query($conexion,"SELECT COUNT(*) as total_registro FROM instalacion");
 			$result_register = mysqli_fetch_array($sql_registe);
 			$total_registro = $result_register['total_registro'];
 
@@ -50,16 +50,25 @@
 
                   
                $c=$_GET['x'];
-                
+                /*
                 $sql = "SELECT * FROM reservaf5 where Fecha like '%$c%' and Disciplina like '%$d%'
-                LIMIT $desde,$por_pagina";
+                LIMIT $desde,$por_pagina";*/
+
+                $sql = "SELECT Nombre,(select r.Solicitante from reservaf5 as r WHERE r.Instalacion = i.Id and r.Fecha='$c' and r.Hora='$d') from instalacion as i
+                
+                ";
+
+                //LIMIT $desde,$por_pagina";
+
+                //SELECT Nombre,(select r.Solicitante from reservaf5 as r WHERE r.Instalacion = i.Id and r.Fecha='2021-10-14' and r.Hora='07:00:00') from instalacion as i;
 
                 
 
             }
             else{
                 // $c = $_GET['x'];
-                $sql = "SELECT * FROM reservaf5 where Disciplina like '%$d%' LIMIT $desde,$por_pagina";
+                //$sql = "SELECT * FROM reservaf5 where Disciplina like '%$d%' LIMIT $desde,$por_pagina";
+                
        
             }
 

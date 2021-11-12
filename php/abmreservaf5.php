@@ -106,6 +106,66 @@ session_start()
 
 ?>
 
+<!-- eliminacion de la reserva, atraves del nombre -->
+<?php
+       $conexion = NULL;
+       try{
+           $conexion = mysqli_connect('localhost','root','','debian2');
+           
+           if ( isset($_GET['ni'])&& isset($_GET['s'])) {
+               
+               $ni=$_GET['ni'];
+               $s=$_GET['s'];
+               
+               $sql = "   
+               delete from reservaf5
+               where Instalacion=(select Id from instalacion where Nombre='$ni') and Solicitante='$s';
+                
+               ";
+               
+               $resultado=mysqli_query($conexion,$sql);
+           
+
+           }
+           
+       }catch (PDOException $e){
+           echo "Error ".$e->getMessage();
+       }
+
+?>
+
+<!-- insert de una nueva reserva -->
+<?php
+       $conexion = NULL;
+       try{
+           $conexion = mysqli_connect('localhost','root','','debian2');
+           
+           if ( isset($_GET['ni'])&& isset($_GET['sr']) && isset($_GET['cont'])&& isset($_GET['hora'])&& isset($_GET['fecha']) ) {
+               
+               $ni=$_GET['ni'];
+               $s=$_GET['sr'];
+               $cont=$_GET['cont'];
+               $hora=$_GET['hora'];
+               $fecha=$_GET['fecha'];
+               
+               $sql = "   
+                  insert into reservaf5(Fecha,Hora,Solicitante,Contacto,Instalacion,Estado) values('$fecha','$hora','$s',$cont,(select Id from instalacion as i where i.Nombre='$ni'),'deuda' );
+                  ";
+               //---------modelo-----------------
+               //INSERT INTO `reservaf5` (`Id`, `Fecha`, `Hora`, `Solicitante`, `Contacto`, `Instalacion`, `Estado`) VALUES (NULL, '2021-11-10', '09:00:00', 'Juancito', '34433', '2', 'deuda');
+               //insert into reservaf5(Fecha,Hora,Solicitante,Contacto,Instalacion,Estado) values('2021-11-11','09:00:00','HGGGG',123,(select Id from instalacion as i where i.Nombre='Cancha 1 Futbol 5'),'deuda' );
+               $resultado=mysqli_query($conexion,$sql);
+           
+
+           }
+           
+       }catch (PDOException $e){
+           echo "Error ".$e->getMessage();
+       }
+
+?>
+
+
 
 
 
@@ -131,23 +191,42 @@ session_start()
                             <img src="../assets/cruz.svg" alt="" class="icono_cerrar" id="icono_cerrar">
                                 <p class="txt_registrar" >Registrar Nueva Reserva</p>
                             
-                                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" id="f"  class="forminsumo">
+                                <!-- <form action="<?php// echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" id="f"  class="forminsumo"> -->
                                 <div class="registrar" >
                                           <!--<label class=label > ID: </label> <input type="text" name="txt_Id" required> </input>-->
                                     
-                                      <label class=label > Fecha: </label> <input type="date" name="txt_Fecha" required> </input>
-                                      <label class=label > Hora: </label> <input type="time" name="txt_Hora" required> </input>
-                                      <label class=label > Solicitante: </label> <input type="text" name="txt_Solicitante" required> </input>
-                                      <label class=label > Contacto: </label> <input type="text" name="txt_Contacto" required> </input>
-                                      <label class=label > Instalacion: </label> <input type="text" name="txt_Instalacion" required> </input>
-                                      <label class=label > Disciplina: </label> <input type="text" name="txt_Disciplina" required> </input>
+                                      <label class=label > Fecha: </label> <input type="date" name="txt_Fecha" id='fechavent' readonly required  > </input>
+                                      <label class=label > Hora: </label> <input type="time" name="txt_Hora" id='horavent' readonly required> </input>
+                                      <label class=label > Instalacion: </label> <input type="text" name="txt_Instalacion" id='instalacionvent' readonly required> </input>
+
+                                      <label class=label > Solicitante: </label> <input type="text" name="txt_Solicitante"  id ='solicitantevent'required> </input>
+                                      <label class=label > Contacto: </label> <input type="text" name="txt_Contacto" id='contactovent' required> </input>
                                   
-                                      <input type="submit" name="registrar" value="Registrar"  class="btnregistrar">
+                                      <input type="submit" name="registrar" value="Registrar" id='btnregistrar' class="btnregistrar">
                                 </div>
-                                </form>
+                                <!-- </form> -->
                       </div>
                     
                </div>
+
+               <div class="reg" id="reg2">
+    <div class="cont_vent" id="cont_vent">
+      
+      <br>
+      <h5>¿Desea anular la reserva?</h5>
+      <br>
+      <!-- <form method="POST" > -->
+      <div class="row">
+          <div class="col-md-6">
+            <button type="submit" id='btncancelar' class="btncancelarnew" name="accion" value="btncancelar">Cancelar</button>
+          </div>
+          <div class="col-md-6">
+            <button type="submit" id='btnconfirmar' class="btnconfirmarnew" name="accion" value="btnconfirmar">Confirmar</button>
+          </div>
+      </div>
+      <!-- </form> -->
+    </div>
+    </div>
     <div class="main">
 
     <?php
@@ -318,47 +397,27 @@ session_start()
                                                             <div class="datatable-container">
 
                                                                                   <div class="header-tools">
-                                                                                  <input type="date" class="txtbusq" name ="date_fec_remito" id="busqueda2" placeholder=".col-xs-3" >
+                                                                                  <p class="txtbusq"> Fecha </p>
+                                                                                  <input type="date" class="txtbusq" name ="date_fec_remito" id="busqueda2" placeholder=".col-xs-3" value="2021-11-10">
                                                                                   
 
-                                                                                  <p class="txtbusq"> Seleccione Disciplina </p>
-                                                                                  <Select class=select id="idprov" name="proveedor" 
-
-                        
-                          <?php
-                          $conexion=mysqli_connect("localhost","root","","debian2");
-                          $consulta="select * from disciplina";
-                          $ejecutar=mysqli_query($conexion,$consulta) 
-
-                      ?>
-                          
-                          <?php foreach ($ejecutar as $opciones): ?>
-                            
-                              <option id='idprov' class='option' value = "<?php echo $opciones['Id']?>"><?php echo $opciones['Nombre']?></option>
-                          <?php endforeach ?>
-                          </Select>
+                                                                                  <p class="txtbusq"> Horario </p>
+                                                                                  <input type="time" class=select id="idprov" name="proveedor" min="09:00" max="22:00" value="09:00:00"></input>
                                                                                   <div class="contbtnreg">
                                                                                                 
                                                                                               </div>
-                                                                                    <div class="buscador">
-                                                                                        <p class="txtbusq">Buscar</p>
-                                                                                        <input type="text" id="busqueda" class="busqueda" name="busqueda"> </input>
-                                                                                        
-                                                                                        </div>  
-                                                                                        <button class="btnvent button " id="btnvent">Registrar Nueva Reserva</button> 
+                                                                                    
+                                                                                        <button class="btnvent button " id="btnvent">Cobrar</button>
                                                                                        
                                                                                               <!--<button>Ant</button><button>Sig</button> -->
                                                                                               </div>
                                                                                               <table id="tabla" class="table table-striped datatable table-bordered border-primary">
                                                                                                 <thead class="tablaenc">       
-                                                                                                    <th id="idproveedor">Id</th>
-                                                                                                    <th id="empresa">Fecha</th>
-                                                                                                    <th id="empresa">Hora</th>
-                                                                                                    <th id="comercial">Solicitante</th>
-                                                                                                    <th id="comercial">Contacto</th>
-                                                                                                    <th id="comercial">Instalacion</th>
-                                                                                                    <th id="comercial">Disciplina</th>
-                                                                                                    <th id="comercial">Accion</th>
+                                                                                                    <th id="comercial">Instalación</th>
+                                                                                                
+                                                                                                    <th id="comercial">Solicitante</th>                
+                                                                                                    <th id="comercial">Acción</th>
+                                                                                                    
 
                                                                                                     
                                                                                                 </thead>
