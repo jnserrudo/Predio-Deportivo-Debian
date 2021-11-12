@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../css/bootstrap.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/style2.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/styleinicio.css?v=<?php echo(rand()); ?>">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/datatable.css?v=<?php echo(rand()); ?>">
 
 </head>
@@ -54,6 +53,9 @@
     </div>
 
     <?php
+  
+    
+
     include("configcomprobante/confg.php");//incluye la conexion
 
     $accion=(isset($_POST['accion']))?$_POST['accion']:""; //determina que boton se apreto   

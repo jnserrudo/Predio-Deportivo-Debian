@@ -60,6 +60,9 @@ $panel="<div class='side-navbar  d-flex justify-content-between flex-wrap flex-c
   <li href='#' class='nav-link lis' id='irparticipantes'>
   <span class='mx-2'>Participantes</span>
   </li>
+  <li href='#' class='nav-link lis' id='irreportecobrocuotas'>
+  <span class='mx-2'>Reporte Cobro Cuotas</span>
+  </li>
 
 
 

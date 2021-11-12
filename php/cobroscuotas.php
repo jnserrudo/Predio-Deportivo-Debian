@@ -46,29 +46,57 @@
 
   $m=intval((isset($_POST['txtmes']))?$_POST['txtmes']:"");
   $a=intval((isset($_POST['txtaño']))?$_POST['txtaño']:"");
-  $s=intval((isset($_POST['txtsaldo']))?$_POST['txtsaldo']:"");
+  //$s=intval((isset($_POST['txtsaldo']))?$_POST['txtsaldo']:"");
   $p=intval((isset($_POST['txtpago']))?$_POST['txtpago']:"");
+  $tipo=intval((isset($_POST['tipopago']))?$_POST['tipopago']:"");
 /*
   intval($m);
   intval($a);
   intval($s);
   intval($p);
-*/
+*//*
   $saldo = $s;
+  $pago = $s;
   //intval($saldo);
   if($s>=$p){
     $saldo = $s-$p;
-  }
+    $pago = $p;
+  }*/
 
   $accion=(isset($_POST['accion']))?$_POST['accion']:"";
   switch($accion){
     case "btnpagar":
+
+      $SQLidcuota = $conexion-> prepare ("SELECT Id FROM socio_cuota WHERE Id_socio=$t and Mes=$m AND Anio = $a;");
+      $SQLidcuota->execute();
+      $resultadoIDcuota=$SQLidcuota->fetch(PDO::FETCH_LAZY);
+      $Idcuota=$resultadoIDcuota[0];
+
+      $SQLsaldocuota = $conexion-> prepare ("SELECT Saldocuota FROM socio_cuota WHERE Id=$Idcuota;");
+      $SQLsaldocuota->execute();
+      $resultadosaldo=$SQLsaldocuota->fetch(PDO::FETCH_LAZY);
+      $s=$resultadosaldo[0];
+
+      $saldo = intval($s);
+      $pago = intval($s);
+      if($s>=$p){
+        $saldo = intval($s)-$p;
+        $pago = $p;
+      }
+
       $SQLpagar = $conexion-> prepare("UPDATE socio_cuota SET Saldocuota = $saldo WHERE Id_socio=$t and Mes=$m AND Anio = $a;");
       $SQLpagar->execute();
+      /*
+      date_default_timezone_get();
+      $fechaactual = date("Y-m-d");*/
+      
+      $SQLpagar = $conexion-> prepare("INSERT INTO socio_cuota_pagos VALUES (null,$Idcuota,$t,curdate(),$pago,(SELECT fp.Detalle FROM formas_pago as fp WHERE fp.Id = $tipo))");
+      $SQLpagar->execute();
+
+
     break;
   }
 
-  //action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);"
   ?>
 
   <div class="reg" id="reg">
@@ -79,14 +107,14 @@
         <div class="registrar">
           <label class=label > Cuota Mes:</label> <input type="number" name="txtmes"  id="txtmes" readonly > </input>
           <label class=label > Cuota Año:</label> <input type="number" name="txtaño" id="txtaño" readonly > </input>
-          <label class=label > Importe Cuota:</label> <input type="number" name="txtsaldo" id="txtsaldo" readonly> </input>
-          <label class=label > Importe a Pagar:</label> <input type="number" name="txtpago" required placeholder="$"> </input>
+          <label class=label > Importe Cuota:</label> <input type="text" name="txtsaldo" id="txtsaldo" readonly> </input>
+          <label class=label > Importe a Pagar:</label> <input type="number" id="txtpago" name="txtpago" min="1"  required placeholder="$"> </input>
           <label class=label > Forma de Pago:</label>
-          <select class="form-select" id="exampleSelect1">
-            <option>Efectivo</option>
-            <option>Tarjeta de Debito</option>
-            <option>Tarjeta de Credito</option>
-            <option>Transferencia</option>
+          <select class="form-select" name="tipopago" id="tipopago">
+            <option value="0">Efectivo</option>
+            <option value="1">Tarjeta de Debito</option>
+            <option value="2">Tarjeta de Credito</option>
+            <option value="3">Transferencia</option>
           </select>
           <button type="submit"  class="btnconfirmarnew" name="accion" value="btnpagar">Pagar</button>
         </div>
@@ -109,7 +137,7 @@
 -->
     <div class="main">
     <?php
-    
+    /*
       switch ($_SESSION['usuario']){
         case 'Encargado de Deposito':
           include '../includes/panelencdeposito.php';
@@ -124,7 +152,7 @@
           include '../includes/panelresponsablecliente.php';
           break;
       }
-    
+    */
     ?>
     <div class="mainmain">
       <p class="textordencompra">COBRO DE CUOTAS</p>
@@ -161,7 +189,7 @@
               <th id="mescuota">Mes</th>
               <th id="añocuota">Año</th>
               <th id="importecuota">Saldo</th>
-              <th id="seleccioncuota">Seleccion</th>
+              <!--<th id="seleccioncuota">Seleccion</th>-->
               <th id="accion">Accion</th>
             </thead>
           </table>

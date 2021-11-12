@@ -139,3 +139,12 @@ if(ircobros){
         window.location.href='../php/cobros.php'
     })
 }
+
+
+const irreportecobrocuotas=document.getElementById('irreportecobrocuotas')
+
+if(irreportecobrocuotas){
+    irreportecobrocuotas.addEventListener('click',()=>{
+        window.location.href='../php/cobroscuotasreporte.php'
+    })
+}
