@@ -490,7 +490,7 @@ const getDataDisciplina = (x,y) => {
 
         })
     } else {
-        xhr.open('GET', `../php/insercionreservaf5disciplina.php?x=${x}&y=${y}`)
+        xhr.open('GET', `../php/insercionreservaf5.php?x=${x}&y=${y}`)
 
         xhr.addEventListener('load', (data) => {
             const dataJSON = JSON.parse(data.target.response)

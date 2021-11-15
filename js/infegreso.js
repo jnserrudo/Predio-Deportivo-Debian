@@ -19,7 +19,7 @@ data: {
     // labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple'],
 
     datasets: [{
-        label: 'Egreso',
+        label: 'Egresos',
         //  data: [],
         // data: [12, 19, 3, 5, 2],
 

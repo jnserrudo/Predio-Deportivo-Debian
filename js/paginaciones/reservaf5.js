@@ -18,58 +18,81 @@ const getDatares = (p) => {
             const fragment = document.createDocumentFragment()
 
             for (const reservaf5 of dataJSON) {
-                        console.log(reservaf5 +"y su primero seria"+ reservaf5[0])
+                console.log(reservaf5 +"y su primero seria"+reservaf5[0])
                         const row = document.createElement('TR')
                         // row.classList.add('fila')
-                        const dataId = document.createElement('TD')
+                        
                         const dataFecha = document.createElement('TD')
-                        const dataHora = document.createElement('TD') 
-                        const dataSolicitante = document.createElement('TD') 
-                        const dataContacto = document.createElement('TD') 
-                        const dataInstalacion = document.createElement('TD') 
-                        const dataDisciplina = document.createElement('TD') 
-                        const btnedit=document.createElement('button')
+                const dataHora = document.createElement('TD')    
+                const dataSolicitante = document.createElement('TD') 
+                const dataContacto = document.createElement('TD') 
+                const dataInstalacion = document.createElement('TD') 
+                const dataDisciplina = document.createElement('TD')           
+                const databtnedit=document.createElement('TD')
+                const databtnreservar=document.createElement('TD')
+                const btnedit=document.createElement('button')
+                const btnreservar=document.createElement('button')
                         btnedit.classList.add("btneditar")
-                        btnedit.textContent="Editar"
-                        databtnedit.append(btnedit)
+                btnreservar.classList.add("btnreservar")
+                btnedit.textContent="Anular"
+                btnreservar.textContent="Reservar"
+                databtnedit.append(btnedit)
+                databtnreservar.append(btnreservar)
                         
-                        dataId.textContent = reservaf5[0]
-                        dataFecha.textContent = reservaf5[1]
-                        dataHora.textContent = reservaf5[3]
-                        dataSolicitante.textContent = reservaf5[4]
-                        dataContacto.textContent = reservaf5[5]
-                        dataInstalacion.textContent = reservaf5[6]
-                        dataDisciplina.textContent = reservaf5[7]
-                       
+                        dataInstalacion.textContent = reservaf5[0]
+                  dataSolicitante.textContent = reservaf5[1]
 
-                        dataId.classList.add('celda')
-                        dataFecha.classList.add('celda')
-                        dataHora.classList.add('celda')
-                        dataSolicitante.classList.add('celda')
-                        dataContacto.classList.add('celda')
-                        dataInstalacion.classList.add('celda')
-                        dataDisciplina.classList.add('celda')
 
-                        
-                        databtnedit.classList.add('celda')
 
-                       
-                        // console.log("soy el data id :"+dataid.textContent)
-                        row.append(dataId)
-                        row.append(dataFecha)
-                        row.append(dataHora)
-                        row.append(dataSolicitante)
-                        row.append(dataContacto)
-                        row.append(dataInstalacion)
-                        row.append(dataDisciplina)                       
-                        row.append(databtnedit)
+                
+                  /*
+                  dataFecha.classList.add('celda')
+                  dataHora.classList.add('celda')
+                  dataSolicitante.classList.add('celda')
+                  dataContacto.classList.add('celda')
+                  dataInstalacion.classList.add('celda')
+                  dataDisciplina.classList.add('celda')*/
+                  dataInstalacion.classList.add('celda')
+                  dataSolicitante.classList.add('celda')
 
-                        fragment.append(row)
+                  
+
+
+                  
+                  databtnedit.classList.add('celda')
+
+                 
+                  // console.log("soy el data id :"+dataid.textContent)
+                  /*
+                  row.append(dataFecha)
+                  row.append(dataHora)
+                  row.append(dataSolicitante)
+                  row.append(dataContacto)
+                  row.append(dataInstalacion)
+                  row.append(dataDisciplina)                       
+                  row.append(databtnedit)*/
+
+                  row.append(dataInstalacion)
+                  row.append(dataSolicitante)
+                  
+
+                  if(dataSolicitante.innerText==''){
+                    //console.log("No hay solicitante")
+                    //row.append(databtnedit)
+                    row.append(databtnreservar)
+                }
+                else{
+                  row.append(databtnedit)
+
+                }
+
+                  fragment.append(row)
             }
             table.appendChild(fragment)
         })
-    } else {
-        xhr.open('GET', `../php/insercionreservaf5.php?p=${p}`)
+    } 
+                else {
+        xhr.open('GET', `../php/insercionreservaf5.php?p=${p}&x=${x}&y=${y}`)
 
         xhr.addEventListener('load', (data) => {
             const dataJSON = JSON.parse(data.target.response)
@@ -79,49 +102,83 @@ const getDatares = (p) => {
 
             for (const reservaf5 of dataJSON) {
                 const row = document.createElement('TR')
-                row.classList.add('fila')
-                const dataId = document.createElement('TD')
+                row.classList.add('fila')                
                 const dataFecha = document.createElement('TD')
-                const dataHora = document.createElement('TD') 
-                const dataSolicitante = document.createElement('TD')    
-                const dataContacto = document.createElement('TD')    
-                const dataInstalacion = document.createElement('TD')    
-                const dataDisciplina = document.createElement('TD')                  
+                const dataHora = document.createElement('TD')    
+                const dataSolicitante = document.createElement('TD') 
+                const dataContacto = document.createElement('TD') 
+                const dataInstalacion = document.createElement('TD') 
+                const dataDisciplina = document.createElement('TD')           
                 const databtnedit=document.createElement('TD')
+                const databtnreservar=document.createElement('TD')
                 const btnedit=document.createElement('button')
+                const btnreservar=document.createElement('button')
                 btnedit.classList.add("btneditar")
-                btnedit.textContent="Editar"
+                btnreservar.classList.add("btnreservar")
+                btnedit.textContent="Anular"
+                btnreservar.textContent="Reservar"
                 databtnedit.append(btnedit)
-                  console.log("soy el id nro"+ reservaf5.Id)
-                  dataId.textContent = reservaf5[0]
-                  dataFecha.textContent = reservaf5[1]
-                  dataHora.textContent = reservaf5[3]
-                  dataSolicitante.textContent = reservaf5[4]
-                  dataContacto.textContent = reservaf5[5]
-                  dataInstalacion.textContent = reservaf5[6]
-                  dataDisciplina.textContent = reservaf5[7]
+                databtnreservar.append(btnreservar)
                 
-                  dataId.classList.add('celda')
+                  console.log("soy el id nro"+ reservaf5.Id)
+                  
+                  /*
+                  dataFecha.textContent = reservaf5[1]
+                  dataHora.textContent = reservaf5[2]
+                  dataSolicitante.textContent = reservaf5[3]
+                  dataContacto.textContent = reservaf5[4]
+                  dataInstalacion.textContent = reservaf5[5]
+                  dataDisciplina.textContent = reservaf5[6]
+                  */
+
+                  dataInstalacion.textContent = reservaf5[0]
+                  dataSolicitante.textContent = reservaf5[1]
+
+
+
+                
+                  /*
                   dataFecha.classList.add('celda')
                   dataHora.classList.add('celda')
                   dataSolicitante.classList.add('celda')
                   dataContacto.classList.add('celda')
                   dataInstalacion.classList.add('celda')
-                  dataDisciplina.classList.add('celda')
+                  dataDisciplina.classList.add('celda')*/
+                  dataInstalacion.classList.add('celda')
+                  dataSolicitante.classList.add('celda')
+
+                  
+
 
                   
                   databtnedit.classList.add('celda')
+                  databtnreservar.classList.add('celda')
+
 
                  
                   // console.log("soy el data id :"+dataid.textContent)
-                  row.append(dataId)
+                  /*
                   row.append(dataFecha)
                   row.append(dataHora)
                   row.append(dataSolicitante)
                   row.append(dataContacto)
                   row.append(dataInstalacion)
                   row.append(dataDisciplina)                       
-                  row.append(databtnedit)
+                  row.append(databtnedit)*/
+                  
+
+                  row.append(dataInstalacion)
+                  row.append(dataSolicitante)
+                  if(dataSolicitante.innerText==''){
+                      //console.log("No hay solicitante")
+                      //row.append(databtnedit)
+                      row.append(databtnreservar)
+                  }
+                  else{
+                    row.append(databtnedit)
+
+                  }
+                  
 
                   fragment.append(row)
             }
