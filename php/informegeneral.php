@@ -55,9 +55,9 @@
 ?>
 
     <div class="mainmain" id="main">
-        <p class="textordencompra"> Informe de Ingresos </p>
+        <p class="textordencompra"> Informe Egresos vs Ingresos </p>
 
-        <button class="btnvent button verinformegeneral" id="egresoingreso">Ver Informe General</button>
+        <button class="btnvent button verinformegeneral" id="btnvolver">Volver</button>
 
 <div class="divrangofechas">
     <p class=" fecha">Fechas</p>
@@ -94,7 +94,7 @@
     
     <script src="../js/inicio.js?v=<?php echo(rand()); ?>"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="../js/infingreso.js?v=<?php echo(rand()); ?>"></script>
+    <script src="../js/informegeneral.js?v=<?php echo(rand()); ?>"></script>
 
 
 <script>

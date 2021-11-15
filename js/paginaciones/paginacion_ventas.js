@@ -1,11 +1,79 @@
 
 
 const getDatavent = (p) => {
+    // let xhr
+    // if (window.XMLHttpRequest) xhr = new XMLHttpRequest()
+    // else xhr = new ActiveXObject("Microsoft.XMLHTTP")
+
+    //     xhr.open('GET', `../php/insumosxdeposito.php?p=${p}`)
+
+    //     xhr.addEventListener('load', (data) => {
+    //         const dataJSON = JSON.parse(data.target.response)
+    //         console.log(dataJSON)
+
+    //         const fragment = document.createDocumentFragment()
+
+    //         for (const depositos of dataJSON) {
+    //             const row = document.createElement('TR')
+    //             row.classList.add('fila')
+    //             const dataNombre = document.createElement('TD')
+    //             const datastockxdep = document.createElement('TD')
+    //             const datacant=document.createElement('TD')
+    //             const cant=document.createElement('input')
+    //             const dataprecio = document.createElement('TD')
+
+    //             cant.classList.add('inputventas')
+    //             datacant.append(cant)
+
+    //             const databtnedit=document.createElement('TD')
+    //             const btnedit=document.createElement('button')
+    //             btnedit.classList.add("btneditar")
+    //             btnedit.textContent="Elegir"
+    //             databtnedit.append(btnedit)
+    //             dataNombre.textContent = depositos[0]
+    //             datastockxdep.textContent = depositos[1]
+    //             dataprecio.textContent = depositos[2]
+
+                
+    //             dataNombre.classList.add('celda')
+    //             datastockxdep.classList.add('celda')
+    //             datacant.classList.add('celda')
+
+    //             dataprecio.classList.add('celda')
+
+    //             databtnedit.classList.add('celda')
+
+               
+    //             // console.log("soy el data id :"+dataid.textContent)
+    //             row.append(dataNombre)
+    //             row.append(datastockxdep) 
+    //             row.append(datacant)
+                       
+    //             row.append(dataprecio)
+
+    //             row.append(databtnedit)
+
+    //             fragment.append(row)
+    //         }
+    //         const hijo=table.children[0];
+                
+    //         while(hijo.nextElementSibling){;
+    //             table.removeChild(hijo.nextElementSibling);
+    //         }
+            
+    //         table.append(fragment);
+    //     })
+
+    //     xhr.send()
+
+
+
     let xhr
     if (window.XMLHttpRequest) xhr = new XMLHttpRequest()
     else xhr = new ActiveXObject("Microsoft.XMLHTTP")
 
-        xhr.open('GET', `../php/insumosxdeposito.php?p=${p}`)
+
+        xhr.open('GET', `../php/consultapaginaventa.php?p=${p}`)
 
         xhr.addEventListener('load', (data) => {
             const dataJSON = JSON.parse(data.target.response)
@@ -13,47 +81,45 @@ const getDatavent = (p) => {
 
             const fragment = document.createDocumentFragment()
 
-            for (const depositos of dataJSON) {
-                const row = document.createElement('TR')
-                row.classList.add('fila')
-                const dataNombre = document.createElement('TD')
-                const datastockxdep = document.createElement('TD')
-                const datacant=document.createElement('TD')
-                const cant=document.createElement('input')
-                const dataprecio = document.createElement('TD')
+            for (const orden of dataJSON) {
+                console.log(orden+"y su primero seria"+orden[0])
+                        const row = document.createElement('TR')
+                        row.classList.add('fila')
+                        const dataId = document.createElement('TD')
+                        const dataFecha = document.createElement('TD')
+                        //const datanomdep = document.createElement('TD')
+                        const datatotal = document.createElement('TD')
 
-                cant.classList.add('inputventas')
-                datacant.append(cant)
+                        const databtnedit=document.createElement('TD')
+                        
+                        const btnedit=document.createElement('button')
+                        btnedit.classList.add("btneditar")
+                        btnedit.textContent="Ver"
+                        databtnedit.append(btnedit)
+                        
+                        dataId.textContent = orden[0]
+                        dataFecha.textContent = orden[1]
+                       // datanomdep.textContent = orden [2]
+                        datatotal.textContent = orden [2]
 
-                const databtnedit=document.createElement('TD')
-                const btnedit=document.createElement('button')
-                btnedit.classList.add("btneditar")
-                btnedit.textContent="Elegir"
-                databtnedit.append(btnedit)
-                dataNombre.textContent = depositos[0]
-                datastockxdep.textContent = depositos[1]
-                dataprecio.textContent = depositos[2]
+                        
 
-                
-                dataNombre.classList.add('celda')
-                datastockxdep.classList.add('celda')
-                datacant.classList.add('celda')
 
-                dataprecio.classList.add('celda')
+                        dataId.classList.add('celda')
+                        dataFecha.classList.add('celda')
+                        //datanomdep.classList.add('celda')
+                        datatotal.classList.add('celda')
 
-                databtnedit.classList.add('celda')
 
-               
-                // console.log("soy el data id :"+dataid.textContent)
-                row.append(dataNombre)
-                row.append(datastockxdep) 
-                row.append(datacant)
                        
-                row.append(dataprecio)
+                        // console.log("soy el data id :"+dataid.textContent)
+                        row.append(dataId)
+                        row.append(dataFecha)
+                       // row.append(datanomdep)
+                        row.append(datatotal)
 
-                row.append(databtnedit)
-
-                fragment.append(row)
+                        row.append(databtnedit)
+                        fragment.append(row)
             }
             const hijo=table.children[0];
                 
@@ -63,8 +129,9 @@ const getDatavent = (p) => {
             
             table.append(fragment);
         })
+    
 
-        xhr.send()
+    xhr.send()
 
     }
 

@@ -282,7 +282,7 @@ window.history.replaceState(null, null, window.location.href);
                                                      
                                                       
                                                                     <p class="txtbusq">Cantidad</p>                                                                 
-                                                                    <input type="number" id="input11" class="busquedacant" pattern="[0-9]+" name="busqueda"> </input>               
+                                                                    <input type="number" id="input11" class="busquedacant" pattern="[0-9]+" name="busqueda" min='1' > </input>               
                                                                     </div>
                                                           <div class="datatable-container-insumo-ordencompra">             
                                                                           <table id="tabla" class="table table-striped datatable table-bordered border-primary">
@@ -292,7 +292,6 @@ window.history.replaceState(null, null, window.location.href);
                                                                                     <th id="comercial">Nombre</th>
                                                                                     <th id="telefono">Descripcion</th>
                                                                                     <th id="telefono">Precio</th>
-                                                                                    <th id="telefono">Stock</th>
                                                                                     <th id="telefono">Accion</th>
                                                                                   </thead>
                                                                                 </table> 

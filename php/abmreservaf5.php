@@ -426,7 +426,7 @@ session_start()
                                                                                                 </tbody> -->
                                                                                               </table>
                                                                                               
-                                                                                              <div class="pages">
+                                                                                              <!-- <div class="pages">
                                                                                                          <ul>
                                                                                                             <li> <button id="btnpag1">1</button></li>
                                                                                                             <li><button id="btnpag2">2</button></li>
@@ -434,7 +434,7 @@ session_start()
                                                                                                             <li><button id="btnpag4">4</button></li>
                                                                                                               <li><button id="btnpag5">5</button></li>
                                                                                                                </ul>
-                                                                                                         </div>
+                                                                                                         </div> -->
                                                                                   </div>
                                                                                          
                                                                                           

@@ -26,7 +26,7 @@ const getDatai = (p) => {
                         const datanom = document.createElement('TD')
                         const datadesc = document.createElement('TD')
                         const dataprecio = document.createElement('TD')
-                        const dataStock = document.createElement('TD')
+                        // const dataStock = document.createElement('TD')
                         const databtnedit=document.createElement('TD')
                         const btnedit=document.createElement('button')
                         btnedit.classList.add("btneditar")
@@ -38,14 +38,14 @@ const getDatai = (p) => {
                         datanom.textContent = insumo[2]
                         datadesc.textContent = insumo[3]
                         dataprecio.textContent = insumo[4]
-                        dataStock.textContent = insumo[5]
+                        // dataStock.textContent = insumo[5]
 
                         dataid.classList.add('celda')
                         dataidcat.classList.add('celda')
                         datanom.classList.add('celda')
                         datadesc.classList.add('celda')
                         dataprecio.classList.add('celda')
-                        dataStock.classList.add('celda')
+                        // dataStock.classList.add('celda')
                         databtnedit.classList.add('celda')
 
                        
@@ -55,7 +55,7 @@ const getDatai = (p) => {
                         row.append(datanom)
                         row.append(datadesc)
                         row.append(dataprecio)
-                        row.append(dataStock)
+                        // row.append(dataStock)
                         row.append(databtnedit)
 
                         fragment.append(row)
@@ -79,7 +79,7 @@ const getDatai = (p) => {
                 const datanom = document.createElement('TD')
                 const datadesc = document.createElement('TD')
                 const dataprecio = document.createElement('TD')
-                const dataStock = document.createElement('TD')
+                // const dataStock = document.createElement('TD')
                 const databtnedit=document.createElement('TD')
                 const btnedit=document.createElement('button')
                 btnedit.classList.add("btneditar")
@@ -91,7 +91,7 @@ const getDatai = (p) => {
                 datanom.textContent = insumo[2]
                 datadesc.textContent = insumo[3]
                 dataprecio.textContent = insumo[4]
-                dataStock.textContent = insumo[5]
+                // dataStock.textContent = insumo[5]
                 
 
 
@@ -100,7 +100,7 @@ const getDatai = (p) => {
                 datanom.classList.add('celda')
                 datadesc.classList.add('celda')
                 dataprecio.classList.add('celda')
-                dataStock.classList.add('celda')
+                // dataStock.classList.add('celda')
                 databtnedit.classList.add('celda')
 
 
@@ -109,7 +109,7 @@ const getDatai = (p) => {
                 row.append(datanom)
                 row.append(datadesc)
                 row.append(dataprecio)
-                row.append(dataStock)
+                // row.append(dataStock)
                 row.append(databtnedit)
 
                 fragment.append(row)

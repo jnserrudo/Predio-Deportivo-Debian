@@ -51,7 +51,7 @@ if(irmov){
 const irremitos=document.getElementById('irremitos')
 if(irremitos){
     irremitos.addEventListener('click',()=>{
-        window.location.href='../php/remito1.php'
+        window.location.href=`../php/remito1.php?pagina=1`
     })
 }
 const irsocios=document.getElementById('irsocios')

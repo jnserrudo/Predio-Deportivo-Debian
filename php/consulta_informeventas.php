@@ -12,16 +12,17 @@ try{
       $fi=$_GET['fi'];
 
       $sql = "
-        SELECT  COALESCE(v.Fecha,s.fecha_pago) Fecha,SUM(IFNULL(v.Total,0) + IFNULL(s.monto_pago,0)) as Total FROM ventas as v
-        LEFT JOIN socio_cuota_pagos as s
-        ON v.Fecha=s.fecha_pago
-        GROUP BY COALESCE(v.Fecha,s.fecha_pago)
-        UNION ALL
-        SELECT  COALESCE(v.Fecha,s.fecha_pago) Fecha,SUM(IFNULL(v.Total,0) + IFNULL(s.monto_pago,0)) as Total FROM ventas as v
-        RIGHT JOIN socio_cuota_pagos as s
-        ON v.Fecha=s.fecha_pago
-        WHERE (v.Fecha BETWEEN '$fi' and '$ff')  or (  s.fecha_pago  BETWEEN '$fi' and '$ff')
-        GROUP BY COALESCE(v.Fecha,s.fecha_pago)
+      
+      SELECT  COALESCE(MONTHNAME(v.Fecha),MONTHNAME(s.fecha_pago)) Fecha,SUM(IFNULL(v.Total,0) + IFNULL(s.monto_pago,0)) as Total FROM ventas as v
+      LEFT JOIN socio_cuota_pagos as s
+      ON v.Fecha=s.fecha_pago
+      GROUP BY COALESCE(MONTHNAME(v.Fecha),MONTHNAME(s.fecha_pago))
+      UNION ALL
+      SELECT  COALESCE(MONTHNAME(v.Fecha),MONTHNAME(s.fecha_pago)) Fecha,SUM(IFNULL(v.Total,0) + IFNULL(s.monto_pago,0)) as Total FROM ventas as v
+      RIGHT JOIN socio_cuota_pagos as s
+      ON v.Fecha=s.fecha_pago
+      WHERE (v.Fecha BETWEEN '$fi' and '$ff')  or (  s.fecha_pago  BETWEEN '$fi' and '$ff')
+      GROUP BY COALESCE(MONTHNAME(v.Fecha),MONTHNAME(s.fecha_pago))
         ";
   }
   

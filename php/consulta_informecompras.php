@@ -8,8 +8,11 @@ try{
 if(isset($_GET['fi']) && isset($_GET['ff'])){
     $ff=$_GET['ff'];
     $fi=$_GET['fi'];
-    $sql = "SELECT op.Fecha,opd.Monto FROM ordenpago as op inner join ordenpago_detalle as opd on opd.Id_orden_pago=op.Id
+    $sql = "
+    SELECT MONTHNAME(op.Fecha),opd.Monto FROM ordenpago as op inner join ordenpago_detalle as opd on opd.Id_orden_pago=op.Id
         WHERE op.Fecha BETWEEN '$fi' and '$ff'
+        group by 1
+        order by Month(op.Fecha)
 
     ;    ";
 
