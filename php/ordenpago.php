@@ -255,7 +255,7 @@ if (isset($_GET['ido'])&& isset($_GET['mp'])&& isset($_GET['d'])&& isset($_GET['
                                                             <option>Transferencia</option>
                                                         </select>
                                                              <label class='label labeldesc' > Descripcion:</label> <textarea name="txt_desc" id="desc" class="txtareadesc" cols="30" rows="2"></textarea> 
-                                                             <a id='apdf' class="apdf" target="_blank">Generar Pdf</a>
+                                                             <!-- <a id='apdf' class="apdf" target="_blank">Generar Pdf</a> -->
                                                              <button class="btnvent button btnconfordpago" id="btnconfordpago">Confirmar Orden de Pago</button>
 
                                                       </div>

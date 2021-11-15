@@ -31,7 +31,7 @@ try{
 
         $sql = "SELECT i.Nombre,dd.stock,i.Precio  FROM deposito_detalle as dd inner join insumo as i on dd.Id_insumo=i.Id 
             
-         where dd.Id='$c' LIMIT $desde,$por_pagina";
+         where dd.Id_deposito='$c' and dd.stock>'0' LIMIT $desde,$por_pagina";
                 //   se agrega el limit
         
     }

@@ -289,7 +289,8 @@
     <script src="../js/inicio.js?v=<?php echo(rand()); ?>"></script>
     <script src="../js/regventas.js?v=<?php echo(rand()); ?>"></script>
    <!-- <script src="../js/paginaciones/depositos.js?v=<?php echo(rand()); ?>"></script>   -->
-    <script src="../js/paginaciones/paginacion_ventas.js?v=<?php echo(rand()); ?>"></script>
+    <script src="../js/paginaciones/ventadetalle.js?v=<?php echo(rand()); ?>"></script>
+
 
 
 </body>

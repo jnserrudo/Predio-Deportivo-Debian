@@ -30,7 +30,7 @@ const getDatai = (p) => {
                         const databtnedit=document.createElement('TD')
                         const btnedit=document.createElement('button')
                         btnedit.classList.add("btneditar")
-                        btnedit.textContent="Editar"
+                        btnedit.textContent="Elegir"
                         databtnedit.append(btnedit)
                         
                         dataid.textContent = insumo[0]
@@ -83,7 +83,7 @@ const getDatai = (p) => {
                 const databtnedit=document.createElement('TD')
                 const btnedit=document.createElement('button')
                 btnedit.classList.add("btneditar")
-                btnedit.textContent="Editar"
+                btnedit.textContent="Elegir"
                 databtnedit.append(btnedit)
                   console.log("soy el id nro"+insumo.Id)
                 dataid.textContent = insumo[0]

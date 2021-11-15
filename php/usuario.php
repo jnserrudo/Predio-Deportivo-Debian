@@ -76,13 +76,13 @@
 ?>
 
     <div class="mainmain">
-        <p class="textordencompra"> Usuario  </p>
+        <p class="textordencompra"> Usuarios  </p>
         <!--   ini  -->
         <div class="datatable-container">
 
                 <div class="header-tools">
                     <div class="contbtnreg">
-                        <button class="btnvent button " id="btnvent">Registrar Nuevo Usuario</button>   
+                        <!-- <button class="btnvent button " id="btnvent">Registrar Nuevo Usuario</button>    -->
                     </div>
                     <div class="buscador">
                         <p class="txtbusq">Buscar</p>

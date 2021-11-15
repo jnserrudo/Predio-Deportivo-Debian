@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Insumos</title>
     <link rel="stylesheet" href="../css/bootstrap.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/style2.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/styleinicio.css?v=<?php echo(rand()); ?>">
@@ -93,16 +93,14 @@
             <img src="../assets/cruz.svg" alt="" class="icono_cerrar" id="icono_cerrar">
             <p class="txt_registrar" >Registrar Insumo</p>
         
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" id="f"  class="forminsumo">
                 <div class="registrar" >
-                    <label class=label > Nombre:</label> <input type="text" name="txt_nom" required> </input>
-                    <label class=label > Id Categoria:</label> <input type="text" name="txt_cat" required> </input>
-                    <label class=label > Precio:</label> <input type="text" name="txt_precio" required> </input>
-                    <label class=label > Stock:</label> <input type="text" name="txt_stock" required> </input>
-                    <label class=label > Descripcion:</label> <textarea name="txt_desc" id="" cols="15" rows="3"></textarea>
-                    <input type="submit" name="registrar" value="Registrar"  class="btnregistrar">
+                    <label class=label > Nombre:</label> <input type="text" name="txt_nom" required id="nom"> </input>
+                    <label class=label > Id Categoria:</label> <input type="text" name="txt_cat" required id="cat"> </input>
+                    <label class=label > Precio:</label> <input type="text" name="txt_precio" required id="precio"> </input>
+                    <!-- <label class=label > Stock:</label> <input type="text" name="txt_stock" required> </input> -->
+                    <label class=label > Descripcion:</label> <textarea name="txt_desc" cols="15" rows="3" id="desc"></textarea>
+                        <button class="btnregistrar" id='btnregistrar'> Registrar</button>
                 </div>
-            </form>
         </div>       
     </div>
 
@@ -151,84 +149,23 @@
             ?>
 
             <?php
-            $x=0;
-            
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                ?>
-                <!-- CAMBIE TODOS LOS EMPTY A ISSET EN LOS IF -->
-                <?php                                                
-                if (!isset($_POST["txt_nom"])) {
-                    $nameErr = "Name is required";
-                    $_POST["txt_nom"]=array();
-                    $x=1;
-                
-                } else {
-                    $txt_nom = test_input($_POST["txt_nom"]);
-                }
+            if(isset($_GET['c'])&&isset($_GET['n'])&&isset($_GET['d'])&&isset($_GET['p'])){
+
+                $c=$_GET['c'];
+                $n=$_GET['n'];
+                $d=$_GET['d'];
+                $p=$_GET['p'];
+                                                           
+                        $sql="INSERT INTO insumo(Id_categoria,Nombre,Descripcion,Precio,Stock)Values('$c','$n','$d','$p','0')";
+                        $result=mysqli_query($conexion,$sql);                           
+            }
+                         
                     
-                if (!isset($_POST["txt_cat"])) {
-                    $catErr = "Email is required";
-                    $_POST["txt_cat"]=array();
-                    $x=1;
-                
-                } else {
-                    $txt_cat= test_input($_POST["txt_cat"]);
-                }
-                    
-                if (!isset($_POST["txt_desc"])) {
-                    $_POST["txt_desc"] = array();
-                    $x=1;
-                
-                } else {
-                    $txt_desc = test_input($_POST["txt_desc"]);
-                }
-                    
-                if (!isset($_POST["txt_precio"])) {
-                    $_POST["txt_precio"] = array();
-                    $x=1;
-                
-                } else {
-                    $txt_precio = test_input($_POST["txt_precio"]);
-                }
-                    
-                if (!isset($_POST["txt_stock"])) {
-                    
-                    $x=1;
-                    $_POST["txt_stock"]=array();
-                
-                } else {
-                    $txt_stock = test_input($_POST["txt_stock"]);
-                }
-                    
-                if ($x==0) {
-                    
-                    $txt_cat=$_POST['txt_cat'];
-                    $txt_nom=$_POST['txt_nom'];
-                    $txt_desc=$_POST['txt_desc'];
-                    $txt_precio=$_POST['txt_precio'];
-                    $txt_stock=$_POST['txt_stock'];
-                    
-                    $comprobardato = mysqli_query($conexion,"select * from insumo where Nombre = '$txt_nom' ");
-                    if(mysqli_num_rows($comprobardato)>0)
-                    {
-                    }
-                    else
-                    {                                                         
-                        $sql="INSERT INTO insumo(Id_categoria,Nombre,Descripcion,Precio,Stock)Values('$txt_cat','$txt_nom''$txt_desc','$txt_precio','$txt_stock')";
-                        $result=mysqli_query($conexion,$sql);
-                        $_SESSION['inserted_db'] = FALSE;                                                                
-                    }
-                    unset($comprobardato);
-                    unset($_POST['txt_cat']);
-                    unset($_POST['txt_nom']);
-                    unset($_POST['txt_desc']);
-                    unset($_POST['txt_precio']);
-                    unset($_POST['txt_stock']);
                                                                                                                 
-                }
+                
 
 
-            } ?>
+             ?>
                                                                                     
 
             <?php
@@ -258,7 +195,7 @@
                         <th id="comercial">Nombre</th>
                         <th id="telefono">Descripcion</th>
                         <th id="telefono">Precio</th>
-                        <th id="telefono">Stock</th>
+                        <!-- <th id="telefono">Stock</th> -->
                         <th id="telefono">Accion</th>
                     </thead>
                     <!-- <tbody>
