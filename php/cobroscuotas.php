@@ -90,7 +90,7 @@
       date_default_timezone_get();
       $fechaactual = date("Y-m-d");*/
       
-      $SQLpagar = $conexion-> prepare("INSERT INTO socio_cuota_pagos VALUES (null,$Idcuota,$t,curdate(),$pago,(SELECT fp.Detalle FROM formas_pago as fp WHERE fp.Id = $tipo))");
+      $SQLpagar = $conexion-> prepare("INSERT INTO socio_cuota_pagos VALUES (null,null,$Idcuota,$t,curdate(),$pago,(SELECT fp.Detalle FROM formas_pago as fp WHERE fp.Id = $tipo))");
       $SQLpagar->execute();
 
 

@@ -5,18 +5,19 @@
     $conexion = NULL;
         try{
 
-          $conexion = mysqli_connect('localhost','root','','debian2');
+         
 
+         
             if (isset($_GET['x'])) {
                 $c = $_GET['x'];
 
                 $sql = "SELECT * FROM insumo where Id like '%$c%' or Id_categoria like '%$c%' or Nombre like '%$c%'
-                or Descripcion like '%$c%'
+                or Descripcion like '%$c%' 
 ";
 
             }
             else{
-                $sql = "SELECT * FROM insumo";
+                $sql = "SELECT * FROM insumo ";
             }
 
 

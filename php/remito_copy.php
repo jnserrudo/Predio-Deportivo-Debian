@@ -104,7 +104,7 @@
                                 <th id="">Nombre</th>
                                 <th id=""> Descripcion</th>
                                 <th id=""> Precio</th>
-                                <!-- <th id=""> Stock</th>-->
+                                <th id=""> Stock</th>
                                <!-- <th id=""> Cantidad</th>-->
                                 <td id=""> Accion </td>
                             </thead>

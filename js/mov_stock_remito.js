@@ -33,7 +33,7 @@ const getData = (x) => {
                         const datanombre = document.createElement('TD')
                         const data_descripcion = document.createElement('TD')
                         const data_precio = document.createElement('TD')
-                        //const data_stock = document.createElement('TD')
+                        const data_stock = document.createElement('TD')
                        // const data_cantidad=document.createElement('TD')
                        // const lbl_cant=document.createElement('input')
                        // lbl_cant.classList.add("lblcantidad")
@@ -57,14 +57,14 @@ const getData = (x) => {
                         datanombre.textContent = insumo[2]
                         data_descripcion.textContent = insumo[3]
                         data_precio.textContent = insumo[4]
-                        //data_stock.textContent = insumo[5]
+                        data_stock.textContent = insumo[5]
 
                         dataid.classList.add('celda')
                         dataid_categoria.classList.add('celda')
                         datanombre.classList.add('celda')
                         data_descripcion.classList.add('celda')
                         data_precio.classList.add('celda')
-                        //data_stock.classList.add('celda')
+                        data_stock.classList.add('celda')
                       //  data_cantidad.classList.add('celda')
                         databtnedit.classList.add('celda')
 
@@ -75,7 +75,7 @@ const getData = (x) => {
                         row.append(datanombre)
                         row.append(data_descripcion)
                         row.append(data_precio)
-                        //row.append(data_stock)
+                        row.append(data_stock)
                        // row.append(data_cantidad)
                         row.append(databtnedit)
                         fragment.append(row)
@@ -97,7 +97,7 @@ const getData = (x) => {
                 const datanombre = document.createElement('TD')
                 const data_descripcion= document.createElement('TD')
                 const data_precio = document.createElement('TD')
-                //const data_stock= document.createElement('TD')
+                const data_stock= document.createElement('TD')
 
                 
                // const data_cantidad=document.createElement('TD')
@@ -121,7 +121,7 @@ const getData = (x) => {
                 datanombre.textContent = insumo[2]
                 data_descripcion.textContent = insumo[3]
                 data_precio.textContent = insumo[4]
-                //data_stock.textContent = insumo[5]
+                data_stock.textContent = insumo[5]
 
                   
 
@@ -130,7 +130,7 @@ const getData = (x) => {
                 datanombre.classList.add('celda')
                 data_descripcion.classList.add('celda')
                 data_precio.classList.add('celda')
-                //data_stock.classList.add('celda')
+                data_stock.classList.add('celda')
                // data_cantidad.classList.add('celda')
                 databtnedit.classList.add('celda')
                 
@@ -140,7 +140,7 @@ const getData = (x) => {
                 row.append(datanombre)
                 row.append(data_descripcion)
                 row.append(data_precio)
-                //row.append(data_stock)
+                row.append(data_stock)
                // row.append(data_cantidad)
 
                 
