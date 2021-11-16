@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/bootstrap.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/style2.css?v=<?php echo(rand()); ?>">
     <link rel="stylesheet" href="../css/styleinicio.css?v=<?php echo(rand()); ?>">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/datatable.css?v=<?php echo(rand()); ?>">
 
 </head>
@@ -60,6 +61,9 @@
 
         include("configcomprobante/confg.php");//incluye la conexion
 
+        date_default_timezone_get();
+        $fechaactual = date("Y-m-d");
+
         //OBTIENE LAS ORDENES DE COMPRA
        
         $SQLordenescomp = $conexion->prepare("SELECT orden.Id, orden.Fecha,proveedor.Nombre FROM orden, proveedor WHERE orden.Id_proveedor=proveedor.Id
@@ -93,8 +97,8 @@
 
         //--------------------
 
-        $txtcodremito=(isset($_POST['txt_cod_remito']))?$_POST['txt_cod_remito']:"";  //RECEPCIONA LOS DATOS
-        $txtfecha=(isset($_POST['date_fec_remito']))?$_POST['date_fec_remito']:"";
+        /*$txtcodremito=(isset($_POST['txt_cod_remito']))?$_POST['txt_cod_remito']:"";  //RECEPCIONA LOS DATOS
+        $txtfecha=(isset($_POST['date_fec_remito']))?$_POST['date_fec_remito']:"";*/
         $txtIDorden=(isset($_POST['txtIDorden']))?$_POST['txtIDorden']:"";
         $txtProveedor=(isset($_POST['txt_proveedor']))?$_POST['txt_proveedor']:"";
 
@@ -106,13 +110,14 @@
             case "Siguiente":
 
                 //EL BOTON SIGUIENTE HACE UN INSERT Y VA A LA OTRA PAGINA
+                /*
                 $SQLinsertaremito = $conexion->prepare("INSERT INTO remito (`cod_remito`, `id_orden`, `fecha`) VALUES (:codremito, :idorden, :fecha)");
                 $SQLinsertaremito->bindParam(':codremito',$txtcodremito);
                 $SQLinsertaremito->bindParam(':idorden',$txtIDorden);
                 $SQLinsertaremito->bindParam(':fecha',$txtfecha);
                 $SQLinsertaremito->execute();
 
-                header('Location: comprobante.php');
+                header('Location: comprobante.php');*/
 
                 break;
 
@@ -194,31 +199,32 @@
                             Datos del Remito
                         </div>
                         <div class="card-body">
-                            <form method="POST" action="remito_copy.php">
+                            <form  >
                                 <div class="form-group">
                                     <label for="txtIDorden">Orden de Compra:</label>
-                                    <input type="text" class="form-control" value="<?php echo $txtIDorden; ?>" name ="txtIDorden" id="txtIDorden" readonly="">
+                                    <input type="text" class="form-control" value="<?php echo $txtIDorden; ?>" name ="txtIDorden" id="txtIDorden" readonly="" required>
                                 </div>
                                 <br>
                                 <div class="form-group">
                                     <label for="txt_proveedor">Proveedor:</label>
-                                    <input type="text" class="form-control" value="<?php echo $txtProveedor; ?>" name ="txt_proveedor" id="txt_proveedor" readonly="">
+                                    <input type="text" class="form-control" value="<?php echo $txtProveedor; ?>" name ="txt_proveedor" id="txt_proveedor" readonly="" required>
                                 </div>
                                 <br>
                                 <div class = "form-group">
                                     <label for="txt_cod_remito">Codigo del Remito:</label>
-                                    <input type="text" class="form-control" name ="txt_cod_remito" id="txt_cod_remito" placeholder="Ingrese el codigo del remito">
+                                    <input type="number" class="form-control" id="txt_cod_remito" placeholder="Ingrese el codigo del remito" required>
                                 </div>
                                 <br>
                                 <div class="form-group">
                                     <label for="date_fec_remito">Fecha de Recepcion:</label>
-                                    <input type="date" class="form-control" name ="date_fec_remito" id="date_fec_remito" >
+                                    <input type="date" class="form-control" value="<?php echo ($fechaactual);?>" id="date_fec_remito" readonly > 
                                 </div>
                                 <br>
-                                <button type="submit" class="btn btn-primary" name="accion" value="Siguiente">Siguiente</button>
-                                <!-- <button id="verremitos" class="btn btn-primary" >Ver Remitos</button> -->
+                                <!-- <button type="submit" id="verremitos" class="btn btn-primary" >Ver Remitos</button> -->
                             </form>
-                            <button id="verremitos" class="btn btn-primary" style="margin-top: 20px;" >Ver Remitos</button>
+                            <button id="btnsiguiente"  class="btnvent button " >Siguiente</button>
+                            <br>
+                            <button id="verremitos" class="btnvent button " style="margin-top: 20px;" >Ver Remitos</button>
                         </div>
                     </div>
                 </div>     
@@ -271,9 +277,9 @@ if(isset($_GET["btn_cancelar"]))
         <p class="text_debsw"> Desarrollado por Debian Software <br> &copy Derechos Reservados</p>
     </footer>
     <script src="../js/inicio.js?v=<?php echo(rand()); ?>"></script>
-<script src="../js/prueba.js?v=<?php echo(rand()); ?>"></script>
-<script src="../js/remito1.js"></script>
-<script src="../js/paginaciones/remito.js?v=<?php  echo(rand()); ?>"></script>
+    <script src="../js/prueba.js?v=<?php echo(rand()); ?>"></script>
+    <script src="../js/remito1.js?v=<?php echo(rand()); ?>"></script>
+<!--<script src="../js/paginaciones/remito.js?v=<?php  //echo(rand()); ?>"></script>-->
 
 
 </body>

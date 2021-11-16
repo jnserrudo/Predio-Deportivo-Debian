@@ -413,7 +413,6 @@
                                                                                                     <th id="Id">Id</th>
                                                                                                     <th id="Fecha">Fecha</th>
                                                                                                     <th id="Id_proveedor">Nombre de Proveedor</th>                                                                                                   
-                                                                                                    <th id="accion">Acción</th>      
                                                                                                 </thead>
                                                                                               </table>
                                                                                               <div class="pages">

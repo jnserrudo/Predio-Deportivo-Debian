@@ -71,7 +71,7 @@
 
 
 
-        <canvas id="myChart" style="position: absolute; height: 40%; width: 80%;"></canvas>
+        <canvas id="myChart" style="position: absolute; height: 40%; width: 80%; margin-top:50px"></canvas>
 
        
                                                                                           
@@ -92,7 +92,7 @@
     
     <script src="../js/inicio.js?v=<?php echo(rand()); ?>"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="../js/infegreso.js"></script>
+    <script src="../js/infegreso.js?v=<?php echo(rand()); ?>"></script>
 
 
 <script>
