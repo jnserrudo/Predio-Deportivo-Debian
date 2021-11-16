@@ -115,17 +115,17 @@ if (isset($_GET['u'])&& isset($_GET['n'])&& isset($_GET['t'])&& isset($_GET['c']
                                                                             $sql4 = "INSERT INTO movimiento_detalle (Id_insumo, Id_movimiento,Cantidad) values ($idn,$idm,$c1);";
                                                                             $resultado=mysqli_query($conexion, $sql4);
 
-                                                                           if ($t='Entrada') {
+                                                                           if ($t==='Salida') {
                                                                                 //le agregue lo de abajo
                                                                                 $sql3 = "  UPDATE deposito_detalle 
                                                                                         set  stock=(SELECT stock from deposito_detalle 
-                                                                                        WHERE Id_deposito=$u and Id_insumo=$idn)+$c1
+                                                                                        WHERE Id_deposito=$u and Id_insumo=$idn)-$c1
                                                                                         WHERE Id_deposito=$u and Id_insumo=$idn";
                                                                                         $resultado3=mysqli_query($conexion, $sql3);
                                                                             } else {
                                                                                 $sql3 = "  UPDATE deposito_detalle 
                                                                                     set  stock=(SELECT stock from deposito_detalle 
-                                                                                    WHERE Id_deposito=$u and Id_insumo=$idn)-$c1
+                                                                                    WHERE Id_deposito=$u and Id_insumo=$idn)+$c1
                                                                                     
                                                                                     WHERE Id_deposito=$u and Id_insumo=$idn
                                                                                     ";
