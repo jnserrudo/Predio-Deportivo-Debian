@@ -44,6 +44,11 @@
         echo "Error ".$e->getMessage();
     }
     $conexion = mysqli_connect('localhost','root','','debian2');
+
+    $cod = $_GET['cod'];
+    $fec = $_GET['fec'];
+    $ord = $_GET['ord'];
+
     
     ?>
 
@@ -51,60 +56,74 @@
 
     <div class="activar" id="reg">
    
-    <div class="row">
-        <div class="col-md-6">
-   
-            <div class="buscador">
-                <p class="txtbusq">Buscar:</p> <input type="text" id="busqueda_remito" class="busqueda" name="busqueda_remito"> </input>
-            </div>
-            <br>     
-            <div class="lbl_cantidad">
+        <div class="row">
+            <div class="col-md-6">
+    
+                <div class="buscador">
+                    <p class="txtbusq">Buscar:</p> <input type="text" id="busqueda_remito" class="busqueda" name="busqueda_remito"></input>
+                </div>
+                <br>     
+                <div class="lbl_cantidad">
 
-                <label class="text_form">Cantidad:</label> <input type="text" id="txt_cantidad" name="txt_cantidad">
-        
+                    <label class="text_form">Cantidad:</label> <input type="number" id="txt_cantidad" min="1" name="txt_cantidad" required>
+
+                </div>
+                <br>
             </div>
-            <br>
+            <div class="col-md-6">
+                <div>
+                    <h3 class="h3_rem">Productos del Remito</h3>
+                </div>
+                <br>
+                <div class="row">
+                 <div class="col-md-3">
+                    <label class="text_form">Cod Remito:</label>
+                 </div>
+                 <div class="col-md-3">
+                    <label id="txt_cod_remito" ><?php echo($cod)?></label>
+                 </div>
+                 <div class="col-md-3">
+                    <label class="text_form">Orden Corresponde:</label>
+                 </div>
+                 <div class="col-md-3">
+                    <label id="txt_orden_compra" ><?php echo($ord)?></label>
+                 </div>
+                </div>
+            </div>
+
         </div>
-        <div class="col-md-6">
-            <div>
-                <h3 class="h3_rem">Productos del Remito</h3>
-            </div>
-        </div>
 
-    </div>
-
-    <div class="row">
-        <div class="col-md-6">
-
-            <div class="tablasss">
-                <div class="div_insumo">
-                    <table id="tablainsumo"class="table table-striped datatable table-bordered border-primary" >
-                        <thead class="tablaenc">
-                            <th id="">Id</th>
-                            <th id="">Id_categoria</th>
-                            <th id="">Nombre</th>
-                            <th id=""> Descripcion</th>
-                            <th id=""> Precio</th>
-                            <th id=""> Stock</th>
-                           <!-- <th id=""> Cantidad</th>-->
-                            <td id=""> Accion </td>
-                        </thead>
-                    </table>
-                    <div class="pages">
-                        <ul>
-                            <li><button id="btnpag1">1</button></li>
-                            <li><button id="btnpag2">2</button></li>
-                            <li><button id="btnpag3">3</button></li>
-                            <li><button id="btnpag4">4</button></li>
-                            <li><button id="btnpag5">5</button></li>
-                        </ul>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="tablasss">
+                    <div class="div_insumo">
+                        <table id="tablainsumo"class="table table-striped datatable table-bordered border-primary" >
+                            <thead class="tablaenc">
+                                <th id="">Id</th>
+                                <th id="">Id_categoria</th>
+                                <th id="">Nombre</th>
+                                <th id=""> Descripcion</th>
+                                <th id=""> Precio</th>
+                                <!-- <th id=""> Stock</th>-->
+                               <!-- <th id=""> Cantidad</th>-->
+                                <td id=""> Accion </td>
+                            </thead>
+                        </table>
+                        <div class="pages">
+                            <ul>
+                                <li><button id="btnpag1">1</button></li>
+                                <li><button id="btnpag2">2</button></li>
+                                <li><button id="btnpag3">3</button></li>
+                                <li><button id="btnpag4">4</button></li>
+                                <li><button id="btnpag5">5</button></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
      
         <?php
-            if(isset($_POST['accion'])){
+            /*if(isset($_POST['accion'])){
                 $t=$_POST["txt_cod_remito"]; //codigo remito
                 $_SESSION["codigo_remito"]=$t;
                 $o=$_POST["txtIDorden"]; //codigo oreden
@@ -113,11 +132,11 @@
             
             $sql="INSERT INTO remito(Id,Id_Orden,Fecha)Values($t,$o,'$f')";
            $result=mysqli_query($conexion,$sql);
-        }   
+        } */  
           ?>
           
         <?php
-            if(isset($_GET['m'])){ //si se selecciono un producto
+            /*if(isset($_GET['m'])){ //si se selecciono un producto
            
                 $remito=$_SESSION["codigo_remito"];
            
@@ -125,42 +144,35 @@
 
                 $cantidad=$_GET["cantidad"];
                 $sql="INSERT INTO remito_detalle(Id_remito,Id_insumo,Cantidad)Values($remito,$m,'$cantidad')";                                                 $result=mysqli_query($conexion,$sql);
-            }   
+            }  */ 
           ?>
         
         <div class="col-md-6">
             
                 <table id="tablaremito" class="table table-striped datatable table-bordered border-primary">
-                    <thead class="tablaenc">
-                        <tr>
-                            <th id="">Id</th>
-                            <th id="">Id_Remito</th>
-                            <th id="">Nombre del Insumo</th>
-                            <th id="">Cantidad</th> 
-                        </tr>          
-                        
+                    <thead class="tablaenc">       
+                        <th id="idproducto">Id Producto</th>
+                        <th id="nombreproducto">Nombre del Insumo<</th>
+                        <th id="cantproducto">Cantidad</th>
+                        <th id="btneliminar">Acción</th>
                     </thead>
-                    <?php 
+                    <?php /*
                     if(isset($_SESSION["codigo_remito"])){
                         $mostrar_rem=$_SESSION["codigo_remito"];
-                        $sql1="SELECT remito_detalle.Id,Id_remito,Nombre,Cantidad 
-                   FROM remito_detalle  
-                   INNER JOIN insumo
-                   ON remito_detalle.Id_insumo = insumo.Id
-                   where remito_detalle.Id_remito=$mostrar_rem";
-                    $result=mysqli_query($conexion,$sql1);
-                    while($mostrar=mysqli_fetch_array($result)){
-                    ?>
-                    <tr>
-                        <td><?php echo $mostrar['Id'] ?></td>
-                        <td><?php echo $mostrar['Id_remito'] ?></td>
-                        <td><?php echo $mostrar['Nombre'] ?></td> <!--id_insumo -->
-                        <td><?php echo $mostrar['Cantidad'] ?></td>
-                    </tr>
-                    <?php
-                    }
+                        $sql1="SELECT remito_detalle.Id,Id_remito,Nombre,Cantidad FROM remito_detalle  INNER JOIN insumoON remito_detalle.Id_insumo = insumo.Id where remito_detalle.Id_remito=$mostrar_rem";
+                        $result=mysqli_query($conexion,$sql1);
+                        while($mostrar=mysqli_fetch_array($result)){
+                       */ ?>
+                       <!-- <tr>
+                            <td><?php //echo $mostrar['Id'] ?></td>
+                            <td><?php //echo $mostrar['Id_remito'] ?></td>
+                            <td><?php //echo $mostrar['Nombre'] ?></td> 
+                            <td><?php //echo $mostrar['Cantidad'] ?></td>
+                        </tr>-->
+                        <?php/*
+                        }
 
-                    } ?>  
+                    } */?>  
                 </table>
                 <div class="pages">
                     <ul>
@@ -173,14 +185,24 @@
                 </div>
         
             <div class="formu">
-                <form method="get" action="remito1.php">
+                <!--<form method="get" action="remito1.php">
                     <input class="btn btn-primary" type="submit"id="btn_cancelar" name="pagina"value="cancelar">
                     <input type="submit"id="btn_remito" class="btn btn-primary" value="confirmar"> 
-                </form>
+                </form>-->
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                </div>  
+                <div class="col-md-3">
+                    <button class="btncancelarnew" id="btncancelar">Cancelar</button> 
+                </div>
+                <div class="col-md-3">
+                    <button class="btnconfirmarnew" id="btnconfirmar">Confirmar</button> 
+                </div>
             </div>
         </div>
 
-</div>
+    <div>
     </div>
     </div>
     </div>
@@ -217,11 +239,11 @@
 
         <p class="text_debsw"> Desarrollado por Debian Software <br> &copy Derechos Reservados</p>
       </footer>
-    <script src="../js/mov_stock_remito.js"></script>
+    <script src="../js/mov_stock_remito.js?v=<?php echo(rand()); ?>"></script>
     <script src="../js/inicio.js?v=<?php echo(rand()); ?>"></script>
     <script src="../js/prueba.js?v=<?php echo(rand()); ?>"></script>  
     <script src="../js/paginaciones/remitoproductos.js?v=<?php  echo(rand()); ?>"></script>
-    <script src="../js/paginaciones/productosdelremito.js?v=<?php  echo(rand()); ?>"></script> 
+    <!--<script src="../js/paginaciones/productosdelremito.js?v=<?php  //echo(rand()); ?>"></script> -->
                                   
 
 </body>

@@ -90,7 +90,7 @@ const getData = (x) => {
                         row.append(dataId)
                         row.append(dataFecha)
                         row.append(dataId_proveedor)
-                        row.append(databtnedit)
+                      //  row.append(databtnedit)
                         fragment.append(row)
             }
             table.appendChild(fragment)
@@ -134,7 +134,7 @@ const getData = (x) => {
                 row.append(dataFecha)
                 row.append(dataId_proveedor)
                 
-                row.append(databtnedit)
+              //  row.append(databtnedit)
 
                 fragment.append(row)
             }

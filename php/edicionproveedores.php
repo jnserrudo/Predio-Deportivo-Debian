@@ -130,7 +130,7 @@
                 <button class="btn_editar_orden_pago" id="btncanc">Volver</button>
             </div>
         </div>
-        <p id="prueba"> <?php  echo $resultados[0]; ?> </p>
+        <!-- <p id="prueba"> <?php  //echo $resultados[0]; ?> </p> -->
 
                             </div>
 

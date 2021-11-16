@@ -47,7 +47,7 @@
           $s=$_GET['Cantidad1'];
           $sql="update remito set id_orden=$n,Fecha='$d' where Id=$i";
           $resultado=mysqli_query($conexion,$sql);
-          $sql1="update remito_detalle set id_insumo=$p,Cantidad=$s where Id_rem=$i";
+          $sql1="update remito_detalle set id_insumo=$p,Cantidad=$s where Id_remito=$i";
           $resultado1=mysqli_query($conexion,$sql1);
         }
 
@@ -232,7 +232,7 @@
               <th id="Id_Insumo">Id_insumo</th>
               <th id="Nombre">Nombre</th>;
               <th id="Cantidad">Cantidad</th>
-              <th id="accion_1">Accion</th>
+              <!-- <th id="accion_1">Accion</th> -->
             </tr> 
           </thead>
         </table>

@@ -47,7 +47,7 @@ const getDatao = (p) => {
                         row.append(datafecha)
                         row.append(dataidprov)
                         
-                        row.append(databtnedit)
+                       // row.append(databtnedit)
 
                         fragment.append(row)
             }
@@ -92,7 +92,7 @@ const getDatao = (p) => {
                 row.append(datafecha)
                 row.append(dataidprov)
                 
-                row.append(databtnedit)
+             //   row.append(databtnedit)
 
                 fragment.append(row)
             }

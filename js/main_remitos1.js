@@ -88,7 +88,7 @@ const getData = (x) => {
                         row.append(dataid_insumo)
                         row.append(datanombre)
                         row.append(datacantidad)
-                        row.append(databtnedit)
+                       // row.append(databtnedit)
 
                         fragment.append(row)
             }
@@ -142,7 +142,7 @@ const getData = (x) => {
                 row.append(dataid_insumo)
                 row.append(datanombre)
                 row.append(datacantidad)
-                row.append(databtnedit)
+               // row.append(databtnedit)
 
                 fragment.append(row)
             }
